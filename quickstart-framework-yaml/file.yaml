@@ -1,0 +1,24 @@
+size: 0
+query:
+  constant_score:
+    filter:
+      range:
+        last_updated: {gte: 1497283200000, lte: 1497928996980}
+aggs:
+  by_time:
+    date_histogram:
+      field: last_updated
+      interval: 21526566ms
+      extended_bounds: {min: '1497283200000', max: '1497928996980'}
+    aggs:
+      event_status_group:
+        filters:
+          filters:
+            info:
+              match_phrase: {alert_status: info}
+            warning:
+              match_phrase: {alert_status: warning}
+            error:
+              match_phrase: {alert_status: error}
+            success:
+              match_phrase: {alert_status: success}

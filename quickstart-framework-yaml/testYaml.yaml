@@ -1,0 +1,15 @@
+--- &0 !org.quickstart.yaml.jyaml.Person
+age: 24
+children: &2 !org.quickstart.yaml.jyaml.Person[]
+  - !org.quickstart.yaml.jyaml.Person
+    age: 3
+    name: boy
+  - !org.quickstart.yaml.jyaml.Person
+    age: 1
+    name: girl
+name: Michael Corleone
+spouse: !org.quickstart.yaml.jyaml.Person
+  age: 24
+  children: *2
+  name: Floveria Edie
+  spouse: *0

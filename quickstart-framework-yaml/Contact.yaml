@@ -1,0 +1,24 @@
+friends:  
+  - !org.quickstart.yaml.yamlbeans.Contact  
+    name: Bob  
+    age: 29  
+    phoneNumbers:  
+        - !org.quickstart.yaml.yamlbeans.Phone  
+          name: Home  
+          number: 206-555-1234  
+        - !org.quickstart.yaml.yamlbeans.Phone  
+          name: Work  
+          number: 206-555-5678  
+  - !org.quickstart.yaml.yamlbeans.Contact  
+    name: Mike  
+    age: 31  
+    phoneNumbers:  
+        - !org.quickstart.yaml.yamlbeans.Phone  
+          number: 206-555-4321  
+enemies:  
+  - !org.quickstart.yaml.yamlbeans.Contact  
+    name: Bill  
+    phoneNumbers:  
+        - !org.quickstart.yaml.yamlbeans.Phone  
+          name: Cell  
+          number: 206-555-1234  

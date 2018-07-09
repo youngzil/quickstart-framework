@@ -1,0 +1,7 @@
+!!org.quickstart.yaml.snakeyaml.Student
+age: 24
+id: 1
+name: 路飞
+tels:
+- {name: 张三, tel: '10123041445'}
+- {name: 李四, tel: '19923041455'}

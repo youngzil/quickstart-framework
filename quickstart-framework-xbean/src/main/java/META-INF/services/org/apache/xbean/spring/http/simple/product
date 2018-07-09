@@ -1,0 +1,3 @@
+package = org.quickstart.xbean.simple  
+product = org.quickstart.xbean.simple.Product  
+product.alias.productId = id #将id成员变量映射为productId属性

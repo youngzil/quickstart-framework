@@ -1,0 +1,6 @@
+<beans xmlns="http://xbean.apache.org/schemas/spring/1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="java://org.quickstart.xbean.simple"
+	xsi:schemaLocation="http://xbean.apache.org/schemas/spring/1.0 classpath:/org/apache/xbean/spring/spring-beans.xsd">
+
+	<p:Product id="product" name="USD/JPY" price="100.00" />
+</beans>  

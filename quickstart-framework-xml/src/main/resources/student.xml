@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+    <student id="1001">
+        <stuno>1001</stuno>
+        <name>张三</name>
+        <sex>男</sex>
+        <grade>Java一班</grade>
+    </student>
+    <student id="1002">
+        <stuno>1002</stuno>
+        <name>李四</name>
+        <sex>女</sex>
+        <grade>Java二班</grade>
+    </student>
+    <student id="1003">
+        <stuno>1003</stuno>
+        <name>小二</name>
+        <sex>男</sex>
+        <grade>Java三班</grade>
+    </student>
+    <student id="1004">
+        <stuno>1004</stuno>
+        <name>小蜡</name>
+        <sex>女</sex>
+        <grade>Java四班</grade>
+    </student>
+</students>

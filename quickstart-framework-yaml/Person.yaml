@@ -1,0 +1,17 @@
+--- !org.quickstart.yaml.jyaml.Person
+age: 24
+spouse: !org.quickstart.yaml.jyaml.Person
+  spouse: !org.quickstart.yaml.jyaml.Person
+    age: 1
+--- !org.quickstart.yaml.jyaml.Person
+age: 25
+spouse: !org.quickstart.yaml.jyaml.Person
+  age: 1
+  spouse: !org.quickstart.yaml.jyaml.Person
+    age: 2
+--- !org.quickstart.yaml.jyaml.Person
+age: 26
+spouse: !org.quickstart.yaml.jyaml.Person
+  age: 2
+  spouse: !org.quickstart.yaml.jyaml.Person
+    age: 3

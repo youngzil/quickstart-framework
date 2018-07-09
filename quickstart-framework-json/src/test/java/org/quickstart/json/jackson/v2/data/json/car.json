@@ -1,0 +1,9 @@
+{
+  "brand": "Mercedes",
+  "doors": 5,
+  "owner": {
+    "first": "Gatsby",
+    "last": "Newton"
+  },
+  "component": ["engine", "brake"]
+}

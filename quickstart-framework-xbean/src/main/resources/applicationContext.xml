@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<!-- XML文件热加载 使用JDK ScheduledExecutorService的定时任务配置 -->
+	<!-- ScheduledThreadPoolExecutor集成工厂 -->
+	<bean
+		class="org.springframework.scheduling.concurrent.ScheduledExecutorFactoryBean"
+		lazy-init="false">
+		<property name="continueScheduledExecutionAfterException"
+			value="true" />
+		<property name="scheduledExecutorTasks">
+			<list>
+				<ref bean="scheduledExecutorTasks" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Task的封装 -->
+	<bean id="scheduledExecutorTasks"
+		class="org.springframework.scheduling.concurrent.ScheduledExecutorTask">
+		<property name="runnable" ref="executorJob" />
+		<!-- 首次执行延期2秒 -->
+		<property name="delay" value="10000" />
+		<property name="period" value="2000" />
+		<!-- 固定间隔,否则默认fixDelay会等到前一个任务完成后才开始计时. -->
+		<property name="fixedRate" value="true" />
+	</bean>
+
+	<bean id="executorJob" class="com.cn.qpm.framework.springdynaload.SpringBeanReloadJob" />
+
+</beans>

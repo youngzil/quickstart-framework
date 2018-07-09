@@ -1,0 +1,7 @@
+name: demo
+desc: this is desc
+items:
+    - name: item
+      desc: item desc
+    - name: item2
+      desc: desc2

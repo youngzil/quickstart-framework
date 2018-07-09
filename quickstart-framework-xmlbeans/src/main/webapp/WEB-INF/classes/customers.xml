@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<Customers>  
+    <customer>  
+            <id>1</id>  
+            <gender>female</gender>  
+            <firstname>Jessica</firstname>  
+            <lastname>Lim</lastname>  
+            <phoneNumber>1234567</phoneNumber>  
+            <address>  
+                <primaryAddress>  
+                        <postalCode>350106</postalCode>  
+                        <addressLine1>#25-1</addressLine1>  
+                        <addressLine2>SHINSAYAMA 2-CHOME</addressLine2>  
+                </primaryAddress>  
+                <billingAddress>  
+                        <receiver>Ms Danielle</receiver>  
+                        <postalCode>350107</postalCode>  
+                        <addressLine1>#167</addressLine1>  
+                        <addressLine2>NORTH TOWER HARBOUR CITY</addressLine2>  
+                </billingAddress>  
+            </address>  
+    </customer>  
+    <customer>  
+            <id>2</id>  
+            <gender>male</gender>  
+            <firstname>David</firstname>  
+            <lastname>Bill</lastname>  
+            <phoneNumber>808182</phoneNumber>  
+            <address>  
+                <primaryAddress>  
+                        <postalCode>319087</postalCode>  
+                        <addressLine1>1033 WS St.</addressLine1>  
+                        <addressLine2>Tima Road</addressLine2>  
+                </primaryAddress>  
+                <billingAddress>  
+                        <receiver>Mr William</receiver>  
+                        <postalCode>672993</postalCode>  
+                        <addressLine1>1033 WS St.</addressLine1>  
+                        <addressLine2>Tima Road</addressLine2>  
+                </billingAddress>  
+            </address>  
+    </customer>  
+</Customers>  

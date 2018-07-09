@@ -1,0 +1,24 @@
+friends:  
+  - !com.example.Contact  
+    name: Bob  
+    age: 29  
+    phoneNumbers:  
+        - !com.example.Phone  
+          name: Home  
+          number: 206-555-1234  
+        - !com.example.Phone  
+          name: Work  
+          number: 206-555-5678  
+  - !com.example.Contact  
+    name: Mike  
+    age: 31  
+    phoneNumbers:  
+        - !com.example.Phone  
+          number: 206-555-4321  
+enemies:  
+  - !com.example.Contact  
+    name: Bill  
+    phoneNumbers:  
+        - !com.example.Phone  
+          name: Cell  
+          number: 206-555-1234  
