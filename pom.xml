@@ -23,22 +23,22 @@
 	</properties>
 
 	<modules>
-		<module>quickstart-framework-concurrentlinkedhashmap</module>
-		<module>quickstart-framework-csv</module>
-		<module>quickstart-framework-disruptor</module>
-		<module>quickstart-framework-eaio-uuid</module>
-		<module>quickstart-framework-guava</module>
-		<module>quickstart-framework-guice</module>
-		<module>quickstart-framework-json</module>
-		<module>quickstart-framework-lombok</module>
-		<module>quickstart-framework-objenesis</module>
-		<module>quickstart-framework-quartz</module>
-		<module>quickstart-framework-reactivex</module>
-		<module>quickstart-framework-string-compress</module>
-		<module>quickstart-framework-xbean</module>
-		<module>quickstart-framework-xmlbeans</module>
-		<module>quickstart-framework-xml</module>
-		<module>quickstart-framework-yaml</module>
+		<module>quickstart-concurrentlinkedhashmap</module>
+		<module>quickstart-csv</module>
+		<module>quickstart-disruptor</module>
+		<module>quickstart-eaio-uuid</module>
+		<module>quickstart-guava</module>
+		<module>quickstart-guice</module>
+		<module>quickstart-json</module>
+		<module>quickstart-lombok</module>
+		<module>quickstart-objenesis</module>
+		<module>quickstart-quartz</module>
+		<module>quickstart-reactivex</module>
+		<module>quickstart-string-compress</module>
+		<module>quickstart-xbean</module>
+		<module>quickstart-xmlbeans</module>
+		<module>quickstart-xml</module>
+		<module>quickstart-yaml</module>
 	</modules>
 
 </project>
