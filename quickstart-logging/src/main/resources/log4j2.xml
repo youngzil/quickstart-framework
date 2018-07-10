@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<!-- Configuration标签中的常用元素说明： monitorInterval：Log4j 2 定期检查和应用配置文件的时间间隔（单位：秒，如果更改配置文件，不用重启系统）。 
+	status：Log4j内部事件记录的等级，只对Log4j本身的事件有效。 strict：是否使用XML Schema来检查配置文件。 schema：Shema文件的位置。 -->
+<Configuration status="warn" monitorInterval="30" strict="true"
+	schema="Log4J-V2.2.xsd">
+
+	<properties>
+		<!-- 定义日志的根目录 -->
+		<property name="LOG_HOME">${user.home}/logs/quickstart</property>
+		<!-- 定义日志文件名称 -->
+		<property name="appName">quickstart-logging</property>
+	</properties>
+
+	<!-- Filters标签说明： 与防火墙过滤的规则相似，log4j2的过滤器也将返回三类状态：Accept（接受）, Deny（拒绝） 或Neutral（中立）。其中，Accept意味着不用再调用其他过滤器了，这个LogEvent将被执行；Deny意味着马上忽略这个event，并将此event的控制权交还给过滤器的调用者；Neutral则意味着这个event应该传递给别的过滤器，如果再没有别的过滤器可以传递了，那么就由现在这个过滤器来处理。 
+		Appenders标签说明： Appender用来定义不同的输出位置，可以是console、文件、远程socket服务器、Apache Flume、JMS以及远程 
+		UNIX 系统日志守护进程。一个Logger可以绑定多个不同的Appender。 Layout/PatternLayout： 定义log的格式（一种类似C语言printf函数的打印格式）。 -->
+
+	<Appenders>
+		<!--这个输出控制台的配置 -->
+		<Console name="Console" target="SYSTEM_OUT">
+			<!-- 需要记录的级别,控制台只输出level及以上级别的信息(onMatch),其他的直接拒绝(onMismatch) -->
+			<ThresholdFilter level="trace" onMatch="ACCEPT"
+				onMismatch="DENY" />
+			<!-- 输出日志的格式 -->
+			<PatternLayout
+				pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %class{36} %L %M - %msg%xEx%n" />
+		</Console>
+
+		<!-- 输出到文件，按天或者超过80MB分割 -->
+		<RollingFile name="RollingFile" fileName="${LOG_HOME}/${appName}/${appName}.log"
+			filePattern="${LOG_HOME}/${appName}/$${date:yyyy-MM}/${appName}-%d{yyyy-MM-dd}-%i.log.gz"
+			immediateFlush="false" append="true">
+
+			<!-- 需要记录的级别 -->
+			<!-- <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY" 
+				/> -->
+			<!-- %d{yyyy-MM-dd HH:mm:ss, SSS} : 日志生产时间 %p : 日志输出格式 %c : logger的名称 
+				%m : 日志内容，即 logger.info("message") %n : 换行符 %C : Java类名 %L : 日志输出所在行数 %M 
+				: 日志输出所在方法名 hostName : 本地机器名 hostAddress : 本地ip地址 -->
+			<PatternLayout
+				pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %class{36} %L %M -- %msg%xEx%n" />
+			<Policies>
+				<OnStartupTriggeringPolicy />
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+				<SizeBasedTriggeringPolicy size="80 MB" />
+			</Policies>
+			<!-- DefaultRolloverStrategy属性如不设置，则默认为最多同一文件夹下7个文件，这里设置了20 -->
+			<DefaultRolloverStrategy max="20" />
+		</RollingFile>
+
+		<Async name="Async" includeLocation="true">
+			<AppenderRef ref="RollingFile" />
+		</Async>
+
+	</Appenders>
+
+
+	<!-- Loggers标签说明： 它被用来配置LoggerConfig，包含一个root logger和若干个普通logger 普通必须有一个name元素，root 
+		logger不用name元素 每个logger可以指定一个level（TRACE, DEBUG, INFO, WARN, ERROR, ALL or 
+		OFF），不指定时level默认为ERROR additivity指定是否同时输出log到父类的appender，缺省为true。（层级关系与Java包类似，例如：com.foo是com.foo.Bar的父级；java是java.util的父级，是java.util.vector的祖先。root是最顶层。） 
+		每个logger可以包含若干个属性：AppenderRef, Filter, Layout, 等 -->
+	<Loggers>
+		<!-- 全局配置, 配置日志的根节点 -->
+		<root level="warn">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingFile" />
+		</root>
+
+		<!-- 日志实例(info),其中'service-log'继承root,但是root将日志输出控制台,而'service-log'将日志输出到文件,通过属性'additivity="false"'将'service-log'的 
+			的日志不再输出到控制台 -->
+		<logger name="com.meituan.gct.shop.promo" level="error"
+			includeLocation="true" additivity="false">
+			<appender-ref ref="ErrorLog" />
+			<appender-ref ref="Console" />
+		</logger>
+
+		<logger name="com.cloud.demo" additivity="false" level="trace">
+			<AppenderRef ref="Async" level="trace" />
+		</logger>
+
+		<AsyncLogger name="com.cloud.demo.service.impl.NewsServiceImpl"
+			level="trace" includeLocation="false">
+			<AppenderRef ref="RandomAccessFile" />
+		</AsyncLogger>
+
+
+		<!-- 第三方日志系统 -->
+		<logger name="org.springframework" level="info" />
+
+	</Loggers>
+
+</Configuration>

@@ -1,0 +1,231 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<parent>
+		<groupId>org.quickstart</groupId>
+		<artifactId>quickstart-all</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>..</relativePath> <!-- lookup parent from repository -->
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>quickstart-javase</artifactId>
+	<packaging>jar</packaging>
+	<name>${project.artifactId}-${project.version}</name>
+	<url>http://maven.apache.org</url>
+	<description>Demo project for XXX</description>
+
+	<properties>
+		<!-- <ganymed.ssh.version>262</ganymed.ssh.version> -->
+		<ganymed.ssh.version>build210</ganymed.ssh.version>
+	</properties>
+
+	<dependencies>
+
+		<!-- <dependency> -->
+		<!-- <groupId>javax.servlet</groupId> -->
+		<!-- <artifactId>servlet-api</artifactId> -->
+		<!-- <version>2.5</version> -->
+		<!-- </dependency> -->
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>22.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.directwebremoting</groupId>
+			<artifactId>dwr</artifactId>
+			<version>3.0.2-RELEASE</version>
+			<!-- <type>pom</type> -->
+		</dependency>
+
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>0.1.54</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>ch.ethz.ganymed</groupId>
+			<artifactId>ganymed-ssh2</artifactId>
+			<version>${ganymed.ssh.version}</version>
+		</dependency>
+
+
+		<!-- 公共的 start -->
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.3</version>
+		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>commons-collections</groupId> -->
+		<!-- <artifactId>commons-collections</artifactId> -->
+		<!-- <version>3.2.2</version> -->
+		<!-- </dependency> -->
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>commons-logging</groupId> -->
+		<!-- <artifactId>commons-logging</artifactId> -->
+		<!-- <version>1.2</version> -->
+		<!-- </dependency> -->
+
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<version>1.5.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<version>1.5.6</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-email</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<!-- 公共的 end -->
+
+		<dependency>
+			<groupId>javax.ejb</groupId>
+			<artifactId>javax.ejb-api</artifactId>
+			<version>3.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jetbrains.kotlin</groupId>
+			<artifactId>kotlin-stdlib</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/cglib/cglib -->
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>3.2.5</version>
+		</dependency>
+
+		<!-- local jar start -->
+		<dependency>
+			<groupId>org.quickstart</groupId>
+			<artifactId>algs4</artifactId>
+			<version>4</version>
+			<!-- 设置scope和systemPath，systemPath可以是相对或者绝对路径 -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/algs4.jar</systemPath>
+			<!-- <systemPath>${basedir}/target/java_memcached-release_2.6.6.jar</systemPath> -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.quickstart</groupId>
+			<artifactId>stdlib</artifactId>
+			<version>1.0</version>
+			<!-- 设置scope和systemPath，systemPath可以是相对或者绝对路径 -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/stdlib.jar</systemPath>
+		</dependency>
+
+		<!-- local jar end -->
+
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>transmittable-thread-local</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jdmk</groupId>
+			<artifactId>jmxtools</artifactId>
+			<version>1.2.1</version>
+			<!-- 设置scope和systemPath，systemPath可以是相对或者绝对路径 -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/jmx/jmxtools.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jdmk</groupId>
+			<artifactId>jmxri</artifactId>
+			<version>1.2.1</version>
+			<!-- 设置scope和systemPath，systemPath可以是相对或者绝对路径 -->
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/jmx/jmxri.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.softee</groupId>
+			<artifactId>pojo-mbean</artifactId>
+			<version>1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jdk</groupId>
+			<artifactId>tools</artifactId>
+			<version>1.8</version>
+			<scope>system</scope>
+			<systemPath>/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/lib/tools.jar</systemPath>
+		</dependency>
+
+		<!-- zkclient -->
+		<dependency>
+			<groupId>com.101tec</groupId>
+			<artifactId>zkclient</artifactId>
+			<version>0.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>${jedis.version}</version>
+		</dependency>
+
+
+	</dependencies>
+
+</project>

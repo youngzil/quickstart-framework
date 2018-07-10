@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:int-kafka="http://www.springframework.org/schema/integration/kafka"
+	xsi:schemaLocation="http://www.springframework.org/schema/integration/kafka http://www.springframework.org/schema/integration/kafka/spring-integration-kafka.xsd  
+        http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd  
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<int:channel id="outWriteBackLemmaRecordChannel" />
+
+	<int-kafka:outbound-channel-adapter
+		id="kafkaOutboundChannelAdapter" kafka-template="kafkaTemplate"
+		auto-startup="true" channel="outWriteBackLemmaRecordChannel" order="3"
+		topic="writeBackLemmaRecordTopic">
+		<int-kafka:request-handler-advice-chain>
+			<bean
+				class="org.springframework.integration.handler.advice.RequestHandlerCircuitBreakerAdvice" />
+		</int-kafka:request-handler-advice-chain>
+	</int-kafka:outbound-channel-adapter>
+
+	<!-- 针对DefaultKafkaProducerFactory 的参数，本公司其实是配置注册到了zookeeper上，针对开发环境，预发环境，线上环境的配置是不同的，所以zookeeper上分别针对不同的环境注册了三套配置文件，发布的时候，会根据要发布的环境去zookeeper上拉取对应环境的配置文件，从而填充DefaultKafkaProducerFactory的构造参数 -->
+	<bean id="kafkaTemplate" class="org.springframework.kafka.core.KafkaTemplate">
+		<constructor-arg>
+			<bean class="org.springframework.kafka.core.DefaultKafkaProducerFactory">
+				<constructor-arg>
+					<map>
+						<entry key="bootstrap.servers" value="1.1.1.1:9092,2.2.2.2:9092" />
+						<entry key="retries" value="10" />
+						<entry key="batch.size" value="16384" />
+						<entry key="linger.ms" value="1" />
+						<entry key="buffer.memory" value="33554432" />
+						<entry key="key.serializer"
+							value="org.apache.kafka.common.serialization.IntegerSerializer" />
+						<entry key="value.serializer"
+							value="org.apache.kafka.common.serialization.StringSerializer" />
+					</map>
+				</constructor-arg>
+			</bean>
+		</constructor-arg>
+		<constructor-arg name="autoFlush" value="true" />
+		<property name="defaultTopic" value="writeBackLemmaRecordTopic" />
+	</bean>
+
+	<bean id="kafkaProducerService"
+		class="org.quickstart.spring.integration.kafka.KafkaProducerServiceImpl" />
+</beans>  

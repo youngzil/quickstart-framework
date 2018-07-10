@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:quickstart="http://code.quickstart.org/schema/quickstart" 
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.quickstart.org/schema/quickstart http://code.quickstart.org/schema/quickstart/quickstart.xsd ">
+
+	<bean id="beanPostProcessor"
+		class="org.quickstart.spring.framework.factory.bean.lifecycle.MyBeanPostProcessor">
+	</bean>
+
+	<bean id="instantiationAwareBeanPostProcessor"
+		class="org.quickstart.spring.framework.factory.bean.lifecycle.MyInstantiationAwareBeanPostProcessor">
+	</bean>
+
+	<bean id="beanFactoryPostProcessor"
+		class="org.quickstart.spring.framework.factory.bean.lifecycle.MyBeanFactoryPostProcessor">
+	</bean>
+
+	<bean id="mergedBeanDefinitionPostProcessor"
+		class="org.quickstart.spring.framework.factory.bean.lifecycle.MyMergedBeanDefinitionPostProcessor">
+	</bean>
+
+	<bean id="person"
+		class="org.quickstart.spring.framework.factory.bean.lifecycle.Person"
+		init-method="myInit" destroy-method="myDestory" scope="singleton"
+		p:name="张三" p:address="广州" p:phone="15900000000" />
+
+</beans>
+
+
