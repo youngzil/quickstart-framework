@@ -31,7 +31,7 @@ Oxygen	http://download.eclipse.org/releases/oxygen	Enabled
 	http://download.eclipse.org/technology/linuxtools/updates-nightly/
 	Name: Dynamic Languages Toolkit 
 	http://download.eclipse.org/technology/dltk/updates-dev/4.0-nightly/
-15、
+15、Lombok
 16、
 17、
 18、

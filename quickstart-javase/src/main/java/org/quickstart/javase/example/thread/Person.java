@@ -8,9 +8,13 @@
  */
 package org.quickstart.javase.example.thread;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.extern.log4j.Log4j;
 
 /**
  * Person
@@ -21,6 +25,11 @@ import lombok.ToString;
  */
 @ToString
 @Setter@Getter
+
+@Data
+@Log4j
+//@NoArgsConstructor
+//@AllArgsConstructor
 public class Person {
 
     Person(String name) {
@@ -28,5 +37,11 @@ public class Person {
     }
 
     private String name;
+    
+    public static void main(String[] args) {
+        Person person = new Person("Java架构沉思录");
+        person.setName("hehehe");
+        String name = person.getName();
+    }
 
 }
