@@ -1,0 +1,4 @@
+Manifest-Version: 1.0  
+Agent-Class: org.quickstart.proxy.hot.deploy.HotSwapAgent  
+Premain-Class: org.quickstart.proxy.hot.deploy.HotSwapAgent  
+Can-Redefine-Classes: true 

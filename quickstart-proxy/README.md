@@ -1,12 +1,24 @@
 动态代理：JDK动态代理、CGLIB
 静态代理：AspectJ、Javassist
 
+1、java代理：动态代理和静态代理
+2、java代理技术：JDK、Cglib、javassist、AspectJ、
+3、java类加载：ClassLoader、反射
+4、java 探针Agent 
+5、java字节码修改：javassist、asm
+6、java热部署：VirtualMachine、Attach、Agent、Instrumentation
+
 http://www.javassist.org
 http://jboss-javassist.github.io/javassist/
 https://github.com/jboss-javassist/javassist
 
+
+参考
+https://blog.csdn.net/luanlouis/article/details/24589193
 https://blog.csdn.net/heyutao007/article/details/49738887
 https://www.cnblogs.com/mingziday/p/4889116.html
+
+
 
 AspectJ博客：https://blog.csdn.net/aitangyong/article/details/50770085
 

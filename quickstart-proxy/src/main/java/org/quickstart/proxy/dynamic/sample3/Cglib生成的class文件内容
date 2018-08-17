@@ -1,0 +1,31 @@
+package samples;
+ 
+import java.lang.reflect.Method;
+import net.sf.cglib.core.ReflectUtils;
+import net.sf.cglib.core.Signature;
+import net.sf.cglib.proxy.Callback;
+import net.sf.cglib.proxy.Factory;
+import net.sf.cglib.proxy.MethodInterceptor;
+import net.sf.cglib.proxy.MethodProxy;
+ 
+public class Programmer$$EnhancerByCGLIB$$fa7aa2cd extends Programmer
+  implements Factory
+{
+   //......省略
+  private MethodInterceptor CGLIB$CALLBACK_0;  // Enchaner传入的methodInterceptor
+   // ....省略
+  public final void code()
+  {
+    MethodInterceptor tmp4_1 = this.CGLIB$CALLBACK_0;
+    if (tmp4_1 == null)
+    {
+      tmp4_1;
+      CGLIB$BIND_CALLBACKS(this);//若callback 不为空，则调用methodInterceptor 的intercept()方法
+    }
+    if (this.CGLIB$CALLBACK_0 != null)
+      return;
+      //如果没有设置callback回调函数，则默认执行父类的方法
+      super.code();
+  }
+   //....后续省略
+}

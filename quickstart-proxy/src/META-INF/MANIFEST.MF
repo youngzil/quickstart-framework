@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true
+Premain-Class: org.quickstart.proxy.java.agent.PreMyProgram
+Boot-Class-Path: javassist-3.23.1-GA.jar

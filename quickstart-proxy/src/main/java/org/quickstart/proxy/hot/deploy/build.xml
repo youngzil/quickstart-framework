@@ -1,0 +1,32 @@
+<project name="hotswap-agent" default="dist" basedir=".">  
+  
+    <property name="version" value="1.0" />  
+    <property name="jar.name" value="${ant.project.name}-${version}" />  
+    <property name="classes.dir" value="bin" />  
+    <property name="jar.dir" value="jar" />  
+    <property name="javac.version" value="1.5" />  
+  
+    <target name="prepare">  
+        <mkdir dir="${classes.dir}" />  
+        <mkdir dir="${jar.dir}" />  
+    </target>  
+  
+    <target name="build" depends="prepare">  
+        <javac target="${javac.version}" srcdir="src" debug="true" destdir="${classes.dir}">  
+            <include name="**/*.java" />  
+            <exclude name="**/com/hotswap/HotSwapAgent.java" />  
+        </javac>  
+    </target>  
+  
+    <target name="dist">  
+        <antcall target="clean" />  
+        <antcall target="build" />  
+        <jar basedir="${classes.dir}" jarfile="${jar.dir}/${jar.name}.jar" manifest="src/META-INF/MANIFEST.MF" />  
+    </target>  
+  
+    <target name="clean">  
+        <delete dir="${classes.dir}" />  
+        <delete dir="${jar.dir}" />  
+    </target>  
+  
+</project>  
