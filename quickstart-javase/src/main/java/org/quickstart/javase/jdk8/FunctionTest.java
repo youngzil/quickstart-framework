@@ -14,6 +14,7 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.junit.Test;
 import org.quickstart.javase.jdk8.stream.Article;
 
 /**
@@ -48,14 +49,32 @@ public class FunctionTest {
         Function<List<Article>, Optional<Article>> newest = first.compose(sortByDate);
 
         // 找出作者的最新文章：
-        BiFunction<String, List<Article>, Optional<Article>> newestByAuthor = byAuthor.andThen(newest);
+        // BiFunction<String, List<Article>, Optional<Article>> newestByAuthor = byAuthor.andThen(newest);
 
         // 对某一作者的文章进行排序
-        BiFunction<String, List<Article>, List<Article>> byAuthorSorted = byAuthor.andThen(sortByDate);
+        // BiFunction<String, List<Article>, List<Article>> byAuthorSorted = byAuthor.andThen(sortByDate);
 
         // 可能不关心作者，只想根据你喜欢标签获取最新的文章：
-        BiFunction<String, List<Article>, Optional<Article>> newestByTag = byTag.andThen(newest);
+        // BiFunction<String, List<Article>, Optional<Article>> newestByTag = byTag.andThen(newest);
 
+    }
+    
+//    该接口目前发布在 java.util.function 包中。接口中主要有方法：
+//    R apply(T t);
+//     将Function对象应用到输入的参数上，然后返回计算结果。
+
+    @Test
+    public void test() throws InterruptedException {
+        String name = "";
+        String name1 = "12345";
+        System.out.println(validInput(name, inputStr -> inputStr.isEmpty() ? "名字不能为空" : inputStr));
+        System.out.println(validInput(name1, inputStr -> inputStr.length() > 3 ? "名字过长" : inputStr));
+    }
+
+//    将Function对象应用到输入的参数上，然后返回计算结果。
+    public static String validInput(String name, Function<String, String> function) {
+//        定义 function.apply(name)，也就是说，传入一个 name 参数，应用某些规则，返回一个结果，至于是什么规则，先不定义。
+        return function.apply(name);
     }
 
 }

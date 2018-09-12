@@ -57,5 +57,16 @@ https://jupyterhub.readthedocs.io/en/latest/
 
 
 
+JVM安全退出（如何优雅的关闭java服务）：Runtime.addShutdownHook(Thread hook)注册自定义钩子
+http://www.voidcn.com/article/p-wfdtbucc-bbs.html
+
+
+使用ThreadGroup监控线程退出
+http://yang.run/2016/03/29/Using-ThreadGroup-to-monitor-thread-exit/
+
+
+
+
+
 
 

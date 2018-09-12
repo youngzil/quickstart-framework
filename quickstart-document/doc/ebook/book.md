@@ -1,3 +1,13 @@
+书籍推荐
+https://zhuanlan.zhihu.com/p/37689443
+https://github.com/nemoTyrant/manong
+
+
+大型网站技术架构：摘要与读书笔记
+https://www.cnblogs.com/xybaby/p/8907880.html
+
+
+
 https://github.com/justjavac/free-programming-books-zh_CN
 https://github.com/dypsilon/frontend-dev-bookmarks
 https://github.com/jobbole/awesome-programming-books
@@ -9,6 +19,7 @@ https://github.com/addyosmani/essential-js-design-patterns
 https://github.com/DuGuQiuBai/Java
 https://github.com/Pines-Cheng/share
 https://github.com/chunminglu/books
+https://github.com/mynane/PDF
 
 
 Docker：

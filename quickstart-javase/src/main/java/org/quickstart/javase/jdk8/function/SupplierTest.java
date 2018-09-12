@@ -22,6 +22,17 @@ import java.util.function.Supplier;
 public class SupplierTest {
 
     public static void main(String[] args) {
+        
+        //简写
+        Supplier<String> supplier1 = () -> "Test supplier";
+        System.out.println(supplier1.get());
+        
+        //标准格式
+        Supplier<Integer> supplier2 = () -> {
+            return 20;
+        };
+        System.out.println(supplier2.get() instanceof Integer);
+        
         Supplier<String> supplier = () -> "hello world";
 
         // get方法不接受参数，返回一个结果
