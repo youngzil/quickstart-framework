@@ -2,6 +2,7 @@ Arrays.sort(myArray);
 // 而是这么做：
 Arrays.parallelSort(myArray);
 
+
 CompletableFuture：CompletableFuture类实现了CompletionStage和Future接口，是一个接口，从命名上看得知是一个完成的阶段，它里面的方法也标明是在某个运行阶段得到了结果之后要做的事情。
 ConcurrentSkipListSet并发集合
 LongAdder适合的场景是统计求和计数的场景
@@ -130,6 +131,7 @@ boolean test(T t);
 
 
 参考
+https://wizardforcel.gitbooks.io/java8-tutorials/content/
 http://www.infoq.com/cn/articles/Java-8-Quiet-Features
 https://blog.csdn.net/jiangzhexi/article/details/54236376
 
