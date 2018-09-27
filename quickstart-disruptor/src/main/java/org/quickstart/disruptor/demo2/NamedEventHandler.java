@@ -1,4 +1,4 @@
-package org.quickstart.disruptor.example.demo2;
+package org.quickstart.disruptor.demo2;
 
 import com.lmax.disruptor.EventHandler;
 import com.lmax.disruptor.LifecycleAware;

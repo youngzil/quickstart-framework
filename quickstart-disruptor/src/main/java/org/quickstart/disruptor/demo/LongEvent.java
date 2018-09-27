@@ -6,7 +6,7 @@
  * Copyright asiainfo Corporation 2017
  * 版权所有 *
  */
-package org.quickstart.disruptor.example.demo;
+package org.quickstart.disruptor.demo;
 
 /**
  * LongEvent

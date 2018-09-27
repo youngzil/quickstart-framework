@@ -1,4 +1,4 @@
-package org.quickstart.disruptor.example.demo2;
+package org.quickstart.disruptor.demo2;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;

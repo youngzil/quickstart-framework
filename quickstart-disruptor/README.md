@@ -1,18 +1,22 @@
 Disruptor它是一个开源的并发框架，并获得2011 Duke’s 程序框架创新奖，能够在无锁的情况下实现网络的Queue并发操作。
 
 
-http://ifeve.com/disruptor/
-http://ifeve.com/disruptor-getting-started/
-
-
+https://www.lmax.com/
 http://lmax-exchange.github.io/disruptor/
 https://github.com/LMAX-Exchange/disruptor
-
 
 LMAX-Exchange源码github地址：https://github.com/LMAX-Exchange/disruptor
 带中文注释的源码github地址：https://github.com/daoqidelv/disruptor
 
 
+http://ifeve.com/disruptor/
+http://ifeve.com/disruptor-getting-started/
+http://ifeve.com/dissecting-disruptor-wiring-up-cn/
+http://ifeve.com/disruptor-2-change/
+http://ifeve.com/transation-plan-2/
+https://my.oschina.net/u/1765168?tab=newest&catalogId=5769037
+https://lihaoquan.me/2017/4/21/ring-buffer-in-go.html
+http://tutorials.jenkov.com/java-performance/ring-buffer.html
 
 
 Disruptor
@@ -21,15 +25,10 @@ Disruptor
 
 
 
-
-
-
-
-
-
-
-
-
+http://ifeve.com/dissecting-disruptor-whats-so-special/
+http://ifeve.com/tag/ringbuffer/
+https://my.oschina.net/u/1765168/blog/1807887
+https://github.com/coffeemug
 
 
 

@@ -6,7 +6,7 @@
  * Copyright asiainfo Corporation 2017
  * 版权所有 *
  */
-package org.quickstart.disruptor.example.demo;
+package org.quickstart.disruptor.demo;
 
 import com.lmax.disruptor.EventHandler;
 
@@ -18,6 +18,8 @@ import com.lmax.disruptor.EventHandler;
  * @since 1.0
  */
 public class LongEventHandler implements EventHandler<LongEvent> {
+    
+//    为消费者消费处理器，这处需要执行速度足够快。否则，会影响ringbuffer后续没空间加入新的数据。因此，不能做业务耗时操作。建议另外开始java 线程池处理消息。
     public void onEvent(LongEvent event, long sequence, boolean endOfBatch) {
         System.out.println("consumer:" + Thread.currentThread().getName() + " Event: value=" + event.get() + ",sequence=" + sequence + ",endOfBatch=" + endOfBatch);
     }

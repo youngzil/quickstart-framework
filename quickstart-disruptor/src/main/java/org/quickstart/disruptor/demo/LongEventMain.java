@@ -6,7 +6,7 @@
  * Copyright asiainfo Corporation 2017
  * 版权所有 *
  */
-package org.quickstart.disruptor.example.demo;
+package org.quickstart.disruptor.demo;
 
 import java.nio.ByteBuffer;
 import java.util.concurrent.Executor;
@@ -25,6 +25,11 @@ import com.lmax.disruptor.dsl.ProducerType;
  * @since 1.0
  */
 public class LongEventMain {
+    
+//    消费者-生产者启动类,其依靠构造Disruptor对象，调用start()方法完成启动线程。Disruptor 需要ringbuffer环，消费者数据处理工厂，WaitStrategy等
+//    ByteBuffer 类字节buffer，用于包装消息。
+//    ProducerType.SINGLE为单线程 ，可以提高性能。
+    
     @SuppressWarnings("unchecked")
     public static void main(String[] args) throws Exception {
         // 执行器，用于构造消费者线程

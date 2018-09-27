@@ -6,7 +6,7 @@
  * Copyright asiainfo Corporation 2017
  * 版权所有 *
  */
-package org.quickstart.disruptor.example.demo;
+package org.quickstart.disruptor.demo;
 
 import java.nio.ByteBuffer;
 
@@ -27,6 +27,9 @@ import com.lmax.disruptor.RingBuffer;
  * 
  */
 public class LongEventProducerWithTranslator {
+    
+//    translateTo方法将ringbuffer中的消息，转换成java对象格式。示例 为LongEvent对象，后续消费者LongEventHandler 处理器，直接操作LongEvent对象，获取消息各属性信息，本示例 为value属性。
+//    product方法，将生产者生产的消息放入ringbuffer中。
     private final RingBuffer<LongEvent> ringBuffer;
 
     public LongEventProducerWithTranslator(RingBuffer<LongEvent> ringBuffer) {

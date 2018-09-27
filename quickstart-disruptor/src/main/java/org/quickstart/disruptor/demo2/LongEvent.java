@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.quickstart.disruptor.example.demo2;
+package org.quickstart.disruptor.demo2;
 
 import com.lmax.disruptor.EventFactory;
 

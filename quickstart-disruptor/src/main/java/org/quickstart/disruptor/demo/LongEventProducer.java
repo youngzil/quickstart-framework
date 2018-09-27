@@ -6,7 +6,7 @@
  * Copyright asiainfo Corporation 2017
  * 版权所有 *
  */
-package org.quickstart.disruptor.example.demo;
+package org.quickstart.disruptor.demo;
 
 import java.nio.ByteBuffer;
 
@@ -20,6 +20,8 @@ import com.lmax.disruptor.RingBuffer;
  * @since 1.0
  */
 public class LongEventProducer {
+    
+//    RingBuffer是消息存储结构，为环形存储结构，每个单元存储一条消息。类似于队列。当ringbuffer中数据填满后，环就会阻塞，等待消费者消费掉数据。当所有消费者消费掉环中一个数据，新的消息才可以加入环中。每个环插入数据后，都会分配下一个位置的编号，即sequence 。
     private final RingBuffer<LongEvent> ringBuffer;
 
     public LongEventProducer(RingBuffer<LongEvent> ringBuffer) {
