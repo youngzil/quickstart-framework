@@ -32,6 +32,12 @@ public class LamdbaTest2 {
             Constructor reference:
             ArrayList::new*/
 
+        // 使用lambda表达式方式
+        // 使用方法引用方式
+        // 静态方法
+        // 实例方法
+        // 构造函数
+
         List<String> list = new ArrayList<>();
         for (Object n : list) {
             System.out.println(n);
@@ -47,6 +53,7 @@ public class LamdbaTest2 {
         test test = mmm -> mmm + "aaaa";// mmm代表你要传入的参数
         String testResult = test.aa("ssssssddddd");// aa代表你要传入的方法
         System.out.println(testResult);
+
     }
 
     @FunctionalInterface

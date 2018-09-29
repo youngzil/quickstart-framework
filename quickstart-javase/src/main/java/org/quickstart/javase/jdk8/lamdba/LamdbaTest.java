@@ -8,11 +8,14 @@
  */
 package org.quickstart.javase.jdk8.lamdba;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
-import org.quickstart.javase.jdk8.lamdba.LamdbaTest2.Converter;
+import javax.swing.JButton;
 
 /**
  * LamdbaTest
@@ -67,6 +70,47 @@ public class LamdbaTest {
         // no.5
         System.out.println("no5-----");
         numbers.forEach(new LamdbaTest().new MyConsumer());
+
+        // Before Java 8:
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("Before Java8 ");
+            }
+        }).start();
+
+        // Java 8 way:
+        new Thread(() -> System.out.println("In Java8!"));
+
+        // Before Java 8:
+        JButton show = new JButton("Show");
+        show.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("without lambda expression is boring");
+            }
+        });
+
+        // Java 8 way:
+        show.addActionListener((e) -> {
+            System.out.println("Action !! Lambda expressions Rocks");
+        });
+
+        // Prior Java 8 :
+        List<String> features = Arrays.asList("Lambdas", "Default Method", "Stream API", "Date and Time API");
+        for (String feature : features) {
+            System.out.println(feature);
+        }
+
+        // In Java 8:
+        features.forEach(n -> System.out.println(n));
+
+        // Even better use Method reference feature of Java 8
+        // method reference is denoted by :: (double colon) operator
+        // looks similar to score resolution operator of C++
+        features.forEach(System.out::println);
+        
+        
 
     }
 

@@ -1,4 +1,10 @@
-发布的核心特性，即lambda表达式、函数式接口、流API、默认方法和新的Date以及Time API
+发布的核心特性，即lambda表达式、函数式接口、流API、接口默认方法和新的Date以及Time API
+
+Java虚拟机（JVM）的新特性
+PermGen空间被移除了，取而代之的是Metaspace（JEP 122）。JVM选项-XX:PermSize与-XX:MaxPermSize分别被-XX:MetaSpaceSize与-XX:MaxMetaspaceSize所代替。
+
+
+
 
 Arrays.sort(myArray);
 // 而是这么做：
@@ -133,7 +139,7 @@ boolean test(T t);
 
 
 参考
-https://wizardforcel.gitbooks.io/java8-tutorials/content/
+https://wizardforcel.gitbooks.io/java8-tutorials/content/index.html
 http://www.infoq.com/cn/articles/Java-8-Quiet-Features
 https://blog.csdn.net/jiangzhexi/article/details/54236376
 
@@ -144,11 +150,10 @@ https://blog.csdn.net/pzxwhc/article/details/48314039
 
 
 https://my.oschina.net/benhaile?tab=newest&catalogId=410404
-https://wizardforcel.gitbooks.io/java8-tutorials/content/index.html
 https://github.com/eugenp/tutorials
 https://www.baeldung.com/java-tutorial
 https://github.com/takipi
-
+https://javarevisited.blogspot.com/2018/07/java-8-tutorials-resources-and-examples-lambda-expression-stream-api-functional-interfaces.html
 
 
 
