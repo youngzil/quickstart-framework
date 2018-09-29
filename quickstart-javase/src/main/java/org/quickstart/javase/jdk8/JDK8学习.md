@@ -1,3 +1,5 @@
+发布的核心特性，即lambda表达式、函数式接口、流API、默认方法和新的Date以及Time API
+
 Arrays.sort(myArray);
 // 而是这么做：
 Arrays.parallelSort(myArray);
@@ -141,6 +143,11 @@ http://www.importnew.com/11908.html
 https://blog.csdn.net/pzxwhc/article/details/48314039
 
 
+https://my.oschina.net/benhaile?tab=newest&catalogId=410404
+https://wizardforcel.gitbooks.io/java8-tutorials/content/index.html
+https://github.com/eugenp/tutorials
+https://www.baeldung.com/java-tutorial
+https://github.com/takipi
 
 
 
