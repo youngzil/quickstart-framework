@@ -1,0 +1,17 @@
+server: 
+    type: simple 
+    applicationContextPath:/
+    adminContextPath: /admin 
+    connector: 
+     type: http 
+     bindHost: localhost 
+     port: 8080 
+helloapp:
+  saying: ${HELLOAPP_SAYING:-Guten Tag aus}
+greeter:
+  saying: ${GREETER_SAYING:-Guten Tag Dropwizard}
+  host: ${GREETER_BACKEND_HOST:-localhost}
+  port: ${GREETER_BACKEND_PORT:-8080}
+  #export GREETER_BACKEND_HOST="128.0.0.1" && echo $GREETER_BACKEND_HOST
+  #export GREETER_BACKEND_PORT=9090 && echo $GREETER_BACKEND_PORT  
+  #-Ddw.greeter.host=$GREETER_BACKEND_HOST -Ddw.greeter.port=$GREETER_BACKEND_PORT

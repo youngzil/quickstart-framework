@@ -72,6 +72,7 @@
 		<module>quickstart-xmlbeans</module>
 		<module>quickstart-yaml</module>
     <module>quickstart-websocket</module>
+    <module>quickstart-dropwizard</module>
   </modules>
 
 </project>

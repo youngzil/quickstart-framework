@@ -1,0 +1,10 @@
+template: Hello, %s!
+defaultName: ${DW_DEFAULT_NAME:-Stranger}
+helloapp:
+  saying: ${HELLOAPP_SAYING:-Guten Tag2 aus}
+greeter:
+  saying: ${GREETER_SAYING:-Guten Tag Dropwizard}
+  host: ${GREETER_BACKEND_HOST:-localhost}
+  port: ${GREETER_BACKEND_PORT:-8080}
+  #export GREETER_BACKEND_HOST="128.0.0.1" && echo $GREETER_BACKEND_HOST
+  #export GREETER_BACKEND_PORT=9090 && echo $GREETER_BACKEND_PORT  
