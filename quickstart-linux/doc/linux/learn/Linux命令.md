@@ -1,4 +1,39 @@
 
+linux 内存清理/释放命令
+
+释放内存的时候，首先执行命令 sync 将所有正在内存中的缓冲区写到磁盘中，其中包括已经修改的文件inode、已延迟的块I/O以及读写映射文件，从而确保文件系统的完整性
+
+1.清理前内存使用情况 
+free -m
+
+2.首先写缓存到文件系统：sync
+
+3.开始清理，然后执行下面命令释放内存(页缓存buff/cache)：
+echo 1 > /proc/sys/vm/drop_caches
+到这里内存就释放完了，现在drop_caches中的值为1，如果现在想让操作系统重新分配内存，那么设置drop_caches的值为0即可：
+echo 0 > /proc/sys/vm/drop_caches
+
+4.清理后内存使用情况 
+free -m
+
+另外需要注意的是，在生产环境中的服务器我们不要频繁的去释放内存，只在必要时候清理内存即可，更重要的是我们应该从应用程序层面去优化内存的利用和释放，经常清理内存可能只是暂时屏蔽的应用程序中的一些bug，所以更重要的是程序的调优，其他的交给操作系统来管理
+https://www.cnblogs.com/freeweb/p/5713513.html
+
+
+
+
+查看cpu的方法
+1、 cat /proc/cpuinfo  或者 更直观的查看cpu的型号命令：dmesg |grep -i xeon
+
+查看内存的方法
+2、 cat /proc/meminfo  或者 更直观的查看内存的命令：free -m
+
+查看硬盘大小
+3、df -h
+最后用top命令也可以查看到cpu和内存的使用率 在输入top命令之后直接按"1" 就能很清楚的查看到cpu和内存的使用情况。
+
+
+
 查找文件夹下某个文件或文件夹，并执行删除
 sudo find /Users/yangzl/git/quickstart-all -name 文件或文件夹名称 |xargs rm -rf
 

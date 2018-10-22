@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<parent>
 		<groupId>org.quickstart</groupId>
 		<artifactId>quickstart-framework</artifactId>
@@ -17,13 +15,12 @@
 	<description>Demo project for Spring Boot Admin</description>
 
 	<properties>
-		<org.springframework-version>4.3.7.RELEASE</org.springframework-version>
+		<springframework.version>4.3.20.RELEASE</springframework.version>
 	</properties>
 
 	<dependencies>
 
-		<!-- <dependency> <groupId>org.apache.xbean</groupId> <artifactId>maven-xbean-plugin</artifactId> 
-			<version>4.5</version> </dependency> -->
+		<!-- <dependency> <groupId>org.apache.xbean</groupId> <artifactId>maven-xbean-plugin</artifactId> <version>4.5</version> </dependency> -->
 
 		<dependency>
 			<groupId>org.apache.xbean</groupId>
@@ -34,19 +31,19 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
-			<version>${org.springframework-version}</version>
+			<version>${springframework.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
-			<version>${org.springframework-version}</version>
+			<version>${springframework.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${org.springframework-version}</version>
+			<version>${springframework.version}</version>
 		</dependency>
 
 	</dependencies>
