@@ -60,8 +60,6 @@
 		<module>quickstart-samza</module>
 		<module>quickstart-scala</module>
 		<module>quickstart-servicecomb</module>
-		<module>quickstart-spring</module>
-		<module>quickstart-spring-framework</module>
 		<module>quickstart-spring-integration</module>
 		<module>quickstart-spring-integration-kafka</module>
 		<module>quickstart-spring-security</module>
