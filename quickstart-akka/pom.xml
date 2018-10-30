@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
-<project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<parent>
 		<groupId>org.quickstart</groupId>
 		<artifactId>quickstart-framework</artifactId>
@@ -18,23 +16,23 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<scala.version>2.12</scala.version>
+		<akka.version>2.5.17</akka.version>
 	</properties>
 	<dependencies>
 
 		<dependency>
 			<groupId>com.typesafe.akka</groupId>
-			<artifactId>akka-actor_2.11</artifactId>
-			<version>2.5.4</version>
+			<artifactId>akka-actor_${scala.version}</artifactId>
+			<version>${akka.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.typesafe.akka</groupId>
-			<artifactId>akka-testkit_2.11</artifactId>
-			<version>2.5.4</version>
+			<artifactId>akka-testkit_${scala.version}</artifactId>
+			<version>${akka.version}</version>
 			<scope>test</scope>
 		</dependency>
-
-
 
 	</dependencies>
 </project>
