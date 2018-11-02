@@ -30,7 +30,7 @@ public class CopiedIterator<E> implements Iterator<E> {
         this.iterator = list.iterator();
     }
 
-    /** 
+    /**
      * @see java.util.Iterator#hasNext()
      */
     @Override
@@ -38,7 +38,7 @@ public class CopiedIterator<E> implements Iterator<E> {
         return this.iterator.hasNext();
     }
 
-    /** 
+    /**
      * @see java.util.Iterator#next()
      */
     @Override
@@ -46,10 +46,9 @@ public class CopiedIterator<E> implements Iterator<E> {
         return this.iterator.next();
     }
 
-    /** 
+    /**
      * @see java.util.Iterator#remove()
      */
     @Override
-    public void remove() {
-    }
+    public void remove() {}
 }

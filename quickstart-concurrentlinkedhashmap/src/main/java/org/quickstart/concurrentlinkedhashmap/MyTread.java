@@ -36,7 +36,7 @@ public class MyTread extends Thread {
             }
 
             int i = r1.nextInt(10);
-            //System.out.print("a");
+            // System.out.print("a");
             cache.get(i);
         }
     }

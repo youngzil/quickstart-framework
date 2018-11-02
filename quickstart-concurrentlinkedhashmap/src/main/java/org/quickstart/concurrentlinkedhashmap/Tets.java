@@ -34,11 +34,8 @@ import com.googlecode.concurrentlinkedhashmap.Weighers;
  */
 public class Tets {
 
-    private static ConcurrentMap<String, String>        map   = new ConcurrentHashMap<String, String>();
-    private static ConcurrentLinkedHashMap<Integer, DO> cache = new ConcurrentLinkedHashMap.Builder<Integer, DO>()
-                                                                  .maximumWeightedCapacity(10)
-                                                                  .weigher(Weighers.singleton())
-                                                                  .build();
+    private static ConcurrentMap<String, String> map = new ConcurrentHashMap<String, String>();
+    private static ConcurrentLinkedHashMap<Integer, DO> cache = new ConcurrentLinkedHashMap.Builder<Integer, DO>().maximumWeightedCapacity(10).weigher(Weighers.singleton()).build();
 
     public static void main(String[] args) throws Exception {
         cache.put(1, new DO(1));

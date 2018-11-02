@@ -69,8 +69,9 @@
 		<module>quickstart-xml</module>
 		<module>quickstart-xmlbeans</module>
 		<module>quickstart-yaml</module>
-    <module>quickstart-websocket</module>
-    <module>quickstart-dropwizard</module>
-  </modules>
+		<module>quickstart-websocket</module>
+		<module>quickstart-dropwizard</module>
+		<module>quickstart-crypto</module>
+	</modules>
 
 </project>

@@ -12,19 +12,18 @@ import java.util.Map;
 
 import vlsi.utils.CompactHashMap;
 
-
 /**
- * Test 
- *  
+ * Test
+ * 
  * @author：yangzl@asiainfo.com
- * @2018年5月22日 下午12:21:37 
+ * @2018年5月22日 下午12:21:37
  * @since 1.0
  */
 public class Test {
-    
+
     public static void main(String[] args) {
-        
-        Map<String,String> metadata = new CompactHashMap<>();
+
+        Map<String, String> metadata = new CompactHashMap<>();
         metadata.put("sss", "333");
     }
 

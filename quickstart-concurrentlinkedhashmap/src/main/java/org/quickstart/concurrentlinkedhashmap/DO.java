@@ -9,10 +9,10 @@
 package org.quickstart.concurrentlinkedhashmap;
 
 /**
- * DO 
- *  
+ * DO
+ * 
  * @author：yangzl@asiainfo.com
- * @2018年5月21日 下午11:40:09 
+ * @2018年5月21日 下午11:40:09
  * @since 1.0
  */
 public class DO {

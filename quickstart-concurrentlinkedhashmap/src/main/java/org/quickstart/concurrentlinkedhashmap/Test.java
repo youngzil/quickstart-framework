@@ -39,8 +39,7 @@ public class Test {
                 System.out.println("Evicted key=" + key + ", value=" + value);
             }
         };
-        ConcurrentMap<String, String> cache = new ConcurrentLinkedHashMap.Builder<String, String>()
-                .maximumWeightedCapacity(10).listener(listener).build();
+        ConcurrentMap<String, String> cache = new ConcurrentLinkedHashMap.Builder<String, String>().maximumWeightedCapacity(10).listener(listener).build();
 
         for (int i = 0; i < 150; i++) {
             int j = 1024;
@@ -54,23 +53,19 @@ public class Test {
             System.out.println(key + "====" + value);
         }
         System.out.println(cache.get("1025"));
-        
+
         System.out.println(cache.remove("1026"));
-        
+
         System.out.println(cache.remove("1168"));
 
     }
 
     /**
-    ConcurrentLinkedHashMap 是google团队提供的一个容器。它有什么用呢？其实它本身是对
-    ConcurrentHashMap的封装，可以用来实现一个基于LRU策略的缓存。详细介绍可以参见  
-    http://code.google.com/p/concurrentlinkedhashmap
-    */
+     * ConcurrentLinkedHashMap 是google团队提供的一个容器。它有什么用呢？其实它本身是对 ConcurrentHashMap的封装，可以用来实现一个基于LRU策略的缓存。详细介绍可以参见 http://code.google.com/p/concurrentlinkedhashmap
+     */
     private static void test002() {
 
-        ConcurrentLinkedHashMap<Integer, Integer> map = new ConcurrentLinkedHashMap.Builder<Integer, Integer>()
-                .maximumWeightedCapacity(2).weigher(Weighers.singleton())
-                .build();
+        ConcurrentLinkedHashMap<Integer, Integer> map = new ConcurrentLinkedHashMap.Builder<Integer, Integer>().maximumWeightedCapacity(2).weigher(Weighers.singleton()).build();
 
         map.put(1, 1);
         map.put(2, 2);
@@ -79,4 +74,3 @@ public class Test {
         System.out.println(map.get(2));
     }
 }
-
