@@ -72,6 +72,8 @@
 		<module>quickstart-websocket</module>
 		<module>quickstart-dropwizard</module>
 		<module>quickstart-crypto</module>
-	</modules>
+    <module>quickstart-webservice</module>
+    <module>quickstart-webservice-client</module>
+  </modules>
 
 </project>
