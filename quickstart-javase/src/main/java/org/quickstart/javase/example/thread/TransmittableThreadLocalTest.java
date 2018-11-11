@@ -17,7 +17,7 @@ import com.alibaba.ttl.TransmittableThreadLocal;
 /**
  * TransmittableThreadLocalTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月22日 下午8:33:02
  * @since 1.0
  */

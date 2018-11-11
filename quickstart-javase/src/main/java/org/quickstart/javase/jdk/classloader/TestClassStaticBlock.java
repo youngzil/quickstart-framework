@@ -11,7 +11,7 @@ package org.quickstart.javase.jdk.classloader;
 /**
  * TestClassStaticBlock
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年10月30日 上午11:25:41
  * @since 1.0
  */

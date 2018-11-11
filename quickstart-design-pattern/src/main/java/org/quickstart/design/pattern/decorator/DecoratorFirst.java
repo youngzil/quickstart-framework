@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.decorator;
 /**
  * DecoratorFirst
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午7:58:56
  * @since 1.0
  */

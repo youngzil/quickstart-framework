@@ -14,7 +14,7 @@ import java.util.concurrent.CyclicBarrier;
 /**
  * CyclicBarrierTest3
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年6月27日 下午11:33:49
  * @version 1.0
  */

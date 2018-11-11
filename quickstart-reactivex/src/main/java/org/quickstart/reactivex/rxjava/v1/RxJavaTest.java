@@ -19,7 +19,7 @@ import rx.schedulers.Schedulers;
  * 
  * https://blog.csdn.net/bingduanlbd/article/details/51836132
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月19日 下午9:13:11
  * @since 1.0
  */

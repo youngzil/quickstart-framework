@@ -13,7 +13,7 @@ import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 /**
  * MutexTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年3月16日 下午3:41:37
  * @since 1.0
  */

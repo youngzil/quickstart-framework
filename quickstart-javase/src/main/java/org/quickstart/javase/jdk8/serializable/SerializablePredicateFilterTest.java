@@ -25,7 +25,7 @@ import org.junit.Test;
 /**
  * SerializablePredicateFilterTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年9月12日 下午10:41:44
  * @since 1.0
  */

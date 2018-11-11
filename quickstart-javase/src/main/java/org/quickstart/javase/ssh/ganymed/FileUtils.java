@@ -16,7 +16,7 @@ import java.util.Properties;
 /**
  * FileUtils
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月6日 上午12:23:08
  * @version 2.0
  */

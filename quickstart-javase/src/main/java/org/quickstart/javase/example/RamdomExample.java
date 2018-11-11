@@ -13,7 +13,7 @@ import java.util.Random;
 /**
  * RamdomExample
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月6日 下午11:34:47
  * @version 1.0
  */

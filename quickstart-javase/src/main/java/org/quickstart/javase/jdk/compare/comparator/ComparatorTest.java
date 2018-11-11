@@ -18,7 +18,7 @@ import org.quickstart.javase.jdk.compare.Employee;
 /**
  * ComparatorTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月23日 上午8:20:02
  * @since 1.0
  */

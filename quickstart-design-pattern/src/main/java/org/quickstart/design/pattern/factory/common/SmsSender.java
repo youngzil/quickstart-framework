@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.factory.common;
 /**
  * SmsSender
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月25日 下午12:14:26
  * @since 1.0
  */

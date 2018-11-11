@@ -17,7 +17,7 @@ import java.lang.annotation.Target;
 /**
  * RepeatingAnnotationsTest 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年9月29日 下午4:27:09 
  * @since 1.0
  */

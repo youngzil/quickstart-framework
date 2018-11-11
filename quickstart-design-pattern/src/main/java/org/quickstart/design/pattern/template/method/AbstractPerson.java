@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.template.method;
 /**
  * AbstractPerson
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午11:46:23
  * @since 1.0
  */

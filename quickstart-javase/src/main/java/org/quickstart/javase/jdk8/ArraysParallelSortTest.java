@@ -13,7 +13,7 @@ import java.util.Arrays;
 /**
  * ArraysParallelSortTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月28日 下午10:58:12
  * @since 1.0
  */

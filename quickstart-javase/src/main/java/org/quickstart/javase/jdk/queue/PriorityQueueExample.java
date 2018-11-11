@@ -16,7 +16,7 @@ import java.util.Random;
 /**
  * PriorityQueueExample
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月8日 下午4:51:11
  * @since 1.0
  */

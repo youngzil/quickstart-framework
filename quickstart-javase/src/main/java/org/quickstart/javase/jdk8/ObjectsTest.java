@@ -16,7 +16,7 @@ import java.util.Objects;
 /**
  * ObjectsTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年3月28日 下午9:19:14
  * @since 1.0
  */

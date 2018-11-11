@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.prototype;
 /**
  * Prototype
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午5:13:47
  * @since 1.0
  */

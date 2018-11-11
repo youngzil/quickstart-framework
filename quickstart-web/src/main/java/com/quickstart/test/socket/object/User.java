@@ -11,7 +11,7 @@ package com.quickstart.test.socket.object;
 /**
  * User
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2016年12月29日 下午3:28:40
  * @version 1.0
  */

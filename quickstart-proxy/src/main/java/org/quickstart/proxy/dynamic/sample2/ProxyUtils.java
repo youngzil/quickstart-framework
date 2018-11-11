@@ -16,7 +16,7 @@ import sun.misc.ProxyGenerator;
 /**
  * ProxyUtils
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月11日 下午11:59:21
  * @since 1.0
  */

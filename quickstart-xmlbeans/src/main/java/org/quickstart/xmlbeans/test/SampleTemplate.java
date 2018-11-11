@@ -15,7 +15,7 @@ import java.util.Iterator;
 /**
  * SampleTemplate 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年3月8日 下午9:53:35 
  * @version 1.0
  */

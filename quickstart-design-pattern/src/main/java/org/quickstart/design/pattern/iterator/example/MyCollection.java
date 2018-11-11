@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.iterator.example;
 /**
  * MyCollection
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午9:13:30
  * @since 1.0
  */

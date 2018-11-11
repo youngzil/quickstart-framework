@@ -11,7 +11,7 @@ package org.quickstart.javase.network.io.aio;
 /**
  * ClientReadHandler 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月10日 下午12:37:20 
  * @since 1.0
  */

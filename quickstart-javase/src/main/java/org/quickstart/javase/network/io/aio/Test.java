@@ -19,7 +19,7 @@ import org.quickstart.javase.network.io.nio.Client;
  * 
  * https://blog.csdn.net/anxpp/article/details/51512200
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月10日 下午12:38:39
  * @since 1.0
  */

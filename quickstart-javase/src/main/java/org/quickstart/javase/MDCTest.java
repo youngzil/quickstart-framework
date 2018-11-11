@@ -13,7 +13,7 @@ import org.slf4j.MDC;
 /**
  * MDCTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月18日 下午9:11:34
  * @since 1.0
  */

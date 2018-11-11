@@ -22,7 +22,7 @@ import javax.crypto.SecretKey;
 /**
  * EncrypDES3
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月10日 下午5:40:56
  * @version 1.0
  */

@@ -26,7 +26,7 @@ import java.util.Locale;
 /**
  * NewTimeTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月7日 下午11:01:25
  * @version 2.0
  */

@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 /**
  * MqttClientExecutorThread
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年10月17日 下午9:03:33
  * @since 1.0
  */

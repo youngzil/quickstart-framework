@@ -15,7 +15,7 @@ import java.util.TimerTask;
 /**
  * TimerTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月23日 下午8:31:42
  * @version 2.0
  */

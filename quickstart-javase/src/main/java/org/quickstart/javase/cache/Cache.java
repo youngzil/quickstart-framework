@@ -11,7 +11,7 @@ package org.quickstart.javase.cache;
 /**
  * Cache
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月1日 下午10:16:35
  * @version 2.0
  */

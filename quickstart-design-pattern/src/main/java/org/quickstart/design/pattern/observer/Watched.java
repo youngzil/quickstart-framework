@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.observer;
 /**
  * Watched
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午11:51:20
  * @since 1.0
  */

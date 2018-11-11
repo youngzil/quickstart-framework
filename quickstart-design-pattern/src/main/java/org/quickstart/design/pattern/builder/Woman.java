@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.builder;
 /**
  * Woman
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午5:01:23
  * @since 1.0
  */

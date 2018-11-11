@@ -18,7 +18,7 @@ import kafka.producer.ProducerConfig;
 /**
  * NativeProducer
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月10日 下午2:49:58
  * @since 1.0
  */

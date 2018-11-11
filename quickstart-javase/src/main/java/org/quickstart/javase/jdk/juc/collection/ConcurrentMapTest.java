@@ -16,7 +16,7 @@ import java.util.concurrent.ConcurrentSkipListMap;
 /**
  * ConcurrentMapTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月27日 下午10:39:06
  * @version 2.0
  */

@@ -17,7 +17,7 @@ import java.lang.reflect.Proxy;
  * 
  * 采用JDK动态代理必须实现InvocationHandler接口，采用Proxy类创建相应的代理类
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月17日 下午5:46:42
  * @since 1.0
  */

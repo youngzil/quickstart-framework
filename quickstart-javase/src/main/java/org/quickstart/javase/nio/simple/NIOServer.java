@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
 /**
  * NIOServer
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月9日 下午10:05:15
  * @since 1.0
  */

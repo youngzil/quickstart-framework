@@ -13,7 +13,7 @@ import org.quickstart.javase.spi.IService;
 /**
  * HDFSService
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月22日 下午4:01:43
  * @since 1.0
  */

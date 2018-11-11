@@ -25,7 +25,7 @@ import difflib.Patch;
 /**
  * CompareTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月12日 上午10:56:36
  * @since 1.0
  */

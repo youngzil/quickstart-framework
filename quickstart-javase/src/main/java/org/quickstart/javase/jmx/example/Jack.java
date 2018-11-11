@@ -16,7 +16,7 @@ import javax.management.NotificationBroadcasterSupport;
  * 
  * http://www.cnblogs.com/dongguacai/p/5900507.html
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年6月11日 下午6:48:12
  * @since 1.0
  */

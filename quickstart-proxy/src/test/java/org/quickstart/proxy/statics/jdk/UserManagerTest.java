@@ -11,7 +11,7 @@ package org.quickstart.proxy.statics.jdk;
 /**
  * UserManagerTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月17日 下午5:42:50
  * @since 1.0
  */

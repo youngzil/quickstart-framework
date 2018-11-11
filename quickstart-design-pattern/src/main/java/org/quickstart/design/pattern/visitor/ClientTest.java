@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * ClientTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午11:10:04
  * @since 1.0
  */

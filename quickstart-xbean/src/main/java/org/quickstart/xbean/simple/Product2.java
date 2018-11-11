@@ -16,7 +16,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 /**
  * Product
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年3月19日 下午1:33:40
  * @version 1.0
  */

@@ -15,7 +15,7 @@ import java.io.ObjectOutputStream;
 /**
  * SerialTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月26日 上午11:23:44
  * @version 2.0
  */

@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Student 学生类
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月22日 下午7:20:24
  * @since 1.0
  */

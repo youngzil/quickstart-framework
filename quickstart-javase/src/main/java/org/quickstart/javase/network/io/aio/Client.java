@@ -11,7 +11,7 @@ package org.quickstart.javase.network.io.aio;
 /**
  * Client 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月10日 下午12:35:14 
  * @since 1.0
  */

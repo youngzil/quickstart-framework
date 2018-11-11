@@ -13,7 +13,7 @@ package org.quickstart.javase.example.thread;
  *  
  *  http://blog.51cto.com/stevex/1289499
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月31日 下午12:08:41 
  * @since 1.0
  */

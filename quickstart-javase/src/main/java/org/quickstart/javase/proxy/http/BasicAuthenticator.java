@@ -14,7 +14,7 @@ import java.net.PasswordAuthentication;
 /**
  * BasicAuthenticator 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月21日 下午4:00:21 
  * @since 1.0
  */

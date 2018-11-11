@@ -17,7 +17,7 @@ import java.io.IOException;
 /**
  * FileUtils
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月30日 下午10:18:38
  * @version 2.0
  */

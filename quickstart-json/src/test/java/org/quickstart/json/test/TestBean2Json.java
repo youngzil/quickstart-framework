@@ -25,7 +25,7 @@ import org.quickstart.json.test.util.JsonlibUtil;
 /**
  * TestBean2Json Java对象序列化为Json字符串 测试类
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午10:41:17
  * @since 1.0
  */

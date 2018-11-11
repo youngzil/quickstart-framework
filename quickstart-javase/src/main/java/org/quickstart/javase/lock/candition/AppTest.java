@@ -17,7 +17,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * 
  * http://outofmemory.cn/java/java.util.concurrent/lock-reentrantlock-condition
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月28日 下午1:42:03
  * @since 1.0
  */

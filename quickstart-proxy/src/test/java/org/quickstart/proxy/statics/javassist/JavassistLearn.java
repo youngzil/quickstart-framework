@@ -25,7 +25,7 @@ import javassist.util.proxy.ProxyFactory;
 /**
  * JavassistLearn
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月17日 下午6:16:25
  * @since 1.0
  */

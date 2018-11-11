@@ -15,7 +15,7 @@ import java.lang.reflect.Proxy;
 /**
  * JDKProxy JDK动态代理类 http://blog.csdn.net/u013126379/article/details/52121096
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月19日 下午10:37:42
  * @since 1.0
  */

@@ -20,7 +20,7 @@ import java.util.Properties;
 /**
  * Evaluate 类说明：通过反射为bean赋值。
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年4月29日 下午8:00:40
  * @version 1.0
  */

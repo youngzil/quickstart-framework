@@ -11,7 +11,7 @@ package org.quickstart.proxy.dynamic.sample;
 /**
  * StationProxy 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月11日 下午11:38:17 
  * @since 1.0
  */

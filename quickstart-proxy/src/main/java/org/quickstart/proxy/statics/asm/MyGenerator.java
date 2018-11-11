@@ -20,7 +20,7 @@ import org.quickstart.proxy.clazz.loader.MyTest;
 /**
  * MyGenerator
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月11日 下午11:12:18
  * @since 1.0
  */

@@ -14,7 +14,7 @@ import javax.mail.PasswordAuthentication;
 /**
  * MyAuthenticator
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年2月18日 上午11:18:33
  * @version 1.0
  */

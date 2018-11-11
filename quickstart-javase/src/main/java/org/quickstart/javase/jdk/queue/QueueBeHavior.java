@@ -19,7 +19,7 @@ import java.util.concurrent.PriorityBlockingQueue;
 /**
  * QueueBeHavior 下面涉及Queue实现的大部分操作的基本示例 可以看到除了优先队列，Queue将精确地按照元素被置于Queue中的顺序产生它们
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月8日 下午5:45:06
  * @since 1.0
  */

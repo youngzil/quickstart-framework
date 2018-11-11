@@ -13,7 +13,7 @@ package org.quickstart.javase.bio.example;
  *  
  *  字符缓冲输入流的readLine方法原理：利用FileReader逐字符的读取数据，当读到"\r\n"的时候表示读到行尾，则返回数据。自定义实现readLine方法
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月10日 下午6:56:09 
  * @since 1.0
  */

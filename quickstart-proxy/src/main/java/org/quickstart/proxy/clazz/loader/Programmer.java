@@ -11,7 +11,7 @@ package org.quickstart.proxy.clazz.loader;
 /**
  * Programmer
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月11日 下午10:50:13
  * @since 1.0
  */

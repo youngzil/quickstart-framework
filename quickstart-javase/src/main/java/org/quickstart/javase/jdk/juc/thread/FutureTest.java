@@ -17,7 +17,7 @@ import java.util.concurrent.Future;
 /**
  * FutureTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月23日 下午5:59:15
  * @version 2.0
  */

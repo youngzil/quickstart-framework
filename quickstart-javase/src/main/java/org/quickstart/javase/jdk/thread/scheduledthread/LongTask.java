@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * LongTask
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月18日 下午5:16:58
  * @since 1.0
  */

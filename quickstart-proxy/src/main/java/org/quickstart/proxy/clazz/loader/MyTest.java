@@ -17,7 +17,7 @@ import java.lang.reflect.InvocationTargetException;
 /**
  * MyTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月11日 下午10:52:09
  * @since 1.0
  */

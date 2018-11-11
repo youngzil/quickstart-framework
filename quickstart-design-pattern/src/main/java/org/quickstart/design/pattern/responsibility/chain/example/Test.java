@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.responsibility.chain.example;
 /**
  * Test
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午10:01:25
  * @since 1.0
  */

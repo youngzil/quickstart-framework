@@ -11,7 +11,7 @@ package org.quickstart.disruptor.demo;
 /**
  * LongEvent
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月1日 下午4:46:44
  * @since 1.0
  */

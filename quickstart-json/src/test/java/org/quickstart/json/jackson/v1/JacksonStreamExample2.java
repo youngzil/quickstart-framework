@@ -20,7 +20,7 @@ import org.codehaus.jackson.map.JsonMappingException;
 /**
  * JacksonStreamExample2
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月14日 下午10:57:22
  * @since 1.0
  */

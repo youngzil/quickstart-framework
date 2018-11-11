@@ -20,7 +20,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 /**
  * Test
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午10:33:13
  * @since 1.0
  */

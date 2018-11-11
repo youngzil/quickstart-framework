@@ -15,7 +15,7 @@ import java.util.concurrent.Semaphore;
 /**
  * SemaphoreTest http://ifeve.com/concurrency-semaphore/
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年6月27日 下午11:13:31
  * @version 1.0
  */

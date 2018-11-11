@@ -17,7 +17,7 @@ import java.util.Properties;
 /**
  * AbstractJmxCommand 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年6月12日 下午12:43:25 
  * @since 1.0
  */

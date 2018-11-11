@@ -14,7 +14,7 @@ import java.security.PrivilegedAction;
 /**
  * SystemTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年3月19日 下午4:41:21
  * @since 1.0
  */

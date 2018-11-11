@@ -16,7 +16,7 @@ import edu.princeton.cs.algs4.StdOut;
 /**
  * StdlibExampleTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月8日 下午10:09:53
  * @since 1.0
  */

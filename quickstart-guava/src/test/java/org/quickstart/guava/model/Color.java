@@ -11,7 +11,7 @@ package org.quickstart.guava.model;
 /**
  * Color
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月3日 上午9:40:55
  * @since 1.0
  */

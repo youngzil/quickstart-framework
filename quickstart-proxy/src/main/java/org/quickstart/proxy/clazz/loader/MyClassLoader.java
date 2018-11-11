@@ -11,7 +11,7 @@ package org.quickstart.proxy.clazz.loader;
 /**
  * MyClassLoader 自定义一个类加载器，用于将字节码转换为class对象
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月11日 下午10:50:55
  * @since 1.0
  */

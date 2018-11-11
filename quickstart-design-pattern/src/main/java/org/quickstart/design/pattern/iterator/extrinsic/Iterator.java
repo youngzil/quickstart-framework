@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.iterator.extrinsic;
 /**
  * Iterator
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午9:01:02
  * @since 1.0
  */

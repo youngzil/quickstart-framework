@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * StringTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年3月19日 下午4:37:01
  * @since 1.0
  */

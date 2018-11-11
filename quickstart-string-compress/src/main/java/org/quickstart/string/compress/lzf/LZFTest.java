@@ -15,7 +15,7 @@ import com.ning.compress.lzf.LZFException;
 /**
  * Test
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月22日 下午1:49:25
  * @since 1.0
  */

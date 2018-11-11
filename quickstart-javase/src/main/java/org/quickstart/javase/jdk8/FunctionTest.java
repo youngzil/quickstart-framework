@@ -22,7 +22,7 @@ import org.quickstart.javase.jdk8.stream.Article;
  * 
  * http://www.importnew.com/17209.html
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年3月28日 下午8:33:30
  * @since 1.0
  */

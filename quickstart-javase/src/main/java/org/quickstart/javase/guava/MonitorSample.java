@@ -16,7 +16,7 @@ import com.google.common.util.concurrent.Monitor;
 /**
  * MonitorSample 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年6月27日 下午10:16:21 
  * @version 1.0
  */

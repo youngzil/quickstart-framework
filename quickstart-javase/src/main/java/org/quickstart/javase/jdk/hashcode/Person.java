@@ -13,7 +13,7 @@ package org.quickstart.javase.jdk.hashcode;
  * 
  * 用来测试Set集合保存元素的方式中 hashCode()方法和equals()方法对Set集合保存元素影响
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月24日 下午9:33:42
  * @since 1.0
  */

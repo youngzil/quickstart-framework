@@ -13,7 +13,7 @@ import org.quickstart.guice.sample.service.LogService;
 /**
  * LogServiceImpl 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月21日 下午5:08:28 
  * @since 1.0
  */

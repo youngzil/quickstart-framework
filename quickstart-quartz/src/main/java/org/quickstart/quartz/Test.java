@@ -22,7 +22,7 @@ import org.quartz.impl.StdSchedulerFactory;
 /**
  * Test
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月21日 下午1:03:20
  * @since 1.0
  */

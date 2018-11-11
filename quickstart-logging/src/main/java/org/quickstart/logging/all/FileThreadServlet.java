@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 /**
  * FileThreadServlet
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月5日 下午4:31:02
  * @since 1.0
  */

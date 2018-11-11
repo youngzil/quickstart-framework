@@ -11,7 +11,7 @@ package org.quickstart.javase.example;
 /**
  * MainTest http://blog.csdn.net/zhumintao/article/details/53818972
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年3月22日 下午4:08:35
  * @since 1.0
  */

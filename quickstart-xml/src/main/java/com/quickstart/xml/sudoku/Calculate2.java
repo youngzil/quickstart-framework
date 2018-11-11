@@ -15,7 +15,7 @@ import java.util.TreeSet;
 /**
  * Calculate
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2016年12月16日 上午9:34:47
  * @version 1.0
  */

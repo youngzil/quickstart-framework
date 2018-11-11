@@ -17,7 +17,7 @@ import org.junit.Test;
 /**
  * PredicateTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月31日 下午5:00:03
  * @since 1.0
  */

@@ -13,7 +13,7 @@ import java.util.concurrent.CyclicBarrier;
 /**
  * CyclicBarrierTest2
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年6月27日 下午11:33:18
  * @version 1.0
  */

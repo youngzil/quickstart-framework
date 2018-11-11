@@ -16,7 +16,7 @@ import java.util.stream.LongStream;
 /**
  * RecursiveTaskTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月31日 下午4:29:55
  * @since 1.0
  */

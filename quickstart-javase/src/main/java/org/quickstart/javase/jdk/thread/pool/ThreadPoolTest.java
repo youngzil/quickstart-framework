@@ -11,7 +11,7 @@ package org.quickstart.javase.jdk.thread.pool;
 /**
  * ThreadPoolTest 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月20日 上午11:05:17 
  * @since 1.0
  */

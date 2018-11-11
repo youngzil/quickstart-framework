@@ -11,7 +11,7 @@ package org.quickstart.javase.example.thread;
 /**
  * Godown 生产者－消费者模型之仓库
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月26日 下午7:36:30
  * @version 2.0
  */

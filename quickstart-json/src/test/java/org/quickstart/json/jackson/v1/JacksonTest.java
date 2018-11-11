@@ -38,7 +38,7 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 /**
  * JacksonTest 将java对象转换成JSON字符串，也可以将JSON字符串转换成java对象 http://blog.csdn.net/tanga842428/article/details/54864212
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午11:11:03
  * @since 1.0
  */

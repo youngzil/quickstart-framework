@@ -19,7 +19,7 @@ import org.quickstart.json.test.util.JsonlibUtil;
 /**
  * TestJson2Bean Json字符串 反序列化为Java对象 测试类：
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午10:47:06
  * @since 1.0
  */

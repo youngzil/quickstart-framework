@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.builder;
 /**
  * Person
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午5:00:43
  * @since 1.0
  */

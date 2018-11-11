@@ -11,7 +11,7 @@ package com.quickstart.test.email;
 /**
  * MailSenderInfo 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年2月18日 上午11:16:53 
  * @version 1.0
  */

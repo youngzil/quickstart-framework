@@ -21,7 +21,7 @@ import org.ho.yaml.YamlEncoder;
 /**
  * TestJyamlExample
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月22日 下午5:31:39
  * @since 1.0
  */

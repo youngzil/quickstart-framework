@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * ThreadTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月23日 下午7:10:30
  * @version 2.0
  */

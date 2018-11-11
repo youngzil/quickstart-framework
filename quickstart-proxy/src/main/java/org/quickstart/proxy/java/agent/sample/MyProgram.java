@@ -13,7 +13,7 @@ package org.quickstart.proxy.java.agent.sample;
  *  
  *  https://www.cnblogs.com/aspirant/p/8796974.html
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月12日 上午10:15:28 
  * @since 1.0
  */

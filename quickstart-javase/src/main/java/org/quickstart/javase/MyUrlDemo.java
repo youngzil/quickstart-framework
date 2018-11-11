@@ -11,7 +11,7 @@ package org.quickstart.javase;
 /**
  * MyUrlDemo 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月29日 上午8:36:08 
  * @since 1.0
  */

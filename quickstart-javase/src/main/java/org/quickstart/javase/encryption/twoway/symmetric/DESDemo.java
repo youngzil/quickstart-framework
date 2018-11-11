@@ -11,7 +11,7 @@ package org.quickstart.javase.encryption.twoway.symmetric;
 /**
  * DESDemo 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年10月18日 下午9:16:47 
  * @since 1.0
  */

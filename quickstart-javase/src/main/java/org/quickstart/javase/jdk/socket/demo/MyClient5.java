@@ -22,7 +22,7 @@ import javax.net.ssl.SSLSocketFactory;
 /**
  * MyClient5
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月10日 下午11:55:19
  * @since 1.0
  */

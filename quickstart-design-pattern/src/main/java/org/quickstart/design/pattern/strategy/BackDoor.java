@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.strategy;
 /**
  * BackDoor
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午11:38:33
  * @since 1.0
  */

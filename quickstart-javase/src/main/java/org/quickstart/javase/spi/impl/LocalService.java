@@ -13,7 +13,7 @@ import org.quickstart.javase.spi.IService;
 /**
  * LocalService
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月22日 下午4:02:38
  * @since 1.0
  */

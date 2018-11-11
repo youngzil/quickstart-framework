@@ -19,7 +19,7 @@ import java.io.OutputStream;
 /**
  * ARMTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月15日 上午11:46:54
  * @since 1.0
  */

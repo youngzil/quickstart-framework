@@ -12,7 +12,7 @@ import java.net.Socket;
 /**
  * MyClient2
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月10日 下午11:31:26
  * @since 1.0
  */

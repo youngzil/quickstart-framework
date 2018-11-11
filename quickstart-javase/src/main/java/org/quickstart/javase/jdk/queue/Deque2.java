@@ -17,7 +17,7 @@ import edu.princeton.cs.algs4.StdRandom;
 /**
  * Deque2
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月8日 下午6:30:44
  * @since 1.0
  */

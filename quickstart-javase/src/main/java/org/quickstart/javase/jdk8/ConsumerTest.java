@@ -13,7 +13,7 @@ import java.util.function.Consumer;
 /**
  * ConsumerTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月31日 下午5:08:27
  * @since 1.0
  */

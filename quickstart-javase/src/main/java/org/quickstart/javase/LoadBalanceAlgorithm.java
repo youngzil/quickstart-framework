@@ -11,7 +11,7 @@ package org.quickstart.javase;
 /**
  * LoadBalanceAlgorithm
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年10月20日 下午8:12:01
  * @since 1.0
  */

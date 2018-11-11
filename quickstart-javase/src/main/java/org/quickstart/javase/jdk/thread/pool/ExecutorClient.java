@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 /**
  * ExecutorClient
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年10月12日 下午11:22:02
  * @since 1.0
  */

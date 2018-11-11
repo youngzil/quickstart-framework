@@ -20,7 +20,7 @@ import java.util.Date;
 /**
  * ConvertDate
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年1月5日 上午9:15:15
  * @version 1.0
  */

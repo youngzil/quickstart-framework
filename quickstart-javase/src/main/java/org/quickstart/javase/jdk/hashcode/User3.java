@@ -13,7 +13,7 @@ package org.quickstart.javase.jdk.hashcode;
  * 
  * http://blog.csdn.net/zzg1229059735/article/details/51498310
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月24日 下午10:11:30
  * @since 1.0
  */

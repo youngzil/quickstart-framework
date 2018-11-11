@@ -11,7 +11,7 @@ package org.quickstart.javase.example.ThreadDeadLock;
 /**
  * Resource 资源类，用于代表线程竞争的数据资源
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月26日 下午7:42:15
  * @version 2.0
  */

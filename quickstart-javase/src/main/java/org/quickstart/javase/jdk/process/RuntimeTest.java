@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * RuntimeTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月23日 下午7:02:32
  * @version 2.0
  */

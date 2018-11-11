@@ -11,7 +11,7 @@ package org.quickstart.javase.jdk8;
 /**
  * MathTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月28日 下午11:16:36
  * @since 1.0
  */

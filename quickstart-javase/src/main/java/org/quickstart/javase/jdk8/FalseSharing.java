@@ -11,7 +11,7 @@ package org.quickstart.javase.jdk8;
 /**
  * FalseSharing
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年9月25日 下午5:01:43
  * @since 1.0
  */

@@ -20,7 +20,7 @@ import java.util.concurrent.Future;
 /**
  * ExecutorServiceTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月27日 下午11:12:27
  * @version 2.0
  */

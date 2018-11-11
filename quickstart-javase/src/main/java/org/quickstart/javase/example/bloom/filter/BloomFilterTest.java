@@ -13,7 +13,7 @@ import java.util.BitSet;
 /**
  * BloomFilterTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月10日 上午9:52:11
  * @since 1.0
  * 

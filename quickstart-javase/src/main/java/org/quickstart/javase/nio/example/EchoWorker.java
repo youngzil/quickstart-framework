@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * EchoWorker
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月20日 下午10:35:32
  * @since 1.0
  */

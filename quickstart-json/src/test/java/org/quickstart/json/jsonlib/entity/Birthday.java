@@ -11,7 +11,7 @@ package org.quickstart.json.jsonlib.entity;
 /**
  * Birthday
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午8:24:27
  * @since 1.0
  */

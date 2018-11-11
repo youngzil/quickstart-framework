@@ -22,7 +22,7 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * HttpProxyTest 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月21日 下午3:59:01 
  * @since 1.0
  */

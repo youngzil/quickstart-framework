@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Java8Tester 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月28日 下午11:43:02 
  * @since 1.0
  */

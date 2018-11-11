@@ -11,7 +11,7 @@ package org.quickstart.javase.jdk.compare;
 /**
  * Employee
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月23日 上午8:17:46
  * @since 1.0
  */

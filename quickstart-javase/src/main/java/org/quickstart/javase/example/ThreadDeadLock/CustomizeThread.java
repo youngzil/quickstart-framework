@@ -11,7 +11,7 @@ package org.quickstart.javase.example.ThreadDeadLock;
 /**
  * CustomizeThread 自定义线程类
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月26日 下午7:43:18
  * @version 2.0
  */

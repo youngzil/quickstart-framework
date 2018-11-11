@@ -18,7 +18,7 @@ import org.apache.commons.codec.binary.Hex;
 /**
  * ConvertStringToHexadecimal
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月12日 上午10:14:55
  * @since 1.0
  */

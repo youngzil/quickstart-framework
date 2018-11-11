@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.facade.example2;
 /**
  * UserClientTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午8:41:28
  * @since 1.0
  */

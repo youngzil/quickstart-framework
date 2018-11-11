@@ -26,7 +26,7 @@ import org.anarres.lzo.LzoOutputStream;
 /**
  * LzoAlgorithmTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月22日 下午5:41:28
  * @since 1.0
  */

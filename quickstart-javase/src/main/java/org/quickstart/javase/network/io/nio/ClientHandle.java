@@ -11,7 +11,7 @@ package org.quickstart.javase.network.io.nio;
 /**
  * ClientHandle 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月10日 下午12:16:31 
  * @since 1.0
  */

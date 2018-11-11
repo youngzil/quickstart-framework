@@ -14,7 +14,7 @@ import org.quickstart.design.pattern.iterator.extrinsic.Iterator;
 /**
  * ClientTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午9:11:19
  * @since 1.0
  */

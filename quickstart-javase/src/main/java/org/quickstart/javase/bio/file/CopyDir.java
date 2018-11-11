@@ -16,7 +16,7 @@ import java.io.FilePermission;
  * 
  * FIle类的简单操作：剪切文件夹（及该文件夹下面的所有目录和文件夹）。
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月10日 下午5:38:23
  * @since 1.0
  */

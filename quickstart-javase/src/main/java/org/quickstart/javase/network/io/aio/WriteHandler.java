@@ -11,7 +11,7 @@ package org.quickstart.javase.network.io.aio;
 /**
  * WriteHandler 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月10日 下午12:36:05 
  * @since 1.0
  */

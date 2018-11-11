@@ -15,7 +15,7 @@ import java.util.stream.IntStream;
 /**
  * IntStreamTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年9月12日 下午2:17:46
  * @since 1.0
  */

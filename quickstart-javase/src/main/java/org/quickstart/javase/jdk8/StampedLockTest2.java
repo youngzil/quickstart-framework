@@ -13,7 +13,7 @@ import java.util.concurrent.locks.StampedLock;
 /**
  * StampedLockTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月28日 下午10:52:34
  * @since 1.0
  */

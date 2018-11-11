@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentSkipListSet;
 /**
  * ConcurrentSkipListSetTest 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月29日 下午5:43:02 
  * @since 1.0
  */

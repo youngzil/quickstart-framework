@@ -13,7 +13,7 @@ import java.io.Serializable;
 /**
  * Teacher
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年3月19日 下午12:56:43
  * @version 1.0
  */

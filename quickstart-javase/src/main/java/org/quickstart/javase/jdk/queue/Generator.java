@@ -11,7 +11,7 @@ package org.quickstart.javase.jdk.queue;
 /**
  * Generator
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月8日 下午5:51:44
  * @since 1.0
  */

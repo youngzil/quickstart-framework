@@ -11,7 +11,7 @@ package org.quickstart.javase.example.singleton;
 /**
  * Resource
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月23日 上午11:13:46
  * @version 2.0
  */

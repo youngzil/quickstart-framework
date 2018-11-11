@@ -14,7 +14,7 @@ import org.quickstart.design.pattern.factory.common.Sender;
 /**
  * FactoryTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月25日 下午2:33:00
  * @since 1.0
  */

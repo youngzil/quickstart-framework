@@ -13,7 +13,7 @@ package org.quickstart.proxy.dynamic.sample;
  * 
  * 售票服务接口 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月11日 下午11:37:12 
  * @since 1.0
  */

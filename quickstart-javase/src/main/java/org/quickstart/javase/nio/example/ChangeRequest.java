@@ -13,7 +13,7 @@ import java.nio.channels.SocketChannel;
 /**
  * ChangeRequest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月20日 下午10:36:49
  * @since 1.0
  */

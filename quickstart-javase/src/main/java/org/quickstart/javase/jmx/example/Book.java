@@ -11,7 +11,7 @@ package org.quickstart.javase.jmx.example;
 /**
  * Book
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年6月11日 下午9:50:43
  * @since 1.0
  */

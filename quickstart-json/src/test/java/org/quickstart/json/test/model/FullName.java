@@ -11,7 +11,7 @@ package org.quickstart.json.test.model;
 /**
  * FullName
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午10:45:09
  * @since 1.0
  */

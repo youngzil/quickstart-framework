@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * DaemonThreadTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月25日 上午11:12:08
  * @since 1.0
  */

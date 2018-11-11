@@ -11,7 +11,7 @@ package org.quickstart.javase.lock.candition;
 /**
  * AppOfficial 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月28日 下午1:46:57 
  * @since 1.0
  */

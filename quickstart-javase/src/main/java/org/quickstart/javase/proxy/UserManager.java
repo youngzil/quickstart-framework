@@ -11,7 +11,7 @@ package org.quickstart.javase.proxy;
 /**
  * UserManager
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月19日 下午10:37:01
  * @since 1.0
  */

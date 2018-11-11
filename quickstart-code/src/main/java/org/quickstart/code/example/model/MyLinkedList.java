@@ -11,7 +11,7 @@ package org.quickstart.code.example.model;
 /**
  * MyLinkedList
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月22日 下午12:48:35
  * @since 1.0
  */

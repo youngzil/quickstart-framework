@@ -15,7 +15,7 @@ import org.junit.Test;
 /**
  * DirectByteBufferTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月28日 上午10:46:16
  * @since 1.0
  */

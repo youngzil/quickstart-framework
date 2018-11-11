@@ -18,7 +18,7 @@ import com.jcraft.jzlib.InflaterInputStream;
 /**
  * JzlibTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月22日 下午4:56:58
  * @since 1.0
  */

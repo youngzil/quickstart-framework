@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Task3 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月23日 下午8:35:58 
  * @version 2.0
  */

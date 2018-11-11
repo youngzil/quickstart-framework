@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 
  * 最后给出测试代码，需要注意的是，此测试方法简单粗暴，compareAndSet的性能不如synchronized，并不能简单地说synchronized就更好，两者的使用方式是存在差异的，而且在实际使用中，还有业务处理，不可能有如此高的竞争强度，此对比仅作为一个参考，该测试能够证明的是，AtomicInteger.getAndIncrement的性能有了大幅提升。
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月9日 下午4:25:19
  * @version 1.0
  */

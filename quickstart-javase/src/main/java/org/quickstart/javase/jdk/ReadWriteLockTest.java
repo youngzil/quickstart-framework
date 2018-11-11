@@ -16,7 +16,7 @@ import org.junit.Test;
 /**
  * ReadWriteLockTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月12日 下午4:22:13
  * @since 1.0
  */

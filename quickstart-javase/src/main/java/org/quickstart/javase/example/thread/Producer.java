@@ -11,7 +11,7 @@ package org.quickstart.javase.example.thread;
 /**
  * Producer 生产者－消费者模型之生产者
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月26日 下午7:37:10
  * @version 2.0
  */

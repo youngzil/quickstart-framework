@@ -11,7 +11,7 @@ package com.quickstart.test.socket.nio;
 /**
  * SerializableUtil 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2016年12月29日 下午3:58:29 
  * @version 1.0
  */

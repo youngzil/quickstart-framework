@@ -22,7 +22,7 @@ import javax.crypto.SecretKey;
 /**
  * EncrypAES
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月10日 下午5:52:46
  * @version 1.0
  */

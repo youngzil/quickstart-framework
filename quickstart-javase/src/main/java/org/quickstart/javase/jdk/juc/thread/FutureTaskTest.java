@@ -17,7 +17,7 @@ import java.util.concurrent.FutureTask;
 /**
  * FutureTaskTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月23日 下午6:01:06
  * @version 2.0
  */

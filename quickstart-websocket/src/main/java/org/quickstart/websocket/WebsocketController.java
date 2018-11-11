@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
 /**
  * WebsocketController 
  *  功能说明：websocket处理类, 使用J2EE7的标准
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年9月29日 下午3:07:48 
  * @since 1.0
  */

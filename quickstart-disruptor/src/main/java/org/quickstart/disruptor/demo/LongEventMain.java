@@ -20,7 +20,7 @@ import com.lmax.disruptor.dsl.ProducerType;
 /**
  * LongEventMain
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月1日 下午4:49:06
  * @since 1.0
  */

@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  * DeClassLoader
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月30日 下午10:19:22
  * @version 2.0
  */

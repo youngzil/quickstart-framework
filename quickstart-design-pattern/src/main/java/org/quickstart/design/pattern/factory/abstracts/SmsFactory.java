@@ -16,7 +16,7 @@ import org.quickstart.design.pattern.factory.common.SmsSender;
 /**
  * SmsFactory
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月25日 下午2:31:13
  * @since 1.0
  */

@@ -11,7 +11,7 @@ package org.quickstart.javase.ssh.ganymed;
 /**
  * SSH2Util 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月6日 上午12:22:08 
  * @version 2.0
  */

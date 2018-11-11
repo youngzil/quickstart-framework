@@ -31,7 +31,7 @@ import java.util.EnumSet;
 /**
  * FileCopy
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年3月19日 下午10:38:29
  * @since 1.0
  */

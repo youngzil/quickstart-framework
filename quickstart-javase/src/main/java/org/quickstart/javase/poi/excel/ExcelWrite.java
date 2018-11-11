@@ -22,7 +22,7 @@ import org.apache.poi.ss.usermodel.CreationHelper;
 /**
  * ExcelWrite
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月16日 下午10:08:29
  * @since 1.0
  */

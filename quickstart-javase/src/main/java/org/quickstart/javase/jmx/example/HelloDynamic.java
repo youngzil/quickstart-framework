@@ -30,7 +30,7 @@ import javax.management.ReflectionException;
  * 
  * https://blog.csdn.net/j43350860/article/details/5885474
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年6月11日 下午8:30:53
  * @since 1.0
  */

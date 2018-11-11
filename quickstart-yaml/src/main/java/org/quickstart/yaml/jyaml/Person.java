@@ -11,7 +11,7 @@ package org.quickstart.yaml.jyaml;
 /**
  * Person
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月22日 下午5:38:17
  * @since 1.0
  */

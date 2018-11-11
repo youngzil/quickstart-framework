@@ -11,7 +11,7 @@ package org.quickstart.spring.integration.kafka.example2;
 /**
  * KafkaService 类KafkaService.java的实现描述：发消息接口类
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月10日 下午3:36:54
  * @since 1.0
  */

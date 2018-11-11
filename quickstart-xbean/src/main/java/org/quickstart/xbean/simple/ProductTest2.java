@@ -19,7 +19,7 @@ import org.junit.Test;
 /**
  * ProductTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年3月19日 下午1:35:05
  * @version 1.0
  */

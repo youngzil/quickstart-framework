@@ -17,7 +17,7 @@ import com.google.inject.Inject;
 /**
  * MyApp 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月21日 下午5:09:07 
  * @since 1.0
  */

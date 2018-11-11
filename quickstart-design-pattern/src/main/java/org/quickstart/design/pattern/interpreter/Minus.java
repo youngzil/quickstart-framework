@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.interpreter;
 /**
  * Minus
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 下午1:39:32
  * @since 1.0
  */

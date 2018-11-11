@@ -13,7 +13,7 @@ import javax.net.ssl.SSLSocket;
 /**
  * MainClass2
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月11日 上午9:39:53
  * @since 1.0
  */

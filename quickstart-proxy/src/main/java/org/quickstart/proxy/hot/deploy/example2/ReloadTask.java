@@ -16,7 +16,7 @@ import java.util.TimerTask;
 /**
  * ReloadTask
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月17日 下午10:36:10
  * @since 1.0
  */

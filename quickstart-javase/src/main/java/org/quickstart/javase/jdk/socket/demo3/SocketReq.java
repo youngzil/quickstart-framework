@@ -40,7 +40,7 @@ import javax.net.ssl.X509TrustManager;
 /**
  * SocketReq
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月11日 上午9:43:35
  * @since 1.0
  */

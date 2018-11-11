@@ -20,7 +20,7 @@ import org.junit.Test;
 /**
  * PropertiesTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年9月11日 下午2:16:15
  * @since 1.0
  */

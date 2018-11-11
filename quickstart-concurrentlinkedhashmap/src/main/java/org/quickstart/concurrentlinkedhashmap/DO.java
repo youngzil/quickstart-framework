@@ -11,7 +11,7 @@ package org.quickstart.concurrentlinkedhashmap;
 /**
  * DO
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月21日 下午11:40:09
  * @since 1.0
  */

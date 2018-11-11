@@ -17,7 +17,7 @@ import org.junit.Test;
 /**
  * XbeanTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年3月19日 上午11:56:24
  * @version 1.0
  */

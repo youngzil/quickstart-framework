@@ -11,7 +11,7 @@ package org.quickstart.javase.example.thread;
 /**
  * ThreadApp 生产者－消费者模型之程序入口
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月26日 下午7:38:16
  * @version 2.0
  */

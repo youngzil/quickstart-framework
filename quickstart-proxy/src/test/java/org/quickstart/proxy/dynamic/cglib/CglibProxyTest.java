@@ -16,7 +16,7 @@ import net.sf.cglib.proxy.Enhancer;
 /**
  * CglibProxyTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月17日 下午6:01:02
  * @since 1.0
  */

@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.state.example;
 /**
  * State 状态类的核心类
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午10:57:51
  * @since 1.0
  */

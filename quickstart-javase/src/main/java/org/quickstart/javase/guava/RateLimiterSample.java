@@ -16,7 +16,7 @@ import com.google.common.util.concurrent.RateLimiter;
 /**
  * RateLimiterSample
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年6月27日 下午10:20:51
  * @version 1.0
  */

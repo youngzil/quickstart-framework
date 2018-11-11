@@ -13,7 +13,7 @@ import com.lmax.disruptor.EventHandler;
 /**
  * LongEventHandler 消息者事件处理器，打印输出到控制台
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月1日 下午4:48:04
  * @since 1.0
  */

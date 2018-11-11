@@ -15,7 +15,7 @@ import org.xerial.snappy.Snappy;
 /**
  * SnappyTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月22日 下午4:30:12
  * @since 1.0
  */

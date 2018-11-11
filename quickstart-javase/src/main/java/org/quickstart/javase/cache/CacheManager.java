@@ -17,7 +17,7 @@ import java.util.Iterator;
  * 
  * //可扩展的功能：当chche到内存溢出时必须清除掉最早期的一些缓存对象，这就要求对每个缓存对象保存创建时间
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月1日 下午10:14:54
  * @version 2.0
  */

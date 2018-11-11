@@ -21,7 +21,7 @@ import ch.ethz.ssh2.StreamGobbler;
 /**
  * ScpTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月5日 下午11:58:07
  * @version 2.0
  */

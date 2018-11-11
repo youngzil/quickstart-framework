@@ -30,7 +30,7 @@ import com.google.common.base.Joiner;
 /**
  * ZookeeperDistributedLock
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年6月13日 上午9:46:53
  * @since 1.0
  */

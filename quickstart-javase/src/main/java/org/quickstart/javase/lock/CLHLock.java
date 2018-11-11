@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
  * 
  * 从代码上 看，CLH 要比 MCS 更简单， CLH 的队列是隐式的队列，没有真实的后继结点属性。 MCS 的队列是显式的队列，有真实的后继结点属性。 JUC ReentrantLock 默认内部使用的锁 即是 CLH锁（有很多改进的地方，将自旋锁换成了阻塞锁等等）。
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月9日 下午4:05:38
  * @version 1.0
  */

@@ -16,7 +16,7 @@ import java.io.IOException;
 /**
  * DiskClassLoader
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月30日 下午7:22:49
  * @version 2.0
  */

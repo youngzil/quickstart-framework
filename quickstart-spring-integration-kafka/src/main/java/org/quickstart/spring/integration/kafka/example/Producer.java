@@ -17,7 +17,7 @@ import org.springframework.messaging.MessageChannel;
 /**
  * Producer
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月10日 下午3:01:49
  * @since 1.0
  */

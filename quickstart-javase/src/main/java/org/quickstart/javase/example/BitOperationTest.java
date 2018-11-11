@@ -13,7 +13,7 @@ import java.util.Arrays;
 /**
  * BitOperationTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年10月25日 下午7:30:11
  * @since 1.0
  */

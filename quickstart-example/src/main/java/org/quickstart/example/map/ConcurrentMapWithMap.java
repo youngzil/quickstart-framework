@@ -11,7 +11,7 @@ package org.quickstart.example.map;
 /**
  * ConcurrentMapWithMap 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年3月7日 上午11:55:24 
  * @version 1.0
  */

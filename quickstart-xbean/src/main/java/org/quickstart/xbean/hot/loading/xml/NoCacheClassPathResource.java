@@ -16,7 +16,7 @@ import org.springframework.core.io.ClassPathResource;
 /**
  * NoCacheClassPathResource 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年3月19日 下午7:47:10 
  * @version 1.0
  */

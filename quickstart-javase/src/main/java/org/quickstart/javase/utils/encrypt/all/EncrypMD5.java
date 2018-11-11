@@ -14,7 +14,7 @@ import java.security.NoSuchAlgorithmException;
 /**
  * EncrypMD5
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月10日 下午5:47:48
  * @version 1.0
  */

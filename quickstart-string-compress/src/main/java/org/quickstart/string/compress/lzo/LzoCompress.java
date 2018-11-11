@@ -11,7 +11,7 @@ package org.quickstart.string.compress.lzo;
 /**
  * LzoCompress 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月22日 下午5:45:03 
  * @since 1.0
  */

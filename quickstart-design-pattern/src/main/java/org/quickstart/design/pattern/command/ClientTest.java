@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.command;
 /**
  * ClientTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午10:20:19
  * @since 1.0
  */

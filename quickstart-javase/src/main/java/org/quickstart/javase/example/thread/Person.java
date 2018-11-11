@@ -19,7 +19,7 @@ import lombok.extern.log4j.Log4j;
 /**
  * Person
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月31日 下午12:26:28
  * @since 1.0
  */

@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.bridge;
 /**
  * Bridge
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午8:44:57
  * @since 1.0
  */

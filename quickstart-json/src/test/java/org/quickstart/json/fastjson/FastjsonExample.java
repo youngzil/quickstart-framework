@@ -26,7 +26,7 @@ import com.alibaba.fastjson.serializer.SerializerFeature;
 /**
  * FastjsonExample
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月2日 上午11:00:29
  * @since 1.0
  */

@@ -15,7 +15,7 @@ import java.util.function.Supplier;
  * 
  * 函数式接口Supplier
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年3月28日 下午9:16:26
  * @since 1.0
  */

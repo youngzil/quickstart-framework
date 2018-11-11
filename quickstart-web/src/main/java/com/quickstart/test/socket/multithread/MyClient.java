@@ -11,7 +11,7 @@ package com.quickstart.test.socket.multithread;
 /**
  * MyClient 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2016年12月29日 下午3:22:00 
  * @version 1.0
  */

@@ -14,7 +14,7 @@ import org.quickstart.design.pattern.iterator.extrinsic.Iterator;
 /**
  * ConcreteAggregate
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午9:10:08
  * @since 1.0
  */

@@ -11,7 +11,7 @@ package org.quickstart.javase.example.ThreadDeadLock;
 /**
  * ResourceManager 资源管理类，对资源数据操作的接口
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月26日 下午7:42:42
  * @version 2.0
  */

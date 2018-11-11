@@ -11,7 +11,7 @@ package org.quickstart.javase.jdk8;
 /**
  * RandomStreamTest 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年9月22日 下午11:31:36 
  * @since 1.0
  */

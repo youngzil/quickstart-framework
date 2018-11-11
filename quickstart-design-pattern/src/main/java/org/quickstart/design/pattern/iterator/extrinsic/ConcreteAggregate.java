@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.iterator.extrinsic;
 /**
  * ConcreteAggregate
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午8:59:00
  * @since 1.0
  */

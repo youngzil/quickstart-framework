@@ -18,7 +18,7 @@ import com.google.common.collect.ImmutableSet;
 /**
  * ImmutableCollectionTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月3日 上午9:38:23
  * @since 1.0
  */

@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.command.example;
 /**
  * Command
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午10:23:57
  * @since 1.0
  */

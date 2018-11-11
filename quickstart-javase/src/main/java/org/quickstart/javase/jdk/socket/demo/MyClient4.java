@@ -18,7 +18,7 @@ import java.util.zip.GZIPOutputStream;
 /**
  * MyClient4
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月10日 下午11:40:38
  * @since 1.0
  */

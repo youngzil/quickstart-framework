@@ -13,7 +13,7 @@ import org.apache.log4j.Logger;
 /**
  * Log4jTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2016年12月22日 下午6:07:07
  * @version 1.0
  */

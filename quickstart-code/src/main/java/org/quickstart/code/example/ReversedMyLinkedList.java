@@ -14,7 +14,7 @@ import org.quickstart.code.example.model.Node;
 /**
  * ReversedMyLinkedList
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月22日 下午12:50:13
  * @since 1.0
  */

@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 /**
  * DBdistributedLock
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年6月13日 上午9:30:22
  * @since 1.0
  */

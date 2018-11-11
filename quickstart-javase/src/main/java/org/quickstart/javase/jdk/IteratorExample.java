@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * IteratorExample
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年2月26日 下午4:10:20
  * @since 1.0
  */

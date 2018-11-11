@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
 /**
  * KafkaConsumerService 类KafkaConsumerService.java的实现描述：消费接收类
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月10日 下午3:44:09
  * @since 1.0
  */

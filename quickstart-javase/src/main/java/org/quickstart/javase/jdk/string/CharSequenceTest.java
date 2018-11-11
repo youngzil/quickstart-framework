@@ -11,7 +11,7 @@ package org.quickstart.javase.jdk.string;
 /**
  * CharSequenceTest StringBuilder 和 StringBuffer都是可变的字符序列。它们都继承于AbstractStringBuilder，实现了CharSequence接口。 但是，StringBuilder是非线程安全的，而StringBuffer是线程安全的。
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月31日 下午9:22:02
  * @version 2.0
  */

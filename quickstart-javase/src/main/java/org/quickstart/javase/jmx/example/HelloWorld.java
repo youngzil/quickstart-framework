@@ -13,7 +13,7 @@ package org.quickstart.javase.jmx.example;
  * 
  * http://www.cnblogs.com/dongguacai/p/5900507.html
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年6月10日 下午11:09:24
  * @since 1.0
  */

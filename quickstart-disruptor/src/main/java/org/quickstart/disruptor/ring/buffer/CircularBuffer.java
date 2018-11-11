@@ -13,7 +13,7 @@ package org.quickstart.disruptor.ring.buffer;
  * 
  * 环形缓冲器。逻辑上首尾衔接.
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年9月25日 下午8:34:58
  * @since 1.0
  */

@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * TestLinkedList
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2016年11月11日 下午3:56:40
  * @version 1.0
  */

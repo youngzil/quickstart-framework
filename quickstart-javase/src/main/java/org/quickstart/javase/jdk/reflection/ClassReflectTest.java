@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * ClassReflectTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月24日 上午10:51:09
  * @since 1.0
  */

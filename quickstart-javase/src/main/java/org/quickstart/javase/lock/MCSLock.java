@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicReferenceFieldUpdater;
 /**
  * MCSLock CLHLock 和MCSLock 则是两种类型相似的公平锁，采用链表的形式进行排序， MCSLock则是对本地变量的节点进行循环。不存在CLHlock 的问题。
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月9日 下午4:06:29
  * @version 1.0
  */

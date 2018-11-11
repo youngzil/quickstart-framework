@@ -13,7 +13,7 @@ import com.lmax.disruptor.EventFactory;
 /**
  * LongEventFactory 事件生产工厂
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月1日 下午4:47:00
  * @since 1.0
  */

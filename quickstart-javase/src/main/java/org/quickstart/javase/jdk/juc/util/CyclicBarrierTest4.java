@@ -16,7 +16,7 @@ import java.util.concurrent.TimeoutException;
 /**
  * CyclicBarrierTest4
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月23日 下午5:21:58
  * @version 2.0
  */

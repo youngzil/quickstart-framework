@@ -17,7 +17,7 @@ import net.sf.cglib.proxy.MethodProxy;
 /**
  * CGLibProxy CGLibProxy动态代理类的实例 http://blog.csdn.net/u013126379/article/details/52121096
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月19日 下午10:38:30
  * @since 1.0
  */

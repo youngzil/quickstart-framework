@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * MyUtilsTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月7日 下午10:22:13
  * @version 2.0
  */

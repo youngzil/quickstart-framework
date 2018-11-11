@@ -16,7 +16,7 @@ import java.util.Vector;
 /**
  * ConnectionPool
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午11:25:39
  * @since 1.0
  */

@@ -17,7 +17,7 @@ import java.nio.channels.SocketChannel;
 /**
  * NIOClient
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月9日 下午9:58:16
  * @since 1.0
  */

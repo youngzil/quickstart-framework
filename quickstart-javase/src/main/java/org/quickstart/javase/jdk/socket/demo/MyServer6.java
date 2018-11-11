@@ -19,7 +19,7 @@ import javax.net.ssl.SSLServerSocketFactory;
 /**
  * MyServer5
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月10日 下午11:51:16
  * @since 1.0
  */

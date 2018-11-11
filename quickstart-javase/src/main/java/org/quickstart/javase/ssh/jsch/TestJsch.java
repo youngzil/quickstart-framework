@@ -19,7 +19,7 @@ import com.jcraft.jsch.UserInfo;
 /**
  * TestJsch
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月5日 下午11:46:18
  * @version 2.0
  */

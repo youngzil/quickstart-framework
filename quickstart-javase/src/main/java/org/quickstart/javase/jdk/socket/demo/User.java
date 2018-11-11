@@ -11,7 +11,7 @@ package org.quickstart.javase.jdk.socket.demo;
 /**
  * User
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月10日 下午11:34:59
  * @since 1.0
  */

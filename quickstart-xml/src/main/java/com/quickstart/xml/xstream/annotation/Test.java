@@ -14,7 +14,7 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 /**
  * Test 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月20日 下午11:00:42 
  * @since 1.0
  */

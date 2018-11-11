@@ -11,7 +11,7 @@ package org.quickstart.javase.jdk.communication;
 /**
  * Test1
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月24日 下午11:31:29
  * @version 2.0
  */

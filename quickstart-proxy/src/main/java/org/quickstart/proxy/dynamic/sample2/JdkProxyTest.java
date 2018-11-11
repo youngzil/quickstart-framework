@@ -14,7 +14,7 @@ import java.lang.reflect.Proxy;
 /**
  * JdkProxyTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月11日 下午11:57:19
  * @since 1.0
  */

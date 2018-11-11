@@ -11,7 +11,7 @@ package org.quickstart.javase.jdk.timer;
 /**
  * Task1 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月23日 下午8:35:28 
  * @version 2.0
  */

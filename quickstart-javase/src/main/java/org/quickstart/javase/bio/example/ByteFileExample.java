@@ -13,7 +13,7 @@ package org.quickstart.javase.bio.example;
  * 
  * 字节文件流使用：FileInputStream/FileOutputStream 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月10日 下午6:14:51 
  * @since 1.0
  */

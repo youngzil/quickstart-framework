@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
 /**
  * PriorityList 优先级队列 主要和次要的优先级排序 该列表的排序顺序也是通过实现Comparable而进行控制的
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月8日 下午5:53:55
  * @since 1.0
  */

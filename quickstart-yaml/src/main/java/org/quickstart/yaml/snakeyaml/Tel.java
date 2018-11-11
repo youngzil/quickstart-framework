@@ -11,7 +11,7 @@ package org.quickstart.yaml.snakeyaml;
 /**
  * Tel 联系人电话类
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月22日 下午7:20:59
  * @since 1.0
  */

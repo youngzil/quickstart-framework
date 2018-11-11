@@ -17,7 +17,7 @@ import javax.ws.rs.Path;
 /**
  * HolaRestResourceV2
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年10月22日 下午5:29:45
  * @since 1.0
  */

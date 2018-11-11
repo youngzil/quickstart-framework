@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * RingBuffer2 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年9月25日 下午8:42:25 
  * @since 1.0
  */

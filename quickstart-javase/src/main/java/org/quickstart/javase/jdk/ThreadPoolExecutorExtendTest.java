@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 /**
  * ThreadPoolExecutorExtendTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月25日 上午11:34:07
  * @since 1.0
  */

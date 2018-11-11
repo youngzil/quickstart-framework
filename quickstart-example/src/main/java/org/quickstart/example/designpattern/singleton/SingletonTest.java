@@ -11,7 +11,7 @@ package org.quickstart.example.designpattern.singleton;
 /**
  * SingletonTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年3月7日 下午2:26:49
  * @version 1.0
  */

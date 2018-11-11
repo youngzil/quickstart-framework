@@ -11,7 +11,7 @@ package org.quickstart.javase.example;
 /**
  * TestAddr 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年10月18日 下午4:14:13 
  * @since 1.0
  */

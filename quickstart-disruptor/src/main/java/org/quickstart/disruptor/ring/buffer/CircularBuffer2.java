@@ -11,7 +11,7 @@ package org.quickstart.disruptor.ring.buffer;
 /**
  * CircularBuffer2 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年9月25日 下午8:43:09 
  * @since 1.0
  */

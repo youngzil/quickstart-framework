@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.factory.common;
 /**
  * Receiver
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月25日 下午2:27:33
  * @since 1.0
  */

@@ -11,7 +11,7 @@ package org.quickstart.javase.network.io.bio;
 /**
  * Client 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月10日 上午11:01:05 
  * @since 1.0
  */

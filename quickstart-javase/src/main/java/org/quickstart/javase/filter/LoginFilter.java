@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * LoginFilter
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年6月29日 下午3:36:35
  * @since 1.0
  */

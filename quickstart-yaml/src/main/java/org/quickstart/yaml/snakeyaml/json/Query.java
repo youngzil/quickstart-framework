@@ -11,7 +11,7 @@ package org.quickstart.yaml.snakeyaml.json;
 /**
  * Query
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月22日 下午7:29:54
  * @since 1.0
  */

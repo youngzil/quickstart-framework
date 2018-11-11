@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.adapter.clazz;
 /**
  * Adaptee
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午7:44:01
  * @since 1.0
  */

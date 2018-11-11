@@ -20,7 +20,7 @@ import org.yaml.snakeyaml.Yaml;
 /**
  * YamlHelper
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月22日 下午5:19:48
  * @since 1.0
  */

@@ -29,7 +29,7 @@ import io.dropwizard.setup.Environment;
 /**
  * HelloWorldApplication
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年10月22日 上午11:27:57
  * @since 1.0
  */

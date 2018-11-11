@@ -13,7 +13,7 @@ import net.sf.json.JSONObject;
 /**
  * JsonObjectUtil
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午10:39:30
  * @since 1.0
  */

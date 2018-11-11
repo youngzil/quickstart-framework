@@ -39,7 +39,7 @@ import net.sf.json.xml.XMLSerializer;
  * http://blog.csdn.net/tanga842428/article/details/54864485 <b>function:</b> 用json-lib转换java对象到JSON字符串 读取json字符串到java对象，序列化jsonObject到xml json-lib-version: json-lib-2.3-jdk15.jar 依赖包:
  * commons-beanutils.jar commons-collections-3.2.jar ezmorph-1.0.3.jar commons-lang.jar commons-logging.jar JsonlibTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午8:26:17
  * @since 1.0
  */
@@ -436,7 +436,7 @@ public class JsonlibTest {
      * 
      * @Description: void
      * @Exception
-     * @author：yangzl@asiainfo.com
+     * @author：youngzil@163.com
      * @2017年12月13日 下午8:47:02
      * @since 1.0
      */

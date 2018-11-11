@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.visitor;
 /**
  * ConcreteElement2
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午11:08:15
  * @since 1.0
  */

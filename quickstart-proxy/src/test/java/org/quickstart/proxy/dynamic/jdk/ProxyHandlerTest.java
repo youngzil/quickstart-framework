@@ -14,7 +14,7 @@ import org.quickstart.proxy.statics.jdk.UserManagerImpl;
 /**
  * ProxyHandlerTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月17日 下午5:47:54
  * @since 1.0
  */

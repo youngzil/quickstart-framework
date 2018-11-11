@@ -27,7 +27,7 @@ import ch.qos.logback.classic.Level;
 /**
  * Consumer
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月10日 下午3:04:29
  * @since 1.0
  */

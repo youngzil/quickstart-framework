@@ -31,7 +31,7 @@ import com.google.gson.Gson;
  * TestYaml http://blog.csdn.net/u010466329/article/details/73839917 Java
  * 操作，通过标准的json格式，生成yaml文件，然后再读取yaml文件修改里面的某（多）个变量值（gte，lte，interval，min，max），然后再生成新的json，json格式前后都一样，就是为了修改里面的某些变量值，所以用yaml作为中间桥梁
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月22日 下午7:25:31
  * @since 1.0
  */

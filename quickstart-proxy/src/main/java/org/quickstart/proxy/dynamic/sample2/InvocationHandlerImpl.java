@@ -11,7 +11,7 @@ package org.quickstart.proxy.dynamic.sample2;
 /**
  * InvocationHandlerImpl 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月11日 下午11:55:36 
  * @since 1.0
  */

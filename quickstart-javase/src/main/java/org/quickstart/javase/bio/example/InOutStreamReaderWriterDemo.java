@@ -11,7 +11,7 @@ package org.quickstart.javase.bio.example;
 /**
  * InOutStreamReaderWriterDemo 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月10日 下午7:22:17 
  * @since 1.0
  */

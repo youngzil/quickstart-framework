@@ -11,7 +11,7 @@ package org.quickstart.javase.bio.example;
 /**
  * BufferInOutStream 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月10日 下午6:19:56 
  * @since 1.0
  */

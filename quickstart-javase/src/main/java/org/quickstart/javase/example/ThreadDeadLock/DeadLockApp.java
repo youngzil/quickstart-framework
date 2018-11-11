@@ -11,7 +11,7 @@ package org.quickstart.javase.example.ThreadDeadLock;
 /**
  * DeadLockApp 死锁程序入口
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月26日 下午7:43:56
  * @version 2.0
  */

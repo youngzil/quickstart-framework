@@ -11,7 +11,7 @@ package org.quickstart.javase.jdk8.key;
 /**
  * MyInterfaceImpl
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月7日 下午9:57:56
  * @version 2.0
  */

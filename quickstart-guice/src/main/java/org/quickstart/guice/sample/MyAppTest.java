@@ -21,7 +21,7 @@ import com.google.inject.Injector;
 /**
  * MyAppTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月21日 下午5:10:31
  * @since 1.0
  */

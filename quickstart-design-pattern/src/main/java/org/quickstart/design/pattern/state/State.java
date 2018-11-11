@@ -13,7 +13,7 @@ import java.awt.Color;
 /**
  * State
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午10:37:43
  * @since 1.0
  */

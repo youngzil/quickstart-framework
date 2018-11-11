@@ -11,7 +11,7 @@ package org.quickstart.guice.sample.service;
 /**
  * UserServiceProvides 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月21日 下午5:44:13 
  * @since 1.0
  */

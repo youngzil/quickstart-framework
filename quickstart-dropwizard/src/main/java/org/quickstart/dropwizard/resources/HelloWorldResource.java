@@ -24,7 +24,7 @@ import com.codahale.metrics.annotation.Timed;
 /**
  * HelloWorldResource
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年10月22日 上午11:28:41
  * @since 1.0
  */

@@ -15,7 +15,7 @@ import java.util.Deque;
  * http://blog.csdn.net/top_code/article/details/8650729 http://shenwang.blog.ustc.edu.cn/java-%E5%8F%8C%E5%90%91%E9%98%9F%E5%88%97-arraydeque/ DequeTest 双向队列就是一个队列，但是你可以在任何一端添加或移除元素，
  * LinkedList无法实现这样的接口，但可以使用组合来创建一个Deque类，
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月8日 下午4:48:30
  * @since 1.0
  */

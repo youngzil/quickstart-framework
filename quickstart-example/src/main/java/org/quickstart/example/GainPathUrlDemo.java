@@ -15,7 +15,7 @@ import java.net.URL;
 /**
  * GainPathUrlDemo
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月12日 上午10:42:05
  * @since 1.0
  */

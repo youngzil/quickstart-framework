@@ -13,7 +13,7 @@ import java.nio.ByteBuffer;
 /**
  * ByteBufferTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月28日 上午7:48:04
  * @since 1.0
  */

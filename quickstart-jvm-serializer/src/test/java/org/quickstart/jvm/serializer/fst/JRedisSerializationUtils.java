@@ -23,7 +23,7 @@ import com.esotericsoftware.kryo.io.Output;
 /**
  * JRedisSerializationUtils
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月17日 下午8:56:43
  * @since 1.0
  */

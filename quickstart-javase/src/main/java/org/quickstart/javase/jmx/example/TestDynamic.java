@@ -11,7 +11,7 @@ package org.quickstart.javase.jmx.example;
 /**
  * TestDynamic 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年6月11日 下午8:33:19 
  * @since 1.0
  */

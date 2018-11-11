@@ -17,7 +17,7 @@ import com.esotericsoftware.yamlbeans.YamlReader;
 /**
  * TestYamlbeans
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月22日 下午7:46:07
  * @since 1.0
  */

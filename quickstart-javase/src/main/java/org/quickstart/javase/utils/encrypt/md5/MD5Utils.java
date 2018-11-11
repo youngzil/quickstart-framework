@@ -13,7 +13,7 @@ import java.security.MessageDigest;
 /**
  * MD5Utils
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月10日 下午5:54:15
  * @version 1.0
  */

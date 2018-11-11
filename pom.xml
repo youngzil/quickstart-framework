@@ -29,8 +29,6 @@
 		<module>quickstart-design-pattern</module>
 		<module>quickstart-disruptor</module>
 		<module>quickstart-document</module>
-		<module>quickstart-druid</module>
-		<module>quickstart-druid-io</module>
 		<module>quickstart-eaio-uuid</module>
 		<module>quickstart-elastic-job</module>
 		<module>quickstart-example</module>

@@ -14,7 +14,7 @@ import java.security.SecureRandom;
 /**
  * SecureRandomTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月28日 下午11:19:38
  * @since 1.0
  */

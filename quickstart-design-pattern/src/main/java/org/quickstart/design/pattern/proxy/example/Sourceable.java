@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.proxy.example;
 /**
  * Sourceable
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午8:23:38
  * @since 1.0
  */

@@ -15,7 +15,7 @@ import java.util.concurrent.Phaser;
 /**
  * PhaserExample
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月25日 下午10:31:49
  * @version 2.0
  */

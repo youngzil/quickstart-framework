@@ -17,7 +17,7 @@ import sun.misc.Unsafe;
 /**
  * UnsafeTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年3月16日 上午10:00:38
  * @since 1.0
  */

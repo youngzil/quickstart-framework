@@ -4,7 +4,7 @@ package org.quickstart.javase;
  * BinaryOperationTest
  *
  * @version 2.0
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月6日 下午5:33:39
  */
 public class BinaryOperationTest {
@@ -54,7 +54,7 @@ public class BinaryOperationTest {
 
     /**
      * @Description: @param：
-     * @author：yangzl@asiainfo.com
+     * @author：youngzil@163.com
      * @Date 2017/8/6 17:49
      * @since 2.0
      */

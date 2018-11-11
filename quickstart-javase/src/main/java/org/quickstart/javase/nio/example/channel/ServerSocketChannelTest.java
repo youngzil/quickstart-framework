@@ -16,7 +16,7 @@ import java.nio.channels.SocketChannel;
 /**
  * ServerSocketChannelTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月28日 上午7:49:23
  * @since 1.0
  */

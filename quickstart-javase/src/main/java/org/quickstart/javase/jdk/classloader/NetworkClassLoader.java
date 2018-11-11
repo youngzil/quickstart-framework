@@ -16,7 +16,7 @@ import java.net.URL;
 /**
  * NetworkClassLoader 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月30日 下午5:18:44 
  * @version 2.0
  */

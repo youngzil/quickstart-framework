@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 /**
  * TestPOJO http://blog.csdn.net/sdyy321/article/details/40298081
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月15日 下午6:07:51
  * @since 1.0
  */

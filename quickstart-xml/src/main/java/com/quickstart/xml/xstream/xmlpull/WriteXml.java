@@ -18,7 +18,7 @@ import org.xmlpull.v1.XmlSerializer;
 /**
  * WriteXml
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月20日 下午11:25:51
  * @since 1.0
  */

@@ -15,7 +15,7 @@ import net.sf.json.JSONFunction;
 /**
  * MyBean
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午8:57:31
  * @since 1.0
  */

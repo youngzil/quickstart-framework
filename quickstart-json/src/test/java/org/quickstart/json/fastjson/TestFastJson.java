@@ -19,7 +19,7 @@ import com.alibaba.fastjson.TypeReference;
 /**
  * TestFastJson
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午6:00:48
  * @since 1.0
  */

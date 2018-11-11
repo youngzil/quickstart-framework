@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * ExampleBean
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月22日 下午12:40:52
  * @since 1.0
  */

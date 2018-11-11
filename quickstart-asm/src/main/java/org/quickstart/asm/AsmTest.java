@@ -18,7 +18,7 @@ import org.objectweb.asm.Opcodes;
 /**
  * AsmTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月21日 下午9:07:55
  * @since 1.0
  */

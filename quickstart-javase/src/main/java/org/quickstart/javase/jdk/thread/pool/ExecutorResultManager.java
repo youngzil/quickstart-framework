@@ -11,7 +11,7 @@ package org.quickstart.javase.jdk.thread.pool;
 /**
  * ExecutorResultManager 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月27日 下午12:39:45 
  * @since 1.0
  */

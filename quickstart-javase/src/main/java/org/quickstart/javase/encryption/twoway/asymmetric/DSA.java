@@ -20,7 +20,7 @@ import java.security.spec.X509EncodedKeySpec;
 /**
  * DSA 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年10月18日 下午9:14:40 
  * @since 1.0
  */

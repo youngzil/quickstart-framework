@@ -17,7 +17,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 /**
  * XmlParserDemo 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月20日 下午11:27:27 
  * @since 1.0
  */

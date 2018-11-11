@@ -20,7 +20,7 @@ import com.alibaba.ttl.TtlRunnable;
 /**
  * TransmittableThreadLocalTest2
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月31日 下午12:25:31
  * @since 1.0
  */

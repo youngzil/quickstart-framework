@@ -23,7 +23,7 @@ import com.google.common.util.concurrent.RateLimiter;
 /**
  * ListenableFutureDemo
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年6月27日 下午10:40:00
  * @version 1.0
  */

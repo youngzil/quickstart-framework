@@ -16,7 +16,7 @@ import com.google.gson.JsonParser;
 /**
  * Test
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午10:32:15
  * @since 1.0
  */

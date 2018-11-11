@@ -15,7 +15,7 @@ import java.io.ObjectInputStream;
 /**
  * DeserialTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月26日 上午11:24:16
  * @version 2.0
  */

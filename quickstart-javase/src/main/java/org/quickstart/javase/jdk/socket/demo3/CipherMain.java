@@ -16,7 +16,7 @@ import java.security.NoSuchAlgorithmException;
 /**
  * CipherMain
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月11日 上午9:46:16
  * @since 1.0
  */

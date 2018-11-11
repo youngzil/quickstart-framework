@@ -32,7 +32,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 /**
  * JacksonAnnotationDemo http://blog.csdn.net/sdyy321/article/details/40298081 http://blog.csdn.net/sdyy321/article/details/40298081
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月14日 下午11:04:15
  * @since 1.0
  */

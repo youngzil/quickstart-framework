@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * XStreamTest 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月20日 下午11:21:50 
  * @since 1.0
  */

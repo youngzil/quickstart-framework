@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.responsibility.chain;
 /**
  * Handler
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午9:50:23
  * @since 1.0
  */

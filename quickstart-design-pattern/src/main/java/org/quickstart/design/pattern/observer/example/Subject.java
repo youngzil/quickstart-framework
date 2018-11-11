@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.observer.example;
 /**
  * Subject
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午11:59:56
  * @since 1.0
  */

@@ -15,7 +15,7 @@ import java.util.function.Consumer;
 /**
  * LamdbaTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月7日 下午9:45:55
  * @version 2.0
  */

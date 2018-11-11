@@ -15,7 +15,7 @@ import java.nio.channels.Pipe;
 /**
  * PipeTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月28日 上午9:45:53
  * @since 1.0
  */

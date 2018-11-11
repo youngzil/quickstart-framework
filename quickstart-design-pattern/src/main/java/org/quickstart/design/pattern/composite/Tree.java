@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.composite;
 /**
  * Tree
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午11:05:15
  * @since 1.0
  */

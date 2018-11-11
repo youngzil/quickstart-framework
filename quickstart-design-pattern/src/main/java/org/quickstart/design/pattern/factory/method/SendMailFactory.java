@@ -14,7 +14,7 @@ import org.quickstart.design.pattern.factory.common.Sender;
 /**
  * SendMailFactory
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月25日 下午12:24:09
  * @since 1.0
  */

@@ -17,7 +17,7 @@ import java.util.zip.GZIPOutputStream;
 /**
  * CompressTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月22日 下午12:41:36
  * @since 1.0
  */

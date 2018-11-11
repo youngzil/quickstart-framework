@@ -16,7 +16,7 @@ import com.lmax.disruptor.RingBuffer;
 /**
  * LongEventProducerWithTranslator 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月1日 下午4:48:36 
  * @since 1.0
  */

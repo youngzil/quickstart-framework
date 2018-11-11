@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 /**
  * MyServer3
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月10日 下午11:35:35
  * @since 1.0
  */

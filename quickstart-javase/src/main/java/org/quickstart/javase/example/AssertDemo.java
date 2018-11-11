@@ -11,7 +11,7 @@ package org.quickstart.javase.example;
 /**
  * AssertDemo
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月20日 下午12:30:12
  * @since 1.0
  */

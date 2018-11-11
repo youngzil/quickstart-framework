@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.flyweight;
 /**
  * ConcreteFlyweight
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午11:17:05
  * @since 1.0
  */

@@ -13,7 +13,7 @@ package org.quickstart.concurrentlinkedhashmap;
  * 
  *  主要用于测试concurrentlinkedhashmap在并发的情况下，一边读，一遍update
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月21日 下午11:39:05 
  * @since 1.0
  */

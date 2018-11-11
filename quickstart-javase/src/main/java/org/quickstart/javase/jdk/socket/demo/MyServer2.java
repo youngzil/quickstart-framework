@@ -14,7 +14,7 @@ import java.net.Socket;
 /**
  * MyServer2 当Server没接受到一个Client连接请求之后，都把处理流程放到一个独立的线程里去运行，然后等待下一个Client连接请求，这样就不会阻塞Server端接收请求了。每个独立运行的程序在使用完Socket对象之后要将其关闭。
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月10日 下午11:31:02
  * @since 1.0
  */

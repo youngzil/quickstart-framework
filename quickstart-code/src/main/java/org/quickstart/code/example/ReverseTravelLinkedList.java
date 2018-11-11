@@ -16,7 +16,7 @@ import org.quickstart.code.example.model.Node;
 /**
  * ReverseTravelLinkedList
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月22日 下午12:45:33
  * @since 1.0
  */

@@ -23,7 +23,7 @@ import org.yaml.snakeyaml.Yaml;
 /**
  * TestExampleYaml
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月22日 下午12:41:47
  * @since 1.0
  */

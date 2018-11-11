@@ -11,7 +11,7 @@ package org.quickstart.javase;
 /**
  * Test
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月20日 下午10:19:08
  * @version 2.0
  */

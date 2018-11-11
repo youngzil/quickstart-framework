@@ -13,7 +13,7 @@ import java.util.concurrent.CountDownLatch;
 /**
  * CountDownLatchTest http://ifeve.com/talk-concurrency-countdownlatch/
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年6月27日 下午11:31:59
  * @version 1.0
  */

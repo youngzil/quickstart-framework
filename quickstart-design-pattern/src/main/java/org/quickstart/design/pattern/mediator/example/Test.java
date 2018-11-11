@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.mediator.example;
 /**
  * Test
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 下午1:37:33
  * @since 1.0
  */

@@ -11,7 +11,7 @@ package com.quickstart.test.socket.nio;
 /**
  * MyServer3 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2016年12月29日 下午4:00:08 
  * @version 1.0
  */

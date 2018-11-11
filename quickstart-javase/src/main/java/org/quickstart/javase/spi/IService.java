@@ -11,7 +11,7 @@ package org.quickstart.javase.spi;
 /**
  * IService
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月22日 下午4:00:48
  * @since 1.0
  */

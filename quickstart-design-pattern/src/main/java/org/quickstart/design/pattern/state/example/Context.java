@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.state.example;
 /**
  * Context 状态模式的切换类
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午10:58:25
  * @since 1.0
  */

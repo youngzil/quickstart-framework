@@ -22,7 +22,7 @@ arr_a中的元素比x大，arr_b中的元素比x小。
 /**
  * QuickFind
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月22日 下午12:40:21
  * @since 1.0
  */

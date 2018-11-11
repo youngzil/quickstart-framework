@@ -11,7 +11,7 @@ package org.quickstart.json.jackson.v1.entity;
 /**
  * Birthday
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午11:10:17
  * @since 1.0
  */

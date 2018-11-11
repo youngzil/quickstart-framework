@@ -20,7 +20,7 @@ import org.apache.commons.io.IOUtils;
 /**
  * MyServer
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2016年12月29日 下午3:21:07
  * @version 1.0
  */

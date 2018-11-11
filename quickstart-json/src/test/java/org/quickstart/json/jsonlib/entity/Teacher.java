@@ -11,7 +11,7 @@ package org.quickstart.json.jsonlib.entity;
 /**
  * Teacher
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午9:33:08
  * @since 1.0
  */

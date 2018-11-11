@@ -11,7 +11,7 @@ package org.quickstart.json.jackson.v1.entity;
 /**
  * AccountBean
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午11:09:57
  * @since 1.0
  */

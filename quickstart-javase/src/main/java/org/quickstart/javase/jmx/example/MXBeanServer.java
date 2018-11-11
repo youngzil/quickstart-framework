@@ -16,7 +16,7 @@ import javax.management.ObjectName;
 /**
  * MXBeanServer 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年6月11日 下午9:59:20 
  * @since 1.0
  */

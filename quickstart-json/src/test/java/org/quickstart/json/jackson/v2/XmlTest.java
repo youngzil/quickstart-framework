@@ -16,7 +16,7 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 /**
  * XmlTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月14日 下午6:12:35
  * @since 1.0
  */

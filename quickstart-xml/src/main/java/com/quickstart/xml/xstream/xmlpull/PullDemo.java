@@ -20,7 +20,7 @@ import org.xmlpull.v1.XmlSerializer;
 /**
  * PullDemo 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月20日 下午11:47:12 
  * @since 1.0
  */

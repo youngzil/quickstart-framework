@@ -11,7 +11,7 @@ package org.quickstart.javase.java7.coin.number;
 /**
  * UnderscoresNumericLiterals
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月15日 下午5:28:22
  * @since 1.0
  */

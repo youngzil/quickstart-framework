@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.singleton;
 /**
  * Singleton
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月25日 上午11:59:22
  * @since 1.0
  */

@@ -20,7 +20,7 @@ import com.alibaba.fastjson.serializer.SimpleDateFormatSerializer;
  * 
  * SerializeConfig：是对序列化过程中一些序列化过程的特殊配置，这里用作日期格式的定义。 有关需要带类型的全类型序列化过程，需要调用JSON.toJSONStringZ()方法。 需要美化输出时候，需要打开序列化美化开关，在方法中true那个参数。
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午4:55:35
  * @since 1.0
  */

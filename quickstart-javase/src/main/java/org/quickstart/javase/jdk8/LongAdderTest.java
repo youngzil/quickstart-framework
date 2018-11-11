@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.LongAdder;
 /**
  * LongAdderTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月28日 下午10:51:33
  * @since 1.0
  */

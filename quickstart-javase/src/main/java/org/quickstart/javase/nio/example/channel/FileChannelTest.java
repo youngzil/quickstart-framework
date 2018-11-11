@@ -17,7 +17,7 @@ import java.nio.channels.FileChannel;
 /**
  * FileChannel
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年4月27日 下午8:28:07
  * @since 1.0
  */

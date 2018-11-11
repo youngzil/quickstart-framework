@@ -14,7 +14,7 @@ import java.util.concurrent.ExecutionException;
 /**
  * CompletableFutureTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年8月28日 下午11:35:30
  * @since 1.0
  */

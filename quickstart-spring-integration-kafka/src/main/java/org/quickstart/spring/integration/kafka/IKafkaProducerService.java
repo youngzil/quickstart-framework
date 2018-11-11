@@ -11,7 +11,7 @@ package org.quickstart.spring.integration.kafka;
 /**
  * IKafkaProducerService
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月10日 下午2:36:13
  * @since 1.0
  */

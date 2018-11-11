@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.responsibility.chain;
 /**
  * ClientTest2
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午9:58:55
  * @since 1.0
  */

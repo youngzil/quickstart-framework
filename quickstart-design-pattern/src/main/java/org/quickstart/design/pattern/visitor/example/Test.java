@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.visitor.example;
 /**
  * Test
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午11:19:12
  * @since 1.0
  */

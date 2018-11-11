@@ -14,7 +14,7 @@ import lombok.Setter;
 /**
  * Address 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月20日 下午11:18:32 
  * @since 1.0
  */

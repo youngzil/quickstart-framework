@@ -28,7 +28,7 @@ import java.util.Map;
 /**
  * NioServer
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月20日 下午10:34:54
  * @since 1.0
  */

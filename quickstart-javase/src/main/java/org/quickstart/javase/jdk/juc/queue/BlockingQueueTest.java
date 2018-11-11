@@ -13,7 +13,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 /**
  * BlockingQueueTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月23日 下午6:21:47
  * @version 2.0
  */

@@ -18,7 +18,7 @@ import javax.net.ssl.SSLSocketFactory;
 /**
  * MainClass
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年8月11日 上午9:33:07
  * @since 1.0
  */

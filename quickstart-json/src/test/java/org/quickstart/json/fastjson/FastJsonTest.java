@@ -20,7 +20,7 @@ import com.alibaba.fastjson.JSON;
 /**
  * FastJsonTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月13日 下午10:28:49
  * @since 1.0
  */

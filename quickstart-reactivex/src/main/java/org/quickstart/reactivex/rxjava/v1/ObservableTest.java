@@ -14,7 +14,7 @@ import rx.Subscriber;
 /**
  * ObservableTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月20日 下午1:14:06
  * @since 1.0
  */

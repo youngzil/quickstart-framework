@@ -15,7 +15,7 @@ import java.util.jar.Manifest;
 /**
  * Test
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年2月17日 下午2:46:03
  * @version 1.0
  */

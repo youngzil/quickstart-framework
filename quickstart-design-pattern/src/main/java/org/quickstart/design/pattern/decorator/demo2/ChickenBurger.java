@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.decorator.demo2;
 /**
  * ChickenBurger
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午8:04:59
  * @since 1.0
  */

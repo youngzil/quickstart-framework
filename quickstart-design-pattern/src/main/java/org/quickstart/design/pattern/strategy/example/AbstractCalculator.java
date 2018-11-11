@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.strategy.example;
 /**
  * AbstractCalculator
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午11:42:43
  * @since 1.0
  */

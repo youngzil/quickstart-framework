@@ -12,7 +12,7 @@ package org.quickstart.javase.lock;
  * ReentrantLockTest 
  *  大多数情况下，大家可能都会选择使用synchronized来加锁，ReentrantLock确实是一种高级加锁工具，在确实需要一些 synchronized 所没有的特性的时候，比如时间锁等候、可中断锁等候、无块结构锁、多个条件变量或者锁投票。  
 以下实现公平锁和非公平锁，公平锁在性能上会多消耗点
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月18日 下午9:17:20 
  * @version 2.0
  */

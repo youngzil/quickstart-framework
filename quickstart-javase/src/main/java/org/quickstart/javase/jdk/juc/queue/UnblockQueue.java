@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
 /**
  * UnblockQueue
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年7月23日 下午6:22:08
  * @version 2.0
  */

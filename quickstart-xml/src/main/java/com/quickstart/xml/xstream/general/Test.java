@@ -13,7 +13,7 @@ import com.thoughtworks.xstream.XStream;
 /**
  * Test
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月20日 下午10:55:21
  * @since 1.0
  */

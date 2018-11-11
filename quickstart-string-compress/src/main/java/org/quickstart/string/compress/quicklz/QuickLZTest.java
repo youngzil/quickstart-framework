@@ -11,7 +11,7 @@ package org.quickstart.string.compress.quicklz;
 /**
  * QuickLZTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月22日 下午1:11:16
  * @since 1.0
  */

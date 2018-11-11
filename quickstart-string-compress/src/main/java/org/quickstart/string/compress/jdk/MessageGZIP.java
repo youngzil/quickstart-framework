@@ -11,7 +11,7 @@ package org.quickstart.string.compress.jdk;
 /**
  * MessageGZIP 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月22日 下午12:56:42 
  * @since 1.0
  */

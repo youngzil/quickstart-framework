@@ -14,7 +14,7 @@ mail_pass = ""  # 口令 ，发件人邮箱密码，QQ使用SMTP授权码
 
 sender = 'youngzil@vip.qq.com'  # 发件人邮箱账号
 receivers = ['youngzil@vip.qq.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
-# receivers = ['youngzil@163.com','yangzl@asiainfo.com','youngzil@vip.qq.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
+# receivers = ['youngzil@163.com','youngzil@163.com','youngzil@vip.qq.com']  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
 
 def mail():
     ret = True

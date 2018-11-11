@@ -24,7 +24,7 @@ import org.springframework.kafka.listener.config.ContainerProperties;
 /**
  * KafkaConsumerServiceImpl
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月10日 下午2:39:56
  * @since 1.0
  */

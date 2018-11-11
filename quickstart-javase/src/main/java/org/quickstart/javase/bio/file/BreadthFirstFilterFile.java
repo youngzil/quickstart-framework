@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * 
  * File类的简单操作：广度优先过滤文件夹。
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月10日 下午5:36:48
  * @since 1.0
  */

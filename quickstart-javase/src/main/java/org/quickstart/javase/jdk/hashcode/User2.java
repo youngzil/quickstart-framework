@@ -16,7 +16,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
  * 
  * http://blog.csdn.net/zzg1229059735/article/details/51498310
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月24日 下午10:07:52
  * @since 1.0
  */

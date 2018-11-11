@@ -16,7 +16,7 @@ import edu.princeton.cs.algs4.StdOut;
 /**
  * Deque 双向队列的内部实现是一个双向链表，可以分别从头尾插入和删除节点。 通常使用一个first指向头 last指向尾。然后分别维护各种next和prev指针。通常情况要考虑边界条件，即当队列本身为空的时候插入新节点如何维护first和last的指向 删除节点的时候，若队列变为空又应该如何维护first和last指针。非常繁琐而且容易写错，不过使用的空间最少，
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月8日 下午6:28:45
  * @since 1.0
  */

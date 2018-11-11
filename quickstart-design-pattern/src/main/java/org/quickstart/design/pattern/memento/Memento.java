@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.memento;
 /**
  * Memento
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月27日 上午10:28:17
  * @since 1.0
  */

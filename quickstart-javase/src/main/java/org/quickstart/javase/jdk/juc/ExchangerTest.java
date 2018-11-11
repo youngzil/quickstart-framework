@@ -15,7 +15,7 @@ import java.util.concurrent.Exchanger;
 /**
  * ExchangerTest 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年5月8日 上午9:35:22 
  * @since 1.0
  */

@@ -20,7 +20,7 @@ import org.softee.management.helper.MBeanRegistration;
  * 
  * https://blog.csdn.net/hanxingwang0806/article/details/25161243
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年6月11日 下午9:01:17
  * @since 1.0
  */

@@ -34,7 +34,7 @@ import javax.management.remote.JMXServiceURL;
  * 
  * http://www.cnblogs.com/dongguacai/p/5900507.html
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年6月10日 下午11:38:45
  * @since 1.0
  */

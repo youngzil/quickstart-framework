@@ -20,7 +20,7 @@ import com.codahale.metrics.annotation.Timed;
 /**
  * GreeterRestResource
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年10月22日 下午7:24:07
  * @since 1.0
  */

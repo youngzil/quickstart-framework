@@ -14,7 +14,7 @@ import java.net.UnknownHostException;
 /**
  * EnvironmentInfo
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年6月30日 下午4:55:00
  * @version 1.0
  */

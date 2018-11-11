@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 /**
  * MyClient
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2016年12月29日 下午3:29:55
  * @version 1.0
  */

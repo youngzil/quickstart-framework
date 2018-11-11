@@ -21,7 +21,7 @@ public class TimerManager {
      * @throws Exception
      * @throws NumberFormatException
      * 
-     * @author：yangzl@asiainfo.com @2015-6-20 下午03:37:12
+     * @author：youngzil@163.com @2015-6-20 下午03:37:12
      */
     public static void SynchImeiBossInfoTask() {
 
@@ -50,7 +50,7 @@ public class TimerManager {
     /**
      * 在date时间基础上增加或减少天数
      * 
-     * @author：yangzl@asiainfo.com @2015-6-20 下午03:37:12
+     * @author：youngzil@163.com @2015-6-20 下午03:37:12
      */
     public static Date addDay(Date date, int num) {
         Calendar startDT = Calendar.getInstance();
@@ -62,7 +62,7 @@ public class TimerManager {
     /**
      * 在date时间基础上增加或减少分钟数
      * 
-     * @author：yangzl@asiainfo.com @2015-6-20 下午03:37:12
+     * @author：youngzil@163.com @2015-6-20 下午03:37:12
      */
     public static Date addMinute(Date date, int num) {
         Calendar startDT = Calendar.getInstance();

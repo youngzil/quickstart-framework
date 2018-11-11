@@ -16,7 +16,7 @@ import org.ho.yaml.Yaml;
 /**
  * TestJyaml
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年11月22日 下午7:14:38
  * @since 1.0
  */

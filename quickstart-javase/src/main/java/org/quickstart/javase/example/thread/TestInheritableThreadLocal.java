@@ -11,7 +11,7 @@ package org.quickstart.javase.example.thread;
 /**
  * TestInheritableThreadLocal
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年9月18日 下午10:04:30
  * @since 1.0
  */

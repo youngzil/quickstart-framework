@@ -11,7 +11,7 @@ package org.quickstart.design.pattern.builder.simple;
 /**
  * ManBuilder
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年1月26日 下午5:07:40
  * @since 1.0
  */

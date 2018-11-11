@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * ScheduledThreadPoolExec
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2017年12月18日 下午5:13:56
  * @since 1.0
  */
