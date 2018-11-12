@@ -65,4 +65,10 @@ PS：BOOT/classes是jar包内的目录，如果不加此目录，会把文件放
 
 
 
+web.xml文件详解
+https://segmentfault.com/a/1190000011404088
+
+
+
+
 
