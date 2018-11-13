@@ -70,10 +70,11 @@
 		<module>quickstart-websocket</module>
 		<module>quickstart-dropwizard</module>
 		<module>quickstart-crypto</module>
-    <module>quickstart-jool</module>
-    <module>quickstart-joou</module>
-    <module>quickstart-joor</module>
-    <module>quickstart-joox</module>
-  </modules>
+		<module>quickstart-jool</module>
+		<module>quickstart-joou</module>
+		<module>quickstart-joor</module>
+		<module>quickstart-joox</module>
+		<module>quickstart-reflect</module>
+	</modules>
 
 </project>
