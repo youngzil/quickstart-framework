@@ -31,8 +31,8 @@ ReactiveX组合了以下3者：
 简单的说, ReactiveX (Rx) 是一个简化异步调用的库. Rx是从微软的函数响应式编程库(Reactive Extensions)发展而来的, 提供了一种新的组织和协调异步事件的方式. 例如协调多个从网络上返回的多个异步的数据流, Rx能够是的我们用一个简单的方式来处理这些数据流, 极大的简化了代码的编写.
 Rx作为一个通用库, 现在已经多种语言的实现版本(都是开源的), 包含RxJava, RxCpp, RxSwift, RxKotlin, RxGroovy, RxJavaScript等, 具体可以参考所有支持语言.
 
-1.X版本package:io.reactivex
-2.X版本package:rx
+1.X版本package:rx
+2.X版本package:io.reactivex
 
 
 
