@@ -1,7 +1,7 @@
-十进制（Decimal）：由0，1组成，以0b开头。（b大小写都行）
-二进制（Binary）：由0，1，…，7组成，以0开头。
-八进制（Octal）：由0，1，…，9组成，整数默认为十进制。
-十六进制（简写为hex或下标16）：由0，1，…，9，a，b，c，d，e，f组成（大小写均可），以0x开头。
+十进制（Decimal）：由0，1，…，9组成，整数默认为十进制。
+二进制（Binary）：由0，1组成，以0b开头。二进制变量的声明以0b为前缀（b大小写都行）
+八进制（Octal）：由0，1，…，7组成，以0开头。八进制变量的声明以0为前缀
+十六进制（简写为hex或下标16）：由0，1，…，9，a，b，c，d，e，f组成（大小写均可），以0x开头。十六进制变量的声明以0x为前缀
 
 
 2进制、8进制和16进制之间转换一般通过10进制来做中间转换
@@ -13,9 +13,10 @@
 
 
 2、十进制转成二进制、八进制、十六进制
-Integer.toBinaryString(int i) 
-Integer.toOctalString(int i) 
-Integer.toHexString(int i) 
+Java中十进制转其它进制： 
+十进制转二进制：Integer.toBinaryString(i); 
+十进制转八进制：Integer.toOctalString(i); 
+十进制转十六进制：Integer.toHexString(i);
  
  
 3、二进制、八进制、十六进制--->十进制

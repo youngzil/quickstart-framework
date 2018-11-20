@@ -1,3 +1,6 @@
+https://java.com/zh_CN/
+
+
 export JAVA_HOME=/home/aimsgframe/jdk1.8.0_181
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export PATH=$JAVA_HOME/bin:$PATH

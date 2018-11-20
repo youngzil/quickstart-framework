@@ -222,7 +222,7 @@ public class BitOperationTest {
 
         // sign函数，参数为n，当n>0时候返回1，n<0时返回-1，n=0时返回0
         // !!n - (((unsigned)n >> 31) << 1);
-
+        
     }
 
 }

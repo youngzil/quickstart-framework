@@ -97,5 +97,66 @@ public class RadixTransTest {
         System.out.print("10的二进制形式：");
         toBin(10);
 
+        // 1. 各种进制字符串形式的相互转化
+        System.out.println("把2,8,16的数字的字符串形式，转化为10进制：");
+        System.out.println(Integer.parseInt("10", 10));
+        System.out.println(Integer.parseInt("10", 2));
+        System.out.println(Integer.parseInt("10", 8));
+        System.out.println(Integer.parseInt("10", 16));
+        System.out.println();
+
+        System.out.println("把10进制，转化为2,8,16进制：");
+        System.out.println(Integer.toString(10));
+        System.out.println(Integer.toBinaryString(10));
+        System.out.println(Integer.toOctalString(10));
+        System.out.println(Integer.toHexString(10));
+        System.out.println();
+
+        // 2. 在输入输出的过程中，直接转化各种进制（注意：不能直接转化2进制，2进制需要用字符串处理）
+        System.out.println("把8,16进制的数字，直接打印为10进制：");
+        System.out.format("%d", 10).println();
+        System.out.format("%d", 010).println();
+        System.out.format("%d", 0x10).println();
+        System.out.println();
+
+        System.out.println("把10进制，直接打印为8,16进制，而且可以控制输出形式：");
+        System.out.format("%d", 10).println();
+        System.out.format("%o, %#o, %#4o, %#04o", 10, 10, 10, 10).println();
+        System.out.format("%x, %#x, %#4x, %#04x", 10, 10, 10, 10).println();
+        System.out.println();
+
+        // 3. 格式化输出的字符串
+        System.out.println("把10进制，输出为8,16进制到字符串，而且可以控制输出形式：");
+        String s;
+        System.out.println(s = String.format("%d", 10));
+        System.out.println(s = String.format("%o, %#o, %#4o, %#04o", 10, 10, 10, 10));
+        System.out.println(s = String.format("%x, %#x, %#4x, %#04x", 10, 10, 10, 10));
+        System.out.println();
+
+        /* Java中数值变量的声明： 
+        二进制变量的声明以0b为前缀； 
+        八进制变量的声明以0为前缀； 
+        十六进制变量的声明以0x为前缀。*/
+
+        // 二进制、八进制、十六进制数值在运用时候自动转为对应的十进制的值
+        int a = 0b11; // 声明二进制变量
+        int b = 011; // 声明八进制变量
+        int c = 11; // 声明十进制变量
+        int d = 0x11; // 声明十六进制变量
+        System.out.println("a：" + a); // 3
+        System.out.println("b：" + b); // 9
+        System.out.println("c：" + c); // 11
+        System.out.println("d：" + d); // 17
+
+        /* Java中十进制转其它进制： 
+        十进制转二进制：Integer.toBinaryString(i); 
+        十进制转八进制：Integer.toOctalString(i); 
+        十进制转十六进制：Integer.toHexString(i);*/
+        int i = 15;
+        System.out.println("十进制15对应的二进制为：" + Integer.toBinaryString(i)); // 1111
+        System.out.println("十进制15对应的八进制为：" + Integer.toOctalString(i)); // 17
+        System.out.println(i); // 15
+        System.out.println("十进制15对应的十六进制为：" + Integer.toHexString(i)); // f
+
     }
 }
