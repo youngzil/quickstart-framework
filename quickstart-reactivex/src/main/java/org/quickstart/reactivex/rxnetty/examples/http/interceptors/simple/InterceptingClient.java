@@ -82,6 +82,8 @@ public final class InterceptingClient {
              <li>Otherwise, start the passed server class and use that address.</li>
          </ul>
          */
+        args[0]= "5340";
+        args[1]= "127.0.0.1";
         SocketAddress serverAddress = env.getServerAddress(InterceptingServer.class, args);
 
         HttpClient.newClient(serverAddress)

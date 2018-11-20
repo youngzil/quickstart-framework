@@ -44,7 +44,7 @@ public final class InterceptingServer {
 
         HttpServer<ByteBuf, ByteBuf> server;
 
-        server = HttpServer.newServer()
+        server = HttpServer.newServer(5340)
                            .enableWireLogging("inter-server", LogLevel.DEBUG)
                            .start(HttpServerInterceptorChain.startRaw()
                                                             .next(addHeader())
