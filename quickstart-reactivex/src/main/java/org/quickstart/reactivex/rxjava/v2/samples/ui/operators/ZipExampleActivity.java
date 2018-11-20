@@ -1,24 +1,15 @@
 package org.quickstart.reactivex.rxjava.v2.samples.ui.operators;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-
-import com.rxjava2.android.samples.R;
-import com.rxjava2.android.samples.model.User;
-import com.rxjava2.android.samples.utils.AppConstant;
-import com.rxjava2.android.samples.utils.Utils;
-
 import java.util.List;
 
-import androidx.appcompat.app.AppCompatActivity;
+import org.quickstart.reactivex.rxjava.v2.samples.model.User;
+import org.quickstart.reactivex.rxjava.v2.samples.utils.AppConstant;
+import org.quickstart.reactivex.rxjava.v2.samples.utils.Utils;
+
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.BiFunction;
 import io.reactivex.schedulers.Schedulers;
@@ -26,26 +17,9 @@ import io.reactivex.schedulers.Schedulers;
 /**
  * Created by amitshekhar on 27/08/16.
  */
-public class ZipExampleActivity extends AppCompatActivity {
+public class ZipExampleActivity  {
 
     private static final String TAG = ZipExampleActivity.class.getSimpleName();
-    Button btn;
-    TextView textView;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_example);
-        btn = findViewById(R.id.btn);
-        textView = findViewById(R.id.textView);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                doSomeWork();
-            }
-        });
-    }
 
     /*
     * Here we are getting two user list
@@ -64,7 +38,7 @@ public class ZipExampleActivity extends AppCompatActivity {
                 // Run on a background thread
                 .subscribeOn(Schedulers.io())
                 // Be notified on the main thread
-                .observeOn(AndroidSchedulers.mainThread())
+//                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(getObserver());
     }
 
@@ -97,32 +71,30 @@ public class ZipExampleActivity extends AppCompatActivity {
 
             @Override
             public void onSubscribe(Disposable d) {
-                Log.d(TAG, " onSubscribe : " + d.isDisposed());
+                System.out.println(" onSubscribe : " + d.isDisposed());
             }
 
             @Override
             public void onNext(List<User> userList) {
-                textView.append(" onNext");
-                textView.append(AppConstant.LINE_SEPARATOR);
+                System.out.println(" onNext");
+                System.out.println(" onNext : " + userList.size());
+                System.out.println(AppConstant.LINE_SEPARATOR);
                 for (User user : userList) {
-                    textView.append(" firstname : " + user.firstname);
-                    textView.append(AppConstant.LINE_SEPARATOR);
+                    System.out.println(" firstname : " + user.firstname);
+                    System.out.println(AppConstant.LINE_SEPARATOR);
                 }
-                Log.d(TAG, " onNext : " + userList.size());
             }
 
             @Override
             public void onError(Throwable e) {
-                textView.append(" onError : " + e.getMessage());
-                textView.append(AppConstant.LINE_SEPARATOR);
-                Log.d(TAG, " onError : " + e.getMessage());
+                System.out.println(" onError : " + e.getMessage());
+                System.out.println(AppConstant.LINE_SEPARATOR);
             }
 
             @Override
             public void onComplete() {
-                textView.append(" onComplete");
-                textView.append(AppConstant.LINE_SEPARATOR);
-                Log.d(TAG, " onComplete");
+                System.out.println(" onComplete");
+                System.out.println(AppConstant.LINE_SEPARATOR);
             }
         };
     }

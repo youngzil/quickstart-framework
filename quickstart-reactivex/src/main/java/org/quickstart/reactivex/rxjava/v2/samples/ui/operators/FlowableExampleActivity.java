@@ -1,15 +1,7 @@
 package org.quickstart.reactivex.rxjava.v2.samples.ui.operators;
 
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import org.quickstart.reactivex.rxjava.v2.samples.utils.AppConstant;
 
-import com.rxjava2.android.samples.R;
-import com.rxjava2.android.samples.utils.AppConstant;
-
-import androidx.appcompat.app.AppCompatActivity;
 import io.reactivex.Flowable;
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
@@ -18,26 +10,9 @@ import io.reactivex.functions.BiFunction;
 /**
  * Created by amitshekhar on 27/08/16.
  */
-public class FlowableExampleActivity extends AppCompatActivity {
+public class FlowableExampleActivity  {
 
     private static final String TAG = FlowableExampleActivity.class.getSimpleName();
-    Button btn;
-    TextView textView;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_example);
-        btn = findViewById(R.id.btn);
-        textView = findViewById(R.id.textView);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                doSomeWork();
-            }
-        });
-    }
 
     /*
      * simple example using Flowable
@@ -60,21 +35,19 @@ public class FlowableExampleActivity extends AppCompatActivity {
         return new SingleObserver<Integer>() {
             @Override
             public void onSubscribe(Disposable d) {
-                Log.d(TAG, " onSubscribe : " + d.isDisposed());
+                System.out.println(" onSubscribe : " + d.isDisposed());
             }
 
             @Override
             public void onSuccess(Integer value) {
-                textView.append(" onSuccess : value : " + value);
-                textView.append(AppConstant.LINE_SEPARATOR);
-                Log.d(TAG, " onSuccess : value : " + value);
+                System.out.println(" onSuccess : value : " + value);
+                System.out.println(AppConstant.LINE_SEPARATOR);
             }
 
             @Override
             public void onError(Throwable e) {
-                textView.append(" onError : " + e.getMessage());
-                textView.append(AppConstant.LINE_SEPARATOR);
-                Log.d(TAG, " onError : " + e.getMessage());
+                System.out.println(" onError : " + e.getMessage());
+                System.out.println(AppConstant.LINE_SEPARATOR);
             }
         };
     }
