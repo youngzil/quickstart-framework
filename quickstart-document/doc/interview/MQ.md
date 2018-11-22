@@ -1,4 +1,5 @@
 1、
+
 2、
 3、
 4、
@@ -24,5 +25,5 @@
 24、
 25、
 
-
+消息中间件：Rocketmq、activemq、kafka、rabbitmq、mqtt、openmq、zeromq、hivemq、hornetq、openmessaging、
 

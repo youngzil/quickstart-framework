@@ -25,11 +25,9 @@
 25、
 
 
-缓存：Redis、memcached、ehcache、hazelcast、tair
 
-
-
-
+配置中心：携程Apollo配置中心、disconf、
+注册中心：Zookeeper
 
 
 

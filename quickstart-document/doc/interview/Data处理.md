@@ -25,11 +25,6 @@
 25、
 
 
-缓存：Redis、memcached、ehcache、hazelcast、tair
-
-
-
-
-
+数据处理：druid-io、elasticsearch、flink、flume、hadoop、hbase、jstorm（storm）、lucene、solr、spark、
 
 

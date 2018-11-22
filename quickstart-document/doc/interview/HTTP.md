@@ -24,12 +24,6 @@
 24、
 25、
 
-
-缓存：Redis、memcached、ehcache、hazelcast、tair
-
-
-
-
-
+http调用：feign、httpClient、okhttp、unirest、jdk、jersey-http
 
 

@@ -24,10 +24,10 @@
 24、
 25、
 
-
-缓存：Redis、memcached、ehcache、hazelcast、tair
-
-
+工具：
+maven、gradle、ant+ivy
+nexus、jenkins
+sonar、findbugs、
 
 
 

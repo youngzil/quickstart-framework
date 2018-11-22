@@ -25,11 +25,8 @@
 25、
 
 
-缓存：Redis、memcached、ehcache、hazelcast、tair
-
-
-
-
-
+test：
+jmeter、loadrunner、selenium
+junit、testng、jmh、mock
 
 

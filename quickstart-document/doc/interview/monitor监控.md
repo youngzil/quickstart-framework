@@ -25,11 +25,5 @@
 25、
 
 
-缓存：Redis、memcached、ehcache、hazelcast、tair
-
-
-
-
-
-
+监控：zabbit
 

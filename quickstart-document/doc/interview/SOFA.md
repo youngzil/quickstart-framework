@@ -25,11 +25,4 @@
 25、
 
 
-缓存：Redis、memcached、ehcache、hazelcast、tair
-
-
-
-
-
-
 

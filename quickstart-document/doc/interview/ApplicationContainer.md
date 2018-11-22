@@ -25,7 +25,11 @@
 25、
 
 
-缓存：Redis、memcached、ehcache、hazelcast、tair
+
+
+应用服务器：jboss、jetty、jersey、tomcat、weblogic、WebSphere、
+
+
 
 
 

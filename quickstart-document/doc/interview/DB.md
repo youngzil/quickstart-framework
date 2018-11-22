@@ -2,6 +2,7 @@
 2、SQL优化：执行计划和Hint：EXPLAIN 或 EXPLAIN PLAN FOR 、/*+ all_rows */
 3、redis怎么防止内存穿透，怎么做到缓存和数据库一致
 4、
+
 5、
 6、
 7、
@@ -24,3 +25,12 @@
 24、
 25、
 26、
+
+
+
+
+数据库：数据源（）、druid、h2、sqlite、yugong、，mybatis、liquibase、jooq、sharding-sphere、thinkjd
+
+
+
+

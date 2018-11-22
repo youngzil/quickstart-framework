@@ -25,11 +25,7 @@
 25、
 
 
-缓存：Redis、memcached、ehcache、hazelcast、tair
 
-
-
-
-
+容器：docker、pouch
 
 
