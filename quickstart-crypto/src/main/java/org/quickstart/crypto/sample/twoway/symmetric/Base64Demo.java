@@ -6,12 +6,12 @@
  * Copyright asiainfo Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.javase.encryption.twoway.symmetric;
+package org.quickstart.crypto.sample.twoway.symmetric;
 
 import java.io.IOException;
-
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
+
 /**
  * Base64Demo 
  *  

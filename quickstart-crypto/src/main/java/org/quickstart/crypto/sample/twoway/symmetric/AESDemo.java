@@ -6,7 +6,7 @@
  * Copyright asiainfo Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.javase.encryption.twoway.symmetric;
+package org.quickstart.crypto.sample.twoway.symmetric;
 
 /**
  * AESDemo 
@@ -20,9 +20,7 @@ import java.security.InvalidKeyException;
 import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
-import java.security.SecureRandom;
 import java.security.Security;
-
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
@@ -30,7 +28,6 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.util.encoders.Hex;
 

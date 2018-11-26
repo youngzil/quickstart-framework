@@ -1,4 +1,4 @@
-package org.quickstart.javase.encryption.oneway;
+package org.quickstart.crypto.sample.oneway;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

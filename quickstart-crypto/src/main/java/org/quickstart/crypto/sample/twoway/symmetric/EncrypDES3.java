@@ -1,9 +1,8 @@
-package org.quickstart.javase.encryption.twoway.symmetric;
+package org.quickstart.crypto.sample.twoway.symmetric;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.Security;
-
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;

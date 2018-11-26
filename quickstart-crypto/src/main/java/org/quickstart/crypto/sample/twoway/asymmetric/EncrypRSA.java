@@ -1,4 +1,4 @@
-package org.quickstart.javase.encryption.twoway.asymmetric;
+package org.quickstart.crypto.sample.twoway.asymmetric;
 
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
@@ -6,7 +6,6 @@ import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
-
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;

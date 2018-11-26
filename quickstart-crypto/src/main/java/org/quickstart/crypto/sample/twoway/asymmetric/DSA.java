@@ -6,7 +6,7 @@
  * Copyright asiainfo Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.javase.encryption.twoway.asymmetric;
+package org.quickstart.crypto.sample.twoway.asymmetric;
 import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -17,6 +17,7 @@ import java.security.interfaces.DSAPrivateKey;
 import java.security.interfaces.DSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+
 /**
  * DSA 
  *  

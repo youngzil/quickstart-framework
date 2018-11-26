@@ -6,7 +6,7 @@
  * Copyright asiainfo Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.javase.encryption.twoway.asymmetric;
+package org.quickstart.crypto.sample.twoway.asymmetric;
 
 /**
  * RSA 
@@ -15,6 +15,8 @@ package org.quickstart.javase.encryption.twoway.asymmetric;
  * @2018年10月18日 下午9:16:00 
  * @since 1.0
  */
+
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 import java.security.KeyFactory;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -26,7 +28,6 @@ import java.security.interfaces.RSAPublicKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 
 /**

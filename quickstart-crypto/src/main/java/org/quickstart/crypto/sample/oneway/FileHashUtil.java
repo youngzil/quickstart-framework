@@ -6,10 +6,11 @@
  * Copyright asiainfo Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.javase.encryption.oneway;
+package org.quickstart.crypto.sample.oneway;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.security.MessageDigest;
+
 /**
  * FileHashUtil 
  *  
