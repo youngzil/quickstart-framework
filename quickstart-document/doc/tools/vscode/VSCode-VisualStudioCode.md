@@ -2,8 +2,8 @@ https://code.visualstudio.com/
 
 https://github.com/Microsoft/vscode/
 
+主题
 https://marketplace.visualstudio.com/VSCode
-
 
 自定义设置
 {
