@@ -2,7 +2,7 @@
 NTP 是网络时间协议（Network Time Protocol），它用来同步网络设备【如计算机、手机】的时间的协议。
  Network Time Protocol ，另外还有 Digital Time Synchronization Protocol (DTSS) 也可以达到相同的功能
  
- 软件时钟：由 Linux 操作系统根据 1970/01/01 开始计算的总秒数；
+软件时钟：由 Linux 操作系统根据 1970/01/01 开始计算的总秒数；
 硬件时钟：主机硬件系统上面的时钟，例如 BIOS 记录的时间；
 
  

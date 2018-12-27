@@ -23,6 +23,7 @@ IP地址范围：1.0.0.1——255.255.255.254
 NAT就是网络地址转换的英文缩写，在路由器上配置NAT服务，可提供公司内100~200人同时上网的服务。不需要Proxy Server，所有的服务都可顺利使用（除Netmeeting之类的服务），客户端无需做复杂设定，与应用程序无关。解决了使用Proxy Server带来的烦复的设置工作。NAT有三种类型：静态NAT（staticNAT）、NAT池（pooledNAT）和端口NAT（PAT）。
 
 
+
 参考
 https://blog.csdn.net/superit401/article/details/78246298
 https://blog.csdn.net/sforiz/article/details/6417017
