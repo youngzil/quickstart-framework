@@ -76,6 +76,7 @@
 		<module>quickstart-joox</module>
 		<module>quickstart-reflect</module>
 		<module>quickstart-framework-sentinel</module>
-	</modules>
+    <module>quickstart-jython</module>
+  </modules>
 
 </project>
