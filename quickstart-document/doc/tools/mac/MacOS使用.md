@@ -39,10 +39,11 @@ brew install gradle
 
 MacOS快捷键
 https://support.apple.com/zh-cn/HT201236
-
+https://support.apple.com/zh-cn/guide/mac-help/mchlp2469/mac
 
 MacOS触摸板使用
 https://support.apple.com/zh-cn/HT204895
+
 
 一个手指：鼠标左键，二个手指：鼠标右键
 两根手指：用双指轻点两下可放大或缩小网页或 PDF，放大页面，上下滚动，在网页上回退或前进页面

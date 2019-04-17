@@ -1,3 +1,5 @@
+https://github.com/subclipse
+
 SVN:http://subversion.apache.org/
 
 eclipse marketplace：

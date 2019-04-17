@@ -1,6 +1,6 @@
 Scalable IO in Java：http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf
 李林峰的netty系列文章：http://www.infoq.com/cn/minibooks/netty-in-depth
-BIO NIO AIO到底是什么鬼？看这篇文章就够了。https://mp.weixin.qq.com/s/KFzhayyAc8RMYMDTuyQXUg
+BIO NIO AIO到底是什么鬼？看这篇文章就够了。http://www.cnblogs.com/dolphin0520/p/3916526.html
 https://github.com/zy475459736/On-the-Way/blob/master/NettySeries/网络传输模型.md
 
 
@@ -22,6 +22,7 @@ IO线程模型一直在演化，
 3、再到NIO的单线程接受请求线程池里面的单个线程可以处理不同请求的读写事件，
 4、还有个Leader-follower线程模型，其的出现是为了解决单线程接受请求线程池线程处理请求下线程上下文切换以及线程间通信数据拷贝的开销，并且不需要维护一个队列。
 LeaderFollower线程上下文切换以及线程间通信数据拷贝的开销，直接在IO线程处理请求。
+https://blog.csdn.net/goldlevi/article/details/7705180
 
 
 Reactor和Proactor：
@@ -31,7 +32,7 @@ Proactor：实现异步非阻塞，AIO
 
 
 阻塞IO：阻塞着等待可读和读阻塞
-非阻塞IO：只有读阻塞，准备数据时候非阻塞
+非阻塞IO：只有读阻塞，准备数据时候非阻塞，也就是没有读等待的阻塞
 IO复用模型：IO复用，默认是同步阻塞，可以设置为非阻塞
 信号驱动IO：非阻塞
 异步IO：异步非阻塞IO

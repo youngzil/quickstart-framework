@@ -9,19 +9,19 @@ Oxygen	http://download.eclipse.org/releases/oxygen	Enabled
 2、配置JDK
 3、配置Maven
 4、安装SVN（http://subclipse.tigris.org/update_1.12.x）
-5、安装Egit（Eclipse Marketplace）
-6、安装Servers：
-	1、http://download.eclipse.org/webtools/repository/oxygen/---》Web Tools Platform (WTP) 3.9.1a，如果不行再安装下一步
+5、反编译工具enhanced-class-decompiler：Eclipse Marketplace
+6、安装Egit（Eclipse Marketplace）
+7、安装Servers：
+	1、如果不行再安装下一步，http://download.eclipse.org/webtools/repository/oxygen/---》Web Tools Platform (WTP) 3.9.1a，如果不行再安装下一步
 	2、（Help->InstallNew Software->"Kepler" repository(http://download.eclipse.org/releases/kepler)->Web,XML, Java EE and OSGi Enterprise Development ->JST Server AdaptersExtensions(打勾选上该项)）
-7、配置Tomcat
-8、JUint（Eclipse自带）
-9、TestNG：Eclipse Marketplace 或者 http://beust.com/eclipse
-10、安装findBugs
+8、配置Tomcat
+9、JUint（Eclipse自带）
+10、TestNG：Eclipse Marketplace 或者 http://beust.com/eclipse
+11、安装findBugs
 	安装指引：http://findbugs.cs.umd.edu/eclipse/
 	官方发布的http://findbugs.cs.umd.edu/eclipse
 	候选版本和正式版本的http://findbugs.cs.umd.edu/eclipse-candidate
 	所有版本的http://findbugs.cs.umd.edu/eclipse-daily，包括开发版本
-11、反编译工具enhanced-class-decompiler：Eclipse Marketplace
 12、阿里Java代码规约检查插件P3C：https://p3c.alibaba.com/plugin/eclipse/update
 13、EasyShell：Eclipse Marketplace
 14、ShellEd：使用zip包安装的方式，先安装下面2个依赖插件
@@ -32,6 +32,8 @@ Oxygen	http://download.eclipse.org/releases/oxygen	Enabled
 	Name: Dynamic Languages Toolkit 
 	http://download.eclipse.org/technology/dltk/updates-dev/4.0-nightly/
 15、Lombok
+-Xbootclasspath/a:/Users/yangzl/mysoft/lombok/lombok-1.18.0.jar
+-javaagent:/Users/yangzl/mysoft/lombok/lombok-1.18.0.jar
 16、
 17、
 18、

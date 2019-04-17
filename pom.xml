@@ -75,6 +75,7 @@
 		<module>quickstart-joor</module>
 		<module>quickstart-joox</module>
 		<module>quickstart-reflect</module>
+		<module>quickstart-framework-sentinel</module>
 	</modules>
 
 </project>

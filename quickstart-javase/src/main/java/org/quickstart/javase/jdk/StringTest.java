@@ -26,6 +26,20 @@ public class StringTest {
         
         String formatString = String.format("nThreads: %d (expected: > 0)", 10);
         System.out.println("formatString=" + formatString);
+        
+        
+        String str = "123456";
+        changeStr(str);//使用此函数就还是打印“123456”
+//        str = "hello";//这样就打印的是“hello”
+        System.out.println(str);
+        
+        
+    }
+    
+    public static void changeStr(String str) {
+        System.out.println(str);
+        str = "welcome";
+        System.out.println(str);
     }
 
 }

@@ -16,6 +16,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<JAVA_HOME>/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home</JAVA_HOME>
 	</properties>
 
 	<dependencies>
@@ -43,12 +44,6 @@
 			<artifactId>asm</artifactId>
 			<version>6.2.1</version>
 		</dependency>
-		
-		<dependency>
-            <groupId>org.ow2.asm</groupId>
-            <artifactId>asm-all</artifactId>
-            <version>6.2.1</version>
-        </dependency>
 
 		<dependency>
 			<groupId>org.jdk</groupId>

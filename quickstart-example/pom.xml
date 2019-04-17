@@ -15,7 +15,6 @@
 	<name>${project.artifactId}-${project.version}</name>
 	<url>http://maven.apache.org</url>
 	<description>Demo project for XXX</description>
-
 	<dependencies>
 		<dependency>
 			<groupId>log4j</groupId>

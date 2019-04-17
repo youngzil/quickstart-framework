@@ -7,10 +7,7 @@ https://blog.csdn.net/yongshuai185/article/details/55506210
 https://blog.csdn.net/ldTrueLove/article/details/52921961
 大数据分页优化：
 limit 及翻页优化
-limit offset,N,  当offset非常大时, 效率极低,
-原因是mysql并不是跳过offset行,然后单取N行,
-而是取offset+N行,返回放弃前offset行,返回N行.
-效率较低,当offset越大时,效率越低
+limit offset,N,  当offset非常大时, 效率极低,原因是mysql并不是跳过offset行,然后单取N行,而是取offset+N行,返回放弃前offset行,返回N行.效率较低,当offset越大时,效率越低
 
 
 1、利用表的覆盖索引来加速分页查询，查询的都是索引中的字段，直接从索引中返回

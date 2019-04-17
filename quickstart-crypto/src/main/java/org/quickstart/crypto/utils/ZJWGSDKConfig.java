@@ -4,6 +4,11 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class ZJWGSDKConfig {
+    
+    public static void main(String[] args) {
+        System.out.println(System.nanoTime());
+        System.out.println(System.currentTimeMillis());
+    }
 
     private static Properties props = new Properties();
 

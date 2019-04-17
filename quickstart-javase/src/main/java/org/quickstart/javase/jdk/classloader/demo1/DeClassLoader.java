@@ -21,6 +21,8 @@ import java.io.IOException;
  * @version 2.0
  */
 public class DeClassLoader extends ClassLoader {
+    
+//    （1）继承ClassLoader    （2）重写findClass（）方法   （3）调用defineClass（）方法
 
     private String mLibPath;
 

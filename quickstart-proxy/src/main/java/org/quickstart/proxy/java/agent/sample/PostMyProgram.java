@@ -42,11 +42,11 @@ public class PostMyProgram {
                 return classfileBuffer;
             }
         }, true);
-        
-//        重新转换目标类，也就是 Account 类。也就是说，你需要重新定义哪个类，需要指定，否则 JVM 不可能知道。
-//        还有一个类似的方法 redefineClasses ，注意，这个方法是在类加载前使用的。
-//        类加载后需要使用 retransformClasses 方法。
-//        inst.retransformClasses(Account.class);
+
+        // 重新转换目标类，也就是 Account 类。也就是说，你需要重新定义哪个类，需要指定，否则 JVM 不可能知道。
+        // 还有一个类似的方法 redefineClasses ，注意，这个方法是在类加载前使用的。
+        // 类加载后需要使用 retransformClasses 方法。
+        // inst.retransformClasses(Account.class);
 
     }
 

@@ -17,7 +17,7 @@ import java.util.ServiceLoader;
  * @2017年8月22日 下午4:00:28
  * @since 1.0
  */
-public class ServiceLoaderTest {
+public class SPIServiceLoaderTest {
 
     /* 1、还有为什么要用spi机制，只是为了方便吗？
     感觉是为了面向接口编程，接口与实现完全分离，不需要Class.forName(“XXX”) 代码(个人理解)
