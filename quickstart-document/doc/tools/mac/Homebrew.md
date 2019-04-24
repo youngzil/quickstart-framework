@@ -9,6 +9,12 @@ https://github.com/Homebrew/homebrew-core
 https://github.com/theeternalsw0rd/homebrew-telnet
 
 
+
+1、通过brew install安装应用最先是放在/usr/local/Cellar/目录下。
+2、有些应用会自动创建软链接放在/usr/bin或者/usr/sbin，同时也会将整个文件夹放在/usr/local
+3、可以使用brew list 软件名确定安装位置。可以在mac终端直接输入 brew list mysql
+
+
 安装 Homebrew：
 命令粘贴至终端
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

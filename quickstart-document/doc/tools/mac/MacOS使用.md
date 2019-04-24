@@ -50,3 +50,11 @@ https://support.apple.com/zh-cn/HT204895
 三根手指：全屏左右滑动，展示全部打开应用
 四根手指：到桌面，到启动台
 
+
+mac软件参考
+https://github.com/jaywcjlove/awesome-mac/blob/master/README-zh.md
+
+
+
+
+
