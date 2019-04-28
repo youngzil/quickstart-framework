@@ -11,7 +11,7 @@ package org.quickstart.javase;
 /**
  * Constants
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2019年4月24日 下午3:02:22
  * @since 1.0
  */

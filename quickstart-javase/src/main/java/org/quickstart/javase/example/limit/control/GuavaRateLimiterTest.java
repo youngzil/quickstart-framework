@@ -25,7 +25,7 @@ import com.google.common.util.concurrent.RateLimiter;
 /**
  * GuavaRateLimiterTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月24日 上午12:06:31
  * @since 1.0
  */

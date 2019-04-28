@@ -19,7 +19,7 @@ import net.sf.cglib.reflect.FastMethod;
 /**
  * InvokersTest 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月12日 下午10:43:43 
  * @since 1.0
  */

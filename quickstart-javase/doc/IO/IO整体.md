@@ -3,6 +3,7 @@ Scalable IO in Java：http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf
 BIO NIO AIO到底是什么鬼？看这篇文章就够了。http://www.cnblogs.com/dolphin0520/p/3916526.html
 https://github.com/zy475459736/On-the-Way/blob/master/NettySeries/网络传输模型.md
 
+http://ifeve.com/overview/
 
 另外这个是蚂蚁开源的基于netty的实践通信框架，代码不多，很适合学习网络编程。也可以看下 https://github.com/alipay/sofa-bolt
 用AIO写的框架，可以看下：https://git.oschina.net/smartboot/smart-socket

@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * GenericEssence 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月13日 上午10:25:09 
  * @since 1.0
  */

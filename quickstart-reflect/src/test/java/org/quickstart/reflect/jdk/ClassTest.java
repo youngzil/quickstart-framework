@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * ClassTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月12日 下午11:27:38
  * @since 1.0
  */

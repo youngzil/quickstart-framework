@@ -1,3 +1,32 @@
+BIO是面向流、阻塞IO，顺序读
+NIO面向缓冲、非阻塞IO、选择器Selector，可以使用position等跳跃读
+
+Channels：4种
+Buffers：1+2+3+1
+Selectors：4个事件
+Buffer分配：3种
+方法：常用的读写切换、定位等
+buffer读写方法
+Buffer的capacity,position和limit
+
+直接内存：不受young gc的影响，只有full gc的时候回收，当众多的DirectByteBuffer对象从新生代被送入老年代后触发了 full gc才会会释放回收，MappedByteBuffer在处理大文件时的确性能很高，但也存在一些问题，如内存占用、文件关闭不确定，被其打开的文件只有在垃圾回收的才会被关闭，而且这个时间点是不确定的。
+
+
+
+网络：
+SocketChannel:创建连接，读写数据，从channel到buffer，从buffer到channel
+ServerSocketChannel:监听连接，默认是阻塞模式，可以设置为非阻塞模式（while循环）
+
+
+零拷贝( zero-copy )
+文件IO：通过mmap实现的零拷贝I/O
+网络IO：FileChannel.transferTo 和 FileChannel.transferFrom方法
+
+
+
+
+
+
 java nio学习
 http://ifeve.com/overview/
 https://blog.csdn.net/column/details/15438.html
@@ -39,12 +68,16 @@ ServerSocketChannel可以监听新进来的TCP连接，像Web服务器那样。�
 
 Buffer实现：Buffer覆盖了你能通过IO发送的基本数据类型：byte,char, short, int, long, float, double
 ByteBuffer：HeapByteBuffer、DirectByteBuffer
+
 CharBuffer
-DoubleBuffer
-FloatBuffer
+
+ShortBuffer
 IntBuffer
 LongBuffer
-ShortBuffer
+
+FloatBuffer
+DoubleBuffer
+
 Java NIO 还有个 MappedByteBuffer、
 
 缓冲区本质上是一块可以写入数据，然后可以从中读取数据的内存。这块内存被包装成NIO Buffer对象，并提供了一组方法，用来方便的访问该块内存。
@@ -52,13 +85,13 @@ Java NIO 还有个 MappedByteBuffer、
 Buffer分配：
 1、HeapByteBuffer:ByteBuffer.allocate(cap);
 2、DirectByteBuffer:ByteBuffer.allocateDirect(cap);
-3、MappedByteBuffer ：FileChannel的map方法，channel.map(FileChannel.MapMode.READ_WRITE, 0, length);
+3、MappedByteBuffer ：FileChannel的map方法，FileChannel.map(FileChannel.MapMode.READ_WRITE, 0, length);
 
 
 ByteBuffer：不做读写切换，会导致position和limit混乱，读写的数据也会混乱,如果导致position大于limit，报错BufferOverflowException
 1、初始化之后直接可以写（也可以直接读，读的都是0，也默认写进去0，就相当于写0进去并读出来，其实是position和limit混乱导致）
 2、写完之后使用flip()切换到读模式
-3、使用clear()（丢弃未读的）或者compact()（保留未读的，清除已读的）切换到写
+3、使用clear()（清除，丢弃未读的）或者compact()（整理，保留未读的，清除已读的）切换到写，rewind()方法重置rewind()方法将position重置为0开始位置
 4、使用flip()切换到读模式下，mark()标记当前读位置，继续读，reset()回到当初标记的位置
 5、rewind()方法：重读Buffer
 PS：先读再写（不使用clear或compact），会导致position往后移动，前面读的都变成0，就好像是写一样
@@ -68,7 +101,7 @@ ByteBuffer和Channels交换：
 2、数组参数：分散（scatter）和 聚集（gather）
 3、零拷贝：transferFrom 和 transferTo
 
-FileChannel:mmap、zero copy、position导致空洞文件，truncate()截取，force()持久化
+FileChannel:mmap方法（内存映射文件）、position导致空洞文件，truncate()截取，force()持久化
 FileChannel.read()方法将数据从FileChannel读取到Buffer中
 FileChannel.write()方法向FileChannel写数据
 FileChannel的position方法:可能导致“文件空洞”，磁盘上物理文件中写入的数据间有空隙。
@@ -77,6 +110,11 @@ FileChannel.truncate()方法截取一个文件
 FileChannel.force()方法将通道里尚未写入磁盘的数据强制写到磁盘上
 关闭FileChannel.close()用完FileChannel后必须将其关闭
 
+
+zero copy零拷贝：
+transferFrom方法和transferTo方法:零拷贝
+toChannel.transferFrom(position, count, fromChannel);
+fromChannel.transferTo(position, count, toChannel);
 
 Buffer的capacity,position和limit
 position和limit的含义取决于Buffer处在读模式还是写模式。不管Buffer处在什么模式，capacity的含义总是一样的。
@@ -136,7 +174,7 @@ compareTo()方法比较两个Buffer的剩余元素(byte、char等)， 如果满�
 聚集（gather）：channel.write(bufferArray);按照bufferArray的顺序写入到channel，只有position和limit之间的数据才会被写入，能较好的处理动态消息。
 
 在Java NIO中，如果两个通道中有一个是FileChannel，那你可以直接将数据从一个channel（译者注：channel中文常译作通道）传输到另外一个channel。
-transferFrom方法和transferTo方法:
+transferFrom方法和transferTo方法:zero copy零拷贝
 toChannel.transferFrom(position, count, fromChannel);
 fromChannel.transferTo(position, count, toChannel);
 
@@ -179,10 +217,14 @@ BIO是面向流、阻塞IO
 NIO面向缓冲、非阻塞IO、选择器Selector
 
 
-内存映射文件：
+内存映射文件：map()
 （1）直接内存DirectMemory的大小默认为 -Xmx 的JVM堆的最大值，但是并不受其限制，而是由JVM参数 MaxDirectMemorySize单独控制。
 （2）直接内存不是分配在JVM堆中。并且直接内存不受 GC(新生代的Minor GC)影响，只有当执行老年代的 Full GC时候才会顺便回收直接内存！而直接内存是通过存储在JVM堆中的DirectByteBuffer对象来引用的，所以当众多的DirectByteBuffer对象从新生代被送入老年代后才触发了 full gc。
 （3）MappedByteBuffer在处理大文件时的确性能很高，但也存在一些问题，如内存占用、文件关闭不确定，被其打开的文件只有在垃圾回收的才会被关闭，而且这个时间点是不确定的。
+
+
+关于零拷贝的一点认识
+https://juejin.im/post/5cad6f1ef265da039f0ef5df
 
 
 

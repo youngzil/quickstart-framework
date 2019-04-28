@@ -18,7 +18,7 @@ import org.quickstart.joor.example.StringProxyTest.StringProxy;
 /**
  * CompilerTest 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月12日 下午8:40:30 
  * @since 1.0
  */

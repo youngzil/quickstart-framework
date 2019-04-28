@@ -17,7 +17,7 @@ import io.reactivex.disposables.Disposable;
 /**
  * NormalTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月19日 下午6:12:29
  * @since 1.0
  */

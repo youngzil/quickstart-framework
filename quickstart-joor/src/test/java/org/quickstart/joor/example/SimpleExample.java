@@ -12,7 +12,7 @@ import static org.joor.Reflect.*;
 /**
  * SimpleExample 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月12日 下午8:33:57 
  * @since 1.0
  */

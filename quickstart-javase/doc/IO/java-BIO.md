@@ -25,7 +25,13 @@ String strLine = bufferedReader.readLine();
 其中InputStream和Reader为输入流，OutputStream和Writer为输出流。
 
 
-File、RandomAccessFile
+File、
+RandomAccessFile：可以跳跃读写
+
+
+Java RandomAccessFile用法：使用RandomAccessFile构建内存映射文件MappedByteBuffer
+https://blog.csdn.net/akon_vm/article/details/7429245
+
 
 InputStream：FileInputStream、BufferedInputStream、ByteArrayInputStream、DataInputStream、ObjectInputStream
 OutputStream：FileOutputStream、BufferedOutputStream、ByteArrayOutputStream、DataOutputStream、ObjectOutputStream

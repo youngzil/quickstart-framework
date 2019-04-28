@@ -17,7 +17,7 @@ import lombok.Setter;
 /**
  * JdkReflectTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月12日 下午9:42:09
  * @since 1.0
  */

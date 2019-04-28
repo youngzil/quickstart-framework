@@ -21,7 +21,7 @@ import io.reactivex.FlowableOnSubscribe;
 /**
  * FlowableTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月19日 下午7:50:14
  * @since 1.0
  */

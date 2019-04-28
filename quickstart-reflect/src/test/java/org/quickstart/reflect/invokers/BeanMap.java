@@ -21,7 +21,7 @@ import java.util.WeakHashMap;
 /**
  * BeanMap 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月12日 下午11:04:27 
  * @since 1.0
  */

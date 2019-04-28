@@ -11,7 +11,7 @@ package org.quickstart.javase.jdk;
 /**
  * ThreadJoinTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年12月12日 下午3:44:32
  * @since 1.0
  */

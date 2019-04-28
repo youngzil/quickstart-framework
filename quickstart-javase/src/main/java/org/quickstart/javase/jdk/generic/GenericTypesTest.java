@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * GenericTypesTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月22日 下午8:19:19
  * @since 1.0
  */

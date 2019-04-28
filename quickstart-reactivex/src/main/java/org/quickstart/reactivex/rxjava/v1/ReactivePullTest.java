@@ -14,7 +14,7 @@ import rx.Subscriber;
 /**
  * ReactivePullTest 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月19日 下午2:26:35 
  * @since 1.0
  */

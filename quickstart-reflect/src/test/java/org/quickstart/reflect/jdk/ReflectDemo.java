@@ -17,7 +17,7 @@ import java.lang.reflect.Type;
 /**
  * ReflectDemo
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月13日 上午12:01:52
  * @since 1.0
  */

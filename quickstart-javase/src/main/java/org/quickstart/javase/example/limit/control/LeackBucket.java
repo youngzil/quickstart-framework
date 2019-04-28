@@ -11,7 +11,7 @@ package org.quickstart.javase.example.limit.control;
 /**
  * LeackBucket 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月23日 下午5:24:32 
  * @since 1.0
  */

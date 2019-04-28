@@ -16,7 +16,7 @@ import org.joor.Reflect;
 /**
  * StringProxyTest 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月12日 下午8:36:58 
  * @since 1.0
  */

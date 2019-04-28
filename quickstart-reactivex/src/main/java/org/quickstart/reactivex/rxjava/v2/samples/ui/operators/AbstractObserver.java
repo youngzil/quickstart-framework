@@ -16,7 +16,7 @@ import io.reactivex.disposables.Disposable;
 /**
  * AbstractObserver 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月20日 上午10:01:14 
  * @since 1.0
  */

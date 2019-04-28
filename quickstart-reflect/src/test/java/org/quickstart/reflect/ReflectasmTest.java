@@ -19,7 +19,7 @@ import com.esotericsoftware.reflectasm.MethodAccess;
 /**
  * ReflectasmTest 
  *  
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2018年11月12日 下午9:55:04 
  * @since 1.0
  */

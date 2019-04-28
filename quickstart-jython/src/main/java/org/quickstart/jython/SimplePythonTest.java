@@ -15,7 +15,7 @@ import org.python.util.PythonInterpreter;
 /**
  * SimplePythonTest
  * 
- * @author：yangzl@asiainfo.com
+ * @author：youngzil@163.com
  * @2019年4月17日 下午3:46:36
  * @since 1.0
  */
