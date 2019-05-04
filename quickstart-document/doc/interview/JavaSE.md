@@ -2,7 +2,7 @@
 java示例quickstart-example
 java基础quickstart-javase
 
-1、Java基础：概述、语言基础、OO、Exceptio处理、Array、常用Class、集合、IO与文件、多线程、反射
+1、Java基础：概述、语言基础、OO、Exceptio处理、Array、常用Class、集合、IO与文件、多线程、并发、反射
 
 2、Java的简单类型及其封装器类
 
@@ -12,7 +12,7 @@ java基础quickstart-javase
 
 5、sleep、wait  notyfi都干啥的，sycnized怎么用的，concurrent包下面的锁用过哪些，怎么实现的
 
-6、io  jvm  多线程
+6、io  jvm  多线程1
 
 7、图的遍历，深度广度啊
 
@@ -76,7 +76,8 @@ java基础quickstart-javase
    网络IO：FileChannel.transferTo 和 FileChannel.transferFrom方法
 
 
-14、ThreadPoolExecutor或者Executors工具类（4种）来创建
+14、
+   ThreadPoolExecutor或者Executors工具类（4种）来创建
    参数：7个
    创建线程流程和销毁线程流程
    
@@ -87,21 +88,30 @@ java基础quickstart-javase
    RejectedExecutionHandler策略
    其他方法：beforeExecute、afterExecute、
    
-   ThreadLocal使用
+   ThreadLocal使用：以线程为单位进行隔离，因为WeakReference不会导致内存泄漏，线程复用的时候没有remove可能会导致后面的任务取到前面任务存进去的值，导致程序出错
 
-15、
 
-16、
+15、synchronized的缺陷：不中断，不并发读，不知道有没有成功获取到锁
+   Lock和synchronized对比：可重入，不中断，不公平，lock可中断、可公平，并发读，手动释放，是接口类
+   
+   锁的分类和升级：可升不可降
+   sleep和wait区别：sleep不会释放对象锁，wait释放对象锁
+   线程的状态切换
+   
+   总的来说, Lock + Condition + await()/signal/signalAll ≈ Synchronized + Object.wait()/notify/signalAll
+   Condition原理：线程放入等待链表,可以实现“选择性通知”，而notify由JVM随机选择的
 
-17、
+16、分布式锁实现.md：数据库、redis、zookeeper
 
-18、
+17、加解密.md：加解密的分类和实现
 
-19、
+18、单例模式有三种实现方式
 
-20、
+19、图片加载缓慢优化.md：
 
-21、
+20、泛型通配符extends与super的区别.md
+
+21、负载均衡.md:负载均衡算法
 
 22、
 
@@ -830,7 +840,7 @@ cpu缓存是集成于cpu中的双极性的高速存储阵列（比内存要快�
 系统缓存一般就是内存，这个作用同cpu缓存很像，是系统对高频是用到的程序预留的空间，避免重复申请空间而浪费时间。
 ---------------------------------------------------------------------------------------------------------------------
 Java线程的5种状态及切换(透彻讲解)
-https://www.cnblogs.com/hejing-swust/p/8038263.html
+https://www.cnblogs.com/nwnu-daizh/p/8036156.html
 http://blog.csdn.net/pange1991/article/details/53860651
 
 
@@ -839,8 +849,14 @@ http://blog.csdn.net/pange1991/article/details/53860651
 运行-->等待队列-->锁池队列-->就绪（wait()+notify/notifyAll、synchronized(obj) ）
 运行-->就绪（yield()、时间片用完）
 
+![线程状态转换](./image/threadstatuschange.png "三生三世")
+
 在调用sleep()方法的过程中，线程不会释放对象锁。
 而当调用wait()方法的时候，线程会放弃对象锁，让出cpu该其他线程，进入等待此对象的等待锁定池，只有针对此对象调用notify()方法后本线程才进入对象锁定池准备
+
+
+
+
 ---------------------------------------------------------------------------------------------------------------------
 
 Linux探秘之用户态与内核态

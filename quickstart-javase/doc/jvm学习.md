@@ -16,10 +16,10 @@ finalize()方法不可靠表现2方面
 查看垃圾回收和内存问题定位工具和步骤 
              
 类加载机制（双亲委派）：安全、缓存、高效，类加载过程：加载、验证、准备、初始化、卸载，4中类加载器，重写findClass是符合双拼委派机制，重写loadclass是破坏的，
-ClassLoader可以实现的功能：
+                   ClassLoader可以实现的功能：
 1、自定义加载类，实现切面功能、方法调用链、代码保护加解密等，如切面log日志，切面其他功能、
 2、系统开发模块化，比如阿里的jarslink、支付宝的sofaArk
-3、热部署功能
+3、热部署功能、热加载
 
 java对象的引用包括：强引用，软引用，弱引用，虚引用
 Java中提供这四种引用类型主要有两个目的：
@@ -47,6 +47,11 @@ CPU(Processer<-->HighSpeedCache)<-->CacheCoherence<-->MainMemory
 
 JVM内部原理
 http://ifeve.com/jvm-internals/
+
+测试JVM GC
+https://blog.csdn.net/shi2huang/article/details/80067608
+https://blog.csdn.net/shi2huang/article/details/80077843
+
 
 
 http://blog.csdn.net/carolzhang8406/article/details/6705831
@@ -120,10 +125,10 @@ Major collection当tenured space被占满时执行。他会清理tenured和young
 http://blog.csdn.net/u014086926/article/details/52106589#
 java对象的引用包括
   强引用，软引用，弱引用，虚引用
-１.强引用
-2.软引用（SoftReference）
-3.弱引用（WeakReference）
-4.虚引用（PhantomReference）
+１.强引用：强引用有引用变量指向时永远不会被垃圾回收，JVM宁愿抛出OutOfMemory错误也不会回收这种对象。
+2.软引用（SoftReference）：如果一个对象具有软引用，内存空间足够，垃圾回收器就不会回收它；
+3.弱引用（WeakReference）：弱引用也是用来描述非必需对象的，当JVM进行垃圾回收时，无论内存是否充足，都会回收被弱引用关联的对象。
+4.虚引用（PhantomReference）：如果一个对象与虚引用关联，则跟没有引用与之关联一样，在任何时候都可能被垃圾回收器回收。
   
 Java中提供这四种引用类型主要有两个目的：
 第一是可以让程序员通过代码的方式决定某些对象的生命周期；
