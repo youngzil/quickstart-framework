@@ -1,4 +1,6 @@
-1、ajax请求流程
+1、
+熟悉常用网络协议，如TCP/IP, HTTP;
+ajax请求流程，ajax状态码，http状态码
   OSI七层与TCP/IP五层网络架构
   TCP/IP连接过程：三次握手四次挥手
   采用三次握手是：为了防止失效的连接请求报文段突然又传送到主机 B ，因而产生错误
@@ -180,7 +182,7 @@ TCP三次握手过程
 和接收端在数据正式传输前就有了交互,为数据正式传输打下了可靠的基础
 
 TCP状态码：
-![http连接过程图片](./image/httpconnect.png "三生三世")
+![http连接过程图片](./image/httpconnect.png "ReferencePicture")
 
 各个状态的意义如下： 
 1、Client：发送SYN后

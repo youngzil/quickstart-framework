@@ -47,7 +47,7 @@ https://blog.csdn.net/tongdanping/article/details/79647337
 
 *注意：为了避免无用的自旋，轻量级锁一旦膨胀为重量级锁就不会再降级为轻量级锁了；偏向锁升级为轻量级锁也不能再降级为偏向锁。一句话就是锁可以升级不可以降级，但是偏向锁状态可以被重置为无锁状态。
 
-![锁升级](../../quickstart-document/doc/interview/image/lockupgrade.png "三生三世")
+![锁升级](../../quickstart-document/doc/interview/image/lockupgrade.png "ReferencePicture")
 
 
 锁的分类：

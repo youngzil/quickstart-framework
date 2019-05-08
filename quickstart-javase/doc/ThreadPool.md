@@ -14,6 +14,28 @@ ThreadLocal使用：以线程为单位进行隔离，因为WeakReference不会�
 
 
 
+线程池：
+ExecutorService
+ThreadPoolExecutor或者Executors工具类来创建
+public ThreadPoolExecutor(int corePoolSize,
+                              int maximumPoolSize,
+                              long keepAliveTime,
+                              TimeUnit unit,
+                              BlockingQueue<Runnable> workQueue,
+                              ThreadFactory threadFactory,
+                              RejectedExecutionHandler handler) 
+RejectedExecutionHandler:
+ThreadPoolExecutor.AbortPolicy()，抛出java.util.concurrent.RejectedExecutionException异常 
+ThreadPoolExecutor.CallerRunsPolicy，它直接在 execute 方法的调用线程中运行被拒绝的任务；如果执行程序已关闭，则会丢弃该任务。
+ThreadPoolExecutor.DiscardOldestPolicy();，先poll掉workQueue中的一个任务，然后调用线程池的execute方法执行当前task
+ThreadPoolExecutor.DiscardPolicy，拒绝策略方法为空，就是不做任何处理，默认情况下它将丢弃被拒绝的任务。
+
+线程池其他方法：
+beforeExecute、afterExecute、
+
+
+
+
 
 
 理解线程池的原理

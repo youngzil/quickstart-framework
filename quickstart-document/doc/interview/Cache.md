@@ -1,4 +1,6 @@
 1、
+/Users/yangzl/git/quickstart-cache/quickstart-memcached/README.md
+/Users/yangzl/git/quickstart-cache/quickstart-redis/doc/redis学习.md
 
 2、
 

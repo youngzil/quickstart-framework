@@ -266,3 +266,42 @@ ibmdw.nio 包下的源码来源于 http://www.ibm.com/developerworks/cn/educatio
 Java NIO tutorial   http://tutorials.jenkov.com/java-nio/index.html
 http://www.javaworld.com/javaworld/jw-10-2012/121016-maximize-java-nio-and-nio2-for-application-responsiveness.html
 
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+参考
+https://www.cnblogs.com/JAYIT/p/8241634.html
+http://www.voidcn.com/article/p-rzokhbzl-zh.html
+https://blog.csdn.net/zhangjunli/article/details/89382006
+
+
+
+Netty的高性能及NIO的epoll空轮询bug
+
+
+Selector BUG出现的原因
+若Selector的轮询结果为空，也没有wakeup或新消息处理，则发生空轮询，CPU使用率100%，
+
+Netty的解决办法
+1、对Selector的select操作周期进行统计，每完成一次空的select操作进行一次计数，
+2、若在某个周期内连续发生N次空轮询，则触发了epoll死循环bug。
+3、重建Selector，判断是否是其他线程发起的重建请求，若不是则将原SocketChannel从旧的Selector上去除注册，重新注册到新的Selector上，并将原来的Selector关闭。
+
+Netty的解决策略：
+对Selector的select操作周期进行统计。
+每完成一次空的select操作进行一次计数。
+在某个周期内如果连续N次空轮询，则说明触发了JDK NIO的epoll死循环bug。
+创建新的Selector，将出现bug的Selector上的channel重新注册到新的Selector上。
+关闭bug的Selector，使用新的Selector进行替换。
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------------------------

@@ -1,58 +1,73 @@
 参考项目
-java示例quickstart-example
-java基础quickstart-javase
-
-1、Java基础：概述、语言基础、OO、Exceptio处理、Array、常用Class、集合、IO与文件、多线程、并发、反射
-
-2、Java的简单类型及其封装器类
-
-3、Object类的方法，和Thread类方法的区别
-
-4、String StringBuffer,StringBuilder原理：底层的数据结构是 字符数组 char[]
-
-5、sleep、wait  notyfi都干啥的，sycnized怎么用的，concurrent包下面的锁用过哪些，怎么实现的
-
-6、io  jvm  多线程1
-
-7、图的遍历，深度广度啊
-
-8、内存溢出，内存泄露，，怎么调优，类加载
-
-9、字节流和字符流
-  BIO和NIO
-  集合
-  多线程：
-  并发工具类
-  SPI
-  JDK、JDK7、JDK8
-  java agent
-  零拷贝：减少内核态和用户态时的数据重复拷贝，java.nio.channel.FileChannel的transferTo()，transferFrom()方法
-  内存映射文件：mmap()方法
-  java热部署、模块化：jarslink
-  泛型：泛型上限通配符extends与泛型下限通配符super
-  反射初始化
-  环形缓冲区的实现原理（ring buffer）quickstart-disruptor
-  java示例：quickstart-example
-  java基础quickstart-javase
-  java锁
-  jvm学习.md
+java示例：quickstart-example
+java基础：quickstart-javase
 
 
-10、BloomFilter 与 CuckooFilter
+熟悉IO、多线程、集合
+理解java运行时工作原理，熟悉jvm性能调优，能够充分利用java特性支持框架与程序库的设计开发;
+4、熟悉多线程编程，熟练使用java并发包下的各项常用基础设施;
+5、熟悉网络编程，能够熟练使用java nio开发高并发、高吞吐量的服务;
+1. 熟悉java concurrent包 ，熟悉高并发，分布式通信，存储等相关技术 
+2. 扎实的编程基础，精通java开发语言，熟悉jvm，web开发、缓存，分布式架构、消息中间件等核心技术；
+1.3年以上 JAVA 开发经验，有并发编程经验，熟悉文件I/O，网络 I/O 及类加载等机制细节； 
+3.熟悉JVM基础知识，具有一定的调优经验和内存、线程相关问题排查经验； 
+1、Java基础：概述、语言基础、OO、Exceptio处理、Array、常用Class、集合、IO网络与文件、多线程、concurrent包并发、反射
 
-11、计算机内存模型和CPU缓存一致性协议MESI
-   缓存伪共享
-   零拷贝：transTo
+SOA、
+环形缓冲区的实现原理（ring buffer）quickstart-disruptor
 
-12、CPU缓存分类：CPU三级缓存：CPU、L1、L2、L3、主内存
-   缓存一致性协议：MESI
-   伪共享(False Sharing)：缓存行进行字节填充，保证头尾加载到不同的缓存行，避免出入对互斥，不能并发，成为伪共享。jdk8中Contended注解
-   缓存系统中是以缓存行（cache line）为单位存储的：现在64byte，早期32byte，范围32-128byte
-   缓存段竞争：导致总线风暴
-   volatile字段：使用内存屏障，保证可见性和有序性，不保证原子性
+  
+  
+1、JVM和类加载机制：jvm学习.md
 
-13、BIO是面向流、阻塞IO，顺序读
+计算机内存模型和CPU缓存一致性协议MESI
+缓存伪共享
+零拷贝
+在JavaSE.md
+
+JVM内存模型：五个区域和各自保存的对象，会抛出什么异常：年轻代、年老代、持久代（方法去）、堆外内存（直接内存）
+
+垃圾回收：垃圾收集算法、垃圾收集器，对象存活方式判断，类回收条件，堆（年轻代、年老代），java对象的引用（强引用，软引用，弱引用，虚引用）
+方法区垃圾回收：废弃常量、无用的类
+
+finalize()方法不可靠表现2方面
+判断对象是否存活一般有两种方式、GC Roots包括
+
+内存调优：减少youngGC的频率和fullGC的次数
+常见参数：废弃类回收的控制参数、堆参数（初始大小，最大大小、年轻代和年老代比例）、设置GC回收器，GC打印格式和文件、HeapDump日志路径、并行收集器设置
+查看垃圾回收和内存问题定位工具和步骤 
+
+类加载机制和双亲委派机制，类加载过程，java创建一个对象的流程          
+类加载机制（双亲委派）：安全、缓存、高效，类加载过程：加载、验证、准备、初始化、卸载，4中类加载器，重写findClass是符合双拼委派机制，重写loadclass是破坏的，
+                   ClassLoader可以实现的功能：
+1、自定义加载类，实现切面功能、方法调用链、代码保护加解密等，如切面log日志，切面其他功能、
+2、系统开发模块化，比如阿里的jarslink、支付宝的sofaArk
+3、热部署功能、热加载
+
+java对象的引用包括：强引用，软引用，弱引用，虚引用
+Java中提供这四种引用类型主要有两个目的：
+第一是可以让程序员通过代码的方式决定某些对象的生命周期；
+第二是有利于JVM进行垃圾回收。
+
+JVM内存结构，和Java虚拟机的运行时区域有关。 
+Java内存模型，和Java的并发编程有关。 
+Java对象模型，和Java对象在虚拟机中的表现形式有关。
+
+JAVA中的内存泄露：堆区不断增长，最后不断触发FullGC, 甚至crash
+jdk的命令行工具：jps、jinfo + jstat 、jmap（-dump、jhat）、jstack
+堆外内存：原因、场景、使用：存活时间长，大内存的
+
+
+
+2、IO网络与文件
+BIO是面向流、阻塞IO，顺序读
    NIO面向缓冲、非阻塞IO、选择器Selector，可以使用position等跳跃读
+   AIO
+   
+   
+   字节流和字符流
+   输入流、输出流
+   
    
    Channels：4种
    Buffers：1+2+3+1
@@ -72,11 +87,22 @@ java基础quickstart-javase
    
    
    零拷贝( zero-copy )
-   文件IO：通过mmap实现的零拷贝I/O
+   文件IO：通过mmap实现的零拷贝I/O，内存映射文件：mmap()方法
    网络IO：FileChannel.transferTo 和 FileChannel.transferFrom方法
+   零拷贝：减少内核态和用户态时的数据重复拷贝，java.nio.channel.FileChannel的transferTo()，transferFrom()方法
+   
+   
+3、多线程
+
+Java线程的5种状态及切换
+java进程和Linux线程的关系
+多线程概念：线程同步（两种锁、特殊变量volatile、线程变量ThreadLocal、并发工具类）、线程间通信、线程死锁、线程控制（挂起、停止和恢复）
+Unsafe类的使用
+java线程的创建和分类
+Linux进程间通信
+线程池：查看ThreadPool.md
 
 
-14、
    ThreadPoolExecutor或者Executors工具类（4种）来创建
    参数：7个
    创建线程流程和销毁线程流程
@@ -91,7 +117,72 @@ java基础quickstart-javase
    ThreadLocal使用：以线程为单位进行隔离，因为WeakReference不会导致内存泄漏，线程复用的时候没有remove可能会导致后面的任务取到前面任务存进去的值，导致程序出错
 
 
-15、synchronized的缺陷：不中断，不并发读，不知道有没有成功获取到锁
+
+4、集合：java集合.md
+List、Set、Map、Queue
+并发集合：ConcurrentHashMap、ConcurrentSkipListSet、CopyOnWriteArrayList等
+
+
+
+5、concurrent包并发、并发工具类：java并发包concurrent和并发工具类.md
+
+java并发包concurrent：
+1、Atomic原子类型：Long、Integer、Boolean、Refrence等
+2、并发锁Lock锁：ReentrantLock、ReentrantReadWriteLock等
+3、线程池：Callable接口、Future接口、FutureTask（ExecutorCompletionService）、Executors、ExecutorService、ThreadPoolExecutor、ThreadFactory、
+4、并发集合：ConcurrentHashMap、ConcurrentSkipListSet、CopyOnWriteArrayList和CopyOnWriteArraySet等
+5、并发工具类：CountDownLatch、CyclicBarrier、Semaphore、Exchanger、ForkJoinPool等
+Java并发工具类：
+并发开始：同步屏障CyclicBarrier
+并发结束：等待多线程完成的CountDownLatch
+并发控制：控制并发线程数的Semaphore
+并发交换：两个线程进行数据交换的Exchanger
+
+并发类，如ThreadLocal 、volatile
+并发编程中的三个概念：原子性，可见性，有序性，和volatile关键字的两层语义
+java线程状态转换和线程并发
+Unsafe类的CAS操作
+java并发基础AQS类.md
+
+
+
+6、反射、java agent，反射初始化：java反射和agent.md
+RTTI和反射机制区别
+反射的使用：获取类、构造方法，成员变量，成员方法、注解、泛型
+
+
+7、Java的简单类型及其封装器类
+
+8、Object类的方法，和Thread类方法的区别
+
+9、String StringBuffer,StringBuilder原理：底层的数据结构是 字符数组 char[]
+
+10、sleep、wait  notyfi都干啥的，sycnized怎么用的，concurrent包下面的锁用过哪些，怎么实现的
+
+11、io  jvm  多线程1
+
+12、图的遍历，深度广度啊
+
+13、内存溢出，内存泄露，，怎么调优，类加载
+
+
+14、BloomFilter 与 CuckooFilter
+
+
+15、计算机内存模型和CPU缓存一致性协议MESI
+   缓存伪共享
+   零拷贝：transTo
+
+
+16、CPU缓存分类：CPU三级缓存：CPU、L1、L2、L3、主内存
+   缓存一致性协议：MESI
+   伪共享(False Sharing)：缓存行进行字节填充，保证头尾加载到不同的缓存行，避免出入对互斥，不能并发，成为伪共享。jdk8中Contended注解
+   缓存系统中是以缓存行（cache line）为单位存储的：现在64byte，早期32byte，范围32-128byte
+   缓存段竞争：导致总线风暴
+   volatile字段：使用内存屏障，保证可见性和有序性，不保证原子性
+
+
+17、synchronized的缺陷：不中断，不并发读，不知道有没有成功获取到锁
    Lock和synchronized对比：可重入，不中断，不公平，lock可中断、可公平，并发读，手动释放，是接口类
    
    锁的分类和升级：可升不可降
@@ -101,145 +192,81 @@ java基础quickstart-javase
    总的来说, Lock + Condition + await()/signal/signalAll ≈ Synchronized + Object.wait()/notify/signalAll
    Condition原理：线程放入等待链表,可以实现“选择性通知”，而notify由JVM随机选择的
 
-16、分布式锁实现.md：数据库、redis、zookeeper
+18、分布式锁实现.md：数据库、redis、zookeeper
 
-17、加解密.md：加解密的分类和实现
+19、加解密.md：加解密的分类和实现
 
-18、单例模式有三种实现方式
+20、单例模式有三种实现方式
 
-19、图片加载缓慢优化.md：
+21、图片加载缓慢优化.md：
 
-20、泛型通配符extends与super的区别.md
+22、泛型通配符extends与super的区别.md：泛型：泛型上限通配符extends与泛型下限通配符super
 
-21、负载均衡.md:负载均衡算法
+23、负载均衡.md:负载均衡算法
 
-22、
+24、java热部署、模块化：jarslink
 
-23、
+25、SPI和JDK、JDK7、JDK8
 
-24、
+26、一致性哈希算法(consistent hashing)
 
-25、
+27、java常见异常
 
+28、Comparable与Comparator的区别
 
+29、对Runtime的了解:Runtime类
 
+30、什么是线程死锁？如何避免线程死锁？如何加一个线程死锁检查机制？
 
+31、java进程间通信(IPC interProcess communication)：
 
+32、如何实现分布式缓存
 
+33、volatile原理
 
-
-本身都是通过字符数组来存储，对象内部定义字符数组
-String：new是放在堆区，+或者substring都是通过改变字符数组生成新的字符数组来实现
-一个是非同步的StringBuilder，一个是同步的StringBuffer（synchronized在方法上），都是字符数组，
-append时先扩容，把字符数组拷贝到一个新的大的字符数组，再进行拼接，还是拼接拷贝到一个新的字符数组，
-
-
-
-
+34、数据结构：堆和树
 
 
----------------------------------------------------------------------------------------------------------------------
+35、Queue队列的常用方法
 
-Java NIO：
-BIO是面向流、阻塞IO
-NIO面向缓冲、非阻塞IO、选择器Selector
+36、数组、链表，队列 ，栈，散列表，树，图
 
-标准的IO基于字节流和字符流进行操作的
-NIO是基于通道（Channel）和缓冲区（Buffer）进行操作，数据总是从通道读取到缓冲区中，或者从缓冲区写入到通道中。    
+37、Java线程的5种状态及切换
 
+38、Linux探秘之用户态与内核态
 
-文件IO、网络IO、
+39、
 
-Linux文件IO和文件标准IO
-http://blog.csdn.net/yzhang6_10/article/details/53142733
-https://www.cnblogs.com/xiaojiang1025/p/5933755.html
-对UNIX系统来说，可用的文件I/O函数主要有：打开文件、读文件、写文件等。涉及到的函数主要有：open、read、write、lseek、close，其中不带缓冲指每个read和write都调用内核中的一个系统调用。涉及多个进程间共享资源时，原子操作就非常重要。
+40、
 
-文件描述符（fd，File descriptor）：对内核而言，所有打开的文件都通过文件描述符引用。文件描述符是一个非负整数。
-在符合POSIX.1的应用程序中，幻数0、1、2虽然已被标准化，但应当把它们替换成富豪常量STDIN_FILENO、STDOUT_FILENO和STDERR_FILENO以提高可读性。
-标准I/O预定义3个流，他们可以自动地为进程所使用：标准输入/标准输出/标准错误输出。
+41、
 
-函数lseek：每个打开文件都有一个与其相关联的“当前文件偏移量”。它通常是一个非负整数，用以度量从文件开始处计算的字节数。
-文件偏移量可以大于文件的当前长度，在这种情况下，对该文件的下一次写加长该文件，并在文件中构成一个空洞，这一点是允许的。位于文件中但没有写过的字节都被读为0。
-文件中的空洞并不要求在磁盘上占用存储区。具体处理方式与文件系统的实现有关，当定位到超过文件尾端之后写时，对于新写的数据需要分配磁盘块，但是对于原文件尾端和新开始写位置之间的部分则不需要分配磁盘块。
+42、
 
+43、
 
-I/O的效率
-大多数文件系统为改善性能都采用某种预读（read ahead）技术。当检测到正进行顺序读取时，系统就试图读入比应用所要求的更多数据，并假想应用很快就会读这些数据。
-操作系统试图用告诉缓存技术将相关文件放置在主存中，所以如若重复度量程序性能，那么后续运行该程序所得到的计时很可能好于第一次。原因是，第一次运行使得文件进入系统高速缓存，后续各次运行一般从系统高速缓存访问文件，无需读、写磁盘。
-Cache的预读与换出，缺页时换出
+44、
 
-两个进程同时对同一文件进行追加写操作，可能因为“先定位到文件尾端，然后写”单只出现某一进程的写被覆盖，从而出现错误，其解决办法是使这两个操作对于其他进程而言成为一个原子操作。任何要求多于一个函数调用的操作都不是原子操作，因为在两个函数调用之间，内核有可能会临时挂起进程。
-原子操作要放在一起对其他进程而言是原子的，因为在两个函数调用之间，内核有可能会临时挂起进程。
-多个进程对同一文件进行追加写操作和创建同一个文件时，为防止出错，需满足原子操作。
+45、
 
-函数sync、fsync和fdatasync
-传统UNIX系统实现在内核中设有缓冲区高速缓存或页面高速缓存，大多数磁盘I/O都通过缓冲区进行。当我们向文件写入数据时，内核通过先将数据复制到缓冲区中，然后排入队列，晚些时候在写入磁盘。这种方式被称为延迟写。
-通常内核需要重用缓冲区来存放其他磁盘块数据时，它会把所有延迟写数据块写入磁盘。为保证磁盘上世纪文件系统与缓冲区中内容一致，UNIX系统提供了sync、fsync和fdatasync三个函数。
-sync只是将所有修改过的块缓冲区排入写队列，然后就返回，它并不等待实际写磁盘操作结束。
-**fsync函数只对由文件描述符fd指定的一个文件起作用，并且等待写磁盘操作结束才返回。**fsync可用于数据库这样的应用程序，这种应用程序需要确保修改过的块立即写到磁盘上。
-fdatasync函数类似于fsync，但它只影响文件的数据部分。而除数据外，fsync换回同步更新文件的属性。
+46、
 
-标准I/O与文件I/O：
-http://blog.csdn.net/myintelex/article/details/53888324
-I/O模型	文件I/O	标准I/O
-缓冲方式	非缓冲I/O	缓冲I/O
-操作对象	文件描述符	流(FILE )
-打开	open()	fopen()/freopen()/fdopen()
-读	read()	fread()/fgetc()/fgets()…
-写	write()	fwrite()/fputc()/fputs()…
-定位	lseek()	fseek()/ftell()/rewind()/fsetpos()/fgetpos()
-关闭	close()	fclose()
+47、
 
-网络IO：
-http://blog.csdn.net/qq_30154277/article/details/51981821
-网络HttpURLConnection 类
-java的BIO类InputStreamReader、等
+48、
+
+49、
+
+50、
 
 
-Linux 网络 I/O 模型简介：
-http://blog.csdn.net/anxpp/article/details/51503329
- Linux 的内核将所有外部设备都看做一个文件来操作（一切皆文件），对一个文件的读写操作会调用内核提供的系统命令，返回一个file descriptor（fd，文件描述符）。而对一个socket的读写也会有响应的描述符，称为socket fd（socket文件描述符），描述符就是一个数字，指向内核中的一个结构体（文件路径，数据区等一些属性）。
-
-    根据UNIX网络编程对I/O模型的分类，UNIX提供了5种I/O模型。
-1、阻塞I/O模型
-2、非阻塞I/O模型
-3、I/O复用模型
-Linux提供select/poll，进程通过将一个或多个fd传递给select或poll系统调用，阻塞在select操作上，这样，select/poll可以帮我们侦测多个fd是否处于就绪状态。
-    select/poll是顺序扫描fd是否就绪，而且支持的fd数量有限，因此它的使用受到了一些制约。
-    Linux还提供一个epoll系统调用，epoll使用基于事件驱动方式代替顺序扫描，因此性能更高。当有fd就绪时，立即回调函数rollback。数量没有限制
-4、信号驱动I/O模型
-5、异步I/O
-告知内核启动某个操作，并让内核在整个操作完成后（包括数据的复制）通知进程。
-    信号驱动I/O模型通知的是何时可以开始一个I/O操作，异步I/O模型有内核通知I/O操作何时已经完成。
 
 
-I/O多路复用技术：
-I/O编程中，需要处理多个客户端接入请求时，可以利用多线程或者I/O多路复用技术进行处理。
-    正如前面的简介，I/O多路复用技术通过把多个I/O的阻塞复用到同一个select的阻塞上，从而使得系统在单线程的情况下可以同时处理多个客户端请求。
-    与传统的多线程模型相比，I/O多路复用的最大优势就是系统开销小，系统不需要创建新的额外线程，也不需要维护这些线程的运行，降低了系统的维护工作量，节省了系统资源。
 
-    主要的应用场景：
-    服务器需要同时处理多个处于监听状态或多个连接状态的套接字。
-    服务器需要同时处理多种网络协议的套接字。
 
-支持I/O多路复用的系统调用主要有select、pselect、poll、epoll。
 
-    而当前推荐使用的是epoll，优势如下：
-    支持一个进程打开的socket fd不受限制。
-    I/O效率不会随着fd数目的增加而线性下将。
-    使用mmap加速内核与用户空间的数据传递。
-    epoll拥有更加简单的API。
 
-I/O模型：同步I/O和异步I/O，阻塞I/O和非阻塞I/O
-http://blog.csdn.net/shenlei19911210/article/details/49305413
-blocking IO的特点就是在IO执行的两个阶段（等待数据准备就绪和拷贝数据两个阶段）都被block了。
-在非阻塞式IO中，用户进程其实是需要不断的主动询问kernel数据准备好了没有。
-在多路复用模型中，对于每一个socket，一般都设置成为non-blocking，但是，如上图所示，整个用户的process其实是一直被block的。只不过process是被select这个函数block，而不是被socket IO给block。因此select()与非阻塞IO类似。
-异步IO是真正非阻塞的，它不会对请求进程产生任何的阻塞，因此对高并发的网络服务器实现至关重要。
 
-异步IO和非阻塞IO的区别！！！
-异步IO就是把IO操作提交给系统，让系统帮我们完成相关操作，操作完成后系统在以某种方式通知我们操作已经完成。非阻塞IO就是我们要通过某种不定时方式向系统询问我们能够开始执行某个IO操作，当得到许可指令后，具体的操作还是需要我们自己动手来完成的！
 
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -306,6 +333,38 @@ RuntimeException
 当应用程序试图在需要对象的地方使用 null 时，抛出NullPointerException异常
 当试图将对象强制转换为不是实例的子类时，抛出该异常（ClassCastException)
 指示索引或者为负，或者超出字符串的大小，抛出StringIndexOutOfBoundsException异常
+
+
+Throwable、Error、Exception、RuntimeException 区别和联系各是什么
+http://blog.csdn.net/liuj2511981/article/details/8524418
+http://blog.csdn.net/kingzone_2008/article/details/8535287
+http://blog.csdn.net/kwu_ganymede/article/details/51382461
+1.Throwable类是 Java 语言中所有错误或异常的超类。它的两个子类是Error和Exception；
+2.Error是Throwable 的子类，用于指示合理的应用程序不应该试图捕获的严重问题。
+3.Exception类及其子类是 Throwable 的一种形式，它指出了合理的应用程序想要捕获的条件
+4.RuntimeException类是Exception类的子类。RuntimeException是那些可能在 Java 虚拟机正常运行期间抛出的异常的超类。可能在执行方法期间抛出但未被捕获的RuntimeException 的任何子类都无需在 throws 子句中进行声明。它是Exception的子类。
+
+Exception：
+1．可以是可被控制(checked) 或不可控制的(unchecked) 
+2．表示一个由程序员导致的错误 
+3．应该在应用程序级被处理
+
+Error：
+1．总是不可控制的(unchecked) 
+2．经常用来表示系统错误或低层资源的错误 
+3．如何可能的话，应该在系统级被捕捉
+
+Java 中定义了两类异常： 
+　　1) Checked exception: 这类异常都是Exception的子类 。异常的向上抛出机制进行处理，假如子类可能产生A异常，那么在父类中也必须throws A异常。可能导致的问题：代码效率低，耦合度过高。
+　　2) Unchecked exception: 这类异常都是RuntimeException的子类，虽然RuntimeException同样也是Exception的子类，但是它们是非凡的，它们不能通过client code来试图解决，所以称为Unchecked exception 。
+您应该知道的是Java 提供了两种Exception 的模式，一种是执行的时候所产生的Exception (Runtime Exception)，另外一种则是受控制的Exception (Checked Exception)。
+　　所有的Checked Exception 均从java.lang.Exception 继承而来，而Runtime Exception 则继承java.lang.RuntimeException 或java.lang.Error (实际上java.lang.RuntimeException 的上一层也是java.lang.Exception)。
+ 
+ 因此从程序的运作机制上看，Runtime Exception与Checked Exception 不一样，然而从逻辑上看，Runtime Exception 与Checked Exception 在使用的目的上也不一样。
+　　一般而言，Checked Exception 表示这个Exception 必须要被处理，也就是说程序设计者应该已经知道可能会收到某个Exception(因为要try catch住) ，所以程序设计者应该能针对这些不同的Checked Exception 做出不同的处理。
+　　而Runtime Exception 通常会暗示着程序上的错误，这种错误会导致程序设计者无法处理，而造成程序无法继续执行下去。
+
+
 ---------------------------------------------------------------------------------------------------------------------
 Comparable与Comparator的区别
 http://www.importnew.com/17434.html
@@ -402,149 +461,6 @@ java进程间通信(IPC interProcess communication)：
 5、文件共享，文件锁（一个进程向文件中写文件，一个负责读文件） 
 6、信号 
 7、信号量
----------------------------------------------------------------------------------------------------------------------
-Throwable、Error、Exception、RuntimeException 区别和联系各是什么
-http://blog.csdn.net/liuj2511981/article/details/8524418
-http://blog.csdn.net/kingzone_2008/article/details/8535287
-http://blog.csdn.net/kwu_ganymede/article/details/51382461
-1.Throwable类是 Java 语言中所有错误或异常的超类。它的两个子类是Error和Exception；
-2.Error是Throwable 的子类，用于指示合理的应用程序不应该试图捕获的严重问题。
-3.Exception类及其子类是 Throwable 的一种形式，它指出了合理的应用程序想要捕获的条件
-4.RuntimeException类是Exception类的子类。RuntimeException是那些可能在 Java 虚拟机正常运行期间抛出的异常的超类。可能在执行方法期间抛出但未被捕获的RuntimeException 的任何子类都无需在 throws 子句中进行声明。它是Exception的子类。
-
-Exception：
-1．可以是可被控制(checked) 或不可控制的(unchecked) 
-2．表示一个由程序员导致的错误 
-3．应该在应用程序级被处理
-
-Error：
-1．总是不可控制的(unchecked) 
-2．经常用来表示系统错误或低层资源的错误 
-3．如何可能的话，应该在系统级被捕捉
-
-Java 中定义了两类异常： 
-　　1) Checked exception: 这类异常都是Exception的子类 。异常的向上抛出机制进行处理，假如子类可能产生A异常，那么在父类中也必须throws A异常。可能导致的问题：代码效率低，耦合度过高。
-　　2) Unchecked exception: 这类异常都是RuntimeException的子类，虽然RuntimeException同样也是Exception的子类，但是它们是非凡的，它们不能通过client code来试图解决，所以称为Unchecked exception 。
-您应该知道的是Java 提供了两种Exception 的模式，一种是执行的时候所产生的Exception (Runtime Exception)，另外一种则是受控制的Exception (Checked Exception)。
-　　所有的Checked Exception 均从java.lang.Exception 继承而来，而Runtime Exception 则继承java.lang.RuntimeException 或java.lang.Error (实际上java.lang.RuntimeException 的上一层也是java.lang.Exception)。
- 
- 因此从程序的运作机制上看，Runtime Exception与Checked Exception 不一样，然而从逻辑上看，Runtime Exception 与Checked Exception 在使用的目的上也不一样。
-　　一般而言，Checked Exception 表示这个Exception 必须要被处理，也就是说程序设计者应该已经知道可能会收到某个Exception(因为要try catch住) ，所以程序设计者应该能针对这些不同的Checked Exception 做出不同的处理。
-　　而Runtime Exception 通常会暗示着程序上的错误，这种错误会导致程序设计者无法处理，而造成程序无法继续执行下去。
----------------------------------------------------------------------------------------------------------------------
-分布式锁实现：
-https://www.cnblogs.com/yuyutianxia/p/7149363.html
-http://blog.csdn.net/x_i_y_u_e/article/details/50864205
-http://www.importnew.com/27477.html?utm_source=tuicool&utm_medium=referral
-
-首先，为了确保分布式锁可用，我们至少要确保锁的实现同时满足以下四个条件：
-1、互斥性。在任意时刻，只有一个客户端能持有锁。
-2、不会发生死锁。即使有一个客户端在持有锁的期间崩溃而没有主动解锁，也能保证后续其他客户端能加锁。
-3、具有容错性。只要大部分的Redis节点正常运行，客户端就可以加锁和解锁。
-4、解铃还须系铃人。加锁和解锁必须是同一个客户端，客户端自己不能把别人加的锁给解了。
-
-针对分布式锁的实现目前有多种方案：
-1、基于数据库实现分布式锁：获取锁插入一条记录，释放锁就删除记录
-2、基于缓存（redis，memcached）实现分布式锁
-3、基于Zookeeper实现分布式锁
-
-数据库实现缺点：数据库单点问题
-这把锁没有失效时间，一旦解锁操作失败，就会导致锁记录一直在数据库中，其他线程无法再获得到锁。
-这把锁只能是非阻塞的，因为数据的insert操作，一旦插入失败就会直接报错。没有获得锁的线程并不会进入排队队列，要想再次获得锁就要再次触发获得锁操作。
-这把锁是非重入的，同一个线程在没有释放锁之前无法再次获得该锁。因为数据中数据已经存在了。
-
-数据库是单点？搞两个数据库，数据之前双向同步。一旦挂掉快速切换到备库上。
-没有失效时间？只要做一个定时任务，每隔一定时间把数据库中的超时数据清理一遍。
-非阻塞的？搞一个while循环，直到insert成功再返回成功。
-非重入的？在数据库表中加个字段，记录当前获得锁的机器的主机信息和线程信息，那么下次再获取锁的时候先查询数据库，如果当前机器的主机信息和线程信息在数据库可以查到的话，直接把锁分配给他就可以了。
-
-
-基于缓存：
-redis的setnx方法等。并且，这些缓存服务也都提供了对数据的过期自动删除的支持，可以直接设置超时时间来控制锁的释放。
-使用缓存实现分布式锁的优点: 性能好，实现起来较为方便。
-使用缓存实现分布式锁的缺点: 通过超时时间来控制锁的失效时间并不是十分的靠谱。
-
-
-基于ZK的方式：
-基于zookeeper临时有序节点可以实现的分布式锁。大致思想即为：每个客户端对某个方法加锁时，在zookeeper上的与该方法对应的指定节点的目录下，生成一个唯一的
-瞬时有序节点。 判断是否获取锁的方式很简单，只需要判断有序节点中序号最小的一个。 当释放锁的时候，只需将这个瞬时节点删除即可。同时，其可以避免服务宕机导
-致的锁无法释放，而产生的死锁问题。
-
-锁无法释放？使用Zookeeper可以有效的解决锁无法释放的问题，因为在创建锁的时候，客户端会在ZK中创建一个临时节点，一旦客户端获取到锁之后突然挂掉（
-Session连接断开），那么这个临时节点就会自动删除掉。其他客户端就可以再次获得锁。
-
-非阻塞锁？使用Zookeeper可以实现阻塞的锁，客户端可以通过在ZK中创建顺序节点，并且在节点上绑定监听器，一旦节点有变化，Zookeeper会通知客户端，客户端可以检查自己创建的节点是不是当前所有节点中序号最小的，如果是，那么自己就获取到锁，便可以执行业务逻辑了。
-
-不可重入？使用Zookeeper也可以有效的解决不可重入的问题，客户端在创建节点的时候，把当前客户端的主机信息和线程信息直接写入到节点中，下次想要获取锁的
-时候和当前最小的节点中的数据比对一下就可以了。如果和自己的信息一样，那么自己直接获取到锁，如果不一样就再创建一个临时的顺序节点，参与排队。
-
-单点问题？使用Zookeeper可以有效的解决单点问题，ZK是集群部署的，只要集群中有半数以上的机器存活，就可以对外提供服务。
----------------------------------------------------------------------------------------------------------------------
-
-package java.util.concurrent
-1、Atomic原子类型：Long、Integer、Boolean、Refrence等
-2、Lock锁：ReentrantLock、ReentrantReadWriteLock等
-3、线程池：Callable接口、Future接口、FutureTask（ExecutorCompletionService）、Executors、ExecutorService、ThreadPoolExecutor、ThreadFactory、
-4、集合：ConcurrentHashMap、ConcurrentSkipListSet、CopyOnWriteArrayList等
-5、工具类：CountDownLatch、CyclicBarrier、Semaphore、Exchanger、ForkJoinPool等
-
-并发开始、并发完成、、并发控制、线程数据交换
-同步屏障CyclicBarrier
-等待多线程完成的CountDownLatch
-控制并发线程数的Semaphore
-两个线程进行数据交换的Exchanger
-
-Java并发工具类：
-并发开始：同步屏障CyclicBarrier
-并发结束：等待多线程完成的CountDownLatch
-并发控制：控制并发线程数的Semaphore
-并发交换：两个线程进行数据交换的Exchanger
-
-java.util.concurrent包：
-http://blog.csdn.net/youyou1543724847/article/details/52735510
-
-1.原子类 
-2.锁相关的 
-3.多线程相关的 
-4.线程安全的集合，关于线程安全的集合，参考 http://blog.csdn.net/youyou1543724847/article/details/52734876 
-5.ThreadLocal 
-6.并发编程（如volatile,原子类，不变类）
-
-1.原子类 http://blog.csdn.net/reggergdsg/article/details/51835184
-有一个atomic子包，其中有几个以Atomic打头的类，例如AtomicInteger和AtomicLong。它们利用了现代处理器的特性，可以用非阻塞的方式完成原子操作。
-get,set方法因为不依赖于当前值，所以直接可以进行操作（有value的volatile保证可见性），对于依赖当前值的操作，则通过unsafe来进行操作
-
-http://www.cnblogs.com/xrq730/p/4976007.html
-Unsafe类的CAS操作可能是用的最多的，它为Java的锁机制提供了一种新的解决办法，比如AtomicInteger等类都是通过该方法来实现的。compareAndSwap方法是原子的，可以避免繁重的锁机制，提高代码效率。这是一种乐观锁，通常认为在大部分情况下不出现竞态条件，如果操作失败，会不断重试直到成功。
-
-CAS：比如java中的AtomicInteger的addAndGet方法，会一直做do-while循环，直到操作成功获取并且增加
-CAS，Compare and Swap即比较并交换，设计并发算法时常用到的一种技术，java.util.concurrent包全完建立在CAS之上，没有CAS也就没有此包，可见CAS的重要性。
-当前的处理器基本都支持CAS，只不过不同的厂家的实现不一样罢了。CAS有三个操作数：内存值V、旧的预期值A、要修改的值B，当且仅当预期值A和内存值V相同时，将内存值修改为B并返回true，否则什么都不做并返回false。
-
-CAS的缺点:不能解决ABA问题，如果需要解决ABA问题，使用传统的互斥同步可能回避原子类更加高效。
-这个漏洞称为CAS操作的"ABA"问题。java.util.concurrent包为了解决这个问题，提供了一个带有标记的原子引用类"AtomicStampedReference"，它可以通过控制变量值的版本来保证CAS的正确性。不过目前来说这个类比较"鸡肋"，大部分情况下ABA问题并不会影响程序并发的正确性，如果需要解决ABA问题，使用传统的互斥同步可能回避原子类更加高效。
----------------------------------------------------------------------------------------------------------------------
-线程池：
-ExecutorService
-ThreadPoolExecutor或者Executors工具类来创建
-public ThreadPoolExecutor(int corePoolSize,
-                              int maximumPoolSize,
-                              long keepAliveTime,
-                              TimeUnit unit,
-                              BlockingQueue<Runnable> workQueue,
-                              ThreadFactory threadFactory,
-                              RejectedExecutionHandler handler) 
-RejectedExecutionHandler:
-ThreadPoolExecutor.AbortPolicy()，抛出java.util.concurrent.RejectedExecutionException异常 
-ThreadPoolExecutor.CallerRunsPolicy，它直接在 execute 方法的调用线程中运行被拒绝的任务；如果执行程序已关闭，则会丢弃该任务。
-ThreadPoolExecutor.DiscardOldestPolicy();，先poll掉workQueue中的一个任务，然后调用线程池的execute方法执行当前task
-ThreadPoolExecutor.DiscardPolicy，拒绝策略方法为空，就是不做任何处理，默认情况下它将丢弃被拒绝的任务。
-
-线程池其他方法：
-beforeExecute、afterExecute、
-
-
-
 ---------------------------------------------------------------------------------------------------------------------
 如何实现分布式缓存
 https://www.cnblogs.com/yangxiaolan/p/5786123.html
@@ -668,13 +584,6 @@ MESI协议（译者注：MESI是Modified、Exclusive、Shared、Invalid的首字
 总线风暴：总线上额外的通讯流量增加很多
 
 
-
----------------------------------------------------------------------------------------------------------------------
-http://ifeve.com/java-copy-on-write/http://ifeve.com/java-copy-on-write/
-从JDK1.5开始Java并发包里提供了两个使用CopyOnWrite机制实现的并发容器,它们是CopyOnWriteArrayList和CopyOnWriteArraySet。
-CopyOnWrite容器即写时复制的容器。通俗的理解是当我们往一个容器添加元素的时候，不直接往当前容器添加，而是先将当前容器进行Copy，复制出一个新的容器，然后新的容器里添加元素，添加完元素之后，再将原容器的引用指向新的容器。这样做的好处是我们可以对CopyOnWrite容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。所以CopyOnWrite容器也是一种读写分离的思想，读和写不同的容器。
-CopyOnWrite并发容器用于读多写少的并发场景。
-CopyOnWrite容器有很多优点，但是同时也存在两个问题，即内存占用问题和数据一致性问题。所以在开发的时候需要注意一下。
 ---------------------------------------------------------------------------------------------------------------------
 数据结构：堆和树
 http://blog.csdn.net/juanqinyang/article/details/51418629
@@ -699,6 +608,7 @@ B*树是B+树的变体，在B+树的非根和非叶子结点再增加指向兄�
 Tire树称为字典树，又称单词查找树，Trie树，是一种树形结构，是一种哈希树的变种。
 
 ---------------------------------------------------------------------------------------------------------------------
+Queue队列的常用方法
 Queue方法：
 add、remove、element  抛异常
 offer、poll、peek	 返回boolean
@@ -739,105 +649,8 @@ http://blog.csdn.net/RodeStillFaraway/article/details/50530142
     图形结构：各种图
 
 数据结构体系图：
-![数据结构体系图](./image/datastructsystem.png "三生三世")
-![数据结构时间复杂度](./image/Datastructuretimecomplexity.png "三生三世")
----------------------------------------------------------------------------------------------------------------------
-
-https://www.cnblogs.com/aspirant/p/6856487.html
-1：问：讲讲对HashMap的认识？hashmap的初试容量及每次扩容因子？
-回答：HashMap底层用的是哈希表的map接口，Hashmap储存数据的方式是以K-V的形式存在的；HashMap初始容量大小为16，扩容因子为2;HashMap有两个参数影响其性能：初始容量和加载因子。默认初始容量是16，加载因子是0.75。加载因子就是rehash扩容时候的参数
-2：问：是否是线程安全？ 
-答：不安全。
-3：问：为什么不安全？
-2-1：HashMap底层是一个Entry数组，存在的一些问题如：
-2-2：resize死循环
-2-3：如果在使用迭代器的过程中有其他线程修改了map，那么将抛出ConcurrentModificationException，这就是所谓fail-fast策略。
-HashMap 是不是有序的，有哪些有序的Map？为什么TreeMap 是有序的？
-LinkedHashMap 是基于元素进入集合的顺序或者被访问的先后顺序排序，TreeMap 则是基于元素的固有顺序 (由 Comparator 或者 Comparable 确定)。
-
-死循环、脏读、操作覆盖等
-hashmap扩容时候，在并发环境下可能会导致数组链表形成环路，进而在get不存在的数据的时候发生死循环，是CPU的占用率达到100%
-https://www.cnblogs.com/kxdblog/p/4323892.html
-https://www.cnblogs.com/study-everyday/p/6430462.html
-http://blog.csdn.net/qfzhangwei/article/details/69938937
-http://ifeve.com/hashmap-infinite-loop/
-hashmap扩容时候rehash操作，导致链表倒置
-hashmap在多线程环境下，线程同时扩容或put时候hash值相同，可能出现同时在同一数组下用链表表示，造成链表闭环，导致在get不存在的数据会出现死循环，进而导致CPU占用飙升或100%
-数据
-如果table[]的尺寸很小，比如只有2个，如果要放进10个keys的话，那么碰撞非常频繁，于是一个O(1)的查找算法，就变成了链表遍历，性能变成了O(n)，这是Hash表的缺陷
-Hash表的尺寸和容量非常的重要。一般来说，Hash表这个容器当有数据要插入时，都会检查容量有没有超过设定的thredhold，如果超过，需要增大Hash表的尺寸，这样一来，整个Hash表里的无素都需要被重算一遍。这叫rehash，这个成本相当的大。
-
-在多线程的环境下，存在同时其他的元素也在进行put操作，如果hash值相同，可能出现同时在同一数组下用链表表示，造成闭环，导致在get时会出现死循环，所以HashMap是线程不安全的。
-
-只有在多线程并发的情况下才会出现这种情况，那就是在put操作的时候，如果size>initialCapacity*loadFactor，hash表进行扩容，那么这时候HashMap就会进行rehash操作，随之HashMap的结构就会很大的变化。很有可能就是在两个线程在这个时候同时触发了rehash操作，产生了闭合的回路。
-多线程下[HashMap]的问题：推荐使用currentHashMap
-1、多线程put操作后，get操作导致死循环。
-2、多线程put非NULL元素后，get操作得到NULL值。put丢失
-3、多线程put操作，导致元素丢失或者覆盖
-
-remove与put都是一样的，由于大家拿到的不是最新链头，只要大家在Entry数组的index相同时(经过hash后的index)，就有可能出现后一个覆盖前一个的操作，即前一个的操作无效。 
-可能产生的现象会是： 
-1)put进行的data有可能丢失或者被覆盖
-2)一些通过remove(Object key)删除掉的元素(返回删除成功)又出来了。 
-3)多线程检测到HashMap容量超过负载因子时会进行多次的resize，由于要rehash，所以消耗的性能也是巨大的。 
-
-java集合迭代时候，不能使用集合的remove删除元素，会报错：
-https://www.cnblogs.com/softidea/p/3760213.html
-http://blog.csdn.net/u010887744/article/details/50839129
-https://www.cnblogs.com/YYCat/p/4675084.html
-https://www.cnblogs.com/wangqw-cn/p/4581559.html
-https://www.cnblogs.com/think-in-java/p/5170914.html
-使用迭代模式模式遍历集合
-在集合类内部保存记录修改次数modCount，在迭代器类内部保存有expectedModCount变量，在迭代器初始化时候时候expectedModCount=modCount，当迭代时候发现不等，就抛出异常ConcurrentModificationException
-可以使用迭代器的remove，因为迭代器的remove同时修改了iterator的expectedModCount变量为最新的modCount
-
-简单来说：迭代器在创建后就不变（所引用的集合元素是不变的），集合元素在迭代过程中是可变的。另外，因为迭代器在创建后所引用的集合元素不可变，即通过迭代器时候，如果使用集合中的操作修改集合的操作都会抛出UnsupportedOperationException异常。 
-
-Iterator 是工作在一个独立的线程中，并且拥有一个 mutex 锁。 Iterator 被创建之后会建立一个指向原来对象的单链索引表，当原来的对象数量发生变化时，这个索引表的内容不会同步改变，所以当索引指针往后移动的时候就找不到要迭代的对象，所以按照 fail-fast 原则 Iterator 会马上抛出 java.util.ConcurrentModificationException 异常。
-所以 Iterator 在工作的时候是不允许被迭代的对象被改变的。但你可以使用 Iterator 本身的方法 remove() 来删除对象， Iterator.remove() 方法会在删除当前迭代对象的同时维护索引的一致性
-
-在使用迭代器对集合当中的数据元素进行操作时，如果要对集合当中指定的数据元素进行删除操作时，应使用迭代器当中指定的remove方法来对集合当中的数据元素进行删除操作，而不能够使用集合当中的remove方法。若使用集合当中的方法对数据进行删除操作的话，将坏破坏整个迭代器机制使得迭代器在之后的操作当中不在起作用。
-
-我们知道java.util.HashMap不是线程安全的，因此如果在使用迭代器的过程中有其他线程修改了map，那么将抛出ConcurrentModificationException，这就是所谓fail-fast策略。
-
-在内部类Itr中，有一个字段expectedModCount ，初始化时等于modCount，即当我们调用list.iterator()返回迭代器时，该字段被初始化为等于modCount。在类Itr中next/remove方法都有调用checkForComodification()方法，在该方法中检测modCount == expectedModCount，如果不相当则抛出异常ConcurrentModificationException。
-
-再来看看内部类Itr的remove()方法，在删除元素后，有这么一句expectedModCount = modCount，同步修改expectedModCount 的值。所以，如果需要在使用迭代器迭代时，删除元素，可以使用迭代器提供的remove方法。对于add操作，则在整个迭代器迭代过程中是不允许的。 其他集合(Map/Set)使用迭代器迭代也是一样。
-
-当使用 fail-fast iterator 对 Collection 或 Map 进行迭代操作过程中尝试直接修改 Collection / Map 的内容时，即使是在单线程下运行，  java.util.ConcurrentModificationException 异常也将被抛出。 　　
-
- HashMap迭代时Remove掉map中包含的键值对，从而改变结构（modCount加1），接下来程序若再有检测modCount的fast-fail机制，程序便将抛出ConcurrentModificationException异常。
-
-有意思的是如果你的 Collection / Map 对象实际只有一个元素的时候， ConcurrentModificationException 异常并不会被抛出。这也就是为什么在 javadoc 里面指出： it would be wrong to write a program that depended on this exception for its correctness: ConcurrentModificationException should be used only to detect bugs.
-
-在HashMap的API中指出：
-   由所有HashMap类的“collection 视图方法”所返回的迭代器都是快速失败的：在迭代器创建之后，如果从结构上对映射进行修改，除非通过迭代器本身的 remove 方法，其他任何时间任何方式的修改，迭代器都将抛出ConcurrentModificationException。因此，面对并发的修改，迭代器很快就会完全失败，而不冒在将来不确定的时间发生任意不确定行为的风险。
-
-   注意，迭代器的快速失败行为不能得到保证，一般来说，存在非同步的并发修改时，不可能作出任何坚决的保证。快速失败迭代器尽最大努力抛出 ConcurrentModificationException。因此，编写依赖于此异常的程序的做法是错误的，正确做法是：迭代器的快速失败行为应该仅用于检测程序错误。
-   
----------------------------------------------------------------------------------------------------------------------
-http://www.cnblogs.com/dolphin0520/p/3920373.html
-http://blog.csdn.net/u012465296/article/details/53020676
-并发编程中的三个概念：原子性，可见性，有序性
-指令重排序不会影响单个线程的执行，但是会影响到线程并发执行的正确性。
-　　也就是说，要想并发程序正确地执行，必须要保证原子性、可见性以及有序性。只要有一个没有被保证，就有可能会导致程序运行不正确。
-
-主存（物理内存）和高速缓存：当程序在运行过程中，会将运算需要的数据从主存复制一份到CPU的高速缓存当中，那么CPU进行计算时就可以直接从它的高速缓存读取数据和向其中写入数据，当运算结束之后，再将高速缓存中的数据刷新到主存当中。
-如果一个变量在多个CPU中都存在缓存（一般在多线程编程时才会出现），那么就可能存在缓存不一致的问题。
-　　为了解决缓存不一致性问题，通常来说有以下2种解决方法：
-　　1）通过在总线加LOCK#锁的方式
-　　2）通过缓存一致性协议
-　　这2种方式都是硬件层面上提供的方式。
-在早期的CPU当中，是通过在总线上加LOCK#锁的形式来解决缓存不一致的问题。由于在锁住总线期间，其他CPU无法访问内存，导致效率低下。
-所以就出现了缓存一致性协议。最出名的就是Intel 的MESI协议，MESI协议保证了每个缓存中使用的共享变量的副本是一致的。它核心的思想是：当CPU写数据时，如果发现操作的变量是共享变量，即在其他CPU中也存在该变量的副本，会发出信号通知其他CPU将该变量的缓存行置为无效状态，因此当其他CPU需要读取这个变量时，发现自己缓存中缓存该变量的缓存行是无效的，那么它就会从内存重新读取。
-
-volatile关键字的两层语义
-　　一旦一个共享变量（类的成员变量、类的静态成员变量）被volatile修饰之后，那么就具备了两层语义：
-　　1）保证了不同线程对这个变量进行操作时的可见性，即一个线程修改了某个变量的值，这新值对其他线程来说是立即可见的。
-　　2）禁止进行指令重排序。
-
-cpu缓存是集成于cpu中的双极性的高速存储阵列（比内存要快很多），作用是用来加速cpu对高频数据的访问来提高系统性能。
-系统缓存一般就是内存，这个作用同cpu缓存很像，是系统对高频是用到的程序预留的空间，避免重复申请空间而浪费时间。
+![数据结构体系图](./image/datastructsystem.png "ReferencePicture")
+![数据结构时间复杂度](./image/Datastructuretimecomplexity.png "ReferencePicture")
 ---------------------------------------------------------------------------------------------------------------------
 Java线程的5种状态及切换(透彻讲解)
 https://www.cnblogs.com/nwnu-daizh/p/8036156.html
@@ -849,12 +662,10 @@ http://blog.csdn.net/pange1991/article/details/53860651
 运行-->等待队列-->锁池队列-->就绪（wait()+notify/notifyAll、synchronized(obj) ）
 运行-->就绪（yield()、时间片用完）
 
-![线程状态转换](./image/threadstatuschange.png "三生三世")
+![线程状态转换](./image/threadstatuschange.png "ReferencePicture")
 
 在调用sleep()方法的过程中，线程不会释放对象锁。
 而当调用wait()方法的时候，线程会放弃对象锁，让出cpu该其他线程，进入等待此对象的等待锁定池，只有针对此对象调用notify()方法后本线程才进入对象锁定池准备
-
-
 
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -924,6 +735,11 @@ StringBuilder与StringBuffer有公共父类AbstractStringBuilder(抽象类)。
   因为String是一个不可变的字符串，每次追加会生成一个新字符串，在最新的jdk中 + 也是调用StringBuilder来实现的
   而StringBuffer和StringBuilder是在原基础上追加。
 
+
+本身都是通过字符数组来存储，对象内部定义字符数组
+String：new是放在堆区，+或者substring都是通过改变字符数组生成新的字符数组来实现
+一个是非同步的StringBuilder，一个是同步的StringBuffer（synchronized在方法上），都是字符数组，
+append时先扩容，把字符数组拷贝到一个新的大的字符数组，再进行拼接，还是拼接拷贝到一个新的字符数组，
 ---------------------------------------------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -956,13 +772,30 @@ StringBuilder与StringBuffer有公共父类AbstractStringBuilder(抽象类)。
 
 ---------------------------------------------------------------------------------------------------------------------
 
----------------------------------------------------------------------------------------------------------------------
+
+
 
 ---------------------------------------------------------------------------------------------------------------------
 
----------------------------------------------------------------------------------------------------------------------
+
+
+
 
 ---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
 
 ---------------------------------------------------------------------------------------------------------------------
 

@@ -1,4 +1,4 @@
-ajax请求流程
+ajax请求流程，ajax状态码，http状态码
 OSI七层与TCP/IP五层网络架构
 TCP/IP连接过程：三次握手四次挥手
 采用三次握手是：为了防止失效的连接请求报文段突然又传送到主机 B ，因而产生错误
@@ -106,7 +106,10 @@ TCP三次握手过程
 由TCP的三次握手和四次断开可以看出,TCP使用面向连接的通信方式,大大提高了数据通信的可靠性,使发送数据端和接收端在数据正式传输前就有了交互,为数据正式传输打下了可靠的基础
 
 TCP状态码：
-![http连接过程图片](../../quickstart-document/doc/interview/image/httpconnect.png "三生三世")
+![http连接过程图片](../../quickstart-document/doc/interview/image/httpconnect.png "ReferencePicture")
+
+
+![http连接过程图片](../../quickstart-document/doc/interview/image/tcp-three-handshake.png "ReferencePicture")
 
 1、Client：发送SYN后
 SYN-SENT -在发送连接请求后等待匹配的连接请求； 
@@ -341,6 +344,10 @@ HTTP和HTTPS的区别
 https://www.cnblogs.com/bluestorm/p/5763533.html
 https://segmentfault.com/a/1190000011185129
 https://juejin.im/entry/58d7635e5c497d0057fae036
+
+
+TCP协议中的三次握手和四次挥手(图解)
+https://blog.csdn.net/whuslei/article/details/6667471
 
 
 HTTP请求过程
