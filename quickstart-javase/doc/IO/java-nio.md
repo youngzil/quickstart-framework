@@ -5,7 +5,7 @@ Channels：4种
 Buffers：1+2+3+1
 Selectors：4个事件
 Buffer分配：3种
-方法：常用的读写切换、定位等
+常用的方法：常用的读写切换、定位等
 buffer读写方法
 Buffer的capacity,position和limit
 
@@ -23,10 +23,7 @@ ServerSocketChannel:监听连接，默认是阻塞模式，可以设置为非阻
 网络IO：FileChannel.transferTo 和 FileChannel.transferFrom方法
 
 
-
-
-
-
+---------------------------------------------------------------------------------------------------------------------
 java nio学习
 http://ifeve.com/overview/
 https://blog.csdn.net/column/details/15438.html
@@ -128,6 +125,15 @@ limit:
 Buffer的分配：每一个Buffer类都有一个allocate方法
 下面是一个分配48字节capacity的ByteBuffer的例子。
 ByteBuffer buf = ByteBuffer.allocate(48);
+
+
+常用的方法：
+1、分配的：allocate、allocateDirect、map（truncate()截取，force()持久化）
+2、读写切换的：flip()、clear()与compact()方法
+3、读写的：put、get、channel的 read、write
+4、定位的：capacity,position和limit、rewind()、mark()与reset()
+5、channel传输的：transferTo、transferFrom
+
 
 flip()方法：从写模式转为读模式，会使得limit=position，position=0，也就是会让position从头开始，limit=调用方法之前的position，
 在读模式下调用flip()会出错

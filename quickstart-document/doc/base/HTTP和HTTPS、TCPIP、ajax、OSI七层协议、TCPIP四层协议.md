@@ -3,11 +3,18 @@ OSI七层与TCP/IP五层网络架构
 TCP/IP连接过程：三次握手四次挥手
 采用三次握手是：为了防止失效的连接请求报文段突然又传送到主机 B ，因而产生错误
 收到server的FIN之后会进入TIME_WAIT状态将持续2个MSL(Max Segment Lifetime)原因
-http连接过程：域名解析 --> 发起TCP的3次握手 --> 建立TCP连接后发起http请求 --> 服务器响应http请求，浏览器得到html代码 --> 浏览器解析html代码，并请求html代码中的资源（如js、css、图片等） --> 浏览器对页面进行渲染呈现给用户
+http连接过程（5步）：域名解析 --> 发起TCP的3次握手 --> 建立TCP连接后发起http请求 --> 服务器响应http请求，浏览器得到html代码 --> 浏览器解析html代码，并请求html代码中的资源（如js、css、图片等） --> 浏览器对页面进行渲染呈现给用户
 存在的问题：不安全，被监听，被伪装，被篡改
-https连接过程：+SSL层，过程是先非对称协商秘钥，然后进行加密传输
-HTTP状态码
+https连接过程(5步)：+SSL层，过程是先非对称协商秘钥，然后进行加密传输
 
+加解密
+单向加密和双向加密（对称加密和非对称加密）
+单向加密(信息摘要)：MD5、SHA
+对称加密：DES、3DES、AES
+非对称加密：RSA、DSA、ECDSA
+查看项目quickstart-crypto
+/Users/yangzl/git/quickstart-framework/quickstart-document/doc/base/加解密.md
+---------------------------------------------------------------------------------------------------------------------
 
 xhr对象
     【Ajax发送请求】这件事情并不是一句话带过就可以的，在Ajax中对整个请求从创建到发送都有一套严格的标准流程。在Ajax规则中，“请求”从创建到被发送需要至少经历如下几个步骤：
@@ -106,10 +113,10 @@ TCP三次握手过程
 由TCP的三次握手和四次断开可以看出,TCP使用面向连接的通信方式,大大提高了数据通信的可靠性,使发送数据端和接收端在数据正式传输前就有了交互,为数据正式传输打下了可靠的基础
 
 TCP状态码：
-![http连接过程图片](../../quickstart-document/doc/interview/image/httpconnect.png "ReferencePicture")
+![http连接过程图片](../interview/image/httpconnect.png "ReferencePicture")
 
 
-![http连接过程图片](../../quickstart-document/doc/interview/image/tcp-three-handshake.png "ReferencePicture")
+![http连接过程图片](../interview/image/tcp-three-handshake.png "ReferencePicture")
 
 1、Client：发送SYN后
 SYN-SENT -在发送连接请求后等待匹配的连接请求； 
@@ -222,8 +229,8 @@ https连接过程：
 2、服务器端返回证书和公开密钥，公开密钥作为证书的一部分而存在，服务器从中筛选合适的加密协议，返回证书，证书中有公钥
 3、客户端验证证书和公开密钥的有效性，如果有效，则生成共享密钥并使用公开密钥加密发送到服务器端
 4、服务器端使用私有密钥解密数据，并使用收到的共享密钥使用对称加密密钥加密数据，发送到客户端
-5、客户端使用共享密钥解密数据
-6、SSL加密建立………
+5、客户端使用共享密钥解密数据、SSL加密建立………
+
 
 HTTPS在传输数据之前需要客户端（浏览器）与服务端（网站）之间进行一次握手，在握手过程中将确立双方加密传输数据的密码信息。TLS/SSL协议不仅仅是一套加密传输的协议，更是一件经过艺术家精心设计的艺术品，TLS/SSL中使用了非对称加密，对称加密以及HASH算法。握手过程的具体描述如下：
 1.浏览器将自己支持的一套加密规则发送给网站。 
