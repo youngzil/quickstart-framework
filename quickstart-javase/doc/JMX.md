@@ -94,6 +94,41 @@ SNMP：中文名 简单网络管理协议  外文名 Simple Network Management P
 
 
 
+
+
+开启
+JMX（Java Management Extensions，即Java管理扩展）是一个为Java应用程序植入管理功能的框架。当需要通过JMX对远程服务器上的JVM进行监控时，可以在Java应用启动时增加如下参数：
+
+        -Dcom.sun.management.jmxremote
+
+        -Djava.rmi.server.hostname=100.0.66.1
+
+        -Dcom.sun.management.jmxremote.port=9999
+
+        -Dcom.sun.management.jmxremote.ssl=false
+
+        -Dcom.sun.management.jmxremote.authenticate=false
+
+        其中，ssl=false表示不使用ssl；authenticate=false表示不需要认证，即不需要用户名、密码，如果该参数为true，则还需要其他用户名、密码的相关参数。
+
+        需要注意的是，这几个参数在使用时要连在一起，实际使用过程中发现，如果这几个参数中间有夹杂其他的JVM参数，则可能无法开启JMX的远程访问。
+
+
+
+JMX开发：
+
+理解JMX之介绍和简单使用
+https://blog.csdn.net/lmy86263/article/details/71037316
+
+开发：
+Server服务端：使用MBeanServer注册MBean，使用JMXConnectorServer.start()发布
+Client客户端：MBeanServerConnection可以获取domain、ObjectName、MBean信息，下面一行可以获取MBean的接口实例
+MBeanServerConnection mbsc = jmxc.getMBeanServerConnection();
+HelloWorldMBean proxy = MBeanServerInvocationHandler.newProxyInstance(mbsc, mBeanName, HelloWorldMBean.class, false);
+
+
+
+
 参考
 http://www.cnblogs.com/dongguacai/p/5900507.html
 https://blog.csdn.net/u013256816/article/details/52800742 

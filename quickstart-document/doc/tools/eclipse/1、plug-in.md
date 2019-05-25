@@ -34,7 +34,8 @@ Oxygen	http://download.eclipse.org/releases/oxygen	Enabled
 15、Lombok
 -Xbootclasspath/a:/Users/yangzl/mysoft/lombok/lombok-1.18.0.jar
 -javaagent:/Users/yangzl/mysoft/lombok/lombok-1.18.0.jar
-16、
+16、idea 插件：JRebel和JProfiler，idea自带的jvm Profiler 是async-profiler，有些人在IDEA中配置了JRebel热部署，要想JRebel和JProfiler同时运行，就要改手动管理JProfiler session了。
+
 17、
 18、
 19、

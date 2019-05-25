@@ -6,7 +6,7 @@
  * Copyright asiainfo Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.proxy.statics.javassist;
+package org.quickstart.proxy.statics.javassist.bytecode;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -38,7 +38,7 @@ public class JavassistExtendDemo {
         CtClass stuClass = pool.makeClass("org.quickstart.proxy.statics.javassist.ChildStudent");
 
         //设置父类
-        stuClass.setSuperclass(pool.get("org.quickstart.proxy.statics.javassist.Student"));
+        stuClass.setSuperclass(pool.get("Student"));
 
         //hobbies属性
         CtField ageField = new CtField(pool.getCtClass("java.util.List"), "hobbies", stuClass);

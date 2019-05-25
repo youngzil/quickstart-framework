@@ -6,7 +6,7 @@
  * Copyright asiainfo Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.proxy.statics.javassist;
+package org.quickstart.proxy.statics.javassist.bytecode;
 
 import java.io.IOException;
 
@@ -32,7 +32,7 @@ public class JavassistInsertDemo {
         ClassPool pool = ClassPool.getDefault();
 
         // 定义类
-        CtClass ctClass = pool.get("org.quickstart.proxy.statics.javassist.Calculator");
+        CtClass ctClass = pool.get("Calculator");
 
         // 需要修改的方法名称
         String mname = "getSum";

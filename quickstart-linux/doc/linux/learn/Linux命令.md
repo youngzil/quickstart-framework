@@ -60,7 +60,39 @@ umask xyz（umask指定的是默认值需要减掉的权限，x为owner需要去
 
 
 
+du -sh -m
+df -h -m
 
+tar -xzvf test.tar.gz test/
+tar -czvf test.tar.gz test/
+
+awk是行处理器: 相比较屏幕处理的优点，在处理庞大文件时不会出现内存溢出或是处理缓慢的问题，通常用来格式化文本信息
+awk处理过程: 依次对每一行进行处理，然后输出
+esbdir=`pwd|awk -F'/' '{print $4}'`
+pwd作为输入，-F是以什么为分隔符，然后获取第5个参数，$0 是全行数据，$1 是分割后的第1个数据
+
+
+
+杀死进程
+ps -ef|grep /usr/local/tomcat_coachqa/ |grep -v grep |awk '{print $2}'|xargs kill -9
+
+kill -9  ps -ef|grep /usr/local/tomcat_coachqa/ |grep -v grep |awk '{print $2}'
+
+
+
+dirname filename  返回filename的路径
+basename filename [suffix] 返回文件名字 或者 文件名字去除suffix部分
+
+basename /boot/grub/grub.conf.bak .bak 返回grub.conf
+basename /boot/grub/grub.conf.bak .conf.bak  返回grub
+
+for file in `find $APP_HOME -name "start*.sh"`
+在$APP_HOME路径下面找start开头的sh文件，返回的是sh文件的全路径
+
+
+
+
+ssh  aiesb@10.76.232.148 "cd ~/esb_1/sbin;start_all.sh"
 
 
 

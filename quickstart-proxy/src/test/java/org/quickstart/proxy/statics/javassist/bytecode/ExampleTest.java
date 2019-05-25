@@ -6,11 +6,12 @@
  * Copyright asiainfo Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.proxy.statics.javassist;
+package org.quickstart.proxy.statics.javassist.bytecode;
 
 import javassist.ClassPool;
 import javassist.CtClass;
 import javassist.CtMethod;
+import org.quickstart.proxy.statics.javassist.Student;
 
 /**
  * ExampleTest
@@ -23,7 +24,7 @@ public class ExampleTest {
 
     public static void main(String[] args) throws Exception {
         ClassPool pool = ClassPool.getDefault();
-        CtClass cc = pool.get("org.quickstart.proxy.statics.javassist.Student");
+        CtClass cc = pool.get("Student");
 
         // byte[] b=cc.toBytecode();
 

@@ -15,6 +15,17 @@ IntelliJ IDEA 被认为是当前 Java 开发效率最快的 IDE 工具。它整�
 IDEA主题样式：http://www.riaway.com/
 
 
+idea配置所在路径
+Config: ~/Library/Preferences/IdeaIC13
+System: ~/Library/Caches/IdeaIC13
+Plugins: ~/Library/Application Support/IdeaIC13
+Logs: ~/Library/Logs/IdeaIC13
+
+
+IDEA学习参考
+https://blog.csdn.net/heatdeath/article/category/7325258
+
+
 
 
 

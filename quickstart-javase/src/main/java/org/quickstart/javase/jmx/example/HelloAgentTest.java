@@ -34,7 +34,7 @@ import java.rmi.registry.Registry;
  * @2018年6月10日 下午11:30:11
  * @since 1.0
  */
-public class HelloAgent {
+public class HelloAgentTest {
     public static void main(String[] args) throws MalformedObjectNameException, NotCompliantMBeanException, InstanceAlreadyExistsException, MBeanRegistrationException, IOException {
         // 下面这种方式不能再JConsole中使用
         // MBeanServer server = MBeanServerFactory.createMBeanServer();

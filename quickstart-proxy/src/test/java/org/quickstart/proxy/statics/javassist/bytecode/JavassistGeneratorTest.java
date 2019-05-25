@@ -6,7 +6,7 @@
  * Copyright asiainfo Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.proxy.statics.javassist;
+package org.quickstart.proxy.statics.javassist.bytecode;
 
 
 import java.lang.reflect.Method;  
@@ -33,7 +33,7 @@ public class JavassistGeneratorTest {
         
       ClassPool pool = ClassPool.getDefault();  
       //创建类  
-      CtClass cls = pool.makeClass("org.quickstart.proxy.statics.javassist.Student");  
+      CtClass cls = pool.makeClass("Student");
 
       // 添加私有成员name及其getter、setter方法  
       CtField param = new CtField(pool.get("java.lang.String"), "name", cls);  
@@ -60,7 +60,7 @@ public class JavassistGeneratorTest {
       System.out.println(cls.toClass());  
 
       // 通过反射创建无参的实例，并调用getName方法  
-      Object o = Class.forName("org.quickstart.proxy.statics.javassist.Student").newInstance();  
+      Object o = Class.forName("org.quickstart.proxy.statics.javassist.Student").newInstance();
       Method getter = o.getClass().getMethod("getName");  
       System.out.println(getter.invoke(o));  
 
@@ -71,7 +71,7 @@ public class JavassistGeneratorTest {
       System.out.println(getter.invoke(o));  
 
       // 通过反射创建有参的实例，并调用getName方法  
-      o = Class.forName("org.quickstart.proxy.statics.javassist.Student").getConstructor(String.class).newInstance("Liu wjh");  
+      o = Class.forName("org.quickstart.proxy.statics.javassist.Student").getConstructor(String.class).newInstance("Liu wjh");
         
       getter = o.getClass().getMethod("getName");  
       System.out.println(getter.invoke(o));  

@@ -38,17 +38,18 @@ import javax.management.remote.JMXServiceURL;
  * @2018年6月10日 下午11:38:45
  * @since 1.0
  */
-public class HelloClient {
+public class HelloClientTest {
     public static void main(String[] args) throws IOException, MalformedObjectNameException, InstanceNotFoundException, AttributeNotFoundException, InvalidAttributeValueException, MBeanException,
             ReflectionException, IntrospectionException {
         String domainName = "MyMBean";
         int rmiPort = 1099;
         JMXServiceURL url = new JMXServiceURL("service:jmx:rmi:///jndi/rmi://localhost:" + rmiPort + "/jmxrmi");
+
         // 可以类比HelloAgent.java中的那句：
         // JMXConnectorServer jmxConnector = JMXConnectorServerFactory.newJMXConnectorServer(url, null, mbs);
         JMXConnector jmxc = JMXConnectorFactory.connect(url, null);
         MBeanServerConnection mbsc = jmxc.getMBeanServerConnection();
-
+        
         // 1、打印Domains信息 print domains
         System.out.println("Domains:------------------");
         String domains[] = mbsc.getDomains();
@@ -69,7 +70,7 @@ public class HelloClient {
 
         // ObjectName的名称与前面注册时候的保持一致
         ObjectName mBeanName = new ObjectName(domainName + ":name=HelloWorld"); // 多个属性使用,分隔
-
+        
         // 4、打印MBean信息 get mbean information
         MBeanInfo info = mbsc.getMBeanInfo(mBeanName);
         System.out.println("Hello Class: " + info.getClassName());
@@ -94,6 +95,7 @@ public class HelloClient {
         // 接下去是执行Hello中的printHello方法，分别通过代理和rmi的方式执行
         // 6、操作MBean方法 via proxy
         HelloWorldMBean proxy = MBeanServerInvocationHandler.newProxyInstance(mbsc, mBeanName, HelloWorldMBean.class, false);
+
         proxy.printGreeting();
         // proxy.printHello("jizhi boy");
         // via rmi

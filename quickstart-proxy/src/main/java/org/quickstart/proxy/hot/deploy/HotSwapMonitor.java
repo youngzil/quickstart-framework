@@ -107,8 +107,12 @@ public class HotSwapMonitor implements Runnable {
         ClassReader reader = new ClassReader(fis);  
         fis.close();  
         ClassDefinition definition = new ClassDefinition(Class.forName(reader.getClassName()), buff);  
-        instrumentation.redefineClasses(new ClassDefinition[] { definition });  
-    }  
+        instrumentation.redefineClasses(new ClassDefinition[] { definition });
+
+        instrumentation.re
+
+
+    }
   
     /** 
      * 是否class文件 

@@ -6,7 +6,7 @@
  * Copyright asiainfo Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.proxy.statics.javassist;
+package org.quickstart.proxy.statics.javassist.bytecode;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -21,6 +21,7 @@ import javassist.CtNewMethod;
 import javassist.util.proxy.MethodFilter;
 import javassist.util.proxy.MethodHandler;
 import javassist.util.proxy.ProxyFactory;
+import org.quickstart.proxy.statics.javassist.Student;
 
 /**
  * JavassistLearn
@@ -42,7 +43,7 @@ public class JavassistLearn {
 
         ClassPool cp = ClassPool.getDefault();
 
-        CtClass ctClass = cp.makeClass("org.quickstart.proxy.statics.javassist.Student");
+        CtClass ctClass = cp.makeClass("Student");
 
         StringBuffer body = null;
         // 参数 1：属性类型 2：属性名称 3：所属类CtClass

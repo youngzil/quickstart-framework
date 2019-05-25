@@ -6,7 +6,7 @@
  * Copyright asiainfo Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.proxy.statics.javassist;
+package org.quickstart.proxy.statics.javassist.bytecode;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
@@ -37,7 +37,7 @@ public class JavassistDemo {
         ClassPool pool = ClassPool.getDefault();
 
         // 定义类，创建一个新的Class
-        CtClass stuClass = pool.makeClass("org.quickstart.proxy.statics.javassist.Student");
+        CtClass stuClass = pool.makeClass("Student");
 
         // 加载类，如果某个类已经存在，可以直接加载它，如下：
         // CtClass cc = pool.get("java.lang.String");
