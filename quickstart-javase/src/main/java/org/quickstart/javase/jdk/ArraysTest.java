@@ -34,6 +34,31 @@ public class ArraysTest {
 
         System.out.println(list.contains("ksy"));
         System.out.println(list.isEmpty());
+        
+        
+        final boolean debug = true;
+        if(debug) {
+            System.out.println("ddd");
+        }
+        
+        final boolean online = false;
+        if(online) {
+            System.out.println("online");
+        }
+        
+        assert debug == online;
+
+        int a = 4;
+        int b = 3;
+        assert a == b;
+        
+        
+
+    }
+
+    public  static void  testVariableParameterMethod(int... a){
+
+        System.out.println(a);
 
     }
 

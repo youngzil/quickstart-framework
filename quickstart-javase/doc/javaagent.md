@@ -596,6 +596,11 @@ JAVA_OPT="${JAVA_OPT} -Xdebug -Xrunjdwp:transport=dt_socket,address=9555,server=
 JDK1.5之后：export JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=1043,server=y,suspend=n"
 DEBUG="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=2345"
 
+java9以上和java8以下
+-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5006
+-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5006
+
+
 DEBUG选项参数的意思：
 -XDebug 启用调试
 -Xrunjdwp 加载JDWP的JPDA参考执行实例。
