@@ -9,6 +9,10 @@ SMTP 的全称是“Simple Mail Transfer Protocol”，即简单邮件传输协�
 POP3是Post Office Protocol 3的简称，即邮局协议的第3个版本
 IMAP全称是Internet Mail Access Protocol，即交互式邮件存取协议
 3、SSH、SCP、SFTP、FTP、Telnet定义和使用
+SSH、SCP、SFTP、FTP、Telnet常用的java类库
+
+
+
 
 
 
@@ -256,10 +260,10 @@ telnet www.baidu.com
 
 
 ---------------------------------------------------------------------------------------------------------------------
+SSH、SCP、SFTP、FTP、Telnet常用的java类库
 
-
-
-
+Java SSH库使用简介：Apache sshd和JSch（Java Secure Channel）、jcabi（封装Jsch）
+http://www.jcraft.com/jsch/examples/
 
 
 ---------------------------------------------------------------------------------------------------------------------

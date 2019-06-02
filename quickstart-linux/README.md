@@ -1,3 +1,52 @@
+SSH、SCP、SFTP、FTP、Telnet常用的java类库
+
+Java SSH库使用简介：Apache sshd和JSch（Java Secure Channel）、jcabi（封装Jsch）
+http://www.jcraft.com/jsch/examples/
+
+
+
+http://www.jcraft.com/jsch/examples/
+
+
+FTP:commons-net
+https://www.jianshu.com/p/44d9b05691a8
+https://segmentfault.com/a/1190000017308687
+https://blog.csdn.net/jiangyu1013/article/details/75529343
+https://happyqing.iteye.com/blog/2317621
+https://www.journaldev.com/661/java-ftp-client-upload-example-apache-commons-net
+https://github.com/journaldev/journaldev/tree/master/CoreJavaProjects/CoreJavaExamples/src/com/journaldev
+https://github.com/OSpoon/MyFtpClient/blob/master/app/src/main/java/com/example/myftpclient/ftp/FTP.java
+https://www.cnblogs.com/winorgohome/p/6088013.html
+
+
+https://commons.apache.org/proper/commons-net/examples/
+commons-net-2.0.jar telnet功能的简单使用，
+这个包实现了很多基本的基于Intenet协议，下面是 commons 支持的协议：
+FTP/FTPS
+NNTP
+SMTP
+POP3
+Telnet
+TFTP
+Finger
+Whois
+rexec/rcmd/rlogin
+Time (rdate) and Daytime
+Echo
+Discard
+NTP/SNTP
+
+
+
+https://www.coderanch.com/t/674623/java/Telnet-execution-Java
+https://www.programcreek.com/java-api-examples/index.php?api=org.apache.commons.net.telnet.TelnetClient
+https://www.programcreek.com/java-api-examples/?class=org.apache.commons.net.telnet.TelnetClient&method=connect
+http://www.javased.com/index.php?api=org.apache.commons.net.telnet.TelnetClient
+https://my.oschina.net/xuqiang/blog/386549
+http://www.java2s.com/Code/Java/Network-Protocol/Telnet.htm
+
+
+
 Linux的源码地址（Linus Torvalds的github）
 https://github.com/torvalds/linux
 
