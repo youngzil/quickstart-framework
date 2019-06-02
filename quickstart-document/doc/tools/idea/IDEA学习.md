@@ -26,7 +26,11 @@ IDEA学习参考
 https://blog.csdn.net/heatdeath/article/category/7325258
 
 
-
+代码格式化
+https://github.com/krasa/EclipseCodeFormatter
+https://github.com/alibaba/p3c
+https://github.com/google/google-java-format
+https://github.com/google/styleguide
 
 
 

@@ -1,4 +1,27 @@
+1、linux 内存清理/释放命令
+2、查看cpu的方法
+3、查找文件夹下某个文件
 
+4、查看磁盘和文件大小
+  tar命令
+  Linux查看端口占用
+
+5、
+
+6、
+
+7、
+
+8、
+
+9、
+
+10、
+
+11、
+
+
+---------------------------------------------------------------------------------------------------------------------
 linux 内存清理/释放命令
 
 释放内存的时候，首先执行命令 sync 将所有正在内存中的缓冲区写到磁盘中，其中包括已经修改的文件inode、已延迟的块I/O以及读写映射文件，从而确保文件系统的完整性
@@ -57,12 +80,12 @@ umask的值表示的是文件或目录的“默认最大值”需要减掉的权
 umask xyz（umask指定的是默认值需要减掉的权限，x为owner需要去掉的权限，y为group需要去掉的权限，z为other需要去掉的权限）
 
 
-
-
-
+查看磁盘和文件大小：
 du -sh -m
 df -h -m
 
+
+tar命令：
 tar -xzvf test.tar.gz test/
 tar -czvf test.tar.gz test/
 
@@ -95,5 +118,12 @@ for file in `find $APP_HOME -name "start*.sh"`
 ssh  aiesb@10.76.232.148 "cd ~/esb_1/sbin;start_all.sh"
 
 
+
+Linux查看端口占用：
+方法1: lsof命令,即ls open files
+lsof -i:端口号
+
+方法2: netstat命令
+netstat -tunpl | grep 端口号
 
 

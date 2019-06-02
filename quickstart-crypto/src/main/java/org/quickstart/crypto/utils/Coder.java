@@ -52,6 +52,16 @@ public class Coder {
     public static String encryptBASE64(byte[] key) throws Exception {
         return (new BASE64Encoder()).encodeBuffer(key);
     }
+    
+    
+    public static void main(String[] args) throws Exception {
+        String ss = "4ED5C8CB6CE9B62A4F418C7BA240C5A03015AC06346F9762EAFD96CDE329584F";
+        String dd = new String(decryptBASE64(ss),"GBK");
+        System.out.println(dd);
+        
+    }
+    
+    
 
     /**
      * MD5加密
