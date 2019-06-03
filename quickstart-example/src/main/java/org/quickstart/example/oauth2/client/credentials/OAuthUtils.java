@@ -1,4 +1,4 @@
-package org.quickstart.example.oauth2;
+package org.quickstart.example.oauth2.client.credentials;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,7 +13,6 @@ import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpEntity;
@@ -34,7 +33,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
 public class OAuthUtils {
 
@@ -54,6 +52,12 @@ public class OAuthUtils {
 				.get(OAuthConstants.AUTHENTICATION_SERVER_URL));
 		oauthDetails.setUsername((String) config.get(OAuthConstants.USERNAME));
 		oauthDetails.setPassword((String) config.get(OAuthConstants.PASSWORD));
+		oauthDetails.setResourceServerUrl((String) config.get(OAuthConstants.RESOURCE_SERVER_URL));
+		
+		if(!isValid(oauthDetails.getResourceServerUrl())){
+			System.out.println("Resource server url is null. Will assume request is for generating Access token");
+			oauthDetails.setAccessTokenRequest(true);
+		}
 
 		return oauthDetails;
 	}
@@ -72,10 +76,9 @@ public class OAuthUtils {
 		return config;
 	}
 
-	public static void getProtectedResource(Properties config) {
-		String resourceURL = config
-				.getProperty(OAuthConstants.RESOURCE_SERVER_URL);
-		OAuth2Details oauthDetails = createOAuthDetails(config);
+	public static void getProtectedResource(OAuth2Details oauthDetails) {
+		String resourceURL = oauthDetails.getResourceServerUrl();
+				
 		HttpGet get = new HttpGet(resourceURL);
 		get.addHeader(OAuthConstants.AUTHORIZATION,
 				getAuthorizationHeaderForAccessToken(oauthDetails
@@ -86,7 +89,7 @@ public class OAuthUtils {
 		try {
 			response = client.execute(get);
 			code = response.getStatusLine().getStatusCode();
-			if (code >= 400) {
+			if (code == 401 || code == 403) {
 				// Access token is invalid or expired.Regenerate the access
 				// token
 				System.out
@@ -140,19 +143,13 @@ public class OAuthUtils {
 		List<BasicNameValuePair> parametersBody = new ArrayList<BasicNameValuePair>();
 		parametersBody.add(new BasicNameValuePair(OAuthConstants.GRANT_TYPE,
 				oauthDetails.getGrantType()));
-		parametersBody.add(new BasicNameValuePair(OAuthConstants.USERNAME,
-				oauthDetails.getUsername()));
-		parametersBody.add(new BasicNameValuePair(OAuthConstants.PASSWORD,
-				oauthDetails.getPassword()));
-
-		if (isValid(clientId)) {
-			parametersBody.add(new BasicNameValuePair(OAuthConstants.CLIENT_ID,
+		
+		parametersBody.add(new BasicNameValuePair(OAuthConstants.CLIENT_ID,
 					clientId));
-		}
-		if (isValid(clientSecret)) {
-			parametersBody.add(new BasicNameValuePair(
+		
+		parametersBody.add(new BasicNameValuePair(
 					OAuthConstants.CLIENT_SECRET, clientSecret));
-		}
+		
 		if (isValid(scope)) {
 			parametersBody.add(new BasicNameValuePair(OAuthConstants.SCOPE,
 					scope));
@@ -166,34 +163,24 @@ public class OAuthUtils {
 
 			response = client.execute(post);
 			int code = response.getStatusLine().getStatusCode();
-			if (code >= 400) {
+			if (code == OAuthConstants.HTTP_UNAUTHORIZED) {
 				System.out
 						.println("Authorization server expects Basic authentication");
 				// Add Basic Authorization header
 				post.addHeader(
 						OAuthConstants.AUTHORIZATION,
-						getBasicAuthorizationHeader(oauthDetails.getUsername(),
-								oauthDetails.getPassword()));
-				System.out.println("Retry with login credentials");
+						getBasicAuthorizationHeader(oauthDetails.getClientId(),
+								oauthDetails.getClientSecret()));
+				System.out.println("Retry with client credentials");
 				post.releaseConnection();
 				response = client.execute(post);
 				code = response.getStatusLine().getStatusCode();
-				if (code >= 400) {
-					System.out.println("Retry with client credentials");
-					post.removeHeaders(OAuthConstants.AUTHORIZATION);
-					post.addHeader(
-							OAuthConstants.AUTHORIZATION,
-							getBasicAuthorizationHeader(
-									oauthDetails.getClientId(),
-									oauthDetails.getClientSecret()));
-					post.releaseConnection();
-					response = client.execute(post);
-					code = response.getStatusLine().getStatusCode();
-					if (code >= 400) {
-						throw new RuntimeException(
-								"Could not retrieve access token for user: "
-										+ oauthDetails.getUsername());
-					}
+				if (code == 401 || code == 403) {
+					System.out.println("Could not authenticate using client credentials.");
+					throw new RuntimeException(
+								"Could not retrieve access token for client: "
+										+ oauthDetails.getClientId());
+					
 				}
 
 			}
@@ -367,6 +354,45 @@ public class OAuthUtils {
 
 		return encodedValue;
 
+	}
+	
+	public static boolean isValidInput(OAuth2Details input){
+		
+		
+		
+		if(input == null){
+			return false;
+		}
+		
+		String grantType = input.getGrantType();
+		
+		if(!isValid(grantType)){
+			System.out.println("Please provide valid value for grant_type");
+			return false;
+		}
+		
+		if(!isValid(input.getAuthenticationServerUrl())){
+			System.out.println("Please provide valid value for authentication server url");
+			return false;
+		}
+		
+		if(grantType.equals(OAuthConstants.GRANT_TYPE_PASSWORD)){
+			if(!isValid(input.getUsername()) || !isValid(input.getPassword())){
+				System.out.println("Please provide valid username and password for password grant_type");
+				return false;
+			}
+		}
+		
+		if(grantType.equals(OAuthConstants.GRANT_TYPE_CLIENT_CREDENTIALS)){
+			if(!isValid(input.getClientId()) || !isValid(input.getClientSecret())){
+				System.out.println("Please provide valid client_id and client_secret for client_credentials grant_type");
+				return false;
+			}
+		}
+		
+		System.out.println("Validated Input");
+		return true;
+		
 	}
 
 	public static boolean isValid(String str) {

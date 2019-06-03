@@ -1,4 +1,4 @@
-package org.quickstart.example.oauth2;
+package org.quickstart.example.oauth2.password;
 
 
 import lombok.Getter;
