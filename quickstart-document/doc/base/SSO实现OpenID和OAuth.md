@@ -1,25 +1,80 @@
 1、SSO
 2、OpenID
 3、OAuth
+OAuth 2.0 是一种授权机制，主要用来颁发令牌（token）
+获取令牌的四种方式
+Oauth1.0与Oauth2.0的区别：3点
 4、
 5、
 
 
-
-
-
-
 ---------------------------------------------------------------------------------------------------------------------
+https://www.programcat.com/index/info/id/47
+https://blog.csdn.net/u010889616/article/details/79981710
+https://blog.csdn.net/yuxin6866/article/details/73522312
+https://blog.csdn.net/zhangjingao/article/details/89052764
+https://blog.csdn.net/tengxvincent/article/details/82685042
 
-跨应用、跨域的单点登录SSO（Single sign-on）
+Cookie
+https://segmentfault.com/a/1190000004556040
+https://www.cnblogs.com/1020182600HENG/p/7121148.html
+CROS
+https://my.oschina.net/wsxiao/blog/1648996
+
+
+跨应用、跨域的单点登录SSO（Single sign-on）：Cookie+Session
+后端Session统一存在分布式存储中
+前端保存Cookie
+1、Domain相同：存在公共的Domain下面，后端可以使用Filter拦截调用SSO服务验证
+2、Domain不同：A、访问一个子系统的时候，转到SSO登录，就调用所有的子系统【提前知道全部子系统，并且比较浪费】
+              B1、访问a子系统的时候，后端可以使用Filter拦截调用SSO服务验证，验证不通过就重定向到SSO登录页面，登陆后就把SSO域名和子系统域名下都保存Cookie
+              B2、访问b子系统，Filter校验不通过，就重定向到SSO登录服务，这时候发现携带Cookie，校验通过，就指定重定向回b系统的访问资源，并在b系统域下写Cookie
+              C、在B的基础上，跨域Cookie共享方案使得所有的子系统通过跨域共享SSO域下的Cookie信息
+
+跨域Cookie的解决方案：同Domain 和 不同Domain
+1、反向代理Nginx
+2、Jquery的jsonp方式请求：需要自己写脚本发起请求，然后写个回调函数处理数据
+3、CROS：前端会有预检请求，后端要有CORSFilter
+参考
+/Users/yangzl/git/quickstart-http/docs/CORS跨域请求.md
 
 
 
 
+跨应用、跨域的单点登录SSO（Single sign-on）：Cookie+Session
+
+单点登录全称Single Sign On（以下简称SSO），是指在多系统应用群中登录一个系统，便可在其他所有系统中得到授权而无需再次登录，包括单点登录与单点注销两部分
+
+SSO服务器生成全局会话，并且注册保存所有单点登录授权的子系统
+各个子系统生成局部会话
+
+全局会话与局部会话有如下约束关系
+1、局部会话存在，全局会话一定存在
+2、全局会话存在，局部会话不一定存在
+3、全局会话销毁，局部会话必须销毁
+
+
+sso认证中心一直监听全局会话的状态，一旦全局会话销毁，监听器将通知所有注册系统执行注销操作
 
 
 
+Domain 相同的情况下：
+1、把session信息保存在SSO服务器公共存储中（Redis、Memcached、DB等），并且把SessionID存储到同Domain下的Cookie中
+2、用户一次登录后，每次携带cookie先去SSO服务器校验用户信息，然后决定是否有权访问
 
+
+
+不同Domain下
+1、提前知道所有的子系统，可以在SSO登录的时候，把所有的子系统分别调用一下，在对应的Domain下写上用户的Cookie信息
+
+2、不提前知道所有子系统，改进后的流程就是，把通知所有的子系统，变为访问子系统的时候，再验证
+访问第一个子系统，没有登录，通过浏览器browser重置到
+
+
+
+1、用户U访问W ，W进行验证，验证失败，跳转至SSO，要求U登录；
+2、U通过SSO登录，SSO进行验证，成功并生成SessionID，随后将UserInfo（ SessionID、ID和口令）存储到公共缓存C 中，跳转至W（携带SessionID），并允许U访问W；U保存UserInfo （ SessionID ） 至 cookie；
+3、U访问T，T 进行验证，失败跳转至SSO，SSO将触发U请求SSO将验证信息随请求一并发给SSO，经SSO验证成功跳转至Ｔ，允许U对T 的访问；使U保存UserInfo（ SessionID）至cookie；
 
 
 
@@ -32,6 +87,10 @@ OpenID 2.0实现
 openid的client和server端的示例代码
 https://www.ibm.com/developerworks/cn/java/j-openid2/index.html
 https://www.ibm.com/developerworks/cn/cloud/library/cl-lo-openid-connect-kubernetes-authentication2/index.html
+
+
+openid申请和获取：
+http://openid.org.cn/login
 
 
 参考/Users/yangzl/git/quickstart-application-container/quickstart-jetty/src/main/java/org/quickstart/container/jetty/openid4java
@@ -60,16 +119,34 @@ https://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html
 https://blog.csdn.net/u013436121/article/details/23631885
 https://www.zhihu.com/question/19851243
 https://oauthlib.readthedocs.io/en/v3.0.1/oauth_1_versus_oauth_2.html
-
+https://blog.csdn.net/jing12062011/article/details/78147306
 
 客户端示例
 https://www.ibm.com/developerworks/cn/java/se-oauthjavapt1/index.html
+https://www.ibm.com/developerworks/cn/java/se-oauthjavapt2/index.html
+https://www.ibm.com/developerworks/cn/java/se-oauthjavapt3/index.html
+https://www.ibm.com/developerworks/library/se-oauthjavapt3/index.html
+
+
+https://developers.google.com/api-client-library/java/google-oauth-java-client/oauth2
+https://spring.io/guides/tutorials/spring-boot-oauth2/
+https://db-blog.web.cern.ch/blog/emil-kleszcz/2016-08-java-web-application-based-oauth2
+https://developer.byu.edu/docs/consume-api/use-api/oauth-20/oauth-20-java-sample-code
+https://github.com/Aaron-zheng/oauth2-demo
+
+github测试oauth
+https://github.com/settings/apps
+
+
+java实现参考
+/Users/yangzl/git/quickstart-framework/quickstart-example/src/main/java/org/quickstart/example/oauth2
 
 
 
 OAuth 2.0
 https://oauth.net/
 https://oauth.net/code/java/
+
 
 
 OAuth 2.0 是一种授权机制，主要用来颁发令牌（token）。
@@ -149,6 +226,7 @@ Oauth1.0与Oauth2.0的区别：3点
 
 客户端私有证书、资源拥有者密码证书、刷新令牌等方式，而且验证过程更为简洁。
 相比之下 1.0只有一个用户授权流程。
+
 
 
 

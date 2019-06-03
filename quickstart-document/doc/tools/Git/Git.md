@@ -23,3 +23,8 @@ https://github.com/git-tips/tips
 https://git-scm.com/book/zh/v1/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git
 
 
+Git的gitattributes文件详解
+https://blog.csdn.net/taiyangdao/article/details/78484623
+
+
+
