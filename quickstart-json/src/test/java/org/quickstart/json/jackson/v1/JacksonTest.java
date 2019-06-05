@@ -3,7 +3,7 @@
  * 文件名：JacksonTest.java
  * 版本信息：
  * 日期：2017年12月13日
- * Copyright asiainfo Corporation 2017
+ * Copyright yangzl Corporation 2017
  * 版权所有 *
  */
 package org.quickstart.json.jackson.v1;

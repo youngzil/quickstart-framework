@@ -3,7 +3,7 @@
  * 文件名：Person.java
  * 版本信息：
  * 日期：2017年11月22日
- * Copyright asiainfo Corporation 2017
+ * Copyright yangzl Corporation 2017
  * 版权所有 *
  */
 package org.quickstart.yaml.jyaml;

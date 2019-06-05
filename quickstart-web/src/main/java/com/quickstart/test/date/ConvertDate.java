@@ -3,7 +3,7 @@
  * 文件名：ConvertDate.java
  * 版本信息：
  * 日期：2017年1月5日
- * Copyright asiainfo Corporation 2017
+ * Copyright yangzl Corporation 2017
  * 版权所有 *
  */
 package com.quickstart.test.date;

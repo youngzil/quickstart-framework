@@ -3,7 +3,7 @@
  * 文件名：MyProgram.java
  * 版本信息：
  * 日期：2018年8月12日
- * Copyright asiainfo Corporation 2018
+ * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
 package org.quickstart.proxy.java.agent.sample;

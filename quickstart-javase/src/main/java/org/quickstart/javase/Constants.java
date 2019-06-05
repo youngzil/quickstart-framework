@@ -3,7 +3,7 @@
  * 文件名：Constants.java
  * 版本信息：
  * 日期：2019年4月24日
- * Copyright asiainfo Corporation 2019
+ * Copyright yangzl Corporation 2019
  * 版权所有 *
  */
 package org.quickstart.javase;

@@ -3,7 +3,7 @@
  * 文件名：MyServer.java
  * 版本信息：
  * 日期：2016年12月29日
- * Copyright asiainfo Corporation 2016
+ * Copyright yangzl Corporation 2016
  * 版权所有 *
  */
 package com.quickstart.test.socket.object;

@@ -1,5 +1,5 @@
 /**
- * 项目名称：quickstart-javase 文件名：MyServer3.java 版本信息： 日期：2017年8月10日 Copyright asiainfo Corporation 2017
+ * 项目名称：quickstart-javase 文件名：MyServer3.java 版本信息： 日期：2017年8月10日 Copyright yangzl Corporation 2017
  * 版权所有 *
  */
 package org.quickstart.javase.jdk.socket.demo;

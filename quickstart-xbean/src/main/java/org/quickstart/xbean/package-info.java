@@ -3,7 +3,7 @@
  * 文件名：package-info.java
  * 版本信息：
  * 日期：2017年9月21日
- * Copyright asiainfo Corporation 2017
+ * Copyright yangzl Corporation 2017
  * 版权所有 *
  */
 /**

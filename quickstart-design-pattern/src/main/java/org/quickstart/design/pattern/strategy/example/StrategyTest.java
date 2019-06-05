@@ -3,7 +3,7 @@
  * 文件名：StrategyTest.java
  * 版本信息：
  * 日期：2018年1月26日
- * Copyright asiainfo Corporation 2018
+ * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
 package org.quickstart.design.pattern.strategy.example;

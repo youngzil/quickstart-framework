@@ -3,7 +3,7 @@
  * 文件名：SpringBeanReloadJob.java
  * 版本信息：
  * 日期：2017年3月19日
- * Copyright asiainfo Corporation 2017
+ * Copyright yangzl Corporation 2017
  * 版权所有 *
  */
 package org.quickstart.xbean.hot.loading.xml;

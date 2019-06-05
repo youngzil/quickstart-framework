@@ -3,7 +3,7 @@
  * 文件名：Color.java
  * 版本信息：
  * 日期：2018年1月3日
- * Copyright asiainfo Corporation 2018
+ * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
 package org.quickstart.guava.model;

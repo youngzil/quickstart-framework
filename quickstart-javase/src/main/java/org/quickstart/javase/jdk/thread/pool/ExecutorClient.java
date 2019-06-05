@@ -1,5 +1,5 @@
 /**
- * 项目名称：ddmp-test 文件名：ExecutorClient.java 版本信息： 日期：2017年10月12日 Copyright asiainfo Corporation 2017
+ * 项目名称：ddmp-test 文件名：ExecutorClient.java 版本信息： 日期：2017年10月12日 Copyright yangzl Corporation 2017
  * 版权所有 *
  */
 package org.quickstart.javase.jdk.thread.pool;

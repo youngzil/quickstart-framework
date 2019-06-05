@@ -13,7 +13,7 @@ import org.apache.commons.codec.binary.Base64;
 /**
  * Base64加解密工具类
  * 
- * Copyright: Copyright (c) 2011 Asiainfo
+ * Copyright: Copyright (c) 2011 yangzl
  * 
  * @ClassName: Base64Utils.java
  * @Description: 该类的功能描述

@@ -1,7 +1,7 @@
 1、Java泛型的类型擦除和Java语法糖（12个）
 2、sleep和wait方法
 3、jar包和替换jar包类
-4、
+4、java中的数字魔法
 5、
 6、
 7、
@@ -118,11 +118,48 @@ filter和forEach两个lambda表达式分别调用了lambda$main$1和lambda$main$
 
 
 
+
+---------------------------------------------------------------------------------------------------------------------
+java中的数字魔法：
+1、缓存问题：对于int的变量，在对于值范围在-128到127之间的数，==是相等的，超过这个范围的因为自动装箱，是两个不同的Integer对象，==就不相等了
+2、越界问题：
+  i==Math.abs(i)： Long、Short、Byte等的如负数Integer.MIN_VALUE值等于自己绝对值Math.abs(Integer.MIN_VALUE))
+  i+1<i ：Integer.MAX_VALUE，因为+1越界成为负数
+  i != 0 && i == -i：还是Integer.MIN_VALUE
+3、浮点奥秘：
+  i=i+1，i=i-1：Double.POSITIVE_INFINITY代表正无穷大，正无穷大加减一个数还是正无穷大
+  i != i：Double.NaN，
+
+
+
+一、缓存问题
+JAVA编译器编译Integer a = 50的时候,被翻译成Integer a = Integer.valueOf(50);
+而valueOf的源码是下面这样的
+‍看到了嘛，Integer内部有一个IntegerCache缓存。对于值范围在-128到127之间的数，会进行缓存。因此a和b范围在-128到127之间，所以指向的是同一个对象，所以判断结果是true。而c和d在128之外，所以每次都是返回一个新对象，所以判断结果是false。
+
+
+二、越界问题
+Math.abs(Integer.MIN_VALUE))的结果是正数还是负数
+绝对值运算的原理是判断这个数是否大于零，如果小于零则取负值
+Integer.MIN_VALUE，它的十六进制表示是 0x80000000。其符号位为1，其余所有的位都是0。取负数(反码+1)则为 0x7fffffff+1，也就是 0x80000000。你会发现对Integer.MIN_VALUE取负值还是本身。因此，结果还是负数。
+这套理论对Long、Short、Byte都成立
+Math.abs(Short.MIN_VALUE)=它本身-32768
+是否存在一个数i，可以使其满足i+1<i，这样看来，这个i就是Integer.MAX_VALUE，因为加完1就溢出了变为负值了。"
+是否存在一个数，满足i != 0 && i == -i"其实还是Integer.MIN_VALUE，原因你刚才说过了！"
+
+
+三、浮点奥秘
+double i = Double.POSITIVE_INFINITY代表正无穷大，无穷大加一个常数还是无穷大，无穷大减去一个常数也是无穷大
+所以 i 等于 i+1 等于 i-1
+
+double j = Double.NaN;翻译过来就是(Not a Number)，所以他本身不等于它本身 j != j 是true
+
+
 ---------------------------------------------------------------------------------------------------------------------
 
 jar包和替换jar包类
 
- jar uvf aiesb.jar com/asiainfo/openplatform/isb/restful/security/resources/Authorization.class 
+ jar uvf aiesb.jar com/yangzl/openplatform/isb/restful/security/resources/Authorization.class 
 
 
 Java 生态系统提供了标准的格式来分发同一个应用中的所有 Java 类。我们可以将这些类打包为 JAR（Java Archive）、WAR（Web Archive）以及 EAR（Enterprise Archive），在这些格式中包含了前端、后端以及嵌入其中的库。

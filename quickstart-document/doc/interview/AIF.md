@@ -152,19 +152,6 @@ int index = cidAll.indexOf(currentCID);
 
 
 
-Activemq和Rocketmq：
-实现的协议：
-存储消息的方式和处理：
-生产端和消费端
-
-
-Rocketmq和kafka的区别：
-1、kafka是每个topic_partition一个文件，每个文件是顺序IO，表现到磁盘上，还是随机IO，RocketMQ所有消息存到一个文件里面，单文件的顺序写
-2、RocketMQ去掉了对ZK的依赖，转而使用自己开发的NameSrv。
-3、批量发送实现不同，Rocketmq的批量实现，是把批量消息封装到一个请求中，该请求还是Sync请求的实现
-4、kafka没有定时消息，Rocketmq支持定时消息
-5、kafka的顺序消息，如果有broker宕机，就会乱序，Rocketmq的是宕机后发送失败，但是可以保证严格的顺序
-
 
 
 ---------------------------------------------------------------------------------------------------------------------

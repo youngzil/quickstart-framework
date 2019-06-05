@@ -3,7 +3,7 @@
  * 文件名：FileTest.java
  * 版本信息：
  * 日期：2019年1月3日
- * Copyright asiainfo Corporation 2019
+ * Copyright yangzl Corporation 2019
  * 版权所有 *
  */
 package org.quickstart.javase.file;

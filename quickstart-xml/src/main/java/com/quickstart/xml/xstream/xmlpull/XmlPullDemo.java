@@ -3,7 +3,7 @@
  * 文件名：XmlPullDemo.java
  * 版本信息：
  * 日期：2018年5月20日
- * Copyright asiainfo Corporation 2018
+ * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
 package com.quickstart.xml.xstream.xmlpull;

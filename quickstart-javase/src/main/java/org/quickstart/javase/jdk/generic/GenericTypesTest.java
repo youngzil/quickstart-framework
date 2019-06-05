@@ -1,5 +1,5 @@
 /**
- * 项目名称：quickstart-javase 文件名：GenericTypesTest.java 版本信息： 日期：2018年11月22日 Copyright asiainfo
+ * 项目名称：quickstart-javase 文件名：GenericTypesTest.java 版本信息： 日期：2018年11月22日 Copyright yangzl
  * Corporation 2018 版权所有 *
  */
 package org.quickstart.javase.jdk.generic;

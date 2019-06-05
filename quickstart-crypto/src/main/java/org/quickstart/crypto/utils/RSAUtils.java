@@ -23,7 +23,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 /**
  * RSA加密工具类
  * 
- * Copyright: Copyright (c) 2011 Asiainfo
+ * Copyright: Copyright (c) 2011 yangzl
  * 
  * @ClassName: TransferSoapReqHelper.java
  * @Description: 该类的功能描述

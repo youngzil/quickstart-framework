@@ -3,7 +3,7 @@
  * 文件名：TransmittableThreadLocalTest.java
  * 版本信息：
  * 日期：2017年8月22日
- * Copyright asiainfo Corporation 2017
+ * Copyright yangzl Corporation 2017
  * 版权所有 *
  */
 package org.quickstart.javase.example.thread;

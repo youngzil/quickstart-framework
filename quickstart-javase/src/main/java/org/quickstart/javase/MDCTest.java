@@ -3,7 +3,7 @@
  * 文件名：MDCTest.java
  * 版本信息：
  * 日期：2017年9月18日
- * Copyright asiainfo Corporation 2017
+ * Copyright yangzl Corporation 2017
  * 版权所有 *
  */
 package org.quickstart.javase;

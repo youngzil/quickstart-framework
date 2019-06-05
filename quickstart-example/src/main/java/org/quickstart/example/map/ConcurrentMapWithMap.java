@@ -3,7 +3,7 @@
  * 文件名：ConcurrentMapWithMap.java
  * 版本信息：
  * 日期：2017年3月7日
- * Copyright asiainfo Corporation 2017
+ * Copyright yangzl Corporation 2017
  * 版权所有 *
  */
 package org.quickstart.example.map;

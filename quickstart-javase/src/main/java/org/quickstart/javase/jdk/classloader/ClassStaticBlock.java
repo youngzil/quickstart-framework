@@ -3,7 +3,7 @@
  * 文件名：ClassStaticBlock.java
  * 版本信息：
  * 日期：2017年10月30日
- * Copyright asiainfo Corporation 2017
+ * Copyright yangzl Corporation 2017
  * 版权所有 *
  */
 package org.quickstart.javase.jdk.classloader;

@@ -3,7 +3,7 @@
  * 文件名：Provider.java
  * 版本信息：
  * 日期：2018年1月25日
- * Copyright asiainfo Corporation 2018
+ * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
 package org.quickstart.design.pattern.factory.abstracts;

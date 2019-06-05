@@ -3,7 +3,7 @@
  * 文件名：TestLinkedList.java
  * 版本信息：
  * 日期：2016年11月11日
- * Copyright asiainfo Corporation 2016
+ * Copyright yangzl Corporation 2016
  * 版权所有 *
  */
 package com.quickstart.test;

@@ -3,7 +3,7 @@
  * 文件名：HelloServlet.java
  * 版本信息：
  * 日期：2018年10月22日
- * Copyright asiainfo Corporation 2018
+ * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
 package org.quickstart.dropwizard.servlet;

@@ -3,7 +3,7 @@
  * 文件名：Calculate.java
  * 版本信息：
  * 日期：2016年12月16日
- * Copyright asiainfo Corporation 2016
+ * Copyright yangzl Corporation 2016
  * 版权所有 *
  */
 package com.quickstart.xml.sudoku;

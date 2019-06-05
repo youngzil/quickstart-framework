@@ -3,7 +3,7 @@
  * 文件名：Staff.java
  * 版本信息：
  * 日期：2017年8月20日
- * Copyright asiainfo Corporation 2017
+ * Copyright yangzl Corporation 2017
  * 版权所有 *
  */
 package com.quickstart.test.jms.springjms;

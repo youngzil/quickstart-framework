@@ -3,7 +3,7 @@
  * 文件名：RepeatingAnnotationsTest.java
  * 版本信息：
  * 日期：2018年9月29日
- * Copyright asiainfo Corporation 2018
+ * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
 package org.quickstart.javase.jdk8;

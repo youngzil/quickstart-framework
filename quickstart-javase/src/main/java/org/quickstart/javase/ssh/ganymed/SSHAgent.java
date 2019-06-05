@@ -3,7 +3,7 @@
  * 文件名：SSHAgent.java
  * 版本信息：
  * 日期：2017年8月5日
- * Copyright asiainfo Corporation 2017
+ * Copyright yangzl Corporation 2017
  * 版权所有 *
  */
 package org.quickstart.javase.ssh.ganymed;
