@@ -2,13 +2,12 @@
 2、sleep和wait方法
 3、jar包和替换jar包类
 4、java中的数字魔法
-5、
+5、java8lambda表达式的优缺点总结
 6、
 7、
 8、
 9、
 10、
-
 
 
 
@@ -181,6 +180,31 @@ https://blog.csdn.net/buzaiguihun/article/details/52996818
 
 
 ---------------------------------------------------------------------------------------------------------------------
+https://blog.csdn.net/GoGleTech/article/details/79454151
+https://www.jianshu.com/p/173b02d5111a
+
+java8lambda表达式的优缺点总结
+
+
+优点：
+1. 代码简洁。
+2. 非常容易并行计算。
+3. 可能代表未来的编程趋势。
+4. 结合 hashmap 的 computeIfAbsent 方法，递归运算非常快。java有针对递归的专门优化。
+
+
+缺点：
+1. 若不用并行计算，很多时候计算速度没有比传统的 for 循环快。（并行计算有时需要预热才显示出效率优势，并行计算目前对 Collection 类型支持的好，对其他类型支持的一般）
+2. 不容易调试。
+3. 类型推断让代码可读性变差，若其他程序员没有学过 lambda 表达式，代码不容易让其他语言的程序员看懂。
+4. 在 lambda 语句中强制类型转换貌似不方便，一定要搞清楚到底是 map 还是 mapToDouble 还是 mapToInt
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
 
 java7开始提供Aio的实现，BIO、NIO、AIO
 https://blog.csdn.net/anxpp/article/details/51512200
@@ -194,8 +218,7 @@ https://www.cnblogs.com/lanxuezaipiao/p/3369962.html
 
 
 
-LinkedHashMap如何保证元素迭代的顺序
-http://www.php.cn/java-article-362041.html
+
 ClassLoader 详解及用途
 https://blog.csdn.net/u010015108/article/details/52025220
 

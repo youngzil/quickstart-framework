@@ -1,3 +1,19 @@
+1、java集合整体和并发集合
+2、HashMap和ConcurrentHashMap在1.7和1.8的区别
+3、LinkedHashMap如何保证元素迭代的顺序
+利用LinkedHashMap实现LRU算法缓存
+4、集合类HashMap详解
+5、
+6、
+7、
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
 https://blog.csdn.net/touchSea/article/details/750923
 https://www.cnblogs.com/lifelee/p/5306304.html
 https://blog.csdn.net/u014136713/article/details/52089156
@@ -34,8 +50,8 @@ put、take  阻塞
 队列：FIFO，栈：FILO
 
 
-
-集合类HashMap
+---------------------------------------------------------------------------------------------------------------------
+集合类HashMap详解
 https://www.cnblogs.com/aspirant/p/6856487.html
 1：问：讲讲对HashMap的认识？hashmap的初试容量及每次扩容因子？
 回答：HashMap底层用的是哈希表的map接口，Hashmap储存数据的方式是以K-V的形式存在的；HashMap初始容量大小为16，扩容因子为2;HashMap有两个参数影响其性能：初始容量和加载因子。默认初始容量是16，加载因子是0.75。加载因子就是rehash扩容时候的参数
@@ -107,3 +123,99 @@ Iterator 是工作在一个独立的线程中，并且拥有一个 mutex 锁。 
    由所有HashMap类的“collection 视图方法”所返回的迭代器都是快速失败的：在迭代器创建之后，如果从结构上对映射进行修改，除非通过迭代器本身的 remove 方法，其他任何时间任何方式的修改，迭代器都将抛出ConcurrentModificationException。因此，面对并发的修改，迭代器很快就会完全失败，而不冒在将来不确定的时间发生任意不确定行为的风险。
 
    注意，迭代器的快速失败行为不能得到保证，一般来说，存在非同步的并发修改时，不可能作出任何坚决的保证。快速失败迭代器尽最大努力抛出 ConcurrentModificationException。因此，编写依赖于此异常的程序的做法是错误的，正确做法是：迭代器的快速失败行为应该仅用于检测程序错误。
+   
+
+hash冲突解决：
+java中hashmap是通过数据+链表/红黑树的方式来解决的
+
+
+总结：
+1、HashMap 的 key 和 value 都可以是 null
+2、Map 的 key 和 value 都 不允许 是 基本数据类型
+3、HashMap 的 key 可以是 任意对象，但如果 对象的 hashCode 改变了，那么将找不到原来该 key 所对应的 value
+
+---------------------------------------------------------------------------------------------------------------------
+HashMap和ConcurrentHashMap在1.7和1.8的区别
+https://my.oschina.net/hosee/blog/618953
+https://blog.csdn.net/qq296398300/article/details/79074239
+https://blog.csdn.net/WuJun_025/article/details/88541966
+https://blog.csdn.net/bolang789/article/details/79855053
+
+HashMap：
+
+JDK7中的HashMap：位桶+链表
+JDK8：位桶+链表/红黑树
+
+JDK7中HashMap采用的是位桶+链表的方式，即我们常说的散列链表的方式，
+而JDK8中采用的是位桶+链表/红黑树（有关红黑树请查看红黑树）的方式，也是非线程安全的。当某个位桶的链表的长度达到某个阀值的时候，这个链表就将转换成红黑树。
+
+
+
+ConcurrentHashMap：
+总结
+其实可以看出JDK1.8版本的ConcurrentHashMap的数据结构已经接近HashMap，相对而言，ConcurrentHashMap只是增加了同步的操作来控制并发，
+从JDK1.7版本的ReentrantLock+Segment+HashEntry，
+到JDK1.8版本中synchronized+CAS+HashEntry+红黑树。
+
+1.数据结构：取消了Segment分段锁的数据结构，取而代之的是数组+链表+红黑树的结构。
+2.保证线程安全机制：JDK1.7采用segment的分段锁机制实现线程安全，其中segment继承自ReentrantLock。JDK1.8采用CAS+Synchronized保证线程安全。
+3.锁的粒度：原来是对需要进行数据操作的Segment加锁，现调整为对每个数组元素加锁（Node）（首节点）
+4.链表转化为红黑树:定位结点的hash算法简化会带来弊端,Hash冲突加剧,因此在链表节点数量大于8时，会将链表转化为红黑树进行存储。
+5.查询时间复杂度：从原来的遍历链表O(n)，变成遍历红黑树O(logN)。
+
+
+JDK6与JDK7中的实现：分段锁并发、rehash优化、get和containsKey的弱一致性
+ConcurrentHashMap采用了分段锁的设计
+实际上就是ConcurrentHashMap中的分段锁个数，即Segment[]的数组长度。ConcurrentHashMap默认的并发度为16
+如果并发度设置的过小，会带来严重的锁竞争问题；如果并发度设置的过大，原本位于同一个Segment内的访问会扩散到不同的Segment中，CPU cache命中率会下降，从而引起程序性能下降。
+rehash：由于扩容是基于2的幂指来操作，因此大多数HashEntry节点在扩容前后index可以保持不变，避免让所有的节点都进行复制操作
+get和containsKey返回的可能是过时的数据，这一点是ConcurrentHashMap在弱一致性上的体现。如果要求强一致性，那么必须使用Collections.synchronizedMap()方法。
+
+
+JDK8中的实现：
+摒弃了Segment（锁段）的概念，而是启用了一种全新的方式实现,利用CAS算法
+
+主要设计上的变化有以下几点: 
+1、不采用segment而采用node，锁住node来实现减小锁粒度。
+2、设计了MOVED状态 当resize的中过程中 线程2还在put数据，线程2会帮助resize。
+3、使用3个CAS操作来确保node的一些操作的原子性，这种方式代替了锁。
+4、sizeCtl的不同值来代表不同含义，起到了控制的作用。
+至于为什么JDK8中使用synchronized而不是ReentrantLock，我猜是因为JDK8中对synchronized有了足够的优化吧。
+
+
+---------------------------------------------------------------------------------------------------------------------
+2、一致性hash的实现原理，hashmap和concurrenthashmap的区别，扩容的不安全体现，死循环问题
+
+1：问：讲讲对HashMap的认识？hashmap的初试容量及每次扩容因子？
+回答：HashMap底层用的是哈希表的map接口，Hashmap储存数据的方式是以K-V的形式存在的；HashMap初始容量大小为16，扩容因子为2;
+2：问：是否是线程安全？ 
+答：不安全。
+3：问：为什么不安全？
+2-1：HashMap底层是一个Entry数组，存在的一些问题如：
+2-2：resize死循环，导致CPU100%
+2-3：如果在使用迭代器的过程中有其他线程修改了map，那么将抛出ConcurrentModificationException，这就是所谓fail-fast策略。
+
+
+2.HashMap 是不是有序的，有哪些有序的Map？为什么TreeMap 是有序的？
+
+HashMap是不是线程安全的？若不是，如何实现线程安全问题？加sychronized，要如何加？
+
+CurrentHashMap如何实现线程安全的？内部每个segement是如何实现线程安全的？
+
+
+---------------------------------------------------------------------------------------------------------------------
+http://www.php.cn/java-article-362041.html
+LinkedHashMap如何保证元素迭代的顺序
+
+通过维护一个运行于所有条目的双向链表，LinkedHashMap保证了元素迭代的顺序。
+LinkedHashMap可以认为是HashMap+LinkedList，即它既使用HashMap操作数据结构，又使用LinkedList维护插入元素的先后顺序
+
+
+利用LinkedHashMap实现LRU算法缓存
+LRU即Least Recently Used，最近最少使用，也就是说，当缓存满了，会优先淘汰那些最近最不常访问的数据
+原理：LinkedList是有序的，每次访问一个元素（get或put），被访问的元素都被提到最后面去了
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------

@@ -9,7 +9,7 @@ nio的DirectByteBuffer内存分配：unsafe.allocateMemory(size)，freeMemory(lo
 
 1、通过Unsafe类可以分配内存，可以释放内存；
 类中提供的3个本地方法allocateMemory、reallocateMemory、freeMemory分别用于分配内存，扩充内存和释放内存，与C语言中的3个方法对应。
-2、CAS操作
+2、CAS原子变量操作
 是通过compareAndSwapXXX方法实现的
 3、挂起与恢复
 将一个线程进行挂起是通过park方法实现的，调用 park后，线程将一直阻塞直到超时或者中断等条件出现。unpark可以终止一个挂起的线程，使其恢复正常。整个并发框架中对线程的挂起操作被封装在 LockSupport类中，LockSupport类中有各种版本pack方法，但最终都调用了Unsafe.park()方法。

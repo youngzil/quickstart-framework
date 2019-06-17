@@ -18,5 +18,24 @@ http://www.qlcoder.com/explore
 
 https://hackcodeofconduct.org/
 
+
 https://www.programcreek.com/2015/03/rotate-array-in-java/
 http://blog.csdn.net/duanjiefei/article/details/46461049
+
+
+https://github.com/grandyang/leetcode
+https://blog.csdn.net/kk55guang2/article/details/85223256
+
+
+
+
+https://www.nowcoder.com/activity/oj
+
+
+
+
+
+
+
+
+

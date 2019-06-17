@@ -1,10 +1,29 @@
-开启远程debug
+JVM堆栈大小参数
+GC收集器设置
+GC日志垃圾回收统计信息
+打印JVM参数
+让JVM在遇到OOM(OutOfMemoryError)时生成Dump文件
+
+开启远程debug参数
+JMX参数设置
+JVM的GC参数设置
+
+JVM类回收和加载参数
+JVM内联和逃逸分析参数
+
+---------------------------------------------------------------------------------------------------------------------
+开启远程debug参数
+-Xdebug -Xrunjdwp:transport
+
+
 JAVA_OPT="${JAVA_OPT} -Xdebug -Xrunjdwp:transport=dt_socket,address=9555,server=y,suspend=n"
 JDK1.5之后：export JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=1043,server=y,suspend=n"
 
+---------------------------------------------------------------------------------------------------------------------
+JMX参数设置
+端口、开启SSL、认证、密码文件
 
 
-JMX设置
 JMX settings
 if [ -z "$KAFKA_JMX_OPTS" ]; then
   KAFKA_JMX_OPTS="-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false  -Dcom.sun.management.jmxremote.ssl=false "
@@ -30,8 +49,30 @@ fi
 修改机器主机名的文件（可不修改，但是要跟hosts匹配）：/etc/sysconfig/network
 注意：在catalina.sh文件中添加上面这些JVM参数后，运行shutdown.sh的时候，会提示jmxremote端口被占用,原因是运行shutdown.sh脚本的时候会启动一个JVM，又会尝试绑定jmxremote的端口，导致这个问题。见https://issues.apache.org/bugzilla/show_bug.cgi?id=36976。暂时没想办法去解决它，直接kill进程了（应该可以通过配置解决）。
 
+---------------------------------------------------------------------------------------------------------------------
+JVM的GC参数设置
 
-JVM的GC参数设置可以参考kafka和Rocketmq的设置
+查看gc日志，堆空间日志和gc日志
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath=/home/admin/logs
+-Xloggc:/home/admin/logs/gc.log
+-XX:+PrintGCDetails
+-XX:+PrintGCDateStamps
+
+可以参考kafka和Rocketmq的设置
+
+Rocketmq JVM的GC设置
+G1：
+JAVA_OPT="${JAVA_OPT} -XX:+UseG1GC -XX:G1HeapRegionSize=16m -XX:G1ReservePercent=25 -XX:InitiatingHeapOccupancyPercent=30 -XX:SoftRefLRUPolicyMSPerMB=0"
+JAVA_OPT="${JAVA_OPT} -verbose:gc -Xloggc:/dev/shm/mq_gc_%p.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCApplicationStoppedTime -XX:+PrintAdaptiveSizePolicy"
+JAVA_OPT="${JAVA_OPT} -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=30m"
+
+CMS：
+JAVA_OPT="-XX:+UseConcMarkSweepGC -XX:+UseCMSCompactAtFullCollection -XX:CMSInitiatingOccupancyFraction=70 -XX:+CMSParallelRemarkEnabled -XX:SoftRefLRUPolicyMSPerMB=0 -XX:+CMSClassUnloadingEnabled -XX:SurvivorRatio=8  -XX:-UseParNewGC"
+JAVA_OPT="${JAVA_OPT} -verbose:gc -Xloggc:/dev/shm/rmq_srv_gc.log -XX:+PrintGCDetails"
+
+
+
 kafka JVM的GC设置
 JAVA_MAJOR_VERSION=$($JAVA -version 2>&1 | sed -E -n 's/.* version "([^.-]*).*"/\1/p')
   if [[ "$JAVA_MAJOR_VERSION" -ge "9" ]] ; then
@@ -45,14 +86,120 @@ if [ -z "$KAFKA_JVM_PERFORMANCE_OPTS" ]; then
   KAFKA_JVM_PERFORMANCE_OPTS="-server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+ExplicitGCInvokesConcurrent -Djava.awt.headless=true"
 fi
 
-Rocketmq JVM的GC设置
-JAVA_OPT="${JAVA_OPT} -XX:+UseG1GC -XX:G1HeapRegionSize=16m -XX:G1ReservePercent=25 -XX:InitiatingHeapOccupancyPercent=30 -XX:SoftRefLRUPolicyMSPerMB=0 -XX:SurvivorRatio=8"
--XX:+PrintGCApplicationStoppedTime -XX:+PrintAdaptiveSizePolicy
+
+---------------------------------------------------------------------------------------------------------------------
+JVM类回收和加载参数
+
+JVM提供了几个参数控制类回收：
+-Xnoclassgc：关闭CLASS的垃圾回收功能
+-verbose:class：在控制台查看类加载情况
+-XX:+TraceClassLoading：查看类加载信息(诊断内存泄露很有用)
+-XX:+TraceClassUnLoading ： 查看类卸载信息（FastDebug版的虚拟机才支持）(诊断内存泄露很有用)
 
 
-JVM GC参数解释
-https://www.cnblogs.com/redcreen/archive/2011/05/04/2037057.html
-https://blog.csdn.net/turkeyzhou/article/details/7619472
+---------------------------------------------------------------------------------------------------------------------
+JVM内联和逃逸分析参数
+
+内联参数
+-XX:CompileThreshold 代码需要执行多少次触发JIT内联优化
+-XX:MaxFreqInlineSize=N 经常执行方法小于N字节才进行内联
+-XX:MaxInlineSize=N  不经常执行方法小于N字节才进行内联
+
+-XX:+PrintCompilation //在控制台打印编译过程信息
+-XX:+UnlockDiagnosticVMOptions //解锁对JVM进行诊断的选项参数。默认是关闭的，开启后支持一些特定参数对JVM进行诊断
+-XX:+PrintInlining //将内联方法打印出来
+
+
+逃逸分析参数
+-XX:+DoEscapeAnalysis 开启逃逸分析
+-XX:+PrintEscapeAnalysis 开启逃逸分析后，可通过此参数查看分析结果。
+-XX:+EliminateAllocations 开启标量替换
+-XX:+EliminateLocks 开启同步消除
+-XX:+PrintEliminateAllocations 开启标量替换后，查看标量替换情况。
+
+
+---------------------------------------------------------------------------------------------------------------------
+JVM堆栈大小参数：
+
+-Xss128k：设置每个线程的栈大小。
+-Xms3550m：设置JVM初始堆内存为3550M。
+-Xmx3550m：设置JVM最大堆内存为3550M。
+-Xmn2g：设置年轻代大小为2G
+-XX:NewSize=1024m：设置年轻代初始值为1024M。
+-XX:MaxNewSize=1024m：设置年轻代最大值为1024M。
+-XX:NewRatio=4：设置年轻代（包括1个Eden和2个Survivor区）与年老代的比值。表示年轻代比年老代为1:4。
+-XX:SurvivorRatio=4：设置年轻代中Eden区与Survivor区的比值。表示2个Survivor区（JVM堆内存年轻代中默认有2个大小相等的Survivor区）与1个Eden区的比值为2:4，即1个Survivor区占整个年轻代大小的1/6。
+-XX:PermSize=256m：设置持久代初始值为256M。
+-XX:MaxPermSize=256m：设置持久代最大值为256M。
+-XX:MaxDirectMemorySize 设置堆外内存最大值，默认与java堆最大值一样。
+
+
+
+GC收集器设置：串行、串行、CMS收集器、G1收集器
+1、串行
+-XX:+UseSerialGC:设置串行收集器，年轻代和年老代
+
+2、串行：两种设置
+-XX:+UseParallelGC:设置并行收集器，年轻代和年老代
+-XX:ParallelGCThreads=n 并行线程数量，指的是年轻代，年老代垃圾收集时使用单线程。默认开启和CPU数目相同的线程数
+
+
+-XX:+UseParallelGC  使用Parallel收集器，只配置这个老年代是串行收集器
+-XX:+UseParallelOldGC 使用Parallel老年代并行，不配置老年代是串行收集器
+-XX:ParallelGCThreads=n:设置并行收集器收集时使用的CPU数。并行收集线程数。
+
+Parallel Scavenge收集器提供了两个参数用于精准控制吞吐量：
+a.-XX:MaxGCPauseMillis：设置并行收集最大暂停时间，控制最大垃圾收集停顿时间，是一个大于0的毫秒数。
+b.-XX:GCTimeRation：直接设置吞吐量大小，是一个大于0小于100的整数，设置垃圾回收时间占程序运行时间的百分比。公式为1/(1+n)
+也就是程序运行时间占总时间的比率，默认值是99，即垃圾收集运行最大1%（1/(1+99)）的垃圾收集时间
+
+-XX:+UseAdaptiveSizePolicy，这是个开关参数，
+打开之后就不需要手动指定新生代大小(-Xmn)、Eden与Survivor区的比例(-XX:SurvivorRation)、新生代晋升年老代对象年龄(-XX:PretenureSizeThreshold)等细节参数
+-XX:+CMSIncrementalMode:设置为增量模式。适用于单CPU情况。
+-XX:ParallelGCThreads=n:设置并发收集器年轻代收集方式为并行收集时，使用的CPU数。并行收集线程数。
+
+
+
+3、CMS并发收集器设置
+-XX:+UseParNewGC：设置年轻代为并发收集。
+-XX:+UseConcMarkSweepGC  使用CMS收集器
+-XX:+ UseCMSCompactAtFullCollection 打开对年老代的压缩，Full GC后，进行一次碎片整理；整理过程是独占的，会引起停顿时间变长
+-XX:+CMSFullGCsBeforeCompaction  设置运行多少次FULL GC以后对内存空间进行压缩、整理
+-XX:ParallelCMSThreads  设定CMS的线程数量（一般情况约等于可用CPU数量）
+
+
+
+4、G1收集器
+-XX:+UnlockExperimentalVMOptions -XX:+UseG1GC        #开启
+-XX:MaxGCPauseMillis =50                  #暂停时间目标
+-XX:GCPauseIntervalMillis =200          #暂停间隔目标
+-XX:+G1YoungGenSize=512m            #年轻代大小
+-XX:SurvivorRatio=6                            #幸存区比例
+-XX:G1HeapRegionSize=16m -XX:G1ReservePercent=25 
+
+
+GC日志垃圾回收统计信息
+-XX:+PrintGC 输出GC日志
+-XX:+PrintGCDetails 输出GC的详细日志
+-XX:+PrintGCTimeStamps 输出GC的时间戳（以基准时间的形式）
+-XX:+PrintGCDateStamps 输出GC的时间戳（以日期的形式，如 2013-05-04T21:53:59.234+0800）
+-XX:+PrintHeapAtGC 在进行GC的前后打印出堆的信息
+-Xloggc:../logs/gc.log 日志文件的输出路径
+-verbose.gc开关可显示GC的操作内容。打开它，可以显示最忙和最空闲收集行为发生的时间、收集前后的内存大小、收集需要的时间等
+
+
+打印JVM参数
+-XX:+PrintFlagsFinal and -XX:+PrintFlagsInitial
+-XX:+PrintCommandLineFlags 这个参数让JVM打印出那些已经被用户或者JVM设置过的详细的XX参数的名称和值。
+
+
+为了避免Perm区满引起的full gc，建议开启CMS回收Perm区选项：
++CMSPermGenSweepingEnabled -XX:+CMSClassUnloadingEnabled
+
+
+使用参数-XX:+DisableExplicitGC，那System.gc();是无效的
+-XX:MaxTenuringThreshold=7：表示一个对象如果在Survivor区（救助空间）移动了7次还没有被垃圾回收就进入年老代
+
 
 让JVM在遇到OOM(OutOfMemoryError)时生成Dump文件
 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/path/heap/dump
@@ -60,11 +207,23 @@ https://blog.csdn.net/turkeyzhou/article/details/7619472
 保存错误日志或者数据到文件中
 -XX:ErrorFile=./hs_err_pid<pid>.log
 
-输出GC日志文件
--Xloggc:$LOG_DIR/$GC_LOG_FILE_NAME -verbose:gc
 
 
----------------------------------------------------------------------------------------------------------------------
+Java垃圾回收类型
+这里有五种可以在应用里使用的垃圾回收类型。仅需要使用JVM开关就可以在我们的应用里启用垃圾回收策略。让我们一起来逐一了解：
+
+1、Serial GC（-XX:+UseSerialGC）：Serial GC使用简单的标记、清除、压缩方法对年轻代和年老代进行垃圾回收，即Minor GC和Major GC。Serial GC在client模式（客户端模式）很有用，比如在简单的独立应用和CPU配置较低的机器。这个模式对占有内存较少的应用很管用。
+2、Parallel GC（-XX:+UseParallelGC）：除了会产生N个线程来进行年轻代的垃圾收集外，Parallel GC和Serial GC几乎一样。这里的N是系统CPU的核数。我们可以使用 -XX:ParallelGCThreads=n 这个JVM选项来控制线程数量。并行垃圾收集器也叫throughput收集器。因为它使用了多CPU加快垃圾回收性能。Parallel GC在进行年老代垃圾收集时使用单线程。
+3、Parallel Old GC（-XX:+UseParallelOldGC）：和Parallel GC一样。不同之处，Parallel Old GC在年轻代垃圾收集和年老代垃圾回收时都使用多线程收集。
+4、并发标记清除（CMS）收集器（-XX:+UseConcMarkSweepGC)：CMS收集器也被称为短暂停顿并发收集器。它是对年老代进行垃圾收集的。CMS收集器通过多线程并发进行垃圾回收，尽量减少垃圾收集造成的停顿。CMS收集器对年轻代进行垃圾回收使用的算法和Parallel收集器一样。这个垃圾收集器适用于不能忍受长时间停顿要求快速响应的应用。可使用 -XX:ParallelCMSThreads=n JVM选项来限制CMS收集器的线程数量。
+5、G1垃圾收集器（-XX:+UseG1GC) G1（Garbage First）：垃圾收集器是在Java 7后才可以使用的特性，它的长远目标时代替CMS收集器。G1收集器是一个并行的、并发的和增量式压缩短暂停顿的垃圾收集器。G1收集器和其他的收集器运行方式不一样，不区分年轻代和年老代空间。它把堆空间划分为多个大小相等的区域。当进行垃圾收集时，它会优先收集存活对象较少的区域，因此叫“Garbage First”。你可以在Oracle Garbage-FIrst收集器文档找到更多详细信息。
+
+
+JVM GC参数解释
+https://www.cnblogs.com/redcreen/archive/2011/05/04/2037057.html
+https://blog.csdn.net/turkeyzhou/article/details/7619472
+https://www.jianshu.com/p/a67c3fdcc8e8
+
 
 参考
 https://www.cnblogs.com/lcword/p/5857918.html
@@ -110,6 +269,8 @@ JVM给出了3种选择：串行收集器、并行收集器、并发收集器。�
 -XX:+UseCMSCompactAtFullCollection：打开内存空间的压缩和整理，在Full GC后执行。可能会影响性能，但可以消除内存碎片。
 -XX:+CMSIncrementalMode：设置为增量收集模式。一般适用于单CPU情况。
 -XX:CMSInitiatingOccupancyFraction=70：表示年老代内存空间使用到70%时就开始执行CMS收集，以确保年老代有足够的空间接纳来自年轻代的对象，避免Full GC的发生。
+
+
 其它垃圾回收参数
 -XX:+ScavengeBeforeFullGC：年轻代GC优于Full GC执行。
 -XX:-DisableExplicitGC：不响应 System.gc() 代码。

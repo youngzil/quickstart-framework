@@ -53,10 +53,11 @@ https://blog.csdn.net/tongdanping/article/details/79647337
 锁的分类：
 1、可重入锁
 2.可中断锁
-3、公平锁
+3、公平锁、非公平锁
 4.读写锁
-5.偏向锁
+5、自旋锁、阻塞锁
 6.乐观锁，悲观锁
+7.偏向锁
 
 总结来说，Lock和synchronized有以下几点不同： 
 　　1）Lock是一个接口，而synchronized是Java中的关键字，synchronized是内置的语言实现； 

@@ -28,8 +28,8 @@ public class MapTest {
         Day day2 = new Day(2, 3, 4);
         Map<String,Day> map = new HashMap<String,Day>();
         //成对放入key-value对
-        map.put("第一个", day1);
-        map.put("第二个", day2);
+        Day dd = map.put("第一个", day1);
+        Day dd2 = map.put("第二个", day2);
         //判断是否包含指定的key
         System.out.println(map.containsKey("第一个"));
         //判断是否包含指定的value

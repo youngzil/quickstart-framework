@@ -10,6 +10,8 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 
+import org.quickstart.crypto.utils.DES;
+
 public class EncrypDES3 {
 
 	// KeyGenerator 提供对称密钥生成器的功能，支持各种算法
@@ -66,6 +68,20 @@ public class EncrypDES3 {
 		cipherByte = c.doFinal(buff);
 		return cipherByte;
 	}
+	
+	public static  String byte2hex(byte[] b) {
+        String hs = "";
+        String stmp = "";
+        for (int i = 0; i < b.length; i++) {
+            stmp = Integer.toHexString(b[i] & 0xFF);
+            if (stmp.length() == 1) {
+                hs += "0" + stmp;
+            } else {
+                hs += stmp;
+            }
+        }
+        return hs.toUpperCase();
+    }
 
 	/**
 	 * @param args
@@ -76,7 +92,21 @@ public class EncrypDES3 {
 	 * @throws InvalidKeyException 
 	 */
 	public static void main(String[] args) throws Exception {
-		EncrypDES3 des = new EncrypDES3();
+	    
+	    EncrypDES3 des = new EncrypDES3();
+	    
+	    System.out.println(byte2hex(des.Encrytor("zhangjiaqi1")));
+        System.out.println(des.Encrytor("hwYBw5a2"));
+        System.out.println(des.Encrytor("1qaz2WSX"));
+        
+        
+        
+        
+//        System.out.println(des.Decryptor("237AF1E81BB892448E636BD3468BFF36"));
+//        System.out.println(des.Decryptor("23AE716AF1169CD4D8AF9B27947F5CC8"));
+	    
+	    
+		
 		String msg ="郭德纲-搞笑相声全集";
 		byte[] encontent = des.Encrytor(msg);
 		byte[] decontent = des.Decryptor(encontent);
