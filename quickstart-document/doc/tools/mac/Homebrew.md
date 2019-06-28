@@ -10,6 +10,47 @@ https://github.com/theeternalsw0rd/homebrew-telnet
 
 
 
+
+安装过程需要输入root口令。
+
+Homebrew的使用
+
+Homebrew的可执行命令是brew，其基本使用方法如下（以wget为例）。
+
+查找软件包
+
+brew search wget
+
+安装软件包
+
+brew install wget
+
+列出已安装的软件包
+brew list
+
+删除软件包
+brew remove wget
+
+查看软件包信息
+brew info wget
+
+列出软件包的依赖关系
+brew deps wget
+
+更新brew
+brew update
+
+列出过时的软件包（已安装但不是最新版本）
+brew outdated
+
+更新过时的软件包（全部或指定）
+brew upgrade 或 brew upgrade wget
+
+
+
+
+
+
 1、通过brew install安装应用最先是放在/usr/local/Cellar/目录下。
 2、有些应用会自动创建软链接放在/usr/bin或者/usr/sbin，同时也会将整个文件夹放在/usr/local
 3、可以使用brew list 软件名确定安装位置。可以在mac终端直接输入 brew list mysql

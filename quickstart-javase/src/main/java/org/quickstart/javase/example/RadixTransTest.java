@@ -158,5 +158,12 @@ public class RadixTransTest {
         System.out.println(i); // 15
         System.out.println("十进制15对应的十六进制为：" + Integer.toHexString(i)); // f
 
+        System.out.println(Integer.toString(3FFFF, int radix) );
+
+
+
+
+
+
     }
 }

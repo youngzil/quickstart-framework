@@ -33,6 +33,11 @@ ssh-copy-id -i ./id_rsa.pub aideploy@20.26.37.177
 mkdir -p ~/.ssh
 vi ~/.ssh/authorized_keys
 
+或者
+echo cat id_rsa.pub >> ~/.ssh/authorized_keys
+没有echo，直接cat不会换行
+
+
 3、设置权限
 在Server机器上设置权限
 chmod 700 ~/.ssh
@@ -202,13 +207,21 @@ SFTP（安全文件传送协议），sftp是Secure File Transfer Protocol的缩�
 
 SSH、SCP、SFTP、FTP、Telnet使用：
 
+ssh root@10.112.56.95 -p 22
 ssh -l aiesb 20.26.37.179 -p 22
 ssh aiesb@20.26.37.180  -p 22
 ssh 20.26.37.180    默认和当前登录名一样，-p默认是22
 
+SSH执行命令
+ssh ddmp@112.35.58.12 "grep 'gps' /data/work/logs/ddmp-server1.log " 
+ssh ddmp@112.35.58.12 "tail -f /data/work/logs/ddmp-server1.log " 
+
+
+
 scp aiesb@20.26.37.179:/app/aiesb/test.txt aiesb@20.26.37.180:/app/aiesb
 scp -r aiesb@20.26.37.179:/app/aiesb/test.txt aiesb@20.26.37.180:/app/aiesb  文件夹
 scp -P 端口号 本地文件路径 用户名@远程服务器地址:远程路径    -P 参数来设置命令的远程服务器的端口号
+
 
 FTP标准命令TCP端口号为21，Port方式数据端口为20
 端口号默认是22

@@ -10,3 +10,9 @@ ps -ef|grep ${PROCESS_NAME} | grep ${PROCESS_PARM} | grep java | grep -v grep | 
 do
     echo $pid
 done
+
+
+kill -9 `ps -ef|grep ddmp-mgmt|grep server.port=9100|awk '{print $2}'`
+kill -9 `ps -ef|grep ddmp-server-1.0.jar|awk '{print $2}'`
+kill -9 `ps -ef|grep ddmp-mgmt-1.0.war|awk '{print $2}'`
+

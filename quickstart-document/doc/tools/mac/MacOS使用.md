@@ -60,3 +60,23 @@ https://github.com/jaywcjlove/awesome-mac/blob/master/README-zh.md
 
 
 
+
+
+mac 系统怎么访问局域网内的共享文件夹
+解决方法
+1、点击 Finder 前往菜单中的「前往服务器」（或快捷键 command+k）
+2、在连接服务器对话框中输入「smb://Windows主机的IP地址」，其中 smb 是访问 Windows 共享文件夹所使用的协议名称，SMB：服务器信息块协议（Server Message Block protocol）。
+3、连接Windows主机后会显示该主机的所有共享文件夹，选择想要访问的一个即可
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -224,6 +224,14 @@ http通信时，无法保证通行双方是合法的，通信方可能是伪装�
 hacker中间篡改数据后，接收方并不知道数据已经被更改
 
 
+
+HTTPS是一种协议，等于HTTP+TLS（由于历史原因，SSL3.0之后就被TLS1.0替代了）。
+openssl是一套开源工具集，主要有两个特性：
+1、实现了ssl2,ssl3，TLSv1，TLSv1.1，TLSv1.2协议。
+2、实现目前常用的加密算法。
+没有一个非常精准的方法来判断HTTPS是否使用openssl，但是根据网站返回的server类型，可以大致估计是否使用了openssl，比如如果使用apache或者nginx，那么肯定是使用了openssl。保守估计至少70%以上的网站是使用openssl的。而windows系列的服务器包括IIS，windows server等都是使用schannel，没有使用openssl，不会受heartbleed影响。
+
+
 https连接过程：
 1、客户端发送请求到服务器端，发送客户端支持的加密协议及版本，SSL、TLS
 2、服务器端返回证书和公开密钥，公开密钥作为证书的一部分而存在，服务器从中筛选合适的加密协议，返回证书，证书中有公钥

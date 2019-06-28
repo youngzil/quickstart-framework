@@ -125,5 +125,6 @@ curl -H "Content-Type:application/json" -X POST -d '{"user": "admin", "passwd":"
 
 3、curl --header "Content-Type: application/json" --request POST --data '[{"code":"A1","policy":"weight_polling","nodes":[{"host":"188.102.2.69","port":8091,"weight":2, "max_fails":2,"fail_timeout":1000},{"host":"188.102.2.70","port":8091,"weight":2, "max_fails":2,"fail_timeout":1000}]}]' 'http://188.102.2.69:28180/admin?action=slbupstream_set'
 
-
+4、curl -i -H -H -X POST -d URL
+curl -i -H "serialize-type: json" -H "csf_version: 1.0" -X POST 'http://10.70.137.94:30380/csf/hallCommon_IBusinessCSV_flowOrdScheduleSave?uuid=123456' -d '{"businessId":"500000020001","billId":"23456789"}'
 
