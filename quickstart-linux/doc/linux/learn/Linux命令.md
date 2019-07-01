@@ -427,6 +427,12 @@ find /data/work/logs -type f -name ddmp-server1.log -exec  grep -i 'gps' {} \;
 find /data/work/logs -type f -name ddmp-server1.log -exec  grep -i 'gps' {} \; -print ;
 find / -name docbook.xsl
 
+
+find . -type f -iname "*template*.xml"
+find . -type f -iname "*comment*.xml"
+find . -type f -iname "sample.db"
+codeCommentsTemplates
+
 ---------------------------------------------------------------------------------------------------------------------
 jar命令后面跟参数，--server.port=9995是Sprig中覆盖默认参数的方式
 
