@@ -3,7 +3,7 @@
 3、LinkedHashMap如何保证元素迭代的顺序
 利用LinkedHashMap实现LRU算法缓存
 4、集合类HashMap详解
-5、
+5、fail-fast机制/快速失败机制
 6、
 7、
 
@@ -219,3 +219,70 @@ LRU即Least Recently Used，最近最少使用，也就是说，当缓存满了�
 
 
 ---------------------------------------------------------------------------------------------------------------------
+https://blog.csdn.net/chenssy/article/details/38151189
+https://blog.csdn.net/onlyoncelove/article/details/81193662
+
+
+fail-fast机制/快速失败机制
+
+迭代器的快速失败行为应该仅用于检测程序错误
+编写依赖于此异常的程序的做法是错误的
+
+
+“快速失败”也就是fail-fast，它是Java集合的一种错误检测机制。当多个线程对集合进行结构上的改变的操作时，有可能会产生fail-fast机制。记住是有可能，而不是一定。
+例如：假设存在两个线程（线程1、线程2），线程1通过Iterator在遍历集合A中的元素，在某个时候线程2修改了集合A的结构（是结构上面的修改，而不是简单的修改集合元素的内容），那么这个时候程序就会抛出 ConcurrentModificationException 异常，从而产生fail-fast机制。
+
+
+fail-fast机制，是一种错误检测机制。它只能被用来检测错误，因为JDK并不保证fail-fast机制一定会发生。若在多线程环境下使用fail-fast机制的集合，建议使用“java.util.concurrent包下的类”去取代“java.util包下的类”。
+
+注意，迭代器的快速失败行为不能得到保证，一般来说，存在非同步的并发修改时，不可能作出任何坚决的保证。快速失败迭代器尽最大努力抛出 ConcurrentModificationException。因此，编写依赖于此异常的程序的做法是错误的，正确做法是：迭代器的快速失败行为应该仅用于检测程序错误。
+
+
+
+原因：
+
+ArrayList中无论add、remove、clear方法只要是涉及了改变ArrayList元素的个数的方法都会导致modCount的改变。
+所以我们这里可以初步判断由于expectedModCount 得值与modCount的改变不同步，导致两者之间不等从而产生fail-fast机制。
+
+
+fail-fast解决办法
+
+方案一：在遍历过程中所有涉及到改变modCount值得地方全部加上synchronized或者直接使用Collections.synchronizedList，这样就可以解决。但是不推荐，因为增删造成的同步锁可能会阻塞遍历操作。
+
+方案二：使用CopyOnWriteArrayList来替换ArrayList。推荐使用该方案。
+
+CopyOnWriteArrayList在两种情况下，它非常适合使用。
+1：在不能或不想进行同步遍历，但又需要从并发线程中排除冲突时。
+2：当遍历操作的数量大大超过可变操作的数量时。遇到这两种情况使用CopyOnWriteArrayList来替代ArrayList再适合不过了。
+
+CopyOnWriterArrayList根本就不会产生ConcurrentModificationException异常，也就是它使用迭代器完全不会产生fail-fast机制。
+因为CopyOnWriterArrayList的方法根本就没有像ArrayList中使用checkForComodification方法来判断expectedModCount 与 modCount 是否相等。
+
+CopyOnWriterArrayList所代表的核心概念就是：任何对array在结构上有所改变的操作（add、remove、clear等），CopyOnWriterArrayList都会copy现有的数据，再在copy的数据上修改，这样就不会影响COWIterator中的数据了，修改完成之后改变原有数据的引用即可。同时这样造成的代价就是产生大量的对象，同时数组的copy也是相当有损耗的。
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+

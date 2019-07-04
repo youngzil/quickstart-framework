@@ -433,6 +433,15 @@ find . -type f -iname "*comment*.xml"
 find . -type f -iname "sample.db"
 codeCommentsTemplates
 
+find . -type f -iname ".classpath" | xargs rm
+find . -type f -iname ".project" | xargs rm
+find . -type f -iname ".gitignore" | xargs rm
+
+find . -type d -iname "target" | xargs rm -rf
+find . -type d -iname ".settings" | xargs rm -rf
+
+
+
 ---------------------------------------------------------------------------------------------------------------------
 jar命令后面跟参数，--server.port=9995是Sprig中覆盖默认参数的方式
 

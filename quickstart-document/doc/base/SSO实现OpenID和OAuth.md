@@ -113,6 +113,18 @@ https://openid.net/developers/libraries/#java
 https://github.com/jbufu/openid4java
 
 
+
+总的流程：第一次携带openid进来，302转发到openidProvider服务器，服务器校验通过后，302再转发到Client提供的回调链接
+
+Client客户端：
+1、第一次携带openid进来，解析openid获取openidProvider链接并且302转发到openidProvider服务器
+2、服务端校验后把结果回调Client
+
+Server服务端：
+1、第一次校验进来先判断是否登录，已经登录直接返回成功，否则返回登录页面
+2、然后登录页面再进来检验用户信息，校验后返回校验结果到Client的回调链接
+
+
 ---------------------------------------------------------------------------------------------------------------------
 http://www.ruanyifeng.com/blog/2019/04/oauth_design.html
 https://www.ruanyifeng.com/blog/2014/05/oauth_2_0.html
@@ -126,6 +138,14 @@ https://www.ibm.com/developerworks/cn/java/se-oauthjavapt1/index.html
 https://www.ibm.com/developerworks/cn/java/se-oauthjavapt2/index.html
 https://www.ibm.com/developerworks/cn/java/se-oauthjavapt3/index.html
 https://www.ibm.com/developerworks/library/se-oauthjavapt3/index.html
+
+
+服务端示例
+https://github.com/Aaron-zheng/oauth2-demo
+https://blog.csdn.net/jing12062011/article/details/78147306
+https://www.cnblogs.com/Irving/p/4134752.html
+
+
 
 
 https://developers.google.com/api-client-library/java/google-oauth-java-client/oauth2
