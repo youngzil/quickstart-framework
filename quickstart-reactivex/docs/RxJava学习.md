@@ -100,6 +100,19 @@ composite.add(Flowable.range(1, 8).subscribeWith(subscriber));
 https://juejin.im/post/582b2c818ac24700618ff8f5
 https://juejin.im/post/580103f20e3dd90057fc3e6d
 https://juejin.im/post/582d413c8ac24700619cceed
+https://www.baeldung.com/rx-java
+
+
+背压（Backpressure）
+https://www.baeldung.com/rxjava-backpressure
+https://zhuanlan.zhihu.com/p/24473022
+https://juejin.im/entry/58e704cbac502e4957b230eb
+https://www.jianshu.com/p/870fe00d42ab
+
+
+源码解析
+https://yutiantina.github.io/categories/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/page/2/
+
 
 
 如果你想把自己的RxJava1.0的迁移到2.0的版本，可以使用这个库RxJava2Interop,它可以在Rxjava1.0和2.0之间相互转换，也就是说，不仅可以把1.0的代码迁移到2.0，你还可以把2.0的代码迁移到1.0,哈哈。
