@@ -26,10 +26,32 @@ Guice和它的扩展提供了很多作用域，有单例Singleton，Session作�
     ...
   }
 
+
+依赖绑定方式：
+1、链式绑定
+2、注解绑定
+3、@Provides绑定
+
+
+作用域：
+默认情况下Guice会在每次注入的时候创建一个新对象。
+如果希望创建一个单例依赖的话，
+1、可以在实现类上应用@Singleton注解。
+2、或者也可以在配置类中指定。
+3、在@Provides方法中也可以指定单例。
+
+
+
+Guice和它的扩展提供了很多作用域，有单例Singleton，Session作用域SessionScoped，Request请求作用域RequestScoped等等
+如果一个类型上存在多个冲突的作用域，Guice会使用bind()方法中指定的作用域。如果不想使用注解的作用域，可以在bind()方法中将对象绑定为Scopes.NO_SCOPE。
+
+
+
 参考
+https://www.jianshu.com/p/a648322dc680
 https://blog.csdn.net/u011054333/article/details/57179999
 https://blog.csdn.net/zhaowen25/article/details/52927193
-
+https://juejin.im/post/5a375e156fb9a0452a3c6b96
 
 
 

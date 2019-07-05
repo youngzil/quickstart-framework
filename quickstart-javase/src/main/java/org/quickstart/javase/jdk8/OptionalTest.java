@@ -121,7 +121,7 @@ public class OptionalTest {
         Optional<Integer> optional14 = Optional.ofNullable(1);
         Optional<Integer> optional15 = Optional.ofNullable(null);
 
-        optional14.orElseThrow(() -> {
+       /* optional14.orElseThrow(() -> {
             throw new IllegalStateException();
         });
 
@@ -132,7 +132,7 @@ public class OptionalTest {
             });
         } catch (IllegalStateException e) {
             e.printStackTrace();
-        }
+        }*/
 
         // filter(Predicate)：判断Optional对象中保存的值是否满足Predicate，并返回新的Optional。
         Optional<Integer> optional16 = Optional.ofNullable(1);
