@@ -1,3 +1,6 @@
+RxJava是基于响应式编程思想，实现并扩展了观察者模式，可以进行异步操作的库
+
+
 初学RxJava只要把握两点：观察者模式和异步,就基本可以熟练使用RxJava了。
 
 RxJava1.0中：Observable(被观察者)订阅Observer（观察者）/Subscriber(观察者)
@@ -122,5 +125,6 @@ https://github.com/akarnokd/RxJava2Interop
 demo示例
 https://github.com/ladingwu/ApplicationDemo
 https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
+
 
 

@@ -11,6 +11,9 @@ Java并发思考-导读&总结篇：http://www.jianshu.com/p/9ed8e51c3ed1?hmsr=t
 
 参考代码
 
+强软弱虚引用
+https://www.baeldung.com/java-weakhashmap
+
 https://travis-ci.org/javaee-samples
 https://github.com/javaee-samples
 https://github.com/javaee-samples/javaee7-samples

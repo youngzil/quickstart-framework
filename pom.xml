@@ -24,7 +24,6 @@
 		<module>quickstart-asm</module>
 		<module>quickstart-beam</module>
 		<module>quickstart-code</module>
-		<module>quickstart-concurrentlinkedhashmap</module>
 		<module>quickstart-csv</module>
 		<module>quickstart-design-pattern</module>
 		<module>quickstart-disruptor</module>

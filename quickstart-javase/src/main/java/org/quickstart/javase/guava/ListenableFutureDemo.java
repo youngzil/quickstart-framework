@@ -13,8 +13,6 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-import com.google.common.util.concurrent.FutureCallback;
-import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
@@ -96,7 +94,7 @@ public class ListenableFutureDemo {
         }, executorService);
 
         // 第二种方式
-        Futures.addCallback(listenableFuture, new FutureCallback<Integer>() {
+        /*Futures.addCallback(listenableFuture, new FutureCallback<Integer>() {
             @Override
             public void onSuccess(Integer result) {
                 System.out.println("get listenable future's result with callback " + result);
@@ -106,7 +104,7 @@ public class ListenableFutureDemo {
             public void onFailure(Throwable t) {
                 t.printStackTrace();
             }
-        });
+        });*/
     }
 }
 

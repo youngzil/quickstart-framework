@@ -5,6 +5,13 @@ doc文档：http://reactivex.io/RxJava/javadoc/
 文档中文版：https://mcxiaoke.gitbooks.io/rxdocs/content/
 文档中文版：https://legacy.gitbook.com/book/mcxiaoke/rxdocs/details
 
+
+
+Github：https://github.com/ReactiveX/RxJava 
+RxDoc：http://reactivex.io/RxJava/2.x/javadoc/ 
+RxJava2Demo：https://github.com/linzhiyong/RxJava2Demo
+
+
 ReactiveX其他框架
 https://github.com/ReactiveX/RxNetty
 https://github.com/ReactiveX/RxJavaAsyncUtil
@@ -54,6 +61,7 @@ Observer是一个接口(在iOS里是protocol, 一个意思), 有个onEvent接口
 
 
 参考
+https://blog.csdn.net/u012527802/article/details/81117684
 https://blog.csdn.net/xx326664162/article/details/52068014
 https://blog.csdn.net/bingduanlbd/article/details/51836132
 https://www.jianshu.com/p/065ba28c938a
