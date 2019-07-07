@@ -139,6 +139,8 @@ boolean test(T t);
 
 
 参考
+https://www.infoq.cn/article/2013/08/everything-about-java-8
+
 https://wizardforcel.gitbooks.io/java8-tutorials/content/index.html
 http://www.infoq.com/cn/articles/Java-8-Quiet-Features
 https://blog.csdn.net/jiangzhexi/article/details/54236376

@@ -6,11 +6,10 @@
  * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.javase.jdk8;
+package org.quickstart.javase.jdk8.function;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 

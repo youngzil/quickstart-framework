@@ -6,7 +6,7 @@
  * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.javase.jdk8;
+package org.quickstart.javase.jdk8.completablefuture;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
