@@ -191,9 +191,17 @@ tcpdump 和 tcptrace
 sar
 
 
-
 参考
 /Users/yangzl/git/quickstart-http/docs/TCPIP网络传输学习.md
+
+
+
+linux系统查看网络连接情况
+命令：netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'
+   
+参考
+https://www.cnblogs.com/ccit/p/10065804.html
+
 
 
 

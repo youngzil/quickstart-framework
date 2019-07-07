@@ -127,4 +127,31 @@ https://github.com/ladingwu/ApplicationDemo
 https://github.com/amitshekhariitbhu/RxJava2-Android-Samples
 
 
+RxJava操作符大全
+https://www.jianshu.com/p/3fdd9ddb534b
+
+
+
+RxJava解析和测试https://www.infoq.cn/article/rxjava-by-example/
+
+https://www.infoq.cn/article/rxjava2-by-example/
+https://www.infoq.cn/article/Testing-RxJava/
+
+
+
+RxJava弹珠交互图
+https://rxmarbles.com/
+https://github.com/staltz/rxmarbles
+
+
+
+
+
+
+
+
+
+
+
+
 

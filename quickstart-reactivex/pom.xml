@@ -9,7 +9,7 @@
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>quickstart-reactivex</artifactId>
-  <name>quickstart-reactivex</name>
+  <name>${project.artifactId}-${project.version}</name>
   <url>http://maven.apache.org</url>
 
   <properties>

@@ -18,4 +18,14 @@ https://blog.csdn.net/u013256816
 
 
 
+学习网站
+1、InfoQ的article栏目
+https://www.infoq.cn/article/rxjava-by-example/
+2、项目github的wiki栏目
+https://github.com/lettuce-io/lettuce-core/wiki
+3、学习网站baeldung
+https://www.baeldung.com/java-redis-lettuce
+
+
+
 
