@@ -63,6 +63,7 @@ public class CompletableFutureTest implements Runnable {
     @Test
     public void thenAccept() {
         CompletableFuture.supplyAsync(() -> "hello").thenAccept(s -> System.out.println(s + " world"));
+        CompletableFuture.supplyAsync(() -> "hello").thenAccept(s -> System.out.println());
     }
 
     // thenRun它的入参是一个Runnable的实例，表示当得到上一步的结果时的操作。

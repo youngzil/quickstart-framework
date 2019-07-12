@@ -25,8 +25,8 @@ public final class Constants {
 
     // class的类型为final，表示该类是不可以继承的；
     // 定义了一个私有的构造函数，避免实例化该类；
-    // 常量的类型为public final static；
+    // 定义常量的类型为public final static；
 
-    // 常量优先使用枚举，然后是final常量类，接口不推荐
+    // 定义常量优先使用枚举，然后是final常量类，接口不推荐
 
 }

@@ -10,6 +10,8 @@ package org.quickstart.javase.jdk;
 
 import java.util.concurrent.TimeUnit;
 
+import org.junit.Test;
+
 /**
  * StringTest
  * 
@@ -40,6 +42,18 @@ public class StringTest {
         System.out.println(str);
         str = "welcome";
         System.out.println(str);
+    }
+
+    @Test
+    public void testStringSplit(){
+        String url = "redirect=openGSM&ticket=2925299881&verifySerial=null";
+
+        int index = url.indexOf("&ticket=");
+        System.out.println(index);
+
+        String[] strings = url.split("&ticket=");
+        System.out.println(strings);
+
     }
 
 }

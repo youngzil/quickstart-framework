@@ -3,7 +3,7 @@
 https://colobu.com/2016/02/29/Java-CompletableFuture/
 /Users/yangzl/git/quickstart-framework/quickstart-javase/src/main/java/org/quickstart/javase/jdk8/completablefuture
 
-
+https://juejin.im/post/5adbf8226fb9a07aac240a67
 https://colobu.com/2018/03/12/20-Examples-of-Using-Java%E2%80%99s-CompletableFuture/
 
 https://www.ibm.com/developerworks/cn/java/j-cf-of-jdk8/index.html
@@ -29,7 +29,7 @@ https://github.com/manouti/completablefuture-examples
  当运行时出现了异常，可以通过exceptionally进行补偿。会对最终的结果产生影响
      public CompletionStage<T> exceptionally(Function<Throwable, ? extends T> fn);
  
- 运行完成时，对结果的处理
+ 运行完成时，对结果的处理和转换
   public <U> CompletionStage<U> handle(BiFunction<? super T, Throwable, ? extends U> fn);
   public <U> CompletionStage<U> handleAsync(BiFunction<? super T, Throwable, ? extends U> fn);
   public <U> CompletionStage<U> handleAsync(BiFunction<? super T, Throwable, ? extends U> fn,Executor executor);
