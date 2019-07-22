@@ -33,17 +33,23 @@
       <version>2.6</version>
     </dependency>
 
-    <!--<dependency>
+   <!-- <dependency>
       <groupId>org.bouncycastle</groupId>
       <artifactId>bcprov-jdk16</artifactId>
       <version>1.46</version>
     </dependency>-->
 
-    <dependency>
-      <groupId>org.bouncycastle</groupId>
-      <artifactId>bcprov-jdk15on</artifactId>
-      <version>1.60</version>
-    </dependency>
+     <dependency>
+       <groupId>org.bouncycastle</groupId>
+       <artifactId>bcprov-jdk15on</artifactId>
+       <version>1.62</version>
+     </dependency>
+
+   <!-- <dependency>
+      <groupId>bouncycastle</groupId>
+      <artifactId>bcprov-jdk15</artifactId>
+      <version>140</version>
+    </dependency>-->
 
     <dependency>
       <groupId>commons-codec</groupId>

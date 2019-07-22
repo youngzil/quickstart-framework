@@ -1,10 +1,19 @@
 1、SSO
 2、OpenID
+
 3、OAuth
 OAuth 2.0 是一种授权机制，主要用来颁发令牌（token）
 获取令牌的四种方式
 Oauth1.0与Oauth2.0的区别：3点
-4、
+
+4、HTTP API认证授权术
+HTTP Basic
+Digest Access
+App Secret Key + HMAC
+JWT – JSON Web Tokens
+OAuth 1.0 – 3 legged & 2 legged
+OAuth 2.0 – Authentication Code & Client Credential
+
 5、
 
 
@@ -253,6 +262,34 @@ Oauth1.0与Oauth2.0的区别：3点
 
 
 ---------------------------------------------------------------------------------------------------------------------
+https://coolshell.cn/articles/19395.html
+HTTP API认证授权术
+
+1、HTTP Basic
+2、Digest Access
+3、App Secret Key + HMAC
+4、JWT – JSON Web Tokens
+5、OAuth 1.0 – 3 legged & 2 legged
+6、OAuth 2.0 – Authentication Code & Client Credential
+
+
+1、HTTP Basic
+
+其技术原理如下：
+1、把 username和 password 做成  username:password 的样子（用冒号分隔）
+2、进行Base64编码。Base64("username:password") 得到一个字符串（如：把 haoel:coolshell 进行base64 后可以得到 aGFvZW86Y29vbHNoZWxsCg ）
+3、把 aGFvZW86Y29vbHNoZWxsCg放到HTTP头中 Authorization 字段中，形成 Authorization: Basic aGFvZW86Y29vbHNoZWxsCg，然后发送到服务端。
+4、服务端如果没有在头里看到认证字段，则返回401错，以及一个个WWW-Authenticate: Basic Realm='HelloWorld' 之类的头要求客户端进行认证。之后如果没有认证通过，则返回一个401错。如果服务端认证通过，那么会返回200。
+
+
+
+
+
+2、Digest Access
+3、App Secret Key + HMAC
+4、JWT – JSON Web Tokens
+5、OAuth 1.0 – 3 legged & 2 legged
+6、OAuth 2.0 – Authentication Code & Client Credential
 
 
 

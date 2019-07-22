@@ -388,7 +388,10 @@ useradd 选项 用户名
 
 
 
-
+实现合并多个文件内容到一个文件中
+cat b1.sql b2.sql b3.sql > b_all.sql
+或者
+cat *.sql > merge.sql
 
 
 

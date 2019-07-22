@@ -8,6 +8,7 @@
  */
 package org.quickstart.javase.collection.map;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -26,7 +27,14 @@ public class MapTraverseTest {
         Map<String, String> map = new HashMap<String, String>();  
         map.put("1", "value1");  
         map.put("2", "value2");  
-        map.put("3", "value3");  
+        map.put("3", "value3");
+
+
+        // 第一步：检查参数是否已经排序
+        String[] keys = map.keySet().toArray(new String[0]);
+        Arrays.sort(keys);
+
+
 
         // 第一种：普遍使用，二次取值
         System.out.println("通过Map.keySet遍历key和value：");

@@ -179,6 +179,16 @@ public class SecurityUtils {
     }
 
     public static void main(String[] args) throws Exception {
+
+        String string = "hehe";
+        String key = "keyTest";
+
+        byte[] dd = encrypt(string.getBytes(),key.getBytes());
+
+        byte[] ss = decrypt(dd,key.getBytes());
+        System.out.println(new String(ss));
+
+
         String s = "130AA05875E3A0644DE1A11B103284B4";
         s = SecurityUtils.decodeAES256HexUpper(s, SecurityUtils.decodeHexUpper("eafbbb3d23b1ec7f0269301dd06fb635"));
         System.out.println(s);
