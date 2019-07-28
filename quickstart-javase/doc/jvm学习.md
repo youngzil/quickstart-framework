@@ -982,7 +982,7 @@ https://www.jianshu.com/p/3835450d49d0
 https://blog.csdn.net/yanshuanche3765/article/details/80033285
 
 
-逃逸分析与TLAB、内存泄漏
+逃逸分析与TLAB、内存泄漏、this指针逃逸问题
 
 
 逃逸分析(Escape Analysis)是目前Java虚拟机中比较前沿的优化技术。
@@ -1050,6 +1050,15 @@ Java对象分配的过程：首先栈-->TLAB-->Eden-->Old
 6、经过Young GC之后，如果Eden区任然不足以存放当前对象，则直接分配到老年代。
 
 对象不在堆上分配主要的原因还是堆是共享的，在堆上分配有锁的开销。无论是TLAB还是栈都是线程私有的，私有即避免了竞争（当然也可能产生额外的问题例如可见性问题），这是典型的用空间换效率的做法。
+
+
+
+this指针逃逸问题
+简述： this逃逸是指在构造函数返回之前其他县城就持有该对象的引用。调用尚未构造完成的对象的方法可能引起奇怪的问题。
+
+this逃逸经常发生在构造函数中启动线程或者注册监听器时，例如：
+https://blog.csdn.net/zhengfuzhe1124/article/details/81530815
+
 
 
 

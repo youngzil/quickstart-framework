@@ -4,31 +4,32 @@
   xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <parent>
     <groupId>org.quickstart</groupId>
-    <artifactId>quickstart-framework</artifactId>
+    <artifactId>quickstart-logging</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <relativePath>..</relativePath> <!-- lookup parent from repository -->
   </parent>
 
+
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>quickstart-guava</artifactId>
+  <artifactId>quickstart-jul</artifactId>
   <packaging>jar</packaging>
   <name>${project.artifactId}-${project.version}</name>
   <url>http://maven.apache.org</url>
   <description>Demo project for XXX</description>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <guava.version>28.0-jre</guava.version>
   </properties>
 
   <dependencies>
 
+    <!--    slf4j与jul的集成-->
     <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <version>${guava.version}</version>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-jdk14</artifactId>
+      <version>1.7.26</version>
+      <scope>test</scope>
     </dependency>
 
 
   </dependencies>
-
 </project>

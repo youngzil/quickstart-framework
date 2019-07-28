@@ -4,31 +4,36 @@
   xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <parent>
     <groupId>org.quickstart</groupId>
-    <artifactId>quickstart-framework</artifactId>
+    <artifactId>quickstart-logging</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <relativePath>..</relativePath> <!-- lookup parent from repository -->
   </parent>
 
+
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>quickstart-guava</artifactId>
+  <artifactId>quickstart-logback</artifactId>
   <packaging>jar</packaging>
   <name>${project.artifactId}-${project.version}</name>
   <url>http://maven.apache.org</url>
   <description>Demo project for XXX</description>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <guava.version>28.0-jre</guava.version>
+    <logback.version>1.2.3</logback.version>
   </properties>
 
   <dependencies>
 
     <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <version>${guava.version}</version>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>${logback.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-access</artifactId>
+      <version>${logback.version}</version>
+    </dependency>
 
   </dependencies>
-
 </project>

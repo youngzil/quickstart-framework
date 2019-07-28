@@ -1,0 +1,76 @@
+Configuration:
+  status: warn
+
+  Properties:
+    Property:
+      - name: log.dir
+        value: /Users/yangzl/logs/quickstart/quickstart-log4j2
+      - name: log.name
+        value: quickstart-log4j2.log
+      - name: pattern
+        value: "%highlight{%d{yyyy-MM-dd HH:mm:ss} %p{DEBUG=D,INFO=I,WARN=W,ERROR=E}} [%t][%c{1.}:%L]%X{insignia} - %m%n"
+
+  Appenders:
+    # 控制台
+    Console:
+      name: console
+      target: SYSTEM_OUT
+      ThresholdFilter:
+        level: info
+        onMatch: ACCEPT
+        onMismatch: DENY
+      PatternLayout:
+        charset: utf-8
+        pattern: ${pattern}
+
+    RollingFile:
+      # INFO及以上日志
+      - name: infoFile
+        ignoreExceptions: false
+        fileName: ${sys:log.dir}/${sys:log.name}-INFO+.log
+        filePattern: "${sys:log.dir}/${date:yyyy-MM}/${sys:log.name}-%d{yyyy-MM-dd}-INFO+.log.gz"
+        append: true
+        ThresholdFilter:
+          level: info
+          onMatch: ACCEPT
+          onMismatch: DENY
+        PatternLayout:
+          charset: utf-8
+          pattern: ${pattern}
+        Policies:
+          TimeBasedTriggeringPolicy:
+            modulate: true
+            interval: 1
+          SizeBasedTriggeringPolicy:
+            size: "128 MB"
+        DefaultRolloverStrategy:
+          max: 1000
+      # DEBUG及以上日志
+      - name: debugFile
+        ignoreExceptions: false
+        fileName: ${sys:log.dir}/${sys:log.name}-DEBUG+.log
+        filePattern: "${sys:log.dir}/${date:yyyy-MM}/${sys:log.name}-%d{yyyy-MM-dd}-DEBUG+.log.gz"
+        append: true
+        ThresholdFilter:
+          level: debug
+          onMatch: ACCEPT
+          onMismatch: DENY
+        PatternLayout:
+          charset: utf-8
+          pattern: ${pattern}
+        Policies:
+          TimeBasedTriggeringPolicy:
+            modulate: true
+            interval: 1
+          SizeBasedTriggeringPolicy:
+            size: "128 MB"
+        DefaultRolloverStrategy:
+          max: 1000
+
+  Loggers:
+    Root:
+      level: all
+      AppenderRef:
+        - ref: console
+        - ref: infoFile
+        - ref: debugFile
