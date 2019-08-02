@@ -9,8 +9,10 @@
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>quickstart-reactivex</artifactId>
+  <packaging>jar</packaging>
   <name>${project.artifactId}-${project.version}</name>
   <url>http://maven.apache.org</url>
+  <description>Demo project for XXX</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

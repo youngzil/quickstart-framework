@@ -1,0 +1,154 @@
+#接入协议基础设施配置
+accessIn:
+  providers:
+    - code: aop_1
+      protocol: tcp
+      host: '0.0.0.0'
+      port: '20130'
+    - code: ESB_REMOTE_1
+      protocol: jboss-remoting
+      host: '0.0.0.0'
+      port: '20120'
+    - code: GW_HTTP_SERVICE
+      protocol: http
+      host: '127.0.0.1'
+      port: '20120'
+    - code: GW_RESTFUL_SERVICE
+      protocol: http
+      host: '127.0.0.1'
+      port: '20110'
+    - code: WS_SERVICE
+      protocol: http
+      host: '0.0.0.0'
+      port: '20110'
+
+  dataProtocol:
+    packages:
+      - org.quickstart.yaml.snakeyaml
+  dataRestful:
+    packages:
+      - org.quickstart.yaml.snakeyaml
+
+  serverTunning:
+    tcp:
+      soBacklog: 128
+      soLinger: -1
+      tcpNodelay: true
+      soKeepalive: true
+      #Epoll/Kqueue配置
+      tcpDeferAccept: -1
+
+    connection:
+      maxConnections: 20000
+      maxRequestsPerConnection: 20000
+      idleTimeout: 65000
+      connCloseDelay: 10
+      maxRequestsPerConnectionInBrownout: 100
+
+
+    http:
+      httpRequestReadTimeout: 5000
+      maxInitialLineLength: 16384
+      maxHeaderSize: 32768
+      maxChunkSize: 32768
+      maxExpiryDelta: 20000
+
+    thread:
+      acceptor: 1
+      worker: -1
+      chooseThreadOfLeastConnections: true
+
+#接出协议基础设施配置
+accessOut:
+  clientTunning:
+    connection:
+      maxRequestsPerConnection: 1000
+      perServerWaterline: 4
+      maxConnectionPerHost: 1000
+    tcp:
+      tcpKeepAlive: false
+      tcpNoDelay: false
+      writeBufferHighWaterMark: 32768
+      writeBufferLowWaterMark: 8192
+      autoRead: false
+
+stateContentEnabled: true
+
+#redis 客户端配置
+redisConfig:
+  parameter:
+    maxTotal: 20
+    maxIdle: 10
+    minIdle: 1
+    testOnBorrow: false
+    needWriteSyn: true
+    connectionTimeout: 1000
+  routers:
+    - dataType: OprMenuInfo
+      group: REDIS_CLUSTER
+    - dataType: DevADAbilityInfos
+      group: REDIS_CLUSTER
+    - dataType: MonitorData
+      group: REDIS_CLUSTER
+    - dataType: BOAppIpmlinfoBean
+      group: REDIS_CLUSTER
+    - dataType: BOSecAppUserRelBean
+      group: REDIS_CLUSTER
+    - dataType: BOSecOauthAccessTokenBean
+      group: REDIS_CLUSTER
+    - dataType: BOSecOauthApprovalsBean
+      group: REDIS_CLUSTER
+    - dataType: BOCrmRetTokenBean
+      group: REDIS_CLUSTER
+    - dataType: StQuotaCounter
+      group: REDIS_CLUSTER
+    - dataType: BOAopStQuotaRuleBean
+      group: REDIS_CLUSTER
+    - dataType: StFlowCounter
+      group: REDIS_CLUSTER
+    - dataType: StatInvokedCounter
+      group: REDIS_CLUSTER
+  serverGroups:
+    #    - code: REDIS_CLUSTER
+    #      isCluster: false
+    #      requirePass:
+    #      addresses:
+    #        - 127.0.0.1:6379
+    #    - code: AOP_STAT
+    #      isCluster: false
+    #      requirePass:
+    #      addresses:
+    #        - 127.0.0.1:6379
+    - code: REDIS_CLUSTER
+      isCluster: true
+      requirePass:
+      addresses:
+        - 10.1.243.23:7000
+        - 10.1.243.23:7001
+        - 10.1.243.23:7002
+        - 10.1.243.23:7003
+        - 10.1.243.23:7004
+        - 10.1.243.23:7005
+#过滤器配置
+filterSetting:
+  scanPackages:
+    - org.quickstart.yaml.snakeyaml.filters.inbound
+    - org.quickstart.yaml.snakeyaml.filters.endpoint
+    - org.quickstart.yaml.snakeyaml.filters.outbound
+  scanRedis:
+    keyPrefix: aiaccess:filters:ext
+    pollingInterval: 10
+
+#cache 缓存配置
+cacheConfig:
+  switc: Y
+  refreshAfterWrite: 4
+  expireAfterWrite: 2
+  maximumSize: 1000
+  redisGroup: REDIS_CLUSTER
+
+  #RSAInit RSA 配置
+rsaInit:
+  name: ENCRYPT_TYPE
+  remark: RSA加解密方式：Public，使用公钥；Private，使用私钥；默认私钥
+  initValue: Private

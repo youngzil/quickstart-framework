@@ -77,6 +77,8 @@
 		<module>quickstart-framework-sentinel</module>
     <module>quickstart-jython</module>
     <module>quickstart-reactor</module>
+    <module>quickstart-reflections</module>
+    <module>quickstart-jgit</module>
   </modules>
 
 </project>
