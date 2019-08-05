@@ -1,3 +1,78 @@
+1、CompletableFuture原理解析
+2、CompletableFuture使用
+
+
+---------------------------------------------------------------------------------------------------------------------
+CompletableFuture原理解析
+
+
+
+Runnable，无结果的同步行为
+Callable，有结果的同步行为
+Future，异步封装Callable/Runnable，如果是Callable有结果的句柄，需要自己轮询是否结果完成
+CompletableFuture，封装Future，使其拥有回调功能，主动通知结果完成
+
+
+CompletableFuture让Future的功能和使用场景得到极大的完善和扩展,提供了函数式编程能力,使代码更加美观优雅,而且可以通过回调的方式计算处理结果,对异常处理也有了更好的处理手段.
+
+
+
+
+// 直接创建
+CompletableFuture c0 = new CompletableFuture();
+// 直接创建一个已经做完的蛋糕
+val c1 = CompletableFuture.completedFuture("cake");
+
+// 无返回值异步任务，会采用内部forkjoin线程池
+val c2 = CompletableFuture.runAsync(()->{});
+// 无返回值异步任务，采用定制的线程池
+val c3 = CompletableFuture.runAsync(()->{}, newSingleThreadExecutor());
+
+// 返回值异步任务，采用定制的线程池
+val c4 = CompletableFuture.supplyAsync(()-> "cake", newSingleThreadExecutor());
+// 返回值异步任务，采用内部forkjoin线程池
+val c5 = CompletableFuture.supplyAsync(()-> "cake");
+
+// 只要有一个完成，则完成，有一个抛异常，则携带异常
+CompletableFuture.anyOf(c1, c2, c3, c4, c5);
+// 当所有的 future 完成时,新的 future 同时完成
+// 当某个方法出现了异常时,新 future 会在所有 future 完成的时候完成,并且包含一个异常.
+CompletableFuture.allOf(c1, c2, c3, c4, c5);
+
+
+
+//不抛出中断异常，看着你做蛋糕
+//阻塞
+cf.join();
+//有异常，看着你做蛋糕
+//阻塞
+cf.get();
+//有异常，看着你做蛋糕一小时
+//阻塞
+cf.get(1, TimeUnit.HOURS);
+//蛋糕做好了吗？做好了我直接吃你做的，做不好我吃我的
+//非阻塞
+cf.getNow("my cake");
+// 我问糕点师：蛋糕是否不做了？
+//非阻塞
+cf.isCancelled();
+//我问糕点师：蛋糕是否做糊了？
+//非阻塞
+cf.isCompletedExceptionally();
+// 我问糕点师：蛋糕做完了吗？
+//非阻塞
+cf.isDone();
+
+
+参考
+https://www.jianshu.com/p/abfa29c01e1d
+https://blog.csdn.net/ahilll/article/details/83956261
+http://ifeve.com/completablefuture/
+
+
+---------------------------------------------------------------------------------------------------------------------
+CompletableFuture使用
+
 
 文章和代码
 https://colobu.com/2016/02/29/Java-CompletableFuture/
@@ -98,5 +173,20 @@ https://github.com/manouti/completablefuture-examples
       // anyOf方法是当任意一个CompletableFuture执行完后就会执行计算，计算的结果相同。
       // public static CompletableFuture<Void> 	    allOf(CompletableFuture<?>... cfs)
       // public static CompletableFuture<Object> 	anyOf(CompletableFuture<?>... cfs)
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
 
 

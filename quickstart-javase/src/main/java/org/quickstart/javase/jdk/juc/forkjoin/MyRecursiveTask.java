@@ -41,6 +41,7 @@ public class MyRecursiveTask extends RecursiveTask<Long> {
                 subtask.fork();
             }
 
+            // ForkJoinTask 的 join 方法实现原理。Join 方法的主要作用是阻塞当前线程并等待获取结果。
             long result = 0;
             for (MyRecursiveTask subtask : subtasks) {
                 result += subtask.join();
