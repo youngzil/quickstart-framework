@@ -95,7 +95,6 @@
       <scope>test</scope>
     </dependency>
 
-
     <dependency>
       <groupId>io.reactivex</groupId>
       <artifactId>rxjava-async-util</artifactId>

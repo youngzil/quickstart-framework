@@ -1,44 +1,4 @@
-https://brew.sh/
-https://brew.sh/blog/
-https://docs.brew.sh
-https://docs.brew.sh/Analytics.html
 
-
-https://github.com/Homebrew/brew/
-https://github.com/Homebrew/homebrew-core
-https://github.com/theeternalsw0rd/homebrew-telnet
-
-
-
-
-安装过程需要输入root口令。
-
-Homebrew的使用
-
-Homebrew的可执行命令是brew，其基本使用方法如下（以wget为例）。
-
-查找软件包
-
-brew search wget
-
-安装软件包
-
-brew install wget
-
-列出已安装的软件包
-brew list
-
-删除软件包
-brew remove wget
-
-查看软件包信息
-brew info wget
-
-列出软件包的依赖关系
-brew deps wget
-
-更新brew
-brew update
 
 列出过时的软件包（已安装但不是最新版本）
 brew outdated
