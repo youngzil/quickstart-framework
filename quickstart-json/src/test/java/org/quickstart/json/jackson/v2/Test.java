@@ -8,6 +8,7 @@
  */
 package org.quickstart.json.jackson.v2;
 
+import org.apache.xpath.operations.String;
 import org.quickstart.json.test.model.Person;
 
 import com.fasterxml.jackson.core.JsonProcessingException;

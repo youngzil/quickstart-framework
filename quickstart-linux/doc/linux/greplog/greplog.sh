@@ -12,8 +12,8 @@ function trusthost()
         commandStr="";
         for((integer = 1; integer <= nodeCount; integer++))
         do
-                commandStr="${commandStr}echo  ${host}/esb_${integer}/app/oppf/log/oppf_esb-$date.log >> ${host}.log;"
-                commandStr="${commandStr}grep $str esb_${integer}/app/oppf/log/oppf_esb-$date.log >> ${host}.log;"
+                commandStr="${commandStr} echo ${host}/esb_${integer}/app/oppf/log/oppf_esb-$date.log >> ${host}.log;"
+                commandStr="${commandStr} grep $str esb_${integer}/app/oppf/log/oppf_esb-$date.log >> ${host}.log;"
         done
         echo "ssh -t ${username}@$host \" ${commandStr} \" &>/dev/null">>temp.sh
         echo "scp ${username}@$host:/app/aiesb/${host}.log .;">>temp.sh

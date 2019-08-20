@@ -10,6 +10,8 @@ package org.quickstart.javase.jdk8.stream;
 
 import java.util.List;
 
+import lombok.Getter;
+
 /**
  * Article
  * 
@@ -17,6 +19,7 @@ import java.util.List;
  * @2018年3月28日 下午8:05:06
  * @since 1.0
  */
+@Getter
 public class Article {
 
     private final String title;
@@ -29,18 +32,6 @@ public class Article {
         this.author = author;
         this.published = published;
         this.tags = tags;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public List<String> getTags() {
-        return tags;
     }
 
     public String published() {

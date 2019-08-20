@@ -24,17 +24,18 @@ https://sourceforge.net/projects/sshpass/
 Client免登陆到Server端
 1、在Client端生成公钥和私钥，此时会生成两个密码文件：id_rsa 私钥文件、id_rsa.pub 公钥文件
 ssh-keygen  -t  rsa
+一直回车就好了，生成的公钥和私钥在cd ~/.ssh/下面
 
 2、把 Client机器的公钥拷贝到 Server机器 的 ~/.ssh/authorized_keys 文件里。
 方法一 使用ssh-copy-id
 ssh-copy-id -i ./id_rsa.pub aideploy@20.26.37.177
 
-方法二 手动创建authorized_keys文件 或者 往里面追加id_rsa.pub 公钥文件内容
+方法二 手动创建authorized_keys文件 或者 往里面追加id_rsa.pub 公钥文件内容，手动复制的时候主要可能会换行，必须保证是在一行中
 mkdir -p ~/.ssh
 vi ~/.ssh/authorized_keys
 
 或者
-echo cat id_rsa.pub >> ~/.ssh/authorized_keys
+echo cat id_rsa.pub >> ~/.ssh/authorized_keys  
 没有echo，直接cat不会换行
 
 

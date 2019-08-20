@@ -54,6 +54,29 @@ Observable.create(onSubscribe)
 
 
 
+Subscriber与Observer的不同的时候，提到过Subscriber多了两个方法。其中 onStart() 方法发生在 subscribe() 方法调用后且事件发送之前 是一个进行初始化操作的方法。但是这个初始化操作并不能指定线程。
+
+doOnSubscribe ，这个操作符跟onStart方法一样，都是在 subscribe() 方法调用后且事件发送之前 执行，所以我们一样可以在这里面进行初始化的操作。而区别在于它可以指定线程。
+
+默认情况下， doOnSubscribe() 执行在 subscribe() 发生的线程；而如果在 doOnSubscribe() 之后有 subscribeOn() 的话，它将执行在离它最近的 subscribeOn() 所指定的线程。
+
+doOnNext() ，这个操作符允许我们在每次输出一个元素之前做一些其他的事情，比如提示啊保存啊之类的操作。
+
+doOnUnSubscribe：取消订阅时的监听
+doOnCompleted：Observable正常终止时的监听
+doOnError：出错时的监听
+doOnTerminate：订阅即将被终止时的监听，无论是正常终止还是异常终止
+finallyDo：订阅完成之后的监听，无论是正常终止还是异常终止
+
+delay：延迟一段指定的时间再发射来自Observable的发射物。Delay操作符让原始Observable在发射每项数据之前都暂停一段指定的时间段。效果是Observable发射的数据项在时间上向前整体平移了一个增量。
+delaySubscription：延迟订阅源Observable
+timeInterval：返回联系发射的observable的时间间隔
+
+
+参考
+http://www.iamxiarui.com/?p=773#doOnSubscribe
+https://blog.csdn.net/nicolelili1/article/details/52165093
+
 
 ---------------------------------------------------------------------------------------------------------------------
 线程控制：指定线程运行：生产和消费，4类线程
