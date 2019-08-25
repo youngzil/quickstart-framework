@@ -28,9 +28,9 @@ cat hostlist|while read line
           trusthost
    done
 
-echo "cat *.log > merge.log ">>temp.sh
+echo "cat 10.*.log > merge.log ">>temp.sh
 echo "rm 10.*.log ">>temp.sh
 
-chmod +x *   
+chmod +x *.sh
 sh temp.sh
 rm temp.sh

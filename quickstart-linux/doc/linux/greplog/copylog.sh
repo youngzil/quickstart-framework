@@ -28,6 +28,6 @@ cat hostlist|while read line
 echo "tar -czvf $date-esb-log.tar.gz 10.* ">>temp.sh
 echo "rm -r 10.* ">>temp.sh
 
-chmod +x *   
+chmod +x *.sh
 sh temp.sh
 rm temp.sh
