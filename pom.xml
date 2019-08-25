@@ -79,6 +79,7 @@
     <module>quickstart-reactor</module>
     <module>quickstart-reflections</module>
     <module>quickstart-jgit</module>
+    <module>quickstart-apache-commons</module>
   </modules>
 
 </project>
