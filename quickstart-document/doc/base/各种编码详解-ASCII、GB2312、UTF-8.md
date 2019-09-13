@@ -21,6 +21,7 @@ ANSI（American National Standards Institute），中文：美国国家标准学
 
 
 https://my.oschina.net/liting/blog/470021
+https://blog.csdn.net/huangjm_13/article/details/8536982
 各种编码UNICODE、UTF-8、ANSI、ASCII、GB2312、GBK详解
 
 
@@ -61,6 +62,14 @@ UNICODE： ISO 就直接规定必须用两个字节，也就是16位来统一表
   Unicode规范中定义，每一个文件的最前面分别加入一个表示编码顺序的字符，这个字符的名字叫做”零宽度非换行空格“（ZERO WIDTH NO-BREAK SPACE），用FEFF表示。这正好是两个字节，而且FF比FE大1。
   如果一个文本文件的头两个字节是FE FF，就表示该文件采用大头方式；如果头两个字节是FF FE，就表示该文件采用小头方式。
 
+
+UTF-8以字节为编码单元，没有字节序的问题。UTF-16以两个字节为编码单元，在解释一个UTF-16文本前，首先要弄清楚每个编码单元的字节序。例如收到一个"奎"的Unicode编码是594E，"乙"的Unicode编码是4E59。如果我们收到UTF-16字节流"594E"，那么这是"奎"还是"乙"？
+
+Unicode规范中推荐的标记字节顺序的方法是BOM。BOM不是"Bill Of Material"的BOM表，而是Byte Order Mark。 BOM是一个有点小聪明的想法：在UCS编码中有一个叫做"ZERO WIDTH NO-BREAK SPACE"的字符，它的编码是FEFF。而FFFE在UCS中是不存在的字符，所以不应该出现在实际传输中。UCS规范建议我们在传输字节流前，先传输 字符"ZERO WIDTH NO-BREAK SPACE"。
+
+这样如果接收者收到FEFF，就表明这个字节流是Big-Endian的；如果收到FFFE，就表明这个字节流是Little-Endian的。因此字符"ZERO WIDTH NO-BREAK SPACE"又被称作BOM。
+
+UTF-8不需要BOM来表明字节顺序，但可以用BOM来表明编码方式。字符"ZERO WIDTH NO-BREAK SPACE"的UTF-8编码是EF BB BF。所以如果接收者收到以EF BB BF开头的字节流，就知道这是UTF-8编码了。
 
 
 UTF-8：
