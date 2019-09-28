@@ -111,7 +111,11 @@ public class StreamApiTest {
   }
 
   public Map<String, List<Article>> groupByAuthor2() {
-    return articles.stream().collect(Collectors.groupingBy(Article::getAuthor));
+
+    Map<String, List<Article>> map =
+        articles.stream().filter(article -> article.getTags().contains("Javafffff")).collect(Collectors.groupingBy(Article::getAuthor));
+
+    return map;
   }
 
   // 查找集合中所有不同的标签。
@@ -228,10 +232,8 @@ public class StreamApiTest {
     System.out.println(ints.stream().allMatch(item -> item < 100));
     ints.stream().max((o1, o2) -> o1.compareTo(o2)).ifPresent(System.out::println);
 
-
-    //如果 Map 的 Key 重复了，可是会报错的哦
+    // 如果 Map 的 Key 重复了，可是会报错的哦
     // Map<Integer, Person> map = transactions.stream().collect(toMap(Person::getAge, p -> p));
-
 
   }
 

@@ -81,6 +81,7 @@
     <module>quickstart-jgit</module>
     <module>quickstart-apache-commons</module>
     <module>quickstart-velocity</module>
+
   </modules>
 
 </project>

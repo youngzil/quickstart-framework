@@ -54,6 +54,6 @@ function doAction(){
 for ip in ${ip_array[*]}
 	do
 		#ssh -t $ip doAction
-	ssh -t -p $outerNetPort $outerNetUser@$ip "mkdir test"
+	ssh -n -p $outerNetPort $outerNetUser@$ip "mkdir test"
 	done  
 

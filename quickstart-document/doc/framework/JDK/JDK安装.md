@@ -1,14 +1,22 @@
 https://java.com/zh_CN/
 
 
-export JAVA_HOME=/home/aimsgframe/jdk1.8.0_181
+export JAVA_HOME=/home/aifgw/jdk1.8.0_221
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export PATH=$JAVA_HOME/bin:$PATH
 
 
 su - aimsgframe
-vi .bashrc
+vi .bashrc  
 输入$符号跳转到行尾
+
+vi .bashrc
+source .bash_profile
+
+vi .bash_profile
+source .bash_profile
+
+scp jdk-8u221-linux-x64.tar.gz aifgw@20.26.85.230:~
 
 
 export JAVA_HOME=/home/aimsgframe/jdk1.7.0_79
