@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "export JAVA_HOME=$HOME/java" >> $HOME/.bash_profile
-echo "export CLASSPATH=.:\$JAVA_HOME/lib/dt.jar:\$JAVA_HOME/lib/tools.jar" >> $HOME/.bash_profile
+#echo "export CLASSPATH=.:\$JAVA_HOME/lib/dt.jar:\$JAVA_HOME/lib/tools.jar" >> $HOME/.bash_profile
 echo "export PATH=\$JAVA_HOME/bin:\$PATH" >> $HOME/.bash_profile
 
 source $HOME/.bash_profile

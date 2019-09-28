@@ -24,5 +24,5 @@ cat hostlist|while read line
 	  trusthost
    done
 chmod 755 -R *   
- sh sshph.sh
- rm sshph.sh
+sh sshph.sh
+rm sshph.sh
