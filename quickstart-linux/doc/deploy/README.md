@@ -1,8 +1,10 @@
 过大的包没有上传，如下
 pkg
+    activemq
+    gradle apache-activemq-5.15.10-bin.tar.gz 将近100M
+    groovy
     jdk 需要放置下载的jdk，jdk-8u221-linux-x64.tar.gz将近200M没有上传
     mysql mysql-5.7.27-linux-glibc2.12-i686.tar.gz 600多M
-    gradle apache-activemq-5.15.10-bin.tar.gz 将近100M
     
     
 

@@ -17,4 +17,4 @@ rm -f gateway-console-server.tar.gz
 sleep 5
 
 cd $GATEWAY_CONSOLE_HOME
-nohup sh bin/startaifgw-web.sh &
+sh bin/startaifgw-web.sh
