@@ -46,7 +46,8 @@ https://my.oschina.net/xuqiang/blog/386549
 http://www.java2s.com/Code/Java/Network-Protocol/Telnet.htm
 
 
-
+linux5.3内核发布
+https://www.kernel.org/
 Linux的源码地址（Linus Torvalds的github）
 https://github.com/torvalds/linux
 
