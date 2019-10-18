@@ -12,6 +12,8 @@ cat <<EOF
     7. deploy all(gateway\security\webApp)
     8. deploy all tengine(gateway/webdev/webopr/)
     9. deploy all(7+8)
+    10. deploy前台(webApp/webdev/webopr/)
+    11. deploy后台(gateway/security/tengineGateway/)
     q. 退出
 EOF
 }
@@ -85,6 +87,16 @@ do
 	    DeployTengineGateway
 	    DeployTengineWebdev
 	    DeployTengineWebopr
+    ;;
+    10)
+      DeployWebapp
+	    DeployTengineWebdev
+	    DeployTengineWebopr
+    ;;
+    11)
+      DeployGateway
+      DeploySecurity
+      DeployTengineGateway
     ;;
     9)
 	    DeployGateway
