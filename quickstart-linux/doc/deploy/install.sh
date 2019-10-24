@@ -27,7 +27,8 @@ DeployGateway()
   #deploy gateway
 cd $HOME/workspace/aifgateway/aifgw-backend-parent/
 
-mvn -Prelease-all -DskipTests clean install -U
+#mvn -Prelease-all -DskipTests clean install -U
+mvn -Prelease-all -Pbuild-test -DskipTests clean install -U
 
 cd aifgw-distribution/target
 

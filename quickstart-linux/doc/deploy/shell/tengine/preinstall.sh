@@ -25,7 +25,7 @@ rm -f zlib-1.2.11.tar.gz
 
 
 cd $HOME/tengine-2.3.2
-./configure --prefix=$NGINX_GATEWAY_HOME/tengine-gateway --with-pcre=$HOME/pcre-8.43 --with-openssl=$HOME/openssl-1.1.1d --with-zlib=$HOME/zlib-1.2.11
+./configure --prefix=$NGINX_GATEWAY_HOME/tengine-gateway --add-module=./modules/ngx_http_upstream_check_module --with-pcre=$HOME/pcre-8.43 --with-openssl=$HOME/openssl-1.1.1d --with-zlib=$HOME/zlib-1.2.11
 make && make install
 
 cd $HOME
