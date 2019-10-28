@@ -1,4 +1,4 @@
-package org.quickstart.logging;
+package org.quickstart.logging.logback;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -13,6 +13,7 @@ public class LogbackTest {
 
   private final static Logger logger = LoggerFactory.getLogger(LogbackTest.class);
 
+  // 测试多文件日志打印
   private final static Logger testLog = LoggerFactory.getLogger("testLog");
 
   @Test
