@@ -5,7 +5,7 @@
 		<groupId>org.quickstart</groupId>
 		<artifactId>quickstart-all</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-<!-- 		<relativePath>..</relativePath> lookup parent from repository -->
+ 		<relativePath>../quickstart-all</relativePath> <!--lookup parent from repository-->
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
@@ -81,7 +81,6 @@
     <module>quickstart-jgit</module>
     <module>quickstart-apache-commons</module>
     <module>quickstart-velocity</module>
-
   </modules>
 
 </project>
