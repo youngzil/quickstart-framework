@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE langs [
+        <!ELEMENT langs ANY>
+        <!ELEMENT language (#PCDATA)>
+        <!ATTLIST langs type CDATA #REQUIRED>
+        ]>
+<langs type="current">
+    <language>Java</language>
+    <language>Groovy</language><![CDATA[<!-- Support Android-->]]>
+    <language>Scala</language>
+    <language>Kotlin</language>
+</langs>

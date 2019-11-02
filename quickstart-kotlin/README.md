@@ -5,6 +5,11 @@ https://github.com/JetBrains/kotlin
 中文网站https://www.kotlincn.net/
 
 
+Java 和 Kotlin、Groovy、Scala的使用参考
+https://github.com/SidneyXu/JGSK
+https://www.jianshu.com/p/715fb9ad58c0
+
+
 菜鸟教程http://www.runoob.com/kotlin/kotlin-tutorial.html
 
 【官方文档】Kotlin 1.2 的新增特性https://www.oschina.net/translate/whats-new-in-kotlin-12?from=20171203
