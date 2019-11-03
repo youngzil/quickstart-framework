@@ -1,4 +1,27 @@
-1、
+
+
+看过nio的源码吗？
+bytebuffer的使用，写读容量参数
+
+
+
+netty的Channel的ID值
+可以通过调用 Channel.id() 获取Channel的ID值。
+ 全局唯一的channel ID
+每个 Channel 都会有一个全局唯一的ID，生成规则如下：
+MAC 地址(EUI-48 or EUI-64)，最好是全局唯一的
+当前进程ID
+System#currentTimeMillis()
+System#nanoTime()
+32-bit的随机integer
+序列化递增的32-bit integer.
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+1、remoting：netty、mina、grizzy、xsocket
+rpc：dubbo、grpc、
 
 2、
 

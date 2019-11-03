@@ -1,3 +1,40 @@
+
+Rocketmq原理
+https://blog.csdn.net/wuzhengfei1112/article/details/78076718
+
+Activemq和Rocketmq：
+实现的协议：
+存储消息的方式和处理：
+生产端和消费端
+
+
+
+activemq、Rocketmq、rabbitmq、
+JMS的基本组成：
+ConnectionFactory，Connection，Session，Destination（queue，topic），Producer，Consumer，Message（TextMessage、MapMessage、BytesMessage、StreamMessage和ObjectMessage）
+
+
+msgframe消息框架的封装模式？为什么这么做？
+封装了哪些消息中间件，各个消息中间件的原理，区别？主题、队列等怎么统一适配？
+封装了哪些功能？服务端？客户端？
+一般用什么消息组件？为什么？遇到有什么问题？
+rocketmq数据存储方式：数据头+消息体，根据消息头判断读取多大的消息体
+先读取固定长度的消息头，消息头中含有消息体的大小，再从消息头开始往后读取消息体大小的数据作为消息体内容
+内存映射文件作用：效率，安全不丢失
+
+
+
+
+
+消息中间件：Rocketmq、activemq、kafka、rabbitmq、mqtt、openmq、zeromq、hivemq、hornetq、openmessaging、
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
 1、
 /Users/yangzl/git/quickstart-mq/doc/消息分类.md  
 /Users/yangzl/git/quickstart-mq/quickstart-activemq/doc/ActiveMQ学习.md  
@@ -130,28 +167,6 @@ kafka架构内部原理
 
 
 
-
-
-
-Rocketmq原理
-https://blog.csdn.net/wuzhengfei1112/article/details/78076718
-
-Activemq和Rocketmq：
-实现的协议：
-存储消息的方式和处理：
-生产端和消费端
-
-
-
-
-
-
-
-
-
-
-
-消息中间件：Rocketmq、activemq、kafka、rabbitmq、mqtt、openmq、zeromq、hivemq、hornetq、openmessaging、
 
 
 

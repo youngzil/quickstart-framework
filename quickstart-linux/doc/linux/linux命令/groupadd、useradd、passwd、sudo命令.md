@@ -32,6 +32,19 @@ useradd aifgw
 passwd aifgw
 
 
+授权用户访问路径
+sudo chown -R aifgw:aifgw /app
+
+
+创建用户
+useradd -d /happ/aifgw -m aifgw
+passwd aifgw
+
+用户授权
+chown -R aifgw:aifgw /app/aifgw
+chmod 760 /app/aifgw
+
+
 
 参考
 https://blog.csdn.net/championhengyi/article/details/78293837

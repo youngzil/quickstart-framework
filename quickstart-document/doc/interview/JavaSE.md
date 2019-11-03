@@ -1,3 +1,213 @@
+
+mmap：安全、高效（zero copy）、gc
+
+.java 编译到.class过程？
+类加载过程
+java文件编译成class文件的过程
+类加载过程：校验，加载-双亲委派模型，初始化，卸载等
+
+在那些场景用了哪些多线程的什么接口
+
+blockqueue中获取数据流程？
+lock方法？condation
+concurrenthashmap
+并发工具类
+
+多线程用过的一个场景，用了哪些jdk的接口
+线程池的参数使用，接收任务的流程？执行的流程？线程池中线程空闲销毁原理？等待知道超时销毁？
+blockqueue从里面去任务，阻塞知道取出任务，源码查看过吗？
+lock方法？
+candition怎么使用？
+并发工具类：四个，concurrenthashmap，
+
+
+虚拟机了解多少？服务器上只有jre没有jdk，怎么看文件，启动参数设置oom打印日志
+
+JVM崩溃Log日志和GC日志
+https://blog.csdn.net/warship_f/article/details/78078945
+https://blog.csdn.net/Me_ZH/article/details/78700671
+
+
+JVM 发生OOM的四种情况
+https://www.cnblogs.com/baizhanshi/p/6704731.html?utm_source=itdadao&utm_medium=referral
+https://blog.csdn.net/pbuzhidaol/article/details/72871898
+
+
+
+https://www.cnblogs.com/gdpuzxs/p/7044963.html
+https://www.cnblogs.com/ITtangtang/p/3978102.html
+重写classloader：（1）继承ClassLoader    （2）重写findClass（）方法   （3）调用defineClass（）方法
+
+
+http://www.cnblogs.com/aspirant/p/7200523.html
+(1)阿里的面试官问我，可以不可以自己写个String类
+答案：不可以，因为 根据类加载的双亲委派机制，会去加载父类，父类发现冲突了String就不再加载了;
+
+(2)能否在加载类的时候，对类的字节码进行修改
+答案：可以，使用Java探针技术，可以参考：Java探针-Java Agent技术-阿里面试题
+
+什么是类加载器
+类加载器与类的”相同“判断
+类加载器种类
+双亲委派模型
+类加载过程
+自定义类加载器
+JAVA热部署实现
+
+
+SPI和Class.forName()：SPI使用的是本类加载器，是AppClassLoader，后者使用的Bootstrap ClassLoader
+
+何时触发初始化
+1、为一个类型创建一个新的对象实例时（比如new、反射、序列化）
+2、调用一个类型的静态方法时（即在字节码中执行invokestatic指令）
+3、调用一个类型或接口的静态字段，或者对这些静态字段执行赋值操作时（即在字节码中，执行getstatic或者putstatic指令），不过用final修饰的静态字段除外，它被初始化为一个编译时常量表达式
+4、调用JavaAPI中的反射方法时（比如调用java.lang.Class中的方法，或者java.lang.reflect包中其他类的方法）
+5、初始化一个类的派生类时（Java虚拟机规范明确要求初始化一个类时，它的超类必须提前完成初始化操作，接口例外）
+6、JVM启动包含main方法的启动类时。
+
+
+热部署步骤：
+1、销毁自定义classloader(被该加载器加载的class也会自动卸载)；
+2、更新class
+3、使用新的ClassLoader去加载class 
+
+
+JVM中的Class只有满足以下三个条件，才能被GC回收，也就是该Class被卸载（unload）：
+   - 该类所有的实例都已经被GC，也就是JVM中不存在该Class的任何实例。
+   - 加载该类的ClassLoader已经被GC。
+   - 该类的java.lang.Class 对象没有在任何地方被引用，如不能在任何地方通过反射访问该类的方法
+
+
+详解Javac将java文件编译为class文件的过程
+https://blog.csdn.net/shaozengwei/article/details/38659569
+http://wiki.jikexueyuan.com/project/java-vm/polymorphism.html
+http://www.voidcn.com/article/p-dzpxhmqt-bnx.html
+
+
+Java 代码编译和执行的整个过程包含了以下三个重要的机制：
+1、Java 源码编译机制
+2、类加载机制
+3、类执行机制
+
+Java 源码编译由以下三个过程组成：
+1、分析和输入到符号表
+2、注解处理
+3、语义分析和生成 class 文件
+
+最后生成的 class 文件由以下部分组成：
+1、结构信息。包括 class 文件格式版本号及各部分的数量与大小的信息。
+2、元数据。对应于 Java 源码中声明与常量的信息。包含类/继承的超类/实现的接口的声明信息、域与方法声明信息和常量池。
+3、方法信息。对应 Java 源码中语句和表达式对应的信息。包含字节码、异常处理器表、求值栈与局部变量区大小、求值栈的类型记录、调试符号信息。
+
+
+类从被加载到虚拟机内存中开始，到卸载出内存为止，它的整个生命周期包括：加载、验证、准备、解析、初始化、使用和卸载七个阶段。
+JVM 的类加载是通过 ClassLoader 及其子类来完成的：双亲委派模型
+1）Bootstrap ClassLoader
+负责加载$JAVA_HOME中jre/lib/rt.jar里所有的 class，由 C++ 实现，不是 ClassLoader 子类。
+
+2）Extension ClassLoader
+负责加载Java平台中扩展功能的一些 jar 包，包括$JAVA_HOME中jre/lib/*.jar或-Djava.ext.dirs指定目录下的 jar 包。
+
+3）App ClassLoader
+负责记载 classpath 中指定的 jar 包及目录中 class。
+
+4）Custom ClassLoader
+属于应用程序根据自身需要自定义的 ClassLoader，如 Tomcat、jboss 都会根据 J2EE 规范自行实现 ClassLoader。
+
+加载过程中会先检查类是否被已加载，检查顺序是自底向上，从 Custom ClassLoader 到 BootStrap ClassLoader 逐层检查，只要某个 Classloader 已加载就视为已加载此类，保证此类只所有 ClassLoade r加载一次。而加载的顺序是自顶向下，也就是由上层来逐层尝试加载此类。
+
+验证：验证的目的是为了确保 Class 文件中的字节流包含的信息符合当前虚拟机的要求，而且不会危害虚拟机自身的安全。不同的虚拟机对类验证的实现可能会有所不同，但大致都会完成以下四个阶段的验证：文件格式的验证、元数据的验证、字节码验证和符号引用验证。
+
+准备阶段是正式为类变量分配内存并设置类变量初始值的阶段，这些内存都将在方法区中分配。
+
+解析阶段是虚拟机将常量池中的符号引用转化为直接引用的过程。
+
+初始化
+初始化是类加载过程的最后一步，到了此阶段，才真正开始执行类中定义的 Java 程序代码。在准备阶段，类变量已经被赋过一次系统要求的初始值，而在初始化阶段，则是根据程序员通过程序指定的主观计划去初始化类变量和其他资源，或者可以从另一个角度来表达：初始化阶段是执行类构造器()方法的过程。
+
+
+类执行机制
+JVM 是基于栈的体系结构来执行 class 字节码的。线程创建后，都会产生程序计数器（PC）和栈（Stack），
+程序计数器存放下一条要执行的指令在方法内的偏移量，
+栈中存放一个个栈帧，每个栈帧对应着每个方法的每次调用，而栈帧又是有局部变量区和操作数栈两部分组成，
+局部变量区用于存放方法中的局部变量和参数，操作数栈中用于存放方法执行过程中产生的中间结果。
+
+
+编译过程java文件---》class文件：源代码、词法分析、语法分析、语法树、语义分析器、注解抽象语法树、字节码生成器，JVM字节码
+
+
+Java 语法糖
+语法糖（Syntactic Sugar），也称糖衣语法，指在计算机语言中添加的某种语法，这种语法对语言的功能并没有影响，但是更方便程序员使用。
+Java 中最常用的语法糖主要有泛型、变长参数、条件编译、自动拆装箱、内部类等。虚拟机并不支持这些语法，它们在编译阶段就被还原回了简单的基础语法结构，这个过程成为解语法糖。
+
+
+https://my.oschina.net/hosee/blog/618953
+https://blog.csdn.net/u013256816/article/details/84917112
+https://blog.csdn.net/varyall/article/details/81283231
+https://blog.csdn.net/u010454030/article/details/82458413
+https://blog.csdn.net/qq_27093465/article/details/52279473
+
+
+hashmap数据结构：线程不安全的，操作丢失put、remove等，扩容造成链表的闭环所致CPU 100%等
+线程不安全的，安全的有：hashtable、concurrenthashmap
+jdk7数组+链表，基于一个数组以及多个链表的实现，hash值冲突的时候，就将对应节点以链表的形式存储。JDK7中HashMap采用的是位桶+链表的方式，即我们常说的散列链表的方式
+jdk8中链表变为红黑树结构，便于查询，JDK8中采用的是位桶+链表/红黑树（有关红黑树请查看红黑树）的方式，也是非线程安全的。当某个位桶的链表的长度达到某个阀值的时候，这个链表就将转换成红黑树。
+JDK8中，当同一个hash值的节点数不小于8时，将不再以单链表的形式存储了，会被调整成一颗红黑树
+因为在hash冲突严重的情况下，链表的查询效率是O(n），所以JDK8做了优化对于单个链表的个数大于8的链表，会直接转为红黑树结构算是以空间换时间，这样以来查询的效率就变为O(logN)
+
+这个Entry应该放在数组的哪一个位置上（这个位置通常称为位桶或者hash桶，即hash值相同的Entry会放在同一位置，用链表相连），是通过key的hashCode来计算的。
+当两个key通过hashCode计算相同时，则发生了hash冲突(碰撞)，HashMap解决hash冲突的方式是用链表。
+
+总结一下map.put后的过程：当hashCode 值相同时候，在本链表使用equals方法进行比较，都不相同时才放入数组中，并且next指向之前的链表
+当向 HashMap 中 put 一对键值时，它会根据 key的 hashCode 值计算出一个位置， 该位置就是此对象准备往数组中存放的位置。 
+如果该位置没有对象存在，就将此对象直接放进数组当中；如果该位置已经有对象存在了，则顺着此存在的对象的链开始寻找(为了判断是否是否值相同，map不允许<key,value>键值对重复)， 如果此链上有对象的话，再去使用 equals方法进行比较，如果对此链上的每个对象的 equals 方法比较都为 false，则将该对象放到数组当中，然后将数组中该位置以前存在的那个对象链接到此对象的后面。 
+值得注意的是，当key为null时，都放到table[0]中
+
+ConcurrentHashMap扩容：默认16个Segment，
+在JDK7里面最大并发个数就是Segment的个数，默认值是16，可以通过构造函数改变一经创建不可更改，这个值就是并发的粒度，每一个segment下面管理一个table数组，加锁的时候其实锁住的是整个segment，这样设计的好处在于数组的扩容是不会影响其他的segment的，简化了并发设计，不足之处在于并发的粒度稍粗
+在JDK8里面，去掉了分段锁，将锁的级别控制在了更细粒度的table元素级别，也就是说只需要锁住这个链表的head节点，并不会影响其他的table元素的读写，好处在于并发的粒度更细，影响更小，从而并发效率更好，但不足之处在于并发扩容的时候，由于操作的table都是同一个，不像JDK7中分段控制，所以这里需要等扩容完之后，所有的读写操作才能进行，所以扩容的效率就成为了整个并发的一个瓶颈点
+
+
+volidate关键字作用：线程可见性、有序性，不保证原子性
+
+
+如何实现一个并发情况下线程安全性的方案？加锁、排队、线程变量，原子变量
+threadlocal实现原理？如何实现线程安全？线程为单位隔离，
+是否会造成内存溢出？
+
+https://blog.csdn.net/hellorichen/article/details/71107594
+java中一个线程等待另一个线程执行完后再执行：
+1.notify、wait方法，Java中的唤醒与等待方法，关键为synchronized代码块，参数线程间应相同，也常用Object作为参数
+2.CountDownLatch类：重要方法为countdown()与await()；一个同步辅助类，常用于某个条件发生后才能执行后续进程。给定计数初始化CountDownLatch，调用countDown(）方法，在计数到达零之前，await方法一直受阻塞。
+3.join方法：将线程B加入到线程A的尾部，当A执行完后B才执行。
+4.线程共享一个变量，根据变量状态来判断，类似CountDownLatch类的作用
+
+
+
+
+http://www.importnew.com/14958.html
+https://blog.csdn.net/u012050154/article/details/50903326
+yield()方法：线程的优先权（高中低，1-10，并不是一定的，由调度程序决定哪一个线程被执行，相同优先级通常受时间片管制，但这并不是Java的要求。）：一个调用yield()方法的线程告诉虚拟机它乐意让其他线程占用自己的位置。这表明该线程没有在做一些紧急的事情。注意，这仅是一个暗示，并不能保证不会产生任何影响。
+join()方法：线程实例的方法join()方法可以使得一个线程在另一个线程结束后再执行。如果join()方法在一个线程实例上调用，当前运行着的线程将阻塞直到这个线程实例完成了执行。
+
+
+1、sleep()方法正在执行的线程主动让出CPU（然后CPU就可以去执行其他任务），在sleep指定时间后CPU再回到该线程继续往下执行(注意：sleep方法只让出了CPU，而并不会释放同步资源锁！！！)；
+wait()方法则是指当前线程让自己暂时退让出同步资源锁，以便其他正在等待该资源的线程得到该资源进而运行，只有调用了notify()方法，之前调用wait()的线程才会解除wait状态，可以去参与竞争同步资源锁，进而得到执行。（注意：notify的作用相当于叫醒睡着的人，而并不会给他分配任务，就是说notify只是让之前调用wait的线程有权利重新参与线程的调度）；
+2、sleep()方法可以在任何地方使用；wait()方法则只能在同步方法或同步块中使用；
+3、sleep()是线程线程类（Thread）的方法，调用会暂停此线程指定的时间，但监控依然保持，不会释放对象锁，到时间自动恢复；wait()是Object的方法，调用会放弃对象锁，进入等待队列，待调用notify()/notifyAll()唤醒指定的线程或者所有线程，才会进入锁池，不再次获得对象锁才会进入运行状态；
+
+
+
+jvm的内存结构？
+堆怎么区分的？为什么分代？对象回收，内存等
+怎么判断是否回收？哪些类型的对象？
+java中一个类加载过程？主要考虑类加载器过程，加载过程，双亲委派模型
+
+java基础知识掌握程度一般，对于Java 引用，堆外内存不了解，对于HashMap，线程池了解一点；对于LRU算法实现没有清晰思路；对于并发问题接触较少。
+
+
+
+---------------------------------------------------------------------------------------------------------------------
 参考项目
 java示例：quickstart-example
 java基础：quickstart-javase
@@ -253,11 +463,11 @@ RTTI和反射机制区别
 
 38、Linux探秘之用户态与内核态
 
-39、
+39、java进程CPU过高问题如何排查？
 
-40、
+40、Java8中用sun.misc.Contended避免伪共享(false sharing)
 
-41、
+41、动态代理和静态代理
 
 42、
 
@@ -279,9 +489,48 @@ RTTI和反射机制区别
 
 
 
+---------------------------------------------------------------------------------------------------------------------
+Java8中用sun.misc.Contended避免伪共享(false sharing)：
+https://blog.csdn.net/aigoogle/article/details/41518369
+1、long padding来避免伪共享 
+2、jdk8新特性，Contended注解避免false sharing：需要在jvm启动时设置-XX:-RestrictContended 
+
+---------------------------------------------------------------------------------------------------------------------
+动态代理和静态代理.md
+动态代理：cglib、jdk
+静态代理：javassist、AspectJ
 
 
+---------------------------------------------------------------------------------------------------------------------
 
+java se：
+单例
+锁的种类：可重入锁，
+阻塞锁，自旋锁：在线程竞争不激烈的情况下，使用自旋锁，竞争激烈的情况下使用，阻塞锁。
+关键字synchronized与wait()和notify()/notifyAll()方法相结合可以实现等待/通知模式。
+     Lock、Condition+await+signal/signalAll
+Servlet、Filter、Listener
+线程池的参数、队列、流程、超时原理
+ExecutorService（ThreadPoolExecutor）：submit()、execute()
+Callable、Future、FutureTask、ExecutorCompletionService
+工具类Executors
+unsafe的使用：直接内存分配、cas、park线程挂起和恢复
+ThreadLocal、InheritableThreadLocal
+
+GC日志分析工具：GCHisto
+java对象的引用包括：强引用，软引用，弱引用，虚引用
+Java中提供这四种引用类型主要有两个目的：第一是可以让程序员通过代码的方式决定某些对象的生命周期；第二是有利于JVM进行垃圾回收。
+finalize()方法不可靠表现2方面
+判断对象是否存活一般有两种方式
+GC Roots包括？
+内存模型
+分代：年轻代（一个Eden区，两个Survivor区）、年老代、持久代（java8，元空间，本地内存）
+young GC、full GC
+垃圾收集算法：Copying（复制）、Mark-Sweep（标记-清除）、Mark-Compact（标记-整理）、Generational Collection（分代收集）
+垃圾收集器：串行Serial/Serial Old、Parallel、Parallel Old、并发标记CMS，G1
+CMS流程：初始标记、并发标记、重新标记、并发清楚，并发重置
+初始标记(CMS-initial-mark) -> 并发标记(CMS-concurrent-mark) -> 重新标记(CMS-remark) -> 并发清除(CMS-concurrent-sweep) ->并发重设状态等待下次CMS的触发(CMS-concurrent-reset)。
+其中的1，3两个步骤需要暂停所有的应用程序线程的
 
 
 
@@ -482,6 +731,26 @@ java进程间通信(IPC interProcess communication)：
 ---------------------------------------------------------------------------------------------------------------------
 
 
+java进程CPU过高问题如何排查？
+一般JAVA进程CPU过高主要是程序中出现了死循环，死循环会导致两种情况：
+第一种，死循环本身不需要耗费太多CPU时间，但会不停创建对象，从而导致java堆内存溢出，但有时候内存快占满了，没有报内存移除错误，JVM在不停的做FGC，从而出现CPU使用超过100%；
+第二种情况，就是死循环内有请求资源或者网络连接等操作；
+
+第一种情况需要dump出当前jvm内存对象进行分析，找到导致JVM频繁做FGC的对象，再结合业务代码定位具体代码位置；
+第二种情况需要查找占用cpu时间的线程，根据线程代码提示定位具体出问题的代码。
+
+第一种情况分析方法：
+1. 通过top命令查看当前系统CPU使用情况，定位CPU使用率超过100%的进程ID；
+2. jstat -gc pid time 命令查看JVM垃圾回收情况，time参数是统计频率，一般1-3秒都可以，若出现频繁的FGC，则需要进一步分析内存情况；
+3. 用命令jmap -dump:format=b,file=test.dump pid导出当前进程内存信息，然后用MAT工具进行分析，即可找出问题；
+
+第二种情况的分析方法：
+1. 通过top命令查看当前系统CPU使用情况，定位CPU使用率超过100%的进程ID；
+2. 通过ps aux | grep PID命令进一步确定具体的线程信息；
+3. 通过ps -mp pid -o THREAD,tid,time命令显示线程信息列表，然后找到耗时的线程ID；
+4. 将需要的线程ID转换为16进制格式：printf "%x\n" tid
+5. 最后找到线程堆栈信息：jstack pid |grep tid -A 30,其中tid是上面转换后的16进制的线程ID
+这样就找到了最终导致CPU100%的代码了，然后就是对具体的代码分析原因。
 
 
 ---------------------------------------------------------------------------------------------------------------------

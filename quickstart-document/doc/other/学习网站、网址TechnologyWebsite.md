@@ -18,6 +18,14 @@ https://github.com/Meituan-Dianping
 https://blog.csdn.net/u013256816
 
 
+面试知识点
+https://github.com/CyC2018/CS-Notes
+
+
+
+2017杭州买房经验
+https://github.com/houshanren/hangzhou_house_knowledge
+
 
 学习网站
 1、InfoQ的article栏目
@@ -56,4 +64,37 @@ https://www.w3cschool.cn/
 
 https://www.guru99.com/java-tutorial.html
 https://howtodoinjava.com/security/aes-256-encryption-decryption/
+
+
+中生代技术
+https://yq.aliyun.com/teams/136/type_blog-cid_0-page_6
+https://www.itdks.com/member/organizer/16
+https://zhuanlan.zhihu.com/freshmantechnology
+https://github.com/freshmantechnology
+
+
+oreilly系利图书网站
+https://www.oreilly.com/index.html
+https://learning.oreilly.com/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
