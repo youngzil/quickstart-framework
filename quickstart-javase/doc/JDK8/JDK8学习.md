@@ -1,4 +1,4 @@
-发布的核心特性，即lambda表达式、函数式接口、流API、接口默认方法和新的Date以及Time API
+发布的核心特性，即lambda表达式、函数式接口、Stream流API、接口默认方法和新的Date以及Time API
 
 Java虚拟机（JVM）的新特性
 PermGen空间被移除了，取而代之的是Metaspace（JEP 122）。JVM选项-XX:PermSize与-XX:MaxPermSize分别被-XX:MetaSpaceSize与-XX:MaxMetaspaceSize所代替。
