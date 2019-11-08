@@ -8,7 +8,7 @@
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>quickstart-framework-sentinel</artifactId>
+	<artifactId>quickstart-sentinel</artifactId>
 	<packaging>jar</packaging>
 	<name>${project.artifactId}-${project.version}</name>
 	<url>http://maven.apache.org</url>
@@ -17,6 +17,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.encoding>UTF-8</java.encoding>
+    <maven.compiler.version>3.8.1</maven.compiler.version>
 	</properties>
 
 	<dependencies>
@@ -24,13 +25,13 @@
 		<dependency>
 			<groupId>com.alibaba.csp</groupId>
 			<artifactId>sentinel-core</artifactId>
-			<version>1.4.0</version>
+			<version>1.6.3</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.rocketmq</groupId>
 			<artifactId>rocketmq-client</artifactId>
-			<version>4.3.2</version>
+			<version>4.5.2</version>
 		</dependency>
 
 	</dependencies>

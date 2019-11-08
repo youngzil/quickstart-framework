@@ -1,4 +1,4 @@
-package org.quickstart.framework.sentinel;
+package org.quickstart.sentinel;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

@@ -8,6 +8,11 @@ Head First」编程系列丛书
 java学习使用示例
 https://github.com/eugenp/tutorials
 
+java学习网址
+https://www.mkyong.com/java/java-properties-file-examples/
+
+
+
 
 美团点评
 https://tech.meituan.com/
