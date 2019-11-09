@@ -9,10 +9,8 @@
 1、查看Linux系统版本
 2、linux安装软件的方式
 3、linux下select/poll/epoll机制的比较
-
-4、
-
-5、
+4、C10K问题
+5、惊群现象
 
 6、
 

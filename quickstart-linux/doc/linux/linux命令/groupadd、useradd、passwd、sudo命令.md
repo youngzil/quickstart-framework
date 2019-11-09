@@ -4,6 +4,10 @@
 
 
 
+
+参考
+https://www.runoob.com/linux/linux-user-manage.html
+
 ---------------------------------------------------------------------------------------------------------------------
 
 Linux 新建用户、用户组以及为新用户分配权限
@@ -37,7 +41,7 @@ sudo chown -R aifgw:aifgw /app
 
 
 创建用户
-useradd -d /happ/aifgw -m aifgw
+useradd -d /app/aifgw -m aifgw
 passwd aifgw
 
 用户授权
