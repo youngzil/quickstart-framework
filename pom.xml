@@ -74,7 +74,6 @@
 		<module>quickstart-joor</module>
 		<module>quickstart-joox</module>
 		<module>quickstart-reflect</module>
-		<module>quickstart-sentinel</module>
     <module>quickstart-jython</module>
     <module>quickstart-reactor</module>
     <module>quickstart-reflections</module>
