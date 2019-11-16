@@ -28,6 +28,21 @@ file表示要查询的文件名，可以是一个或者多个。pattern后面所
 -F  不支持正则表达式，将模式按照字面意思匹配
 
 
+
+
+-A -B -C 后面都跟阿拉伯数字
+-A是显示匹配后和它后面的n行。
+-B是显示匹配行和它前面的n行。
+-C是匹配行和它前后各n行。
+总体来说，-C覆盖面最大。用它保险些。哈哈。这3个开关都是关于匹配行的上下文的（context）。
+
+于是
+  grep -A 4 wikipedia 密码文件.txt 
+就是搜索密码文件，找到匹配“wikipedia”字串的行，显示该行后后面紧跟的4行。
+
+
+
+
 grep 命令支持正则表达式匹配模式。要使用多单词搜索，请使用如下语法：
 grep 'word1\|word2\|word3' /path/to/file
 grep 'warning\|error\|critical' /var/log/messages

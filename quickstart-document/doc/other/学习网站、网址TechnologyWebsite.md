@@ -27,6 +27,10 @@ https://blog.csdn.net/u013256816
 https://github.com/CyC2018/CS-Notes
 
 
+有赞
+https://tech.youzan.com/youzan-service-regression-test-platform/
+
+
 
 2017杭州买房经验
 https://github.com/houshanren/hangzhou_house_knowledge
