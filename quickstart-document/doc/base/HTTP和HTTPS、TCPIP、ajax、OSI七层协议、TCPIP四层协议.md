@@ -363,6 +363,7 @@ https://juejin.im/entry/58d7635e5c497d0057fae036
 
 TCP协议中的三次握手和四次挥手(图解)
 https://blog.csdn.net/whuslei/article/details/6667471
+https://blog.csdn.net/qq_38950316/article/details/81087809
 
 
 HTTP请求过程

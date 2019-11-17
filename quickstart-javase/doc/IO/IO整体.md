@@ -8,6 +8,12 @@ http://ifeve.com/overview/
 另外这个是蚂蚁开源的基于netty的实践通信框架，代码不多，很适合学习网络编程。也可以看下 https://github.com/alipay/sofa-bolt
 用AIO写的框架，可以看下：https://git.oschina.net/smartboot/smart-socket
 
+从底层入手，图解 Java NIO BIO MIO AIO 四大IO模型与原理
+https://blog.csdn.net/crazymakercircle/article/details/85858596
+https://my.oschina.net/haitaohu/blog/1844621
+https://blog.csdn.net/github_38737621/article/details/80216082
+
+
 
 
 文件IO、网络IO
