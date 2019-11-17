@@ -53,7 +53,6 @@
 		<module>quickstart-proguard</module>
 		<module>quickstart-proxy</module>
 		<module>quickstart-quartz</module>
-		<module>quickstart-reactivex</module>
 		<module>quickstart-samza</module>
 		<module>quickstart-scala</module>
 		<module>quickstart-servicecomb</module>
@@ -75,7 +74,6 @@
 		<module>quickstart-joox</module>
 		<module>quickstart-reflect</module>
     <module>quickstart-jython</module>
-    <module>quickstart-reactor</module>
     <module>quickstart-reflections</module>
     <module>quickstart-jgit</module>
     <module>quickstart-apache-commons</module>
