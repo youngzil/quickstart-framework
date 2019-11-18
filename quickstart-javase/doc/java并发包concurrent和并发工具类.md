@@ -41,6 +41,12 @@ Java并发工具类：
 并发控制：控制并发线程数的Semaphore
 并发交换：两个线程进行数据交换的Exchanger
 
+CyclicBarrier 与 CountDownLatch 分别对应是等待一个线程还是一组线程完成，
+CyclicBarrier 是一组线程之间相互等待，
+而CountDownLatch 只是一个线程去等待其余线程完成的任务场景
+
+
+
 java.util.concurrent包：
 http://blog.csdn.net/youyou1543724847/article/details/52735510
 

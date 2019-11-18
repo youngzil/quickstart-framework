@@ -3,7 +3,7 @@
 3、jar包和替换jar包类
 4、java中的数字魔法
 5、java8lambda表达式的优缺点总结
-6、
+6、java在读多写少、写多读少分别使用什么类
 7、
 8、
 9、
@@ -262,4 +262,28 @@ http://yang.run/2016/03/29/Using-ThreadGroup-to-monitor-thread-exit/
 
 ---------------------------------------------------------------------------------------------------------------------
 
+java在读多写少、写多读少分别使用什么类
 
+java并发控制参考
+/Users/yangzl/git/quickstart-framework/quickstart-javase/doc/java并发包concurrent和并发工具类.md中的并发工具类
+
+
+并发控制：
+1、乐观锁
+2、读写锁：分治思想
+
+
+
+在读多写少的环境下使用
+1、ConcurrentHashMap
+2、copyonwrite的机制：CopyOnWriteArrayList，CopyOnWriteArraySet。
+3、读写锁实现
+
+
+
+在写多读少环境下：
+1、ConcurrentHashMap的思想：切分
+2、CAS变量
+
+
+---------------------------------------------------------------------------------------------------------------------

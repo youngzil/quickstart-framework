@@ -9,7 +9,8 @@ sleep和wait区别：sleep不会释放对象锁，wait释放对象锁
 Condition原理：线程放入等待链表,可以实现“选择性通知”，而notify由JVM随机选择的
 
 
-
+Java中的读/写锁
+https://ifeve.com/read-write-locks/
 
 
 
