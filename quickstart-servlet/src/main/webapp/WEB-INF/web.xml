@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="JerseyHelloWorld" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0" metadata-complete="true">
+
+  <!--<display-name>jersey2-sample</display-name>
+
+  <servlet>
+    <servlet-name>jersey-servlet</servlet-name>
+    &lt;!&ndash; For Jersey 1.x &ndash;&gt;
+    &lt;!&ndash; <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class> &ndash;&gt;
+    &lt;!&ndash; For Jersey 2.x &ndash;&gt;
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+      &lt;!&ndash; For Jersey 1.x &ndash;&gt;
+      &lt;!&ndash; <param-name>com.sun.jersey.config.property.packages</param-name> &ndash;&gt;
+      &lt;!&ndash; For Jersey 2.x &ndash;&gt;
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>org.quickstart.servlet</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  &lt;!&ndash; http://localhost:8080/rest/hello/{somevalue} &ndash;&gt;
+  <servlet-mapping>
+    <servlet-name>jersey-servlet</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>-->
+
+
+  <!-- JPOS As WebSvc -->
+  <!--<servlet>
+    <servlet-name>jpos</servlet-name>
+    <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    <init-param>
+      <param-name>com.sun.jersey.config.property.packages</param-name>
+      <param-value>com.test.rest.svc</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>jpos</servlet-name>
+    <url-pattern>/jpos/*</url-pattern>
+  </servlet-mapping>-->
+
+</web-app> 

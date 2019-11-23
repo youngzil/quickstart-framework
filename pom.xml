@@ -1,83 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<parent>
-		<groupId>org.quickstart</groupId>
-		<artifactId>quickstart-all</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
- 		<relativePath>../quickstart-all</relativePath> <!--lookup parent from repository-->
-	</parent>
+  <parent>
+    <groupId>org.quickstart</groupId>
+    <artifactId>quickstart-all</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>../quickstart-all</relativePath> <!--lookup parent from repository-->
+  </parent>
 
-	<modelVersion>4.0.0</modelVersion>
-	<artifactId>quickstart-framework</artifactId>
-	<packaging>pom</packaging>
-	<name>${project.artifactId}-${project.version}</name>
-	<url>http://maven.apache.org</url>
-	<description>Demo project for XXX</description>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>quickstart-framework</artifactId>
+  <packaging>pom</packaging>
+  <name>${project.artifactId}-${project.version}</name>
+  <url>http://maven.apache.org</url>
+  <description>Demo project for XXX</description>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
 
-	<modules>
-		<module>quickstart-akka</module>
-		<module>quickstart-asm</module>
-		<module>quickstart-beam</module>
-		<module>quickstart-code</module>
-		<module>quickstart-csv</module>
-		<module>quickstart-design-pattern</module>
-		<module>quickstart-disruptor</module>
-		<module>quickstart-document</module>
-		<module>quickstart-eaio-uuid</module>
-		<module>quickstart-elastic-job</module>
-		<module>quickstart-example</module>
-		<module>quickstart-fastdfs</module>
-		<module>quickstart-groovy</module>
-		<module>quickstart-guava</module>
-		<module>quickstart-guice</module>
-		<module>quickstart-javase</module>
-		<module>quickstart-jfinal</module>
-		<module>quickstart-json</module>
-		<module>quickstart-jvm-serializer</module>
-		<module>quickstart-kotlin</module>
-		<module>quickstart-linux</module>
-		<module>quickstart-logging</module>
-		<module>quickstart-lombok</module>
-		<module>quickstart-machine-learning</module>
-		<module>quickstart-microservices</module>
-		<module>quickstart-mnemonic</module>
-		<module>quickstart-nanomsg</module>
-		<module>quickstart-objenesis</module>
-		<module>quickstart-openstack</module>
-		<module>quickstart-otter</module>
-		<module>quickstart-proguard</module>
-		<module>quickstart-proxy</module>
-		<module>quickstart-quartz</module>
-		<module>quickstart-samza</module>
-		<module>quickstart-scala</module>
-		<module>quickstart-servicecomb</module>
-		<module>quickstart-spring-integration</module>
-		<module>quickstart-spring-integration-kafka</module>
-		<module>quickstart-spring-security</module>
-		<module>quickstart-string-compress</module>
-		<module>quickstart-web</module>
-		<module>quickstart-xbean</module>
-		<module>quickstart-xml</module>
-		<module>quickstart-xmlbeans</module>
-		<module>quickstart-yaml</module>
-		<module>quickstart-websocket</module>
-		<module>quickstart-dropwizard</module>
-		<module>quickstart-crypto</module>
-		<module>quickstart-jool</module>
-		<module>quickstart-joou</module>
-		<module>quickstart-joor</module>
-		<module>quickstart-joox</module>
-		<module>quickstart-reflect</module>
+  <modules>
+    <module>quickstart-akka</module>
+    <module>quickstart-asm</module>
+    <module>quickstart-beam</module>
+    <module>quickstart-code</module>
+    <module>quickstart-csv</module>
+    <module>quickstart-design-pattern</module>
+    <module>quickstart-disruptor</module>
+    <module>quickstart-document</module>
+    <module>quickstart-eaio-uuid</module>
+    <module>quickstart-elastic-job</module>
+    <module>quickstart-example</module>
+    <module>quickstart-fastdfs</module>
+    <module>quickstart-groovy</module>
+    <module>quickstart-guava</module>
+    <module>quickstart-guice</module>
+    <module>quickstart-javase</module>
+    <module>quickstart-jfinal</module>
+    <module>quickstart-json</module>
+    <module>quickstart-jvm-serializer</module>
+    <module>quickstart-kotlin</module>
+    <module>quickstart-linux</module>
+    <module>quickstart-logging</module>
+    <module>quickstart-lombok</module>
+    <module>quickstart-machine-learning</module>
+    <module>quickstart-microservices</module>
+    <module>quickstart-mnemonic</module>
+    <module>quickstart-nanomsg</module>
+    <module>quickstart-objenesis</module>
+    <module>quickstart-openstack</module>
+    <module>quickstart-otter</module>
+    <module>quickstart-proguard</module>
+    <module>quickstart-proxy</module>
+    <module>quickstart-quartz</module>
+    <module>quickstart-samza</module>
+    <module>quickstart-scala</module>
+    <module>quickstart-servicecomb</module>
+    <module>quickstart-spring-integration</module>
+    <module>quickstart-spring-integration-kafka</module>
+    <module>quickstart-spring-security</module>
+    <module>quickstart-string-compress</module>
+    <module>quickstart-web</module>
+    <module>quickstart-xbean</module>
+    <module>quickstart-xml</module>
+    <module>quickstart-xmlbeans</module>
+    <module>quickstart-yaml</module>
+    <module>quickstart-websocket</module>
+    <module>quickstart-dropwizard</module>
+    <module>quickstart-crypto</module>
+    <module>quickstart-jool</module>
+    <module>quickstart-joou</module>
+    <module>quickstart-joor</module>
+    <module>quickstart-joox</module>
+    <module>quickstart-reflect</module>
     <module>quickstart-jython</module>
     <module>quickstart-reflections</module>
     <module>quickstart-jgit</module>
     <module>quickstart-apache-commons</module>
     <module>quickstart-velocity</module>
+    <module>quickstart-servlet</module>
   </modules>
 
 </project>
