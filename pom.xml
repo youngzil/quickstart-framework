@@ -20,8 +20,17 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <dependencies>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
   <modules>
-    <module>quickstart-akka</module>
     <module>quickstart-asm</module>
     <module>quickstart-beam</module>
     <module>quickstart-code</module>
