@@ -5,7 +5,11 @@ https://tech.meituan.com/2017/04/21/mt-leaf.html
 
 
 
+美团 Leaf：
+https://github.com/zhuzhong/idleaf
 
+滴滴 Tinyid
+https://github.com/didi/tinyid
 
-
-
+百度 UidGenerator
+https://github.com/baidu/uid-generator
