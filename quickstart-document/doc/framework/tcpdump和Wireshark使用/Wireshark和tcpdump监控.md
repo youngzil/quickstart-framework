@@ -6,6 +6,34 @@
 
 
 ---------------------------------------------------------------------------------------------------------------------
+
+基础依赖软件
+yum -y install flex  
+yum -y install bison  
+yum -y install gcc  
+
+
+
+cd /var/install/  
+wget http://www.tcpdump.org/release/libpcap-1.5.3.tar.gz  
+wget http://www.tcpdump.org/release/tcpdump-4.5.1.tar.gz  
+
+tar -zxvf libpcap-1.5.3.tar.gz  
+cd libpcap-1.5.3  
+./configure  
+make && make install
+  
+cd ..  
+tar -zxvf tcpdump-4.5.1.tar.gz  
+cd tcpdump-4.5.1  
+./configure  
+make && make install 
+
+————————————————
+版权声明：本文为CSDN博主「TomZXY」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/small____fish/article/details/51360991
+
+---------------------------------------------------------------------------------------------------------------------
 tcpdump命令和使用
 
 
@@ -23,6 +51,11 @@ tcpdump -i en0
 
 3、抓取所有经过 en0，目的或源地址是 10.37.63.255 的网络数据：
 tcpdump -i en0 host 10.37.63.255
+
+tcpdump  -i lo host 10.21.20.107 and tcp port 31100 -w ../test/test2.pcap 
+netstat -anp | grep 52729
+
+
 
 4、抓取主机10.37.63.255和主机10.37.63.61或10.37.63.95的通信：
 tcpdump host 10.37.63.255 and (10.37.63.61 or 10.37.63.95)

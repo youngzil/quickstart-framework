@@ -89,6 +89,7 @@
     <module>quickstart-apache-commons</module>
     <module>quickstart-velocity</module>
     <module>quickstart-servlet</module>
+    <module>quickstart-plexus</module>
   </modules>
 
 </project>
