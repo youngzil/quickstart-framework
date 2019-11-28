@@ -25,11 +25,33 @@ import sun.misc.Unsafe;
 public class UnsafeTest {
 
     @Test
-    public void testGetUnsafe() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+    public void testGetUnsafe()
+        throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, InstantiationException {
+      //通过反射实例化Unsafe
         Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe");
         theUnsafe.setAccessible(true);
         Unsafe UNSAFE = (Unsafe) theUnsafe.get(null);
         System.out.println(UNSAFE);
+
+      //实例化User
+      User player = (User) UNSAFE.allocateInstance(User.class);
+      player.setName("four you");
+      System.out.println(player.getName());
+
     }
 
 }
+
+class User{
+  private String name;
+  private User(){
+    System.out.println("Constracter userd");
+  }
+  public String getName() {
+    return name;
+  }
+  public void setName(String name) {
+    this.name = name;
+  }
+}
+

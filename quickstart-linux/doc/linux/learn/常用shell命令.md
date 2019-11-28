@@ -14,7 +14,7 @@ rpm 执行安装包
 －Va：校验所有的RPM软件包，查找丢失的文件[View Lost]；
 －e：删除包
 
-netstat -an|grep 8080
+netstat -anp|grep 8080
 
 
 war、jar打包、解压：

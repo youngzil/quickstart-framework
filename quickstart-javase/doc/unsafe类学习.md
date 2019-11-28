@@ -18,3 +18,15 @@ nio的DirectByteBuffer内存分配：unsafe.allocateMemory(size)，freeMemory(lo
 由于Java的数组最大值为Integer.MAX_VALUE，使用Unsafe类的内存分配方法可以实现超大数组。实际上这样的数据就可以认为是C数组，因此需要注意在合适的时间释放内存。
 
 
+
+Unsafe的大部分API都是native的方法，主要包括以下几类：
+
+1、class相关主要提供Class和它的静态字段的操作方法。Object相关主要提供Object和它的字段的操作方法。 Arrray相关。主要提供数组及其中元素的操作方法。
+2、并发相关。主要提供低级别同步原语，如CAS、线程调度、volatile、内存屏障等。
+3、Memory相关。提供了直接内存访问方法（绕过Java堆直接操作本地内存），可做到像C一样自由利用系统内存资源。
+
+
+参考
+https://blog.csdn.net/TheLudlows/article/details/82564217
+
+

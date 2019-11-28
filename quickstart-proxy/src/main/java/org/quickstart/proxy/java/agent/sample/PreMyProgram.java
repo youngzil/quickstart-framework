@@ -8,10 +8,13 @@
  */
 package org.quickstart.proxy.java.agent.sample;
 
+import java.lang.instrument.ClassDefinition;
 import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.IllegalClassFormatException;
 import java.lang.instrument.Instrumentation;
+import java.lang.instrument.UnmodifiableClassException;
 import java.security.ProtectionDomain;
+import javassist.convert.Transformer;
 
 /**
  * PreMyProgram
@@ -27,7 +30,7 @@ public class PreMyProgram {
     /**
      * 该方法在main方法之前运行，与main方法运行在同一个JVM中 并被同一个System ClassLoader装载 被统一的安全策略(security policy)和上下文(context)管理
      *
-     * @param agentOps
+     * @param agentArgs
      * @param inst
      * @author SHANHY
      * @create 2016年3月30日
@@ -37,6 +40,19 @@ public class PreMyProgram {
         
         // 添加Transformer
         inst.addTransformer(new MyTransformer());
+
+      // inst.redefineClasses();//多个代理可以同时执行，按照代理指定的顺序被依次调用
+
+
+
+
+          // ClassDefinition def = new ClassDefinition(MyProgram.class,Transformer.getBytesFromFile(Transformer.classNumberReturns2));
+          // inst.redefineClasses(new ClassDefinition[] { def });
+          // System.out.println("success");
+
+
+
+
 
 //        inst.addTransformer(new ClassFileTransformer() {
 //            @Override
@@ -51,7 +67,7 @@ public class PreMyProgram {
     /**
      * 如果不存在 premain(String agentOps, Instrumentation inst) 则会执行 premain(String agentOps)
      *
-     * @param agentOps
+     * @param agentArgs
      * @author SHANHY
      * @create 2016年3月30日
      */

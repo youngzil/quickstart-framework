@@ -109,8 +109,7 @@ public class HotSwapMonitor implements Runnable {
         ClassDefinition definition = new ClassDefinition(Class.forName(reader.getClassName()), buff);  
         instrumentation.redefineClasses(new ClassDefinition[] { definition });
 
-        instrumentation.re
-
+        // instrumentation.retransformClasses();
 
     }
   

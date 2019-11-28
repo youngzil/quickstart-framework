@@ -25,8 +25,8 @@ premain
 其jar包的manifest需要配置属性Premain-Class
 
 agentmain
-以vm参数的形式载入，在程序main方法执行之前执行
-其jar包的manifest需要配置属性Premain-Class
+动态注入，JVM运行时动态注入
+其jar包的manifest需要配置属性Agent-Class
 
 
 热部署：一般是使用自定义的ClassLoader来加载应用，类似tomcat中配置的context，检测到class文件有变化，就重新加载项目，并替换之前的classloader
@@ -70,6 +70,55 @@ Java的Profiling和Debugging
 理解JVM的safepoint定义、特定位置有哪些，使用场景，
 JVM的GC等待所有线程safepoint导致JVM就Freezen了
 JVM让所有线程主动进入safepoint状态有两种执行方式：解释型和编译型(JIT)
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+premain：
+public static void premain(String agentArgs, Instrumentation inst);  [1]
+public static void premain(String agentArgs); [2]
+
+java -javaagent:jar文件的位置 [= 传入 premain 的参数 ]
+
+转换发生在 premain 函数执行之后，main 函数执行之前，这时每装载一个类，transform 方法就会执行一次，看看是否需要转换
+
+
+
+agentmain：
+public static void agentmain (String agentArgs, Instrumentation inst); [1] 
+public static void agentmain (String agentArgs);[2]
+
+与“Premain-Class”类似，开发者必须在 manifest 文件里面设置“Agent-Class”来指定包含 agentmain 函数的类。
+
+
+
+ Instrument两个核心API
+1、ClassFileTransformer：定义了类加载前的预处理类，可以在这个类中对要加载的类的字节码做一些处理，譬如进行字节码增强；
+2、Instrumentation：增强器，由JVM在入口参数中传递给我们，提供了如下的功能：
+    1、addTransformer/removeTransformer：注册/删除ClassFileTransformer；
+    2、retransformClasses：对于已经加载的类重新进行转换处理，即会触发重新加载类定义，需要注意的是，新加载的类不能修改旧有的类声明，譬如不能增加属性、不能修改方法声明；
+    3、redefineClasses：与如上类似，但不是重新进行转换处理，而是直接把处理结果(bytecode)直接给JVM；
+    4、getAllLoadedClasses：获得当前已经加载的Class，可配合retransformClasses使用；
+    5、getInitiatedClasses：获得由某个特定的ClassLoader加载的类定义；
+    6、getObjectSize：获得一个对象占用的空间，包括其引用的对象；
+    7、appendToBootstrapClassLoaderSearch/appendToSystemClassLoaderSearch：增加BootstrapClassLoader/SystemClassLoader的搜索路径；
+    8、isNativeMethodPrefixSupported/setNativeMethodPrefix：判断JVM是否支持拦截Native Method；
+
+
+
+
+作者：猿码道
+链接：https://www.jianshu.com/p/b72f66da679f
+来源：简书
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+参考
+https://www.jianshu.com/p/b72f66da679f
+
+JVM之-----热部署hotswap
+https://blog.csdn.net/nameix/article/details/52277464
 
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -158,8 +207,8 @@ premain
 其jar包的manifest需要配置属性Premain-Class
 
 agentmain
-以vm参数的形式载入，在程序main方法执行之前执行
-其jar包的manifest需要配置属性Premain-Class
+动态注入，JVM运行时动态注入
+其jar包的manifest需要配置属性Agent-Class
 
 
 premain
@@ -378,8 +427,8 @@ premain
 其jar包的manifest需要配置属性Premain-Class
 
 agentmain
-以vm参数的形式载入，在程序main方法执行之前执行
-其jar包的manifest需要配置属性Premain-Class
+动态注入，JVM运行时动态注入
+其jar包的manifest需要配置属性Agent-Class
 
 
 http://fanyilun.me/2017/07/18/%E8%B0%88%E8%B0%88Java%20Intrumentation%E5%92%8C%E7%9B%B8%E5%85%B3%E5%BA%94%E7%94%A8/

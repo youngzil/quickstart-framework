@@ -83,6 +83,20 @@ CopyOnWrite容器有很多优点，但是同时也存在两个问题，即内存
 
 
 
+J.U.C原子工具类AtomicXXX中，set和lazySet的区别
+http://ifeve.com/juc-atomic-class-lazyset-que/
+http://www.dengshenyu.com/java/2017/04/12/java-concurrency.html
+
+set()和volatile具有一样的效果(能够保证内存可见性，能够避免指令重排序)，
+但是使用lazySet不能保证其他线程能立刻看到修改后的值(有可能发生指令重排序)。
+简单点理解：lazySet比set()具有性能优势，但是使用场景很有限。在网上没有找到lazySet和set的性能数据对比，而且CPU的速度很快的，应用的瓶颈往往不在CPU，而是在IO、网络、数据库等。对于并发程序要优先保证正确性，然后出现性能瓶颈的时候再去解决。因为定位并发导致的问题，往往要比定位性能问题困难很多。
+
+
+————————————————
+版权声明：本文为CSDN博主「aitangyong」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/aitangyong/article/details/41577503
+
+
 ---------------------------------------------------------------------------------------------------------------------
 
 

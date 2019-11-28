@@ -21,6 +21,13 @@
   </properties>
 
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.10</version>
+      <scope>provided</scope>
+    </dependency>
 
     <dependency>
       <groupId>junit</groupId>
@@ -90,6 +97,8 @@
     <module>quickstart-velocity</module>
     <module>quickstart-servlet</module>
     <module>quickstart-plexus</module>
+    <module>quickstart-jctools</module>
+    <module>quickstart-hppc</module>
   </modules>
 
 </project>
