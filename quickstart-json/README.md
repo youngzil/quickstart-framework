@@ -6,6 +6,11 @@ http://blog.csdn.net/j080624/article/details/54574594
 json在线格式化网站http://www.bejson.com
 
 
+fastjson 的 API 十分简洁。
+String text = JSON.toJSONString(obj); // 序列化
+VO vo = JSON.parseObject("{...}", VO.class); // 反序列化
+
+
 JSON(JavaScript Object Notation)是轻量级的数据交换格式。具有良好的可读和便于快速编写的特性，可在不同平台之间进行数据交换。兼容性很高、完全独立于语言文本格式。
 
 JSON是JavaScript Object Notation的缩写，是一种轻量级的数据交换形式，是一种XML的替代方案，而且比XML更小，更快而且更易于解析。因为JSON描述对象的时候使用的是JavaScript语法，它是语言和平台独立的，并且这些年许多JSON的解析器和类库被开发出来。在这篇文章中，我们将会展示7种Java JSON类库。基本上，我们将会试着把Java对象转换JSON格式并且存储到文件，并且反向操作，读JSON文件转换成一个对象。为了让文章更有意义，我们将会测量每一种JSON类库在不同情况下的处理速度。

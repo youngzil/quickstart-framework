@@ -1,5 +1,7 @@
 #!/bin/bash
 
+srcHome=/Users/yangzl/workspace/gateway
+
 deployHost=20.26.37.177
 username=aideploy
 password=1qaz!QAZ
@@ -25,7 +27,7 @@ DeployGateway()
 {
   #  因为网络不通，可以加执行部署脚本的操作
   #deploy gateway
-cd $HOME/workspace/aifgateway/aifgw-backend-parent/
+cd $srcHome/aifgw-backend-parent/
 
 #mvn -Prelease-all -DskipTests clean install -U
 mvn -Prelease-all -Pbuild-test -DskipTests clean install -U
@@ -48,7 +50,7 @@ bye
 DeploySecurity()
 {
 #deploy security
-cd $HOME/workspace/aifgateway/aifgw-security-parent/
+cd $srcHome/aifgw-security-parent/
 
 mvn -Pbuild-test -DskipTests clean install -U
 
@@ -70,7 +72,7 @@ bye
 DeployWebapp()
 {
 	#deploy web
-cd $HOME/workspace/aifgateway/aifgw-web-app-parent/
+cd $srcHome/aifgw-web-app-parent/
 
 mvn -Prelease-all -DskipTests clean install -U
 
@@ -92,7 +94,7 @@ bye
 DeployTengine()
 {
 	#deploy web
-cd $HOME/workspace/aifgateway/deploy/pkg/tengine/
+cd $srcHome/deploy/pkg/tengine/
 
 ftp -n<<!
 open $tengineHost
@@ -103,7 +105,7 @@ prompt
 delete tengine-2.3.2.tar.gz
 put tengine-2.3.2.tar.gz
 
-lcd $HOME/workspace/aifgateway/deploy/pkg/nginx-depend/
+lcd $srcHome/deploy/pkg/nginx-depend/
 cd $HOME
 prompt
 
