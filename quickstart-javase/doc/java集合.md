@@ -4,10 +4,8 @@
 利用LinkedHashMap实现LRU算法缓存
 4、集合类HashMap详解
 5、fail-fast机制/快速失败机制
-6、
+6、延时队列DelayQueue
 7、
-
-
 
 
 
@@ -21,6 +19,9 @@ https://blog.csdn.net/evil_kyle/article/details/53291146
 https://www.jianshu.com/p/589d58033841
 
 
+深入 DelayQueue 内部实现参考
+https://www.zybuluo.com/mikumikulch/note/712598
+https://blog.csdn.net/zsj777/article/details/82260227
 
 
 List、Set、Map、Queue
@@ -265,11 +266,41 @@ CopyOnWriterArrayList所代表的核心概念就是：任何对array在结构上
 ---------------------------------------------------------------------------------------------------------------------
 
 
+延时队列DelayQueue
+  // implements Delayed ，实现getDelay方法
+  // if (delay <= 0)//延迟时间到期，获取并删除头部元素。
 
 
+DelayQueue 的主要成员
+
+public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
+    implements BlockingQueue<E> {
+    // 持有内部重入锁。
+    private final transient ReentrantLock lock = new ReentrantLock();
+    // 优先级队列，存放工作任务。
+    private final PriorityQueue<E> q = new PriorityQueue<E>();
+    private Thread leader = null;
+    // 依赖于重入锁的 condition。
+    private final Condition available = lock.newCondition();
+}
 
 
+本文我们演示了PriorityBlockingQueue 队列的两大特性：按优先顺序进行处理，对空队列情况，获取方法会阻塞线程。
 
+
+一、优先级队列PriorityBlockingQueue必须是实现Comparable接口，队列通过这个接口的compare方法确定对象的priority。当前和其他对象比较，如果compare方法返回负数，那么在队列里面的优先级就比较搞
+
+    比较规则：当前对象和其他对象做比较，当前优先级大就返回-1，优先级小就返回1
+
+二、优先级队列是一个基于堆的无界并发安全的优先级队列。
+
+三、优先级队列不允许null值，不允许未实现Comparable接口的对象。
+
+四、优先级中传入的实体对象
+
+优先级队列PriorityBlockingQueue
+https://blog.csdn.net/qq_38293564/article/details/80586040
+https://blog.csdn.net/neweastsun/article/details/88085955
 
 
 

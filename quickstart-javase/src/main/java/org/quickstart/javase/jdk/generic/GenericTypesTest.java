@@ -82,14 +82,14 @@ public class GenericTypesTest {
 
     Plate<? extends Fruit> p = new Plate<Apple>(new Apple());
     //不能存入任何元素
-    p.set(new Fruit());    //Error
-    p.set(new Apple());    //Error
+    // p.set(new Fruit());    //Error
+    // p.set(new Apple());    //Error
 
 //读取出来的东西只能存放在Fruit或它的基类里。
     Fruit newFruit1 = p.get();
     Food newFruit2 = p.get();
     Object newFruit3 = p.get();
-    Apple newFruit4 = p.get();    //Error
+    // Apple newFruit4 = p.get();    //Error
 
     //4.2 下界<? super T>不影响往里存，但往外取只能放在Object对象里
     //使用下界<? super Fruit>会使从盘子里取东西的get( )方法部分失效，只能存放到Object对象里。set( )方法正常。
@@ -98,8 +98,8 @@ public class GenericTypesTest {
     p2.set(new Fruit());
     p2.set(new Apple());
 //读取出来的东西只能存放在Object类里。
-    Apple newFruit5 = p2.get();    //Error
-    Fruit newFruit6 = p2.get();    //Error
+//     Apple newFruit5 = p2.get();    //Error
+//     Fruit newFruit6 = p2.get();    //Error
     Object newFruit7 = p2.get();
 
 
@@ -134,12 +134,12 @@ public class GenericTypesTest {
     List<? super Self> b = new ArrayList<>();// 参数类型下界是Self
     b.add(new Son());// ok 只能放入T类型，且满足T类型的超类至少是Self，换句话说，就是只能放入Self的子类型
     b.add(new Self());// ok 本身类型也可以
-    b.add(new Super());// ok 超类不可以
+    // b.add(new Super());// ok 超类不可以
     b.add(null);// ok
     Object o1 = b.get(0);// 返回类型是未知的， 因为<? super T>只能用于限定方法入参，告诉编译器入参只能是T或其子类型，而返参只能用Object类接收
-    Son o2 = b.get(0);// error
-    Self o3 = b.get(0);// error
-    Super o4 = b.get(0);// error
+    // Son o2 = b.get(0);// error
+    // Self o3 = b.get(0);// error
+    // Super o4 = b.get(0);// error
 
     List<?> c = new ArrayList<>();
     // 总结：

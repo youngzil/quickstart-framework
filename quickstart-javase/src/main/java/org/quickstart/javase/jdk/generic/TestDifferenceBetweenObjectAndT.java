@@ -34,7 +34,7 @@ public class TestDifferenceBetweenObjectAndT {
         /*
         * 下面这句会编译报错，因为参数不能转化成功
         * */
-        printList1(test4);
+        // printList1(test4);
         /**/
         printList1(test3);
         printList1(test3);

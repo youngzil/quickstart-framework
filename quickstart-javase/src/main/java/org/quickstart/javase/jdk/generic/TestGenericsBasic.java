@@ -39,11 +39,11 @@ public class TestGenericsBasic {
 
         /*使用了泛型，再也不用强转对象了*/
         Box<Apple> box = new Box<Apple>();
-        box.set(new Apple());
-        Apple apple = box.get();
+        // box.set(new Apple());
+        // Apple apple = box.get();
         /*没有使用泛型，仍需强转成Apple类*/
         Box box2 = new Box();
-        box2.set(new Apple());
-        Apple apple2 = (Apple) box2.get();
+        // box2.set(new Apple());
+        // Apple apple2 = (Apple) box2.get();
     }
 }

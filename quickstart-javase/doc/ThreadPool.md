@@ -2,6 +2,20 @@ ThreadPoolExecutor或者Executors工具类（4种）来创建
 参数：7个
 创建线程流程和销毁线程流程
 
+
+普通线程池：线程创建流程corePoolSize ---> queue ---> maximumPoolSize ,从queue中获取task时候，设置超时时间，并且等待keepAliveTime获取不到task就销毁thread
+定时任务线程池：线程创建流程一样，使用延时阻塞队列DelayedWorkQueue，线程不停地的等待task
+
+普通线程池和定时任务线程池唯一区别：使用的BlockingQueue不一样
+
+
+源码：getTask()中workQueue.poll(keepAliveTime, TimeUnit.NANOSECONDS)，超时获取不到就销毁thread
+
+参考
+https://www.zybuluo.com/mikumikulch/note/713546
+https://www.zybuluo.com/mikumikulch/note/712598
+
+
 提交任务：execute() 和 submit()
 execute()：FutureTask（ExecutorCompletionService）
 submit()：Callable接口、Future接口
@@ -35,6 +49,20 @@ beforeExecute、afterExecute、
 
 
 
+
+
+
+ArrayBlockingQueue ：一个由数组结构组成的有界阻塞队列。
+LinkedBlockingQueue ：一个由链表结构组成的有界阻塞队列。
+PriorityBlockingQueue ：一个支持优先级排序的无界阻塞队列。
+DelayQueue：一个使用优先级队列实现的无界阻塞队列。
+SynchronousQueue：一个不存储元素的阻塞队列。
+LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
+LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
+
+
+参考
+https://www.zybuluo.com/mikumikulch/note/712598
 
 
 

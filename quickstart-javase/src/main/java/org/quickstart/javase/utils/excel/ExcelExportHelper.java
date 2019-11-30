@@ -85,7 +85,7 @@ public class ExcelExportHelper {
 
     /**
      * @param datePatter 指定时间格式
-     * @param imageWidth 指定图片的宽度
+     * @param imageWidht 指定图片的宽度
      * @param imageHeight 指定图片的高度
      */
     public ExcelExportHelper(String datePatter, int imageWidht, int imageHeight) {
@@ -661,12 +661,12 @@ public class ExcelExportHelper {
      * @version 1.0
      */
     private void setHeaderStyle(HSSFCellStyle headerStyle, HSSFWorkbook book) {
-        headerStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER); // 水平居中
-        headerStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);// 垂直居中
+        // headerStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER); // 水平居中
+        // headerStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);// 垂直居中
         // 设置字体
         HSSFFont font = book.createFont();
         font.setFontHeightInPoints((short) 12); // 字号：12号
-        font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD); // 变粗
+        // font.setBoldweight(HSSFFont.BOLDWEIGHT_BOLD); // 变粗
         font.setColor(HSSFColor.BLUE.index); // 蓝色
 
         headerStyle.setFont(font);
@@ -682,8 +682,8 @@ public class ExcelExportHelper {
      * @version 1.0
      */
     private void setCellStyle(HSSFCellStyle cellStyle, HSSFWorkbook book) {
-        cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER); // 水平居中
-        cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);// 垂直居中
+        // cellStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER); // 水平居中
+        // cellStyle.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);// 垂直居中
 
         HSSFFont font = book.createFont();
         font.setFontHeightInPoints((short) 12);
@@ -744,7 +744,7 @@ public class ExcelExportHelper {
             row.setHeightInPoints((short) (IMAGE_HEIGHT * 10));
             sheet.setColumnWidth(i, IMAGE_WIDTH * 256);
             HSSFClientAnchor anchor = new HSSFClientAnchor(0, 0, 1023, 255, (short) i, index, (short) i, index);
-            anchor.setAnchorType(3);
+            // anchor.setAnchorType(3);
             // 插入图片
             byte[] bsValue = (byte[]) value;
             patriarch.createPicture(anchor, book.addPicture(bsValue, HSSFWorkbook.PICTURE_TYPE_JPEG));
@@ -800,7 +800,7 @@ public class ExcelExportHelper {
      * @author chenssy
      * @date 2014年6月17日 下午7:35:52
      * @param textValue
-     * @param 指定列
+     * @param i
      * @return
      * @version 1.0
      */
@@ -851,7 +851,7 @@ public class ExcelExportHelper {
      * 
      * @author chenssy
      * @date 2014年6月19日 下午6:18:09
-     * @param book 生成的Excel HSSFWorkbook list集合
+     * @param books 生成的Excel HSSFWorkbook list集合
      * @param filePath 保存路劲
      * @param zipName zip 文件名
      * @param excelName Excel文件名

@@ -19,6 +19,7 @@ make macosx test
 make install
 
 
+lua -v
 
 
 

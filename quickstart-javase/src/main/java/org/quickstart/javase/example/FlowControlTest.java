@@ -28,6 +28,7 @@ public class FlowControlTest {
 
     public static void main(String... args) throws Exception {
 
+      // 延时队列实现
         Executors.newScheduledThreadPool(1).scheduleAtFixedRate(new Runnable() {
 
             @Override

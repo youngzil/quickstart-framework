@@ -75,7 +75,7 @@ public class RedisDistributedLock {
      * 
      * 
      * 
-     * @param jedis
+     * @param jedisPool
      * 
      * @param lockKey
      * 
@@ -95,7 +95,8 @@ public class RedisDistributedLock {
 
             jedis = jedisPool.getResource();
 
-            String result = jedis.set(lockKey, requestId, SET_IF_NOT_EXIST, SET_WITH_EXPIRE_TIME, expireTime);
+            // String result = jedis.set(lockKey, requestId, SET_IF_NOT_EXIST, SET_WITH_EXPIRE_TIME, expireTime);
+            String result = "";
 
             if (LOCK_SUCCESS.equals(result)) {
 
@@ -125,7 +126,7 @@ public class RedisDistributedLock {
      * 
      * 
      * 
-     * @param jedis
+     * @param jedisPool
      * 
      * @param lockKey
      * 
@@ -155,7 +156,7 @@ public class RedisDistributedLock {
      * 
      * 
      * 
-     * @param jedis
+     * @param jedisPool
      * 
      * @param lockKey
      * 

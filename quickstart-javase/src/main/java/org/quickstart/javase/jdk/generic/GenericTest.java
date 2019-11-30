@@ -69,9 +69,9 @@ public class GenericTest {
 
     private static void test4() {
         Box<Integer> a = new Box<Integer>(712);
-        Box<Number> b = a; // 1
+        // Box<Number> b = a; // 1 报错
         Box<Float> f = new Box<Float>(3.14f);
-        b.setData(f); // 2
+        // b.setData(f); // 2
 
     }
 
