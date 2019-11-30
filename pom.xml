@@ -99,6 +99,7 @@
     <module>quickstart-plexus</module>
     <module>quickstart-jctools</module>
     <module>quickstart-hppc</module>
+    <module>quickstart-lua</module>
   </modules>
 
 </project>
