@@ -109,6 +109,47 @@ http://imhuchao.com/323.html
 ---------------------------------------------------------------------------------------------------------------------
 
 
+ascii                以ASCII方式传送文件
+binary               以二进制方式传送文件
+bell                 每完成一次文件传送,报警提示
+
+ls                   等同于Linux的ls
+cd                   等同于Linux的cd
+cdup                 返回上一级目录
+lcd                  改变当前本地主机的工作目录,如果缺省,就转到当前用户的HOME目录.
+
+get                  下载ftp服务端文件到本地
+mget                 下载一批ftp服务端的文件到本地
+recv                 等同于get
+mput                 上传本地的一批文件到ftp服务端
+put                  上传本地的一个文件到ftp服务端
+send                 等同于put
+
+mkdir                在ftp服务端建立目录
+rename               改变ftp服务端中的文件名
+chmod                改变ftp服务端中的文件权限
+delete               删除ftp服务端中的文件
+rmdir                删除ftp服务端中的目录
+mdelete              删除ftp服务端中的一批文件
+
+pwd                  列出当前ftp服务端的目录
+status               显示当前ftp的状态
+system               显示ftp服务端的系统类型
+dir                  列出当前ftp服务端的目录中的文件
+
+open host            重新建立一个新的连接
+user user-name       重新以别的用户名登录ftp服务端
+
+bye                  退出FTP
+quit                 退出FTP
+close                终止远端的FTP进程,返回到FTP命令状态, 所有的宏定义都被删除
+
+help                 帮助,输出命令的解释
+?                    等同于help
+
+
+
+https://blog.csdn.net/qq_38526635/article/details/82147980
 
 
 

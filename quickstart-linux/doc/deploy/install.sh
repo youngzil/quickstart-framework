@@ -1,6 +1,8 @@
 #!/bin/bash
 
-srcHome=/Users/yangzl/workspace/gateway
+#srcHome=/Users/yangzl/workspace/branches/gateway/v1.0
+srcHome=/Users/yangzl/workspace/aifgateway
+#srcHome=/Users/yangzl/workspace/gateway
 
 deployHost=20.26.37.177
 username=aideploy
@@ -40,7 +42,7 @@ user $username $password
 binary
 cd /app/aideploy/deploy/pkg/gateway
 prompt
-delete aifgw-backend-1.0.tar.gz
+rename aifgw-backend-1.0.tar.gz aifgw-backend-1.0-bak.tar.gz
 put aifgw-backend-1.0.tar.gz
 close
 bye
@@ -62,7 +64,7 @@ user $username $password
 binary
 cd /app/aideploy/deploy/pkg/oauth2
 prompt
-delete aifgw-security-1.0.tar.gz
+rename aifgw-security-1.0.tar.gz aifgw-security-1.0-bak.tar.gz
 put aifgw-security-1.0.tar.gz
 close
 bye
@@ -84,7 +86,7 @@ user $username $password
 binary
 cd /app/aideploy/deploy/pkg/webapp
 prompt
-delete gateway-console-server.tar.gz
+rename gateway-console-server.tar.gz gateway-console-server-bak.tar.gz
 put gateway-console-server.tar.gz
 close
 bye
