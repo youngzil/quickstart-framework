@@ -31,6 +31,7 @@ $ git pull origin next
 
 
 提交
+git add .
 git commit -m "add 3 files." // 一次性提交3个文件
 git push origin master
 上面命令表示，将本地的master分支推送到origin主机的master分支。如果后者不存在，则会被新建。
