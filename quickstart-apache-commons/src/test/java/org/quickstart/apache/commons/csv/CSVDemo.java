@@ -6,7 +6,7 @@
  * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.csv;
+package org.quickstart.apache.commons.csv;
 
 /**
  * CSVDemo 
@@ -15,13 +15,13 @@ package org.quickstart.csv;
  * @2018年5月22日 下午7:37:25 
  * @since 1.0
  */
+
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.Reader;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
@@ -29,7 +29,9 @@ import org.apache.commons.csv.CSVRecord;
 public class CSVDemo {
     public static void main(String[] arg) {
         final String[] FILE_HEADER = {"ID", "Name", "Gender", "Major"};
-        final String FILE_NAME = "student.csv";
+
+        // 在跟项目quickstart-framework目录下
+        final String FILE_NAME = "student2.csv";
 
         Student stuTZY = new Student("001", "谭振宇", "男", "GIS");
         Student stuZJL = new Student("002", "周杰伦", "男", "音乐");

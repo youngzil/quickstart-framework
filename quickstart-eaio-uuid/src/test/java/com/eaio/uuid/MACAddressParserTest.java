@@ -31,8 +31,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.eaio.uuid.MACAddressParser;
-
 import junit.framework.TestCase;
 
 /**

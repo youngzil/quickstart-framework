@@ -41,7 +41,6 @@
     <module>quickstart-asm</module>
     <module>quickstart-beam</module>
     <module>quickstart-code</module>
-    <module>quickstart-csv</module>
     <module>quickstart-design-pattern</module>
     <module>quickstart-disruptor</module>
     <module>quickstart-document</module>
@@ -61,11 +60,8 @@
     <module>quickstart-logging</module>
     <module>quickstart-lombok</module>
     <module>quickstart-machine-learning</module>
-    <module>quickstart-microservices</module>
     <module>quickstart-mnemonic</module>
-    <module>quickstart-nanomsg</module>
     <module>quickstart-objenesis</module>
-    <module>quickstart-openstack</module>
     <module>quickstart-otter</module>
     <module>quickstart-proguard</module>
     <module>quickstart-proxy</module>

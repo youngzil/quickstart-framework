@@ -31,8 +31,6 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
-import com.eaio.uuid.UUIDGen;
-
 import junit.framework.TestCase;
 
 /**

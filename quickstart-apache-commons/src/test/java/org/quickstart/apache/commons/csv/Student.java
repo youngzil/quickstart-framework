@@ -6,7 +6,7 @@
  * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.csv;
+package org.quickstart.apache.commons.csv;
 
 /**
  * Student
