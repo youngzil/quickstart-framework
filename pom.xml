@@ -62,7 +62,6 @@
     <module>quickstart-machine-learning</module>
     <module>quickstart-mnemonic</module>
     <module>quickstart-objenesis</module>
-    <module>quickstart-otter</module>
     <module>quickstart-proguard</module>
     <module>quickstart-proxy</module>
     <module>quickstart-quartz</module>
@@ -87,7 +86,6 @@
     <module>quickstart-joox</module>
     <module>quickstart-reflect</module>
     <module>quickstart-jython</module>
-    <module>quickstart-reflections</module>
     <module>quickstart-jgit</module>
     <module>quickstart-apache-commons</module>
     <module>quickstart-velocity</module>
