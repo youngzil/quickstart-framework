@@ -7,6 +7,10 @@ package org.quickstart.kotlin
  */
 object HelloWorldScala {
   def main(args: Array[String]): Unit = {
-    println("Hello World");
+    println("Hello World Scala");
   }
 }
+
+//object HelloWorld extends App {
+//  println("Hello, World!")
+//}
