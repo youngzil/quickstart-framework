@@ -65,7 +65,6 @@
     <module>quickstart-proguard</module>
     <module>quickstart-proxy</module>
     <module>quickstart-quartz</module>
-    <module>quickstart-samza</module>
     <module>quickstart-scala</module>
     <module>quickstart-servicecomb</module>
     <module>quickstart-spring-integration</module>
