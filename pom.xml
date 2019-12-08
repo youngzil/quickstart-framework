@@ -39,11 +39,9 @@
 
   <modules>
     <module>quickstart-asm</module>
-    <module>quickstart-beam</module>
     <module>quickstart-code</module>
     <module>quickstart-design-pattern</module>
     <module>quickstart-disruptor</module>
-    <module>quickstart-document</module>
     <module>quickstart-eaio-uuid</module>
     <module>quickstart-elastic-job</module>
     <module>quickstart-example</module>
