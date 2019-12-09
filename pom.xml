@@ -91,6 +91,8 @@
     <module>quickstart-jctools</module>
     <module>quickstart-hppc</module>
     <module>quickstart-lua</module>
+    <module>quickstart-easyexcel</module>
+    <module>quickstart-hutool</module>
   </modules>
 
 </project>

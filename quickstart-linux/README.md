@@ -92,7 +92,8 @@ Ubuntu（友帮拓、优般图、乌班图）是一个以桌面应用为主的�
 
 
 
-
+Linux Deepin 项目现已正式更名为 Deepin 项目，并已成为国内最流行和活跃的Linux 发行版，一直以“免除新手痛苦、节约老手时间”为口号。
+https://www.deepin.org/
 
 
 

@@ -10,7 +10,7 @@
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>quickstart-asm</artifactId>
+  <artifactId>quickstart-easyexcel</artifactId>
   <packaging>jar</packaging>
   <name>${project.artifactId}-${project.version}</name>
   <url>http://maven.apache.org</url>
@@ -21,12 +21,19 @@
   </properties>
 
   <dependencies>
-    <!-- https://mvnrepository.com/artifact/org.ow2.asm/asm -->
+
     <dependency>
-      <groupId>org.ow2.asm</groupId>
-      <artifactId>asm</artifactId>
-      <version>6.1.1</version>
+      <groupId>com.alibaba</groupId>
+      <artifactId>easyexcel</artifactId>
+      <version>2.1.4</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.62</version>
     </dependency>
 
   </dependencies>
+
 </project>

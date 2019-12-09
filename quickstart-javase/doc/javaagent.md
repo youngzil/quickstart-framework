@@ -393,21 +393,26 @@ set JAVA_OPTS=-javaagent:springloaded-1.2.5.RELEASE.jar -noverify
 
 java的热部署和热加载：联系、区别、原理、使用场景
 
+热加载是指可以在不重启服务的情况下让更改的代码生效，热加载可以显著的提升开发以及调试的效率，它是基于 Java 的类加载器实现的，但是由于热加载的不安全性，一般不会用于正式的生产环境。
+
+
 热部署与热加载联系
 不重启服务器编译/部署项目
 基于Java的类加载器实现
 
 热部署与热加载的区别
+
+在部署方式上：
 热部署在服务器运行时重新加载部署项目
-热加载运行时重新加载class
+热加载是在运行时重新加载 class。
 
-热部署与热加载在实现原理上的区别
-热部署直接重新加载整个应用
-热加载在运行时重新加载class
+在实现原理上：
+热部署是直接重新加载整个应用，耗时相对较高。
+热加载是在运行时重新加载 class，后台会启动一个线程不断检测你的类是否改变。
 
-使用场景
-热部署更多的是在生产环境使用
-热加载则更多的是在开发环境中使用
+在使用场景上：
+热部署更多的是在生产环境使用。
+热加载则更多的是在开发环境上使用。线上由于安全性问题不会使用，难以监控。
 
 
 热加载几乎没有安全性，直接修改Java虚拟机中的字节码文件，难以监控和控制
@@ -435,6 +440,7 @@ http://fanyilun.me/2017/07/18/%E8%B0%88%E8%B0%88Java%20Intrumentation%E5%92%8C%E
 https://yq.aliyun.com/articles/65023
 https://www.ibm.com/developerworks/cn/java/j-lo-hotdeploy/
 https://blog.csdn.net/u014527619/article/details/79404482
+https://mp.weixin.qq.com/s/TTnWr-rHqFZl14FSeWX9sg
 
 
 java热加载：
