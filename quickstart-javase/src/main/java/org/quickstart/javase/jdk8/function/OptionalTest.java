@@ -1,7 +1,7 @@
 /**
  * 项目名称：quickstart-javase 文件名：OptionalTest.java 版本信息： 日期：2018年3月28日 Copyright yangzl Corporation 2018 版权所有 *
  */
-package org.quickstart.javase.jdk8;
+package org.quickstart.javase.jdk8.function;
 
 import java.util.Optional;
 import java.util.function.Consumer;

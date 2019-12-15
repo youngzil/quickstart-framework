@@ -133,3 +133,27 @@ TypeVariable:是各种类型变量的公共父接口
 WildcardType:代表一种通配符类型表达式，比如？、？ extends Number、？ super Integer。（wildcard是一个单词：就是”通配符“）
 
 
+---------------------------------------------------------------------------------------------------------------------
+
+java.lang.reflect.Type类：
+/Users/yangzl/git/quickstart-framework/quickstart-javase/src/main/java/org/quickstart/javase/jdk/reflection/ReflectionUtil.java
+
+ReflectionUtil就是为了解决这类问题的辅助工具类，为java.lang.reflect标准库的工具类。它提供了便捷的访问泛型对象类型(java.reflect.Type)的反射方法。
+
+ReflectionUtil中包含以下几种功能：
+通过Type获取对象class;
+通过Type创建对象;
+获取泛型对象的泛型化参数;
+检查对象是否存在默认构造函数;
+获取指定类型中的特定field类型;
+获取指定类型中的特定method返回类型;
+根据字符串标示获取枚举常量;
+
+
+参考
+https://www.cnblogs.com/whitewolf/p/4355541.html
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+

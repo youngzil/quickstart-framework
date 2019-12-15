@@ -20,6 +20,11 @@ java的热部署和热加载：联系、区别、原理、使用场景
 java热加载：VirtualMachine、Attach、Agent、Instrumentation：只能修改方法体，不能修改的的结构，不能变更方法签名、增加和删除方法/类的成员属性
 
 
+对于instrumentation agent来说有两种代理方式，
+一种是在类加载之前进行代理，可以进行字节码的修改即所谓的agent on load。
+另一种是在运行时动态进行加载，这种方法对于字节码的修改有较大的限制，但是利用运行时动态加载可以获得JVM的一些运行时信息，这种方式为agent on attach 。
+
+
 premain
 以vm参数的形式载入，在程序main方法执行之前执行
 其jar包的manifest需要配置属性Premain-Class
@@ -70,6 +75,30 @@ Java的Profiling和Debugging
 理解JVM的safepoint定义、特定位置有哪些，使用场景，
 JVM的GC等待所有线程safepoint导致JVM就Freezen了
 JVM让所有线程主动进入safepoint状态有两种执行方式：解释型和编译型(JIT)
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+对于instrumentation agent来说有两种代理方式，
+一种是在类加载之前进行代理，可以进行字节码的修改即所谓的agent on load。
+另一种是在运行时动态进行加载，这种方法对于字节码的修改有较大的限制，但是利用运行时动态加载可以获得JVM的一些运行时信息，这种方式为agent on attach 。
+
+
+JavaProbe(0Kee-Team)和OpenRasp(Baidu)的源码，两者都使用了instrumentation agent技术，但是由于场景不同，所以使用的差异也比较大
+https://github.com/0Kee-Team/JavaProbe
+https://github.com/baidu/openrasp
+
+OpenRasp使用agent在jvm初始化后进入premain方法，将自定义的ClassTransformer注册到instrumentation中，在有类加载时会触发其的transform方法，其根据匹配的class去调用具体hook的transform方法，在里面使用了javassit来操作字节码来改变被hook的class类定义时的字节码。
+
+JavaProbe为了无侵入地获得所有JVM的运行时信息，采用instrumentation的agentmain，独立于其他目标JVM，可以动态将代理attach到指定的JVM上去获取有关的信息。
+
+
+
+参考
+https://paper.seebug.org/1071/
+
 
 
 ---------------------------------------------------------------------------------------------------------------------

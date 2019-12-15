@@ -242,7 +242,7 @@
     <dependency>
       <groupId>joda-time</groupId>
       <artifactId>joda-time</artifactId>
-      <version>2.10</version>
+      <version>2.10.5</version>
     </dependency>
 
     <!--    计算Java对象所占内存的大小start-->
