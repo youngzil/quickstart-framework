@@ -1,3 +1,4 @@
+```
 函数式接口
 函数式接口（functional interface 也叫功能性接口，其实是同一个东西）。
 简单来说，函数式接口是只包含一个方法的接口。比如Java标准库中的java.lang.Runnable和java.util.Comparator都是典型的函数式接口。

@@ -1,3 +1,4 @@
+```
 1、加载web资源的文件
 方式一：采用ServletContext读取，读取配置文件的realpath，然后通过文件流读取出来。
 
@@ -12,7 +13,7 @@ class的getResouceAsStream：class文件目录为相对目录
 FileInputStream(new File(config))，根目录为相对目录
 
 
-
+```
 
 
 

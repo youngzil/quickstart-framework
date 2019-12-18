@@ -1,3 +1,4 @@
+
 本身都是通过字符数组来存储，对象内部定义字符数组
 String：new是放在堆区，+或者substring都是通过改变字符数组生成新的字符数组来实现
 一个是非同步的StringBuilder，一个是同步的StringBuffer（synchronized在方法上），都是字符数组，

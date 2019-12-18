@@ -93,6 +93,7 @@
     <module>quickstart-lua</module>
     <module>quickstart-easyexcel</module>
     <module>quickstart-hutool</module>
+    <module>quickstart-jodd</module>
   </modules>
 
 </project>

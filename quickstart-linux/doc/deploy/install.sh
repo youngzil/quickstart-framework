@@ -1,8 +1,8 @@
 #!/bin/bash
 
 #srcHome=/Users/yangzl/workspace/branches/gateway/v1.0
-srcHome=/Users/yangzl/workspace/aifgateway
-#srcHome=/Users/yangzl/workspace/gateway
+#srcHome=/Users/yangzl/workspace/aifgateway
+srcHome=/Users/yangzl/workspace/gateway
 
 deployHost=20.26.37.177
 username=aideploy

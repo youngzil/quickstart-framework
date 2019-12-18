@@ -209,11 +209,11 @@ case $1 in
   ;;
 
   all)
+      aifgw
+      oauth
       webapp
       webdev
       webopr
-      aifgw
-      oauth
   ;;
   *)
   echo "$1 请输入任务名: aifgw/oauth/webapp/webdev/webopr/all"

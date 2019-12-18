@@ -1,7 +1,8 @@
+```
 https://blog.csdn.net/liupeng_qwert/article/details/74923587
 https://blog.csdn.net/reliveit/article/details/40110049
-
-
+```
+```
 流只能顺序访问，不能像数组那样随机存取
 1、根据处理数据类型的不同分为：字符流和字节流 
 2、根据数据流向不同分为：输入流和输出流，InputStream或者Reader是从数据源读取数据（到内存中），OutputStream或者Writer是将数据（从内存中）写入到目标媒介
@@ -23,8 +24,10 @@ String strLine = bufferedReader.readLine();
 按照流的角色来分，分为节点流和处理流，直接操作一个I/O设备例如磁盘或内存等为节点流，对一个已存在的流进行封装或连接则称为处理流。
 字节流的基类为InputStream和OutputStream，字符流的基类为Reader和Writer，
 其中InputStream和Reader为输入流，OutputStream和Writer为输出流。
+```
 
 
+```
 File、
 RandomAccessFile：可以跳跃读写
 
@@ -65,8 +68,8 @@ Paths、Path
 Files
 FileSystems
 
-
-
+```
+```
 1、流的概念和作用 
 流是一组有顺序的，有起点和终点的字节集合，是对数据传输的总称或抽象。即数据在两设备间的传输称为流，流的本质是数据传输，根据数据传输特性将流抽象为各种类，方便更直观的进行数据操作。
 注意：流只能顺序访问，不能像数组那样随机存取
@@ -94,11 +97,13 @@ InputStream或者Reader是从数据源读取数据（到内存中），OutputStr
 
 典型的数据源或目标媒介有：文件、管道、网络连接、内存缓存、控制台…
 
-注意：Java IO流通常是基于字节或者基于字符的。字节流通常以“stream”命名，比如InputStream和OutputStream。除了DataInputStream 和DataOutputStream 还能够读写int, long, float和double类型的值以外，其他流在一个操作时间内只能读取或者写入一个原始字节
+注意：Java IO流通常是基于字节或者基于字符的。字节流通常以“stream”命名，比如InputStream和OutputStream。
+除了DataInputStream 和DataOutputStream 还能够读写int, long, float和double类型的值以外，其他流在一个操作时间内只能读取或者写入一个原始字节
 
 
 5、组合流
-一次读取一个字节是很慢的，借助缓冲可以从磁盘中一次读取一大块数据，然后从读到的数据块中获取字节。为了实现缓冲，可以把InputStream包装到BufferedInputStream中。例如 InputStream input = new BufferedInputStream(new FileInputStream(“xxx”));
+一次读取一个字节是很慢的，借助缓冲可以从磁盘中一次读取一大块数据，然后从读到的数据块中获取字节。为了实现缓冲，可以把InputStream包装到BufferedInputStream中。
+例如 InputStream input = new BufferedInputStream(new FileInputStream(“xxx”));
 
 
 6、字符流与字节流之间的转换
@@ -148,7 +153,7 @@ inputStreamReader.read(characters);  // 逐个字符读取,从字节流中读取
 
 BufferedReader bufferReader = new BufferedReader(inputStreamReader);
 bufferReader.readLine(); // 按行读取字符  // 文件结尾返回null
-
+```
 
 
 

@@ -1,3 +1,4 @@
+```
 发布的核心特性，即lambda表达式、函数式接口、Stream流API、接口默认方法和新的Date以及Time API
 
 Java虚拟机（JVM）的新特性

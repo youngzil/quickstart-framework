@@ -1,3 +1,4 @@
+```
 深入理解 JAVA 反序列化漏洞
 1、原理
 2、如何防范
@@ -17,7 +18,8 @@ Client序列化包含恶意代码的类发送给Server端，远程代码反序�
 
 
 Java 反序列化漏洞产生的原因大多数是因为反序列化时没有进行校验，或者有些校验使用黑名单方式又被绕过，最终使得包含恶意代码的序列化对象在服务器端被反序列化执行。
-核心问题都不是反序列化，但都是因为反序列化导致了恶意代码被执行。 这里总结了一些近两年的 Java 反序列化漏洞：http://seclists.org/oss-sec/2017/q2/307?utm_source=dlvr.it&utm_medium=twitter
+核心问题都不是反序列化，但都是因为反序列化导致了恶意代码被执行。 
+这里总结了一些近两年的 Java 反序列化漏洞：http://seclists.org/oss-sec/2017/q2/307?utm_source=dlvr.it&utm_medium=twitter
 
 
 

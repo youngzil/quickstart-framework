@@ -1,3 +1,4 @@
+```
 BIO是面向流、阻塞IO，顺序读
 NIO面向缓冲、非阻塞IO、选择器Selector，可以使用position等跳跃读
 
@@ -9,7 +10,8 @@ Buffer分配：3种
 buffer读写方法
 Buffer的capacity,position和limit
 
-直接内存：不受young gc的影响，只有full gc的时候回收，当众多的DirectByteBuffer对象从新生代被送入老年代后触发了 full gc才会会释放回收，MappedByteBuffer在处理大文件时的确性能很高，但也存在一些问题，如内存占用、文件关闭不确定，被其打开的文件只有在垃圾回收的才会被关闭，而且这个时间点是不确定的。
+直接内存：不受young gc的影响，只有full gc的时候回收，当众多的DirectByteBuffer对象从新生代被送入老年代后触发了 full gc才会会释放回收，
+MappedByteBuffer在处理大文件时的确性能很高，但也存在一些问题，如内存占用、文件关闭不确定，被其打开的文件只有在垃圾回收的才会被关闭，而且这个时间点是不确定的。
 
 
 
@@ -21,9 +23,11 @@ ServerSocketChannel:监听连接，默认是阻塞模式，可以设置为非阻
 零拷贝( zero-copy )
 文件IO：通过mmap实现的零拷贝I/O
 网络IO：FileChannel.transferTo 和 FileChannel.transferFrom方法
-
+```
 
 ---------------------------------------------------------------------------------------------------------------------
+```
+
 java nio学习
 http://ifeve.com/overview/
 https://blog.csdn.net/column/details/15438.html
@@ -44,7 +48,9 @@ long：64位，最大数据存储容量是2的64次方减1，数据范围为负�
 float：32位，数据范围在3.4e-45~1.4e38，直接赋值时必须在数字后加上f或F。
 double：64位，数据范围在4.9e-324~1.8e308，赋值时可以加d或D也可以不加。
 
+```
 
+```
 BIO是面向流、阻塞IO，顺序读
 NIO面向缓冲、非阻塞IO、选择器Selector，可以使用position等跳跃读
 
@@ -217,15 +223,16 @@ ServerSocketChannel：打开ServerSocketChannel.open();
 DatagramChannel：
 通过receive()方法从DatagramChannel接收数据
 通过send()方法从DatagramChannel发送数据
-
-
+```
+```
 BIO是面向流、阻塞IO
 NIO面向缓冲、非阻塞IO、选择器Selector
 
 
 内存映射文件：map()
 （1）直接内存DirectMemory的大小默认为 -Xmx 的JVM堆的最大值，但是并不受其限制，而是由JVM参数 MaxDirectMemorySize单独控制。
-（2）直接内存不是分配在JVM堆中。并且直接内存不受 GC(新生代的Minor GC)影响，只有当执行老年代的 Full GC时候才会顺便回收直接内存！而直接内存是通过存储在JVM堆中的DirectByteBuffer对象来引用的，所以当众多的DirectByteBuffer对象从新生代被送入老年代后才触发了 full gc。
+（2）直接内存不是分配在JVM堆中。并且直接内存不受 GC(新生代的Minor GC)影响，只有当执行老年代的 Full GC时候才会顺便回收直接内存！
+    而直接内存是通过存储在JVM堆中的DirectByteBuffer对象来引用的，所以当众多的DirectByteBuffer对象从新生代被送入老年代后才触发了 full gc。
 （3）MappedByteBuffer在处理大文件时的确性能很高，但也存在一些问题，如内存占用、文件关闭不确定，被其打开的文件只有在垃圾回收的才会被关闭，而且这个时间点是不确定的。
 
 
@@ -272,10 +279,10 @@ ibmdw.nio 包下的源码来源于 http://www.ibm.com/developerworks/cn/educatio
 Java NIO tutorial   http://tutorials.jenkov.com/java-nio/index.html
 http://www.javaworld.com/javaworld/jw-10-2012/121016-maximize-java-nio-and-nio2-for-application-responsiveness.html
 
-
+```
 
 ---------------------------------------------------------------------------------------------------------------------
-
+```
 参考
 https://www.cnblogs.com/JAYIT/p/8241634.html
 http://www.voidcn.com/article/p-rzokhbzl-zh.html
@@ -302,9 +309,10 @@ Netty的解决策略：
 关闭bug的Selector，使用新的Selector进行替换。
 
 
-
+```
 
 ---------------------------------------------------------------------------------------------------------------------
+```
 Java NIO浅析：
 
 BIO模型：线程池：单请求单线程，请求:线程=1:1
@@ -333,9 +341,13 @@ NIO线程模型主要包括以下几种：
 
 事件分发器的两种模式称为：Reactor和Proactor
 
-Reactor模式是基于同步I/O的，而Proactor模式是和异步I/O相关的。在Reactor模式中，事件分发器等待某个事件或者可应用或个操作的状态发生（比如文件描述符可读写，或者是socket可读写），事件分发器就把这个事件传给事先注册的事件处理函数或者回调函数，由后者来做实际的读写操作。
+Reactor模式是基于同步I/O的，而Proactor模式是和异步I/O相关的。
+在Reactor模式中，事件分发器等待某个事件或者可应用或个操作的状态发生（比如文件描述符可读写，或者是socket可读写），事件分发器就把这个事件传给事先注册的事件处理函数或者回调函数，由后者来做实际的读写操作。
 
-而在Proactor模式中，事件处理者（或者代由事件分发器发起）直接发起一个异步读写操作（相当于请求），而实际的工作是由操作系统来完成的。发起时，需要提供的参数包括用于存放读到数据的缓存区、读的数据大小或用于存放外发数据的缓存区，以及这个请求完后的回调函数等信息。事件分发器得知了这个请求，它默默等待这个请求的完成，然后转发完成事件给相应的事件处理者或者回调。举例来说，在Windows上事件处理者投递了一个异步IO操作（称为overlapped技术），事件分发器等IO Complete事件完成。这种异步模式的典型实现是基于操作系统底层异步API的，所以我们可称之为“系统级别”的或者“真正意义上”的异步，因为具体的读写是由操作系统代劳的。
+而在Proactor模式中，事件处理者（或者代由事件分发器发起）直接发起一个异步读写操作（相当于请求），而实际的工作是由操作系统来完成的。
+发起时，需要提供的参数包括用于存放读到数据的缓存区、读的数据大小或用于存放外发数据的缓存区，以及这个请求完后的回调函数等信息。
+事件分发器得知了这个请求，它默默等待这个请求的完成，然后转发完成事件给相应的事件处理者或者回调。
+举例来说，在Windows上事件处理者投递了一个异步IO操作（称为overlapped技术），事件分发器等IO Complete事件完成。这种异步模式的典型实现是基于操作系统底层异步API的，所以我们可称之为“系统级别”的或者“真正意义上”的异步，因为具体的读写是由操作系统代劳的。
 
 
 标准/典型的Reactor：
@@ -355,6 +367,7 @@ Reactor模式是基于同步I/O的，而Proactor模式是和异步I/O相关的�
 
 参考
 https://tech.meituan.com/2016/11/04/nio.html
+```
 
 ---------------------------------------------------------------------------------------------------------------------
 

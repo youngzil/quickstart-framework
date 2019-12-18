@@ -1,3 +1,4 @@
+```
 Scalable IO in Java：http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf
 李林峰的netty系列文章：http://www.infoq.com/cn/minibooks/netty-in-depth
 BIO NIO AIO到底是什么鬼？看这篇文章就够了。http://www.cnblogs.com/dolphin0520/p/3916526.html
@@ -13,9 +14,9 @@ https://blog.csdn.net/crazymakercircle/article/details/85858596
 https://my.oschina.net/haitaohu/blog/1844621
 https://blog.csdn.net/github_38737621/article/details/80216082
 
+```
 
-
-
+```
 文件IO、网络IO
 BIO、NIO、AIO
 
@@ -74,6 +75,9 @@ I/O模型	文件I/O	标准I/O
 定位	lseek()	fseek()/ftell()/rewind()/fsetpos()/fgetpos()
 关闭	close()	fclose()
 
+
+```
+```
 网络IO：
 http://blog.csdn.net/qq_30154277/article/details/51981821
 网络HttpURLConnection 类
@@ -124,9 +128,9 @@ blocking IO的特点就是在IO执行的两个阶段（等待数据准备就绪�
 异步IO和非阻塞IO的区别！！！
 异步IO就是把IO操作提交给系统，让系统帮我们完成相关操作，操作完成后系统在以某种方式通知我们操作已经完成。非阻塞IO就是我们要通过某种不定时方式向系统询问我们能够开始执行某个IO操作，当得到许可指令后，具体的操作还是需要我们自己动手来完成的！
 
+```
 
-
-
+```
 文件IO、网络IO
 BIO、NIO、AIO
 
@@ -182,7 +186,8 @@ ET:在ET模式下，当有事件发生时，系统只会通知你一次，即在
 从 kernel 代码来看，ET/LT模式的处理逻辑几乎完全相同，差别仅在于 LT模式在 event 发生时不会将其从 ready list 中移除，略为增大了event 处理过程中 kernel space 中记录数据的大小。
          
 
-
+```
+```
 用户空间与内核空间
 现在操作系统都是采用虚拟存储器，对32位操作系统而言，它的寻址空间（虚拟存储空间）为4G（2的32次方）。
 操作系统的核心是内核，独立于普通的应用程序，可以访问受保护的内存空间，也有访问底层硬件设备的所有权限。
@@ -210,9 +215,10 @@ ET:在ET模式下，当有事件发生时，系统只会通知你一次，即在
 缓存 IO 又被称作标准 IO，大多数文件系统的默认 IO 操作都是缓存 IO。在 Linux 的缓存 IO 机制中，操作系统会将 IO 的数据缓存在文件系统的页缓存（ page cache ）中，也就是说，数据会先被拷贝到操作系统内核的缓冲区中，然后才会从操作系统内核的缓冲区拷贝到应用程序的地址空间。
 
 缓存 IO 的缺点：
-数据在传输过程中需要在应用程序地址空间和内核进行多次数据拷贝操作，这些数据拷贝操作所带来的 CPU 以及内存开销是非常大的。   
-         
-         
+数据在传输过程中需要在应用程序地址空间和内核进行多次数据拷贝操作，这些数据拷贝操作所带来的 CPU 以及内存开销是非常大的。
+
+```
+```
 https://mp.weixin.qq.com/s/KFzhayyAc8RMYMDTuyQXUg    
 一.什么是同步？什么是异步？
 二.什么是阻塞？什么是非阻塞？
@@ -258,11 +264,4 @@ java中的synchronized关键字联系起来进行类比。当多个线程同时�
 　　对于多线程模式，也就说来了client，服务器就会新建一个线程来处理该client的读写事件
 
 因此便出现了下面的两种高性能IO设计模式：Reactor和Proactor。
-
-
-
-
-  
-         
-         
-         
+```
