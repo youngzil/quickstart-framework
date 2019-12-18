@@ -14,10 +14,23 @@ fi
 ospversion=`cat ${HOME}/deploy_oppf/xml/oppf_version | grep 'oppf.version' | awk -F"=" '{print $2}'`
 CURR_PATH=`pwd`
 
+PROFILE_ENV_LIST="dev test prod"   ###定义list
+PROFILE_ENV=$2
+#PROFILE_ENV=${PROFILE_ENV:-test}
+
+if [[ -z $PROFILE_ENV ]] || [[ ! "$PROFILE_ENV_LIST" =~ "$PROFILE_ENV" ]] ; then
+  echo "第二个参数为环境参数，必须是dev/test/prod"
+  exit 1
+fi
+
 #全局变量
 CODE_PATH=${HOME}/deploy_oppf/git_gateway/src
 MAVEN_HOME=${HOME}/deploy_oppf/bin/maven/bin
-TAR_PACKAGE_PATH=${HOME}/deploy_oppf/dist_gateway
+TAR_PACKAGE_PATH=${HOME}/deploy_oppf/dist_gateway_git
+
+#创建目录
+mkdir -p $CODE_PATH
+mkdir -p $TAR_PACKAGE_PATH
 
 gitClone(){
   echo "[echo] 开始下载源码..."
@@ -46,30 +59,6 @@ checkVueEnvironment(){
   echo "[echo] aid版本:" `aid -v`
 }
 
-webapp()
-{
-  PROJECT_NAME=aifgw-web-app-parent
-  TARGET_NAME=gateway-console-server.tar.gz
-
-  cd $CODE_PATH/$PROJECT_NAME
-  echo "[echo] 开始编译$PROJECT_NAME..."
-
-  if [ -d $CODE_PATH/local/$PROJECT_NAME ]; then
-    echo "[echo] 开始替换代码$PROJECT_NAME..."
-    cp -rf $CODE_PATH/local/$PROJECT_NAME $CODE_PATH/$PROJECT_NAME
-  fi
-
-  $MAVEN_HOME/mvn  -Prelease-all -DskipTests clean install -U
-
-  if [ ! -f $CODE_PATH/$PROJECT_NAME/aifgw-web-app-distribution/target/$TARGET_NAME ];then
-          echo "请确认$PROJECT_NAME打包是否成功"
-          exit 1
-  fi
-  rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
-  mv  $CODE_PATH/$PROJECT_NAME/aifgw-web-app-distribution/target/$TARGET_NAME  $TAR_PACKAGE_PATH/$TARGET_NAME
-  echo "[echo] 项目$PROJECT_NAME编译完成..."
-}
-
 aifgw()
 {
   PROJECT_NAME=aifgw-backend-parent
@@ -83,7 +72,7 @@ aifgw()
     cp -rf $CODE_PATH/local/$PROJECT_NAME $CODE_PATH/$PROJECT_NAME
   fi
 
-  $MAVEN_HOME/mvn -Prelease-all -DskipTests clean install -U
+  $MAVEN_HOME/mvn -Prelease-all -Pbuild-$PROFILE_ENV -DskipTests clean install -U
 
   if [ ! -f $CODE_PATH/$PROJECT_NAME/aifgw-distribution/target/$TARGET_NAME ];then
           echo "请确认$PROJECT_NAME打包是否成功"
@@ -110,7 +99,7 @@ oauth()
     cp -rf $CODE_PATH/local/$PROJECT_NAME $CODE_PATH/$PROJECT_NAME
   fi
 
-  $MAVEN_HOME/mvn -Pbuild-test -DskipTests clean install -U
+  $MAVEN_HOME/mvn -Pbuild-$PROFILE_ENV -DskipTests clean install -U
 
   if [ ! -f $CODE_PATH/$PROJECT_NAME/aifgw-security-distribution/target/$TARGET_NAME ];then
           echo "请确认$PROJECT_NAME打包是否成功"
@@ -118,6 +107,37 @@ oauth()
   fi
   rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
   mv  $CODE_PATH/$PROJECT_NAME/aifgw-security-distribution/target/$TARGET_NAME   $TAR_PACKAGE_PATH/$TARGET_NAME
+  echo "[echo] 项目$PROJECT_NAME编译完成..."
+}
+
+webapp()
+{
+  PROJECT_NAME=aifgw-web-app-parent
+  TARGET_NAME=gateway-console-server.tar.gz
+
+  cd $CODE_PATH/$PROJECT_NAME
+  echo "[echo] 开始编译$PROJECT_NAME..."
+
+  if [ -d $CODE_PATH/local/$PROJECT_NAME ]; then
+    echo "[echo] 开始替换代码$PROJECT_NAME..."
+    cp -rf $CODE_PATH/local/$PROJECT_NAME $CODE_PATH/$PROJECT_NAME
+  fi
+
+#  替换启动脚本
+  ENV_VARI=$PROFILE_ENV
+  if [ "test" = "$ENV_VARI" ];then
+    ENV_VARI="testzj"
+  fi
+  sed -i "s/spring.profiles.active=dev/spring.profiles.active=$ENV_VARI/g" $CODE_PATH/$PROJECT_NAME/aifgw-web-app-distribution/sbin/startaifgw-web.sh
+
+  $MAVEN_HOME/mvn -Prelease-all -DskipTests clean install -U
+
+  if [ ! -f $CODE_PATH/$PROJECT_NAME/aifgw-web-app-distribution/target/$TARGET_NAME ];then
+          echo "请确认$PROJECT_NAME打包是否成功"
+          exit 1
+  fi
+  rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
+  mv  $CODE_PATH/$PROJECT_NAME/aifgw-web-app-distribution/target/$TARGET_NAME  $TAR_PACKAGE_PATH/$TARGET_NAME
   echo "[echo] 项目$PROJECT_NAME编译完成..."
 }
 
@@ -207,7 +227,6 @@ case $1 in
   oauth)
       oauth
   ;;
-
   all)
       aifgw
       oauth
