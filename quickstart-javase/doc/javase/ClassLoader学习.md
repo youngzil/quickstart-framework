@@ -1,6 +1,5 @@
 
 
-
 ```
 考虑到 java 自带的 ClassLoader 无法灵活的添加某路径下的类，考虑以下三种方式实现：
 1、AppClassLoader 继承自 URLClassLoader，以反射的方式将 addURL 方法设置为 public，以添加自定义路径为 classpath
