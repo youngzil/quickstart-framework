@@ -18,7 +18,7 @@ PROFILE_ENV_LIST="dev test prod"   ###定义list
 PROFILE_ENV=$2
 #PROFILE_ENV=${PROFILE_ENV:-test}
 
-if [[ -z $PROFILE_ENV ]] || [[ ! "$PROFILE_ENV_LIST" =~ "$PROFILE_ENV" ]] ; then
+if [[ -z $PROFILE_ENV ]] || [[ ! $PROFILE_ENV_LIST =~ $PROFILE_ENV ]] ; then
   echo "第二个参数为环境参数，必须是dev/test/prod"
   exit 1
 fi
