@@ -2,6 +2,10 @@
 2、Log Implementation：Logback，Log4j2，Log4j，Jul。
 
 
+Java 日志性能那些事
+https://www.infoq.cn/article/things-of-java-log-performance
+https://www.cnblogs.com/dolphin0520/p/10396894.html
+
 
 ---------------------------------------------------------------------------------------------------------------------
 1、总是使用Log Facade，而不是具体Log Implementation
@@ -24,9 +28,6 @@ Sun推出了自己的日志库JUL(Java Util Logging),Jul (Java Util Logging),自
 设为optional，依赖不会传递，这样如果你是个lib项目，然后别的项目使用了你这个lib，不会被引入不想要的Log Implementation 依赖；
 
 Scope设置为runtime，是为了防止开发人员在项目中直接使用Log Implementation中的类，而不适用Log Facade中的类。
-
-
-
 
 
 

@@ -1,119 +1,118 @@
 <?xml version="1.0"?>
 <project
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <parent>
-    <groupId>org.quickstart</groupId>
-    <artifactId>quickstart-logging</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <relativePath>..</relativePath> <!-- lookup parent from repository -->
-  </parent>
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <parent>
+        <groupId>org.quickstart</groupId>
+        <artifactId>quickstart-logging</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>..</relativePath> <!-- lookup parent from repository -->
+    </parent>
 
-  <modelVersion>4.0.0</modelVersion>
-  <artifactId>quickstart-log4j2</artifactId>
-  <packaging>jar</packaging>
-  <name>${project.artifactId}-${project.version}</name>
-  <url>http://maven.apache.org</url>
-  <description>Demo project for XXX</description>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>quickstart-log4j2</artifactId>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}-${project.version}</name>
+    <url>http://maven.apache.org</url>
+    <description>Demo project for XXX</description>
 
-  <properties>
-    <log4j.version>2.12.0</log4j.version>
-    <disruptor.version>3.3.6</disruptor.version>
-    <slf4j.version>1.7.26</slf4j.version>
+    <properties>
+        <log4j.version>2.13.0</log4j.version>
+        <disruptor.version>3.3.6</disruptor.version>
+        <slf4j.version>1.7.30</slf4j.version>
 
-    <jackson.version>2.9.9</jackson.version>
-  </properties>
+        <jackson.version>2.9.9</jackson.version>
+    </properties>
 
-  <dependencies>
+    <dependencies>
 
-    <!-- log4j2 依赖 -->
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <version>${log4j.version}</version>
-      <scope>runtime</scope>
-      <optional>true</optional>
-    </dependency>
+        <!-- log4j2 依赖 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j.version}</version>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
 
-    <!--    使用Log4j-API作为Log Facade-->
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-api</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>
+        <!--    使用Log4j-API作为Log Facade-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
 
-    <!-- 桥接：告诉Slf4j使用Log4j2 -->
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-slf4j-impl</artifactId>
-      <version>${log4j.version}</version>
-      <scope>runtime</scope>
-      <optional>true</optional>
-    </dependency>
+        <!-- 桥接：告诉Slf4j使用Log4j2 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>${log4j.version}</version>
+            <scope>runtime</scope>
+            <optional>true</optional>
+        </dependency>
 
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>${slf4j.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
 
-    <!-- 将 log4j2的日志桥接到 slf4j -->
-    <!--<dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-to-slf4j</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>-->
-
-
-    <!-- 桥接：告诉commons logging使用Log4j2 -->
-    <!--<dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-jcl</artifactId>
-      <version>${log4j.version}</version>
-    </dependency>-->
-
-    <!--web工程需要包含log4j-web，非web工程不需要 -->
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-web</artifactId>
-      <version>${log4j.version}</version>
-      <scope>runtime</scope>
-    </dependency>
-
-    <!--    需要使用log4j2的AsyncLogger需要包含disruptor -->
-    <dependency>
-      <groupId>com.lmax</groupId>
-      <artifactId>disruptor</artifactId>
-      <version>${disruptor.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>javax</groupId>
-      <artifactId>javaee-api</artifactId>
-      <version>7.0</version>
-    </dependency>
+        <!-- 将 log4j2的日志桥接到 slf4j -->
+        <!--<dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-to-slf4j</artifactId>
+          <version>${log4j.version}</version>
+        </dependency>-->
 
 
-<!--    log4j2.yaml依赖的-->
-    <dependency>
-      <groupId>com.fasterxml.jackson.dataformat</groupId>
-      <artifactId>jackson-dataformat-yaml</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
+        <!-- 桥接：告诉commons logging使用Log4j2 -->
+        <!--<dependency>
+          <groupId>org.apache.logging.log4j</groupId>
+          <artifactId>log4j-jcl</artifactId>
+          <version>${log4j.version}</version>
+        </dependency>-->
 
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
+        <!--web工程需要包含log4j-web，非web工程不需要 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-web</artifactId>
+            <version>${log4j.version}</version>
+            <scope>runtime</scope>
+        </dependency>
 
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-annotations</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
+        <!--    需要使用log4j2的AsyncLogger需要包含disruptor -->
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>${disruptor.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+        </dependency>
 
 
-  </dependencies>
+        <!--    log4j2.yaml依赖的-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+    </dependencies>
 
 </project>
