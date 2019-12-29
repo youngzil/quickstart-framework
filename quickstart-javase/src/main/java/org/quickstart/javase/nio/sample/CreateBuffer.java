@@ -13,6 +13,12 @@ public class CreateBuffer {
 
         buffer.flip();
 
+
+        buffer.clear();
+        buffer.compact();
+        buffer.mark();//保存当前的position到mark，mark默认是-1
+        buffer.reset();//恢复position到之前的mark，如果mark=-1，说明没有执行过mark()，会报错InvalidMarkException
+
         System.out.println((char) buffer.get());
         System.out.println((char) buffer.get());
         System.out.println((char) buffer.get());
