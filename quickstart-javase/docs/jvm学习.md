@@ -10,11 +10,14 @@ JVM内存模型：五个区域和各自保存的对象，会抛出什么异常�
 
 垃圾回收：垃圾收集算法、垃圾收集器，对象存活方式判断，类回收条件，堆（年轻代、年老代），java对象的引用（强引用，软引用，弱引用，虚引用）
 方法区垃圾回收：废弃常量、无用的类
-G1收集器讲解
-G1的推荐用例：大内存、低延迟、
+
 
 finalize()方法不可靠表现2方面
 判断对象是否存活一般有两种方式、GC Roots包括
+
+G1收集器讲解
+G1的推荐用例：大内存、低延迟、
+G1和CMS区别对比
 
 内存调优：减少youngGC的频率和fullGC的次数
 常见参数：废弃类回收的控制参数、堆参数（初始大小，最大大小、年轻代和年老代比例）、设置GC回收器，GC打印格式和文件、HeapDump日志路径、并行收集器设置
@@ -22,7 +25,8 @@ finalize()方法不可靠表现2方面
            
 类加载机制和双亲委派机制，类加载过程，java创建一个对象的流程  
 类加载机制（双亲委派）：安全、缓存、高效，类加载过程：加载、验证、准备、初始化、卸载，4中类加载器，重写findClass是符合双拼委派机制，重写loadclass是破坏的，
-                   ClassLoader可以实现的功能：
+
+ClassLoader可以实现的功能：
 1、自定义加载类，实现切面功能、方法调用链、代码保护加解密等，如切面log日志，切面其他功能、
 2、系统开发模块化，比如阿里的jarslink、支付宝的sofaArk
 3、热部署功能、热加载
@@ -52,10 +56,23 @@ HotSpot中的JIT编译器——Java运行期优化
 HotSpot虚拟机还会逐渐启用分层编译（Tiered Compilation）的策略：第0层：程序解释执行、第1层：也称为C1编译、第2层：也称为C2编译
 
 
-G1和CMS区别对比
 逃逸分析与TLAB、内存泄漏
 
 Java编译器优化与运行期优化技术浅析
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+面试问题：
+
+说说GC的过程(说了young gc和full gc的触发条件和回收过程以及对象创建的过程)
+CMS GC有什么问题？(并发清除算法，浮动垃圾，短暂停顿)
+怎么避免产生浮动垃圾？(记得有个VM参数设置可以让扫描新生代之前进行一次young gc，但是因为gc是虚拟机自动调度的，所以不保证一定执行。但是还有参数可以让虚拟机强制执行一次young gc)
+强制young gc会有什么问题？(STW停顿时间变长)
+知道G1么？(了解一点 )
+回收过程是怎么样的？(young gc、并发阶段、混合阶段、full gc，说了Remember Set)
+你提到的Remember Set底层是怎么实现的？
+有什么想问的么？
 
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -499,6 +516,27 @@ http://youzhixueyuan.com/detailed-explanation-of-jvm-g1.html
 最后，G1中提供了两种模式垃圾回收模式，Young GC和Mixed GC，两种都是Stop The World(STW)的。
 
 
+RSet
+全称是Remembered Set，是辅助GC过程的一种结构，典型的空间换时间工具，和Card Table有些类似。
+还有一种数据结构也是辅助GC的：Collection Set（CSet），它记录了GC要收集的Region集合，集合里的Region可以是任意年代的。
+在GC的时候，对于old->young和old->old的跨代对象引用，只要扫描对应的CSet中的RSet即可。 
+逻辑上说每个Region都有一个RSet，RSet记录了其他Region中的对象引用本Region中对象的关系，属于points-into结构（谁引用了我的对象）。
+
+
+RSet
+由于PointIn模式的缺点，一个对象可能被引用的次数不固定，为了节约空间，G1采用了三级数据结构来存储：
+1、稀疏表：通过哈希表来存储，key是region index，value是card数组
+2、细粒度PerRegionTable：当稀疏表指定region的card数量超过阈值时，则在细粒度PRT中创建一个对应的PerRegionTable对象，其包含一个C heap位图，每一位对应一个card
+3、粗粒度位图：当细粒度PRT size超过阈值时，则退化为分区位图，每一位表示对应分区有引用到当前分区
+
+每个HeapRegion都包含了一个HeapRegionRemSet，每个HeapRegionRemSet都包含了一个OtherRegionsTable，引用数据就保存在这个OtherRegionsTable中。
+————————————————
+版权声明：本文为CSDN博主「860MHz」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+原文链接：https://blog.csdn.net/a860MHz/article/details/97276211
+
+
+
+
 G1的推荐用例：大内存、低延迟、
 G1的第一个重要特点是为用户的应用程序的提供一个低GC延时和大内存GC的解决方案。这意味着堆大小6GB或更大，稳定和可预测的暂停时间将低于0.5秒。
 如果应用程序使用CMS或ParallelOld垃圾回收器具有一个或多个以下特征，将有利于切换到G1：
@@ -908,6 +946,15 @@ https://blog.csdn.net/zhou2s_101216/article/details/79219953
 https://blog.csdn.net/zd836614437/article/details/64126826
 
 
+Java JVM 4：CMS 垃圾收集器 - 工作原理，浮动垃圾，三色标记法等
+https://blog.csdn.net/hutongling/article/details/69908443
+
+
+CMS讲解
+https://www.cnblogs.com/felixzh/p/9001041.html
+https://zhuanlan.zhihu.com/p/89574608
+
+
 G1和CMS区别对比
 G1和cms对比，有什么优缺点？G1可以设置单个块最大的回收时间，真实有效吗？达到了这个时间会发生什么？
 
@@ -919,6 +966,17 @@ G1收集器过程：1、初始标记；2、并发标记；3、最终标记；4�
 -XX:MaxGCPauseMillis = 100 -XX:+UseAdaptiveSizePolicy
 
 
+
+
+CMS GC有什么问题？(并发清除算法，浮动垃圾，短暂停顿)
+1、浮动垃圾：在并发收集过程中，用户线程仍然在运行，仍然产生内存垃圾，所以可能产生“浮动垃圾”（本次无法清理，只能下一次Full GC才清理）。因此在 GC 期间，需要预留足够的内存给用户线程使用。
+2、短暂停顿：在CMS清理过程中，只有初始标记和重新标记需要短暂停顿用户线程，并发标记和并发清除都不需要暂停用户线程，因此效率很高，很适合高交互的场合。
+3、导致内存碎片的产生：CMS 采用的是标记-清除算法，会导致内存碎片的产生，可以使用-XX：+UseCMSCompactAtFullCollection来设置是否在 Full GC 之后进行碎片整理，用-XX：CMSFullGCsBeforeCompaction来设置在执行多少次不压缩的 Full GC 之后，来一次带压缩的 Full GC。
+
+重新标记（Remark） 的作用在于：
+之前在并发标记时，因为是 GC 和用户程序是并发执行的，可能导致一部分已经标记为 从 GC Roots 不可达 的对象，因为用户程序的（并发）运行，又可达 了，Remark 的作用就是将这部分对象又标记为 可达对象。
+
+至于 “浮动垃圾”，因为 CMS 在 并发标记 时是并发的，GC 线程和用户线程并发执行，这个过程当然可能会因为线程的交替执行而导致新产生的垃圾（即浮动垃圾）没有被标记到；而 重新标记 的作用只是修改之前 并发标记 所获得的不可达对象，所以是没有办法处理 “浮动垃圾” 的。
 
 
 
@@ -942,6 +1000,11 @@ CMS 出现FullGC的原因：
 2、在并发过程中JVM觉得在并发过程结束之前堆就会满，需要提前触发FullGC
 
 
+G1相比较CMS的改进
+1、算法： G1基于标记-整理算法, 不会产生空间碎片，分配大对象时不会无法得到连续的空间而提前触发一次FULL GC。
+2、停顿时间可控： G1可以通过设置预期停顿时间（Pause Time）来控制垃圾收集时间避免应用雪崩现象。
+3、并行与并发：G1能更充分的利用CPU，多核环境下的硬件优势来缩短stop the world的停顿时间。
+
 
 G1：是一款面向服务端应用的垃圾收集器
 
@@ -954,11 +1017,18 @@ G1：是一款面向服务端应用的垃圾收集器
 
 
 如果不计算维护Remembered Set的操作，G1收集器的运作大致可划分为以下几个步骤：
-1、初始标记（Initial Making）
-2、并发标记（Concurrent Marking）
-3、最终标记（Final Marking）
-4、筛选回收（Live Data Counting and Evacuation）
+1、初始标记（Initial Making）：这个阶段是STW(Stop the World )的，所有应用线程会被暂停，标记出从GC Root开始直接可达的对象。
+2、并发标记（Concurrent Marking）：从GC Roots开始对堆中对象进行可达性分析，找出存活对象，耗时较长。当并发标记完成后，开始最终标记(Final Marking )阶段
+3、最终标记（Final Marking）：标记那些在并发标记阶段发生变化的对象，将被回收。
+4、筛选回收（Live Data Counting and Evacuation）：首先对各个Regin的回收价值和成本进行排序，根据用户所期待的GC停顿时间指定回收计划，回收一部分Region。
+                                          
 
+
+G1回收过程讲解
+https://tech.meituan.com/2016/09/23/g1.html
+https://zhuanlan.zhihu.com/p/59861022
+https://www.jianshu.com/p/870abddaba41
+https://liuzhengyang.github.io/2017/06/07/garbage-first-collector/
 
 
 G1参数：
