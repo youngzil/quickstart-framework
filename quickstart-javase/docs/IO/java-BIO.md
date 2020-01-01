@@ -1,8 +1,8 @@
-```
+
 https://blog.csdn.net/liupeng_qwert/article/details/74923587
 https://blog.csdn.net/reliveit/article/details/40110049
-```
-```
+
+
 流只能顺序访问，不能像数组那样随机存取
 1、根据处理数据类型的不同分为：字符流和字节流 
 2、根据数据流向不同分为：输入流和输出流，InputStream或者Reader是从数据源读取数据（到内存中），OutputStream或者Writer是将数据（从内存中）写入到目标媒介
@@ -24,10 +24,10 @@ String strLine = bufferedReader.readLine();
 按照流的角色来分，分为节点流和处理流，直接操作一个I/O设备例如磁盘或内存等为节点流，对一个已存在的流进行封装或连接则称为处理流。
 字节流的基类为InputStream和OutputStream，字符流的基类为Reader和Writer，
 其中InputStream和Reader为输入流，OutputStream和Writer为输出流。
-```
 
 
-```
+
+
 File、
 RandomAccessFile：可以跳跃读写
 
@@ -68,8 +68,8 @@ Paths、Path
 Files
 FileSystems
 
-```
-```
+
+
 1、流的概念和作用 
 流是一组有顺序的，有起点和终点的字节集合，是对数据传输的总称或抽象。即数据在两设备间的传输称为流，流的本质是数据传输，根据数据传输特性将流抽象为各种类，方便更直观的进行数据操作。
 注意：流只能顺序访问，不能像数组那样随机存取
@@ -153,7 +153,7 @@ inputStreamReader.read(characters);  // 逐个字符读取,从字节流中读取
 
 BufferedReader bufferReader = new BufferedReader(inputStreamReader);
 bufferReader.readLine(); // 按行读取字符  // 文件结尾返回null
-```
+
 
 
 

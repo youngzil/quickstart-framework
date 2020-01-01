@@ -7,7 +7,7 @@ Selectors：4个事件
 Buffer分配：3种  
 常用的方法：常用的读写切换、定位等  
 buffer读写方法  
-Buffer的capacity,position和limit  
+Buffer的capacity,position和limit、mark
   
 直接内存：不受young gc的影响，只有full gc的时候回收，当众多的DirectByteBuffer对象从新生代被送入老年代后触发了 full gc才会会释放回收，  
 MappedByteBuffer在处理大文件时的确性能很高，但也存在一些问题，如内存占用、文件关闭不确定，被其打开的文件只有在垃圾回收的才会被关闭，而且这个时间点是不确定的。  
@@ -47,7 +47,7 @@ buffer.reset();//恢复position到之前的mark，如果mark=-1，说明没有�
 
 
 网络IO：
-1、selector主要做了什么事情，轮训是谁实现的？jdk吗？
+1、selector主要做了什么事情，轮训是谁实现的？jdk吗？不是JDK实现的，在不同的系统下，实现是不一样的，如Linux下是Epoll
 2、selector的bug：空轮序，CPU100%，若Selector的轮询结果为空，也没有wakeup或新消息处理，则发生空轮询，CPU使用率100%，
 3、线程、selector和channel的关系？selector可以跨线程还是在只能在一个线程？
 4、Selector（选择器）介绍
@@ -535,9 +535,6 @@ Reactor模式是基于同步I/O的，而Proactor模式是和异步I/O相关的�
   
 参考  
 https://tech.meituan.com/2016/11/04/nio.html  
-  
-  
----------------------------------------------------------------------------------------------------------------------  
   
   
 ---------------------------------------------------------------------------------------------------------------------  

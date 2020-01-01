@@ -1,4 +1,3 @@
-```
 重写hashCode()方法和equals()方法及如何重写
 http://blog.csdn.net/jing_bufferfly/article/details/50868266
 

@@ -1,4 +1,4 @@
-```
+
 RP：Reactive programming，反应式编程
 FP：(Functional Programming) 函数式编程
 FRP：Functional Reactive Programming

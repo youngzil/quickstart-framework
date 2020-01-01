@@ -163,8 +163,8 @@ jdk1.7版本中，扩容过程中会新数组会和原来的数组有指针引�
 ConcurrentHashMap：  
 总结  
 其实可以看出JDK1.8版本的ConcurrentHashMap的数据结构已经接近HashMap，相对而言，ConcurrentHashMap只是增加了同步的操作来控制并发，  
-从JDK1.7版本的ReentrantLock+Segment+HashEntry，  
-到JDK1.8版本中synchronized+CAS+HashEntry+红黑树。  
+从JDK1.7版本的ReentrantLock+Segment+HashEntry，
+到JDK1.8版本中synchronized+CAS+HashEntry+红黑树，CAS操作  
   
 1.数据结构：取消了Segment分段锁的数据结构，取而代之的是数组+链表+红黑树的结构。  
 2.保证线程安全机制：JDK1.7采用segment的分段锁机制实现线程安全，其中segment继承自ReentrantLock。JDK1.8采用CAS+Synchronized保证线程安全。  
@@ -279,6 +279,11 @@ CopyOnWriterArrayList所代表的核心概念就是：任何对array在结构上
   // if (delay <= 0)//延迟时间到期，获取并删除头部元素。  
   
   
+  DelayQueue内部的实现使用了一个优先队列。当调用DelayQueue的offer方法时，把Delayed对象加入到优先队列q中。如下：
+  DelayQueue的take方法，把优先队列q的first拿出来（peek），如果没有达到延时阀值，则进行await处理。如下：
+available.awaitNanos(delay);
+  
+  
 DelayQueue 的主要成员  
   
 public class DelayQueue<E extends Delayed> extends AbstractQueue<E>  
@@ -305,6 +310,21 @@ public class DelayQueue<E extends Delayed> extends AbstractQueue<E>
 三、优先级队列不允许null值，不允许未实现Comparable接口的对象。  
   
 四、优先级中传入的实体对象  
+
+
+
+DelayQueue基本原理
+首先，这种队列中只能存放实现Delayed接口的对象，而此接口有两个需要实现的方法。最重要的就是getDelay，这个方法需要返回对象过期前的时间。简单说，队列在某些方法处理前，会调用此方法来判断对象有没有超时。
+
+其次，DelayQueue是一个BlockingQueue，其特化的参数是Delayed。（不了解BlockingQueue的同学，先去了解BlockingQueue再看本文）
+Delayed扩展了Comparable接口，比较的基准为延时的时间值，Delayed接口的实现类getDelay的返回值应为固定值（final）。DelayQueue内部是使用PriorityQueue实现的。
+
+总结，DelayQueue的关键元素BlockingQueue、PriorityQueue、Delayed。可以这么说，DelayQueue是一个使用优先队列（PriorityQueue）实现的BlockingQueue，优先队列的比较基准值是时间。本质上即：
+
+DelayQueue = BlockingQueue +PriorityQueue + Delayed
+
+
+
   
 优先级队列PriorityBlockingQueue  
 https://blog.csdn.net/qq_38293564/article/details/80586040  
@@ -313,15 +333,5 @@ https://blog.csdn.net/neweastsun/article/details/88085955
   
   
 ---------------------------------------------------------------------------------------------------------------------  
-  
-  
-  
-  
-  
-  
-  
-  
-  
----------------------------------------------------------------------------------------------------------------------  
-  
-  
+
+

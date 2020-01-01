@@ -1,5 +1,5 @@
 
-```
+
 布尔类型：布尔数据类型只有两个可能的值：真和假。使用此数据类型为跟踪真/假条件的简单标记。这种数据类型就表示这一点信息，但是它的“大小”并不是精确定义
 
 stackoverflow就有关于boolean占几个字节的讨论。 what-is-the-size-of-a-boolean-variable-in-java[2] 其中有一个高赞回答：
@@ -25,4 +25,4 @@ References
 [2] what-is-the-size-of-a-boolean-variable-in-java: https://stackoverflow.com/questions/383551/what-is-the-size-of-a-boolean-variable-in-java
 [3] 所以1个字节、4个字节都是有可能的: https://blog.csdn.net/makingadream/article/details/53100237
 
-```
+

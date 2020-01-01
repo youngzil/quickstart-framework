@@ -1,4 +1,3 @@
-```
 1、Java泛型的类型擦除和Java语法糖（12个）
 2、sleep和wait方法
 3、jar包和替换jar包类
@@ -270,7 +269,7 @@ http://yang.run/2016/03/29/Using-ThreadGroup-to-monitor-thread-exit/
 java在读多写少、写多读少分别使用什么类
 
 java并发控制参考
-/Users/yangzl/git/quickstart-framework/quickstart-javase/doc/java并发包concurrent和并发工具类.md中的并发工具类
+docs/java并发包concurrent和并发工具类.md中的并发工具类
 
 
 并发控制：

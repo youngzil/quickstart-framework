@@ -1,4 +1,4 @@
-```
+
 函数式接口
 函数式接口（functional interface 也叫功能性接口，其实是同一个东西）。
 简单来说，函数式接口是只包含一个方法的接口。比如Java标准库中的java.lang.Runnable和java.util.Comparator都是典型的函数式接口。
@@ -13,8 +13,8 @@ Lambda语法
 2、一个箭头符号：->
 3、方法体，可以是表达式和代码块，方法体函数式接口里面方法的实现，如果是代码块，则必须用{}来包裹起来，且需要一个return 返回值，但有个例外，若函数式接口里面方法返回值是void，则无需{}
 
-总体看起来像这样
 (parameters) -> expression 或者 (parameters) -> { statements; }
+总体看起来像这样
 
 
 方法引用

@@ -1,6 +1,6 @@
 
 
-```
+
 考虑到 java 自带的 ClassLoader 无法灵活的添加某路径下的类，考虑以下三种方式实现：
 1、AppClassLoader 继承自 URLClassLoader，以反射的方式将 addURL 方法设置为 public，以添加自定义路径为 classpath
 2、自定义类加载器实现 URLClassLoader，将 addURL 由 protected 变更为 public，以方便添加自定义路径为 classpath
@@ -17,7 +17,7 @@ org.quickstart.javase.jdk.classloader.ClassLoaderMainTest
 参考
 https://blog.csdn.net/super_wj0820/article/details/96876212
 
-```
+
 
 ---------------------------------------------------------------------------------------------------------------------
 
