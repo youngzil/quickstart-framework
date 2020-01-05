@@ -675,6 +675,7 @@ B – Blocked – 线程被阻塞，与条件等待不同，线程被阻塞一�
 ---------------------------------------------------------------------------------------------------------------------
 远程Debugging工具：IDEA、eclipse
 
+
 开启远程debug
 JAVA_OPT="${JAVA_OPT} -Xdebug -Xrunjdwp:transport=dt_socket,address=9555,server=y,suspend=n"
 JDK1.5之后：export JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=1043,server=y,suspend=n"

@@ -2,13 +2,37 @@
 
 set -e
 
-VARS=$#
-if [ $VARS -lt 1 ];
-then
-        echo "必须传入1个参数
+function usage(){
+cat << HELP
+
+Usage: git-aifgw-deploy 项目名 环境
+
 第一个参数是编译任务名（aifgw/oauth/webapp/webdev/webopr/all)
-usage: $0  all"
-        exit 0;
+第二个参数为环境参数，必须是dev/test/prod
+
+Example:
+    git-aifgw-deploy aifgw dev
+    git-aifgw-deploy aifgw test
+    git-aifgw-deploy aifgw prod
+    git-aifgw-deploy oauth prod
+HELP
+}
+
+if [ $# -lt 2 ]; then
+    usage
+    exit 0;
+fi
+
+ARG1=$1
+if [[ "$ARG1" =~ "-h" ]];then
+    usage
+    exit 0
+fi
+
+MODULE_ENV_LIST="aifgw oauth webapp webdev webopr all"   ###定义list
+if [[ -z $ARG1 ]] || [[ ! $MODULE_ENV_LIST =~ $ARG1 ]] ; then
+  usage
+  exit 0;
 fi
 
 ospversion=`cat ${HOME}/deploy_oppf/xml/oppf_version | grep 'oppf.version' | awk -F"=" '{print $2}'`
@@ -17,10 +41,9 @@ CURR_PATH=`pwd`
 PROFILE_ENV_LIST="dev test prod"   ###定义list
 PROFILE_ENV=$2
 #PROFILE_ENV=${PROFILE_ENV:-test}
-
 if [[ -z $PROFILE_ENV ]] || [[ ! $PROFILE_ENV_LIST =~ $PROFILE_ENV ]] ; then
-  echo "第二个参数为环境参数，必须是dev/test/prod"
-  exit 1
+  usage
+  exit 0;
 fi
 
 #全局变量
@@ -211,7 +234,7 @@ webopr()
 
 gitClone
 
-case $1 in
+case $ARG1 in
   webapp)
      webapp
   ;;
@@ -235,8 +258,8 @@ case $1 in
       webopr
   ;;
   *)
-  echo "$1 请输入任务名: aifgw/oauth/webapp/webdev/webopr/all"
-  exit 1
+  usage
+  exit 0
   ;;
 esac
 
