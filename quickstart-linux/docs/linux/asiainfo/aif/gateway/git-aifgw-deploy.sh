@@ -5,16 +5,18 @@ set -e
 function usage(){
 cat << HELP
 
-Usage: git-aifgw-deploy 项目名 环境
+Usage: sh git-aifgw-deploy.sh 项目名 环境
 
 第一个参数是编译任务名（aifgw/oauth/webapp/webdev/webopr/all)
 第二个参数为环境参数，必须是dev/test/prod
 
 Example:
-    git-aifgw-deploy aifgw dev
-    git-aifgw-deploy aifgw test
-    git-aifgw-deploy aifgw prod
-    git-aifgw-deploy oauth prod
+    sh git-aifgw-deploy.sh aifgw dev
+    sh git-aifgw-deploy.sh aifgw test
+    sh git-aifgw-deploy.sh aifgw prod
+    sh git-aifgw-deploy.sh oauth prod
+    sh git-aifgw-deploy.sh all test
+
 HELP
 }
 
