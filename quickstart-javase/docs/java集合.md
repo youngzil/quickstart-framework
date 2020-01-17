@@ -142,6 +142,7 @@ https://my.oschina.net/hosee/blog/618953
 https://blog.csdn.net/qq296398300/article/details/79074239  
 https://blog.csdn.net/WuJun_025/article/details/88541966  
 https://blog.csdn.net/bolang789/article/details/79855053  
+https://tech.meituan.com/2016/06/24/java-hashmap.html
   
 HashMap：  
   
@@ -157,7 +158,11 @@ jdk1.7版本中多线程同时对HashMap扩容时，会引起链表死循环，�
 jdk1.8版本中多线程put不会在出现死循环问题了，只有可能出现数据丢失的情况，因为1.8版本中，会将原来的链表结构保存在节点e中，然后依次遍历e,根据hash&n是否等于0,分成两条支链，保存在新数组中。    
 jdk1.7版本中，扩容过程中会新数组会和原来的数组有指针引用关系，所以将引起死循环问题。   
 
-  
+jdk1.8 hashmap多线程put不会造成死循环
+原因：声明两对指针，维护两个连链表，依次在末端添加新的元素。（在多线程操作的情况下，无非是第二个线程重复第一个线程一模一样的操作）
+总结。1.8中hashmap的确不会因为多线程put导致死循环，但是依然有其他的弊端，比如数据丢失等等。因此多线程情况下还是建议使用concurrenthashmap。
+
+
   
   
 ConcurrentHashMap：  
