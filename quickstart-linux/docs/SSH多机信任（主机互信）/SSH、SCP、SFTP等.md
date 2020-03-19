@@ -69,6 +69,31 @@ SSH1又分为1.3和 1.5两个版本。SSH1采用DES、3DES、Blowfish和RC4等�
 SSH2避免了RSA的专利问题，并修补了CRC的缺陷。SSH2用数字签名算法（DSA）和Diffie-Hellman（DH）算法代替RSA来完成对称密钥的交换，用消息证实代码（HMAC）来代替CRC。同时SSH2增加了AES和Twofish等对称加密算法。
 
 
+OpenSSH 是 SSH （Secure SHell） 协议的免费开源实现。
+SSH协议族可以用来进行远程控制， 或在计算机之间传送文件。而实现此功能的传统方式，如telnet(终端仿真协议)、 rcp ftp、 rlogin、rsh都是极为不安全的，并且会使用明文传送密码。
+OpenSSH提供了服务端后台程序和客户端工具，用来加密远程控件和文件传输过程中的数据，并由此来代替原来的类似服务。
+
+知识延伸：
+    ssh协议有两个版本：
+        v1:基于CRC-32 做MAC，不安全； （一般用于实现主机认证）
+        v2:基于协议协商选择双方都支持的最安全的MAC机制
+            基于DH做密钥交换，基于RSA或DSA实现身份认证，从而实现无需输入账号面膜
+            客户端通过检查服务器端的主机秘钥来判断是否能够继续通信；
+    认证方式：
+        1、基于口令的认证
+        2、基于密钥的认证
+
+二、为什么要使用OpenSSH
+    由于传统的telnet、rcp ftp等工具是明文传输数据的，对数据安全性存在很大的安全隐患，而OpenSSH可以对传输的数据进行加密从而大大提高了数据的安全性。
+
+三、OpenSSH程序简介
+
+  1、OpenSSH的分为客户端和服务端两部分
+    Clients端的配置文件：/etc/ssh/ssh_config
+    Server端的配置文件：/etc/ssh/sshd_config
+    Server端服务脚本：/etc/rc.d/init.d/sshd
+
+
 
 安全套接字层（SecureSocketsLayer（SSL））和 安全套接层协议（SSL，SecuritySocketLayer）：
 
@@ -98,6 +123,12 @@ PPP被广泛用作连接同步和异步电路的数据链路层协议，取代�
 OpenSSH：
 https://www.openbsd.org/
 https://www.openssh.com/
+https://www.openssh.com/
+
+
+
+OPENSSH 详解参考
+https://www.cnblogs.com/RXDXB/p/11672127.html
 
 
 ---------------------------------------------------------------------------------------------------------------------

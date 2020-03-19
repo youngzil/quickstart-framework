@@ -60,8 +60,10 @@ linux中shell的切换
 usermod -s /bin/csh aiesb
 chsh -s /bin/csh   修改当前用户
 chsh -s /bin/bash   修改当前用户
+chsh -s /bin/zsh
 sudo chsh -s /usr/bin/zsh  修改root用户的
 
+echo $SHELL
 
 grep 你的用户名 /etc/passwd
 消息中最后一项是当前用户使用的shell类型/usr/bin/zsh
