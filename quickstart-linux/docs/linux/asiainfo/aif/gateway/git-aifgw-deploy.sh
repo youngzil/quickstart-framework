@@ -8,24 +8,28 @@ cat << HELP
 Usage: sh git-aifgw-deploy.sh 项目名 环境
 
 第一个参数是编译任务名（aifgw/oauth/webapp/webdev/webopr/all)
-第二个参数为环境参数，必须是dev/test/prod
+第二个参数是分支名称（master/develop-shandong-unicom/develop-zhejiang-mobile/。。。)
+第三个参数为环境参数，必须是dev/test/prod
 
 Example:
-    sh git-aifgw-deploy.sh aifgw dev
-    sh git-aifgw-deploy.sh aifgw test
-    sh git-aifgw-deploy.sh aifgw prod
-    sh git-aifgw-deploy.sh oauth prod
-    sh git-aifgw-deploy.sh all test
+    sh git-aifgw-deploy.sh aifgw master dev
+    sh git-aifgw-deploy.sh aifgw develop-shandong-unicom test
+    sh git-aifgw-deploy.sh aifgw develop-zhejiang-mobile prod
+    sh git-aifgw-deploy.sh oauth develop-zhejiang-mobile prod
+    sh git-aifgw-deploy.sh all develop-zhejiang-mobile test
 
 HELP
 }
 
-if [ $# -lt 2 ]; then
+if [ $# -lt 3 ]; then
     usage
     exit 0;
 fi
 
 ARG1=$1
+BRANCH_NAME=$2
+PROFILE_ENV=$3
+
 if [[ "$ARG1" =~ "-h" ]];then
     usage
     exit 0
@@ -41,7 +45,6 @@ ospversion=`cat ${HOME}/deploy_oppf/xml/oppf_version | grep 'oppf.version' | awk
 CURR_PATH=`pwd`
 
 PROFILE_ENV_LIST="dev test prod"   ###定义list
-PROFILE_ENV=$2
 #PROFILE_ENV=${PROFILE_ENV:-test}
 if [[ -z $PROFILE_ENV ]] || [[ ! $PROFILE_ENV_LIST =~ $PROFILE_ENV ]] ; then
   usage
@@ -61,7 +64,9 @@ gitClone(){
   echo "[echo] 开始下载源码..."
   cd $CODE_PATH
   rm -rf * .[!.]*
-  git clone http://yangzl:nihao%40124@10.19.14.241/OSP/gateway.git $CODE_PATH
+  #git clone http://yangzl:nihao%40124@10.19.14.241/OSP/gateway.git $CODE_PATH
+  git clone http://10.19.14.241/OSP/gateway.git  $CODE_PATH
+  git checkout -b $BRANCH_NAME origin/$BRANCH_NAME
 }
 
 checkVueEnvironment(){
