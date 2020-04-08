@@ -54,7 +54,7 @@ fi
 #全局变量
 CODE_PATH=${HOME}/deploy_oppf/git_gateway/src
 MAVEN_HOME=${HOME}/deploy_oppf/bin/maven/bin
-TAR_PACKAGE_PATH=${HOME}/deploy_oppf/dist_gateway_git
+TAR_PACKAGE_PATH=${HOME}/deploy_oppf/dist_gateway_git/$BRANCH_NAME
 
 #创建目录
 mkdir -p $CODE_PATH
@@ -66,7 +66,12 @@ gitClone(){
   rm -rf * .[!.]*
   #git clone http://yangzl:nihao%40124@10.19.14.241/OSP/gateway.git $CODE_PATH
   git clone http://10.19.14.241/OSP/gateway.git  $CODE_PATH
-  git checkout -b $BRANCH_NAME origin/$BRANCH_NAME
+  CURRENT_BRANCH_NAME=`git branch | sed -n '/\* /s///p'`
+  echo $CURRENT_BRANCH_NAME
+  if [[ $CURRENT_BRANCH_NAME != $BRANCH_NAME ]];then
+    echo "$CURRENT_BRANCH_NAME!=$BRANCH_NAME"
+    git checkout -b $BRANCH_NAME origin/$BRANCH_NAME
+  fi
 }
 
 checkVueEnvironment(){
