@@ -67,9 +67,9 @@ gitClone(){
   #git clone http://yangzl:nihao%40124@10.19.14.241/OSP/gateway.git $CODE_PATH
   git clone http://10.19.14.241/OSP/gateway.git  $CODE_PATH
   CURRENT_BRANCH_NAME=`git branch | sed -n '/\* /s///p'`
-  echo $CURRENT_BRANCH_NAME
+  #echo $CURRENT_BRANCH_NAME
   if [[ $CURRENT_BRANCH_NAME != $BRANCH_NAME ]];then
-    echo "$CURRENT_BRANCH_NAME!=$BRANCH_NAME"
+    #echo "$CURRENT_BRANCH_NAME!=$BRANCH_NAME"
     git checkout -b $BRANCH_NAME origin/$BRANCH_NAME
   fi
 }
@@ -244,7 +244,10 @@ webopr()
   echo "$TARGET_NAME打包完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
 }
 
+
 gitClone
+
+START_DATE=$(date +%s)
 
 case $ARG1 in
   webapp)
@@ -275,5 +278,8 @@ case $ARG1 in
   ;;
 esac
 
+END_DATE=$(date +%s)
+STAMP_DIFF=`expr $END_DATE - $START_DATE`
+
 echo "#####aifgw 版本:${ospversion}#####"
-echo "打包完成,打包后的压缩包请查看$TAR_PACKAGE_PATH..."
+echo "打包完成,耗时=$STAMP_DIFF秒，打包后的压缩包请查看$TAR_PACKAGE_PATH..."
