@@ -4,7 +4,7 @@
 
 4、查看磁盘和文件大小
   tar命令
-  Linux查看端口占用
+  Linux根据端口号查看进程PID
 
 5、
 
@@ -120,13 +120,26 @@ ssh  aiesb@10.76.232.148 "cd ~/esb_1/sbin;start_all.sh"
 
 
 ---------------------------------------------------------------------------------------------------------------------
+Linux根据端口号查看进程PID
+
 Linux查看端口占用：
 方法1: lsof命令,即ls open files
 lsof -i :端口号
 
+
 方法2: netstat命令
 netstat -tunpl | grep 端口号
 netstat -natp | grep 1521
+netstat -nlp|grep :80
+ netstat -tunlp|grep port
+
+
+3、命令ps，可以查看已知进程PID的执行目录的详细信息
+ps -ef | grep 8246
+ps -x | grep 8246  
+ps aux | grep pid
+
+
 
 
  mkdir -p /data/db

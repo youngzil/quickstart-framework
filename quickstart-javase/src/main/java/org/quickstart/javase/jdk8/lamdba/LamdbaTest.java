@@ -12,9 +12,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Consumer;
 
+import javax.servlet.FilterConfig;
 import javax.swing.JButton;
 
 /**
@@ -33,6 +36,15 @@ public class LamdbaTest {
         numbers.add(124);
         numbers.add(125);
         numbers.add(126);
+
+        Set<Integer> integerSet = new HashSet<>();
+        integerSet.add(123);
+        integerSet.add(125);
+
+
+        numbers.removeIf(num->integerSet.contains(num));
+        System.out.println(numbers);
+
 
         // jdk1.7 before
         // no.1
