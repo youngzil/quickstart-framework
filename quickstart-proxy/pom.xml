@@ -16,7 +16,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<JAVA_HOME>/Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home</JAVA_HOME>
+		<JAVA_HOME>/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home</JAVA_HOME>
 	</properties>
 
 	<dependencies>

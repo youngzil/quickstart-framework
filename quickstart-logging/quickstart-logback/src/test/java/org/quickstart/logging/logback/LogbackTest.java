@@ -11,10 +11,10 @@ import org.slf4j.LoggerFactory;
  */
 public class LogbackTest {
 
-  private final static Logger logger = LoggerFactory.getLogger(LogbackTest.class);
+  private static final Logger logger = LoggerFactory.getLogger(LogbackTest.class);
 
   // 测试多文件日志打印
-  private final static Logger testLog = LoggerFactory.getLogger("testLog");
+  private static final Logger testLog = LoggerFactory.getLogger("testLog");
 
   @Test
   public void testroot() {
