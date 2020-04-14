@@ -8,6 +8,6 @@ package org.quickstart.kotlin
 class GroovyTest {
 
     def execute(map) {
-        map.msg = "sssss";
+        map.yangzl = "sssss";
     }
 }
