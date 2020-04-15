@@ -73,5 +73,8 @@ exec命令在执行时会把当前的shell process关闭，然后换到后面的
 
 
 
+linux exec与重定向
+参考
+http://xstarcd.github.io/wiki/shell/exec_redirect.html
 
 
