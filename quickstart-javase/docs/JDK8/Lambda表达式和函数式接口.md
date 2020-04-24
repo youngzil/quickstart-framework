@@ -28,6 +28,13 @@ ObjectReference::methodName
 3、构造函数.则是ClassName::new
 
 
+lambda的作用域
+在Lambda中，变量的作用域与访问操作主要遵循以下规则：
+1、本地变量(Local Variable)可以访问但是不可以修改
+2、类成员变量与静态变量可以被读写，即闭包中的this实际指向的是创建该Lambda表达式的方法的this参数
+3、函数式接口的默认方法不可以在Lambda表达式中被访问
+
+
 
 
 参考

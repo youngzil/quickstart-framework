@@ -1,4 +1,7 @@
+1、使用Stream的基本步骤
+2、Stream简介
 
+---------------------------------------------------------------------------------------------------------------------
 在此我们总结一下使用Stream的基本步骤：
 
 1、创建Stream；
@@ -105,18 +108,40 @@ https://www.jianshu.com/p/e429c517e9cb
 https://ifeve.com/stream/
 https://www.w3cschool.cn/java/codetag-stream-stream_group.html
 https://www.jianshu.com/p/e4275cca364c
+https://blog.jooq.org/2014/06/13/java-8-friday-10-subtle-mistakes-when-using-the-streams-api/
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+Stream简介
+
+
+Stream是java 8中新增加的特性。
+
+Stream 不是集合元素，它不是数据结构并不保存数据，它是有关算法和计算的，它更像一个高级版本的Iterator。原始版本的Iterator，用户只能显式地一个一个遍历元素并对其执行某些操作；高级版本的Stream，用户只要给出需要对其包含的元素执行什么操作，比如 “过滤掉长度大于 10 的字符串”、“获取每个字符串的首字母”等，Stream会隐式地在内部进行遍历，做出相应的数据转换。
+
+Stream就如同一个迭代器（Iterator），单向，不可往复，数据只能遍历一次，遍历过一次后即用尽了，就好比流水从面前流过，一去不复返。
+
+而和迭代器又不同的是，Stream可以并行化操作，迭代器只能命令式地、串行化操作。顾名思义，当使用串行方式去遍历时，每个item读完后再读下一个item。而使用并行去遍历时，数据会被分成多个段，其中每一个都在不同的线程中处理，然后将结果一起输出。Stream的并行操作依赖于Java 7中引入的Fork/Join框架来拆分任务和加速处理过程。
+
+Java的并行API演变历程基本如下：
+1.0-1.4 中的 java.lang.Thread
+5.0 中的 java.util.concurrent
+6.0 中的 Phasers 等
+7.0 中的 Fork/Join 框架
+8.0 中的 Lambda
+
+Stream 的另外一大特点是，数据源本身可以是无限的。
+
+
+parallelStream简介
+parallelStream其实就是一个并行执行的流。它通过默认的ForkJoinPool，可能提高你的多线程任务的速度。
+parallelStream具有平行处理能力，处理的过程会分而治之，也就是将一个大任务切分成多个小任务，这表示每个任务都是一个操作：
 
 
 
 
-
-
-
-
-
-
-
-
-
+参考
+https://blog.yangx.site/2018/03/28/java-8-stream/
 
 

@@ -50,6 +50,18 @@ add、remove、element  抛异常
 offer、poll、peek	 返回boolean  
 put、take  阻塞  
 队列：FIFO，栈：FILO  
+
+Java 数据结构之Deque(双向队列)、Queue、Stack
+https://blog.csdn.net/top_code/article/details/8650729
+
+add        增加一个元索                     如果队列已满，则抛出一个IIIegaISlabEepeplian异常
+remove   移除并返回队列头部的元素    如果队列为空，则抛出一个NoSuchElementException异常
+element  返回队列头部的元素             如果队列为空，则抛出一个NoSuchElementException异常
+offer       添加一个元素并返回true       如果队列已满，则返回false
+poll         移除并返问队列头部的元素    如果队列为空，则返回null
+peek       返回队列头部的元素             如果队列为空，则返回null
+put         添加一个元素                      如果队列满，则阻塞
+take        移除并返回队列头部的元素     如果队列为空，则阻塞
   
   
 ---------------------------------------------------------------------------------------------------------------------  
@@ -138,16 +150,24 @@ java中hashmap是通过数据+链表/红黑树的方式来解决的
   
 ---------------------------------------------------------------------------------------------------------------------  
 HashMap和ConcurrentHashMap在1.7和1.8的区别  
-https://my.oschina.net/hosee/blog/618953  
-https://blog.csdn.net/qq296398300/article/details/79074239  
-https://blog.csdn.net/WuJun_025/article/details/88541966  
-https://blog.csdn.net/bolang789/article/details/79855053  
-https://tech.meituan.com/2016/06/24/java-hashmap.html
+
   
 HashMap：  
-  
 JDK7中的HashMap：位桶+链表  
 JDK8：位桶+链表/红黑树  
+
+
+HashMap即是采用了链地址法.
+JDK7 使用了数组+链表的方式
+JDK8 使用了数组+链表+红黑树的方式
+
+
+发生冲突关于entry节点插入链表还是链头呢？
+JDK7:插入链表的头部，头插法
+JDK8:插入链表的尾部，尾插法【避免死循环】（避免出现逆序且链表死循环的问题）
+
+
+
   
 JDK7中HashMap采用的是位桶+链表的方式，即我们常说的散列链表的方式，  
 而JDK8中采用的是位桶+链表/红黑树（有关红黑树请查看红黑树）的方式，也是非线程安全的。当某个位桶的链表的长度达到某个阀值的时候，这个链表就将转换成红黑树。  
@@ -196,6 +216,18 @@ JDK8中的实现：
 4、sizeCtl的不同值来代表不同含义，起到了控制的作用。  
 至于为什么JDK8中使用synchronized而不是ReentrantLock，我猜是因为JDK8中对synchronized有了足够的优化吧。  
   
+  
+  
+  
+  
+参考
+https://www.jianshu.com/p/a7767e6ff2a2
+https://my.oschina.net/hosee/blog/618953  
+https://blog.csdn.net/qq296398300/article/details/79074239  
+https://blog.csdn.net/WuJun_025/article/details/88541966  
+https://blog.csdn.net/bolang789/article/details/79855053  
+https://tech.meituan.com/2016/06/24/java-hashmap.html
+
   
 ---------------------------------------------------------------------------------------------------------------------  
 2、一致性hash的实现原理，hashmap和concurrenthashmap的区别，扩容的不安全体现，死循环问题  
