@@ -69,6 +69,9 @@ cf.isDone();
 https://www.jianshu.com/p/abfa29c01e1d
 https://blog.csdn.net/ahilll/article/details/83956261
 http://ifeve.com/completablefuture/
+https://blog.csdn.net/JoshuaXin/article/details/84880857
+https://www.jianshu.com/p/3aa308a5f182
+
 
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -90,6 +93,9 @@ https://www.jianshu.com/p/6f3ee90ab7d3
 https://www.jianshu.com/p/bdc6bd50f7d2
 
 https://github.com/manouti/completablefuture-examples
+
+https://colobu.com/2016/02/29/Java-CompletableFuture/#%E4%B8%BB%E5%8A%A8%E5%AE%8C%E6%88%90%E8%AE%A1%E7%AE%97
+
 
 1、创建CompletableFuture对象
   public static CompletableFuture<Void> runAsync(Runnable runnable)

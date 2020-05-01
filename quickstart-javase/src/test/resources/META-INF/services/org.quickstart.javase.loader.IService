@@ -1,0 +1,2 @@
+org.quickstart.javase.spi.impl.HDFSService
+org.quickstart.javase.spi.impl.LocalService

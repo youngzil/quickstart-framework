@@ -25,6 +25,9 @@ public class ProxyHandlerTest {
         ProxyHandler proxyHandler = new ProxyHandler();
         UserManager userManager = (UserManager) proxyHandler.newProxyInstance(new UserManagerImpl());
 
+        System.out.println(userManager.getClass());
+
+
         String name = userManager.findUser("0001");
         System.out.println("client.main-->>" + name);
     }

@@ -7,9 +7,13 @@ https://www.infoq.cn/article/things-of-java-log-performance
 https://www.cnblogs.com/dolphin0520/p/10396894.html
 
 
+
 ---------------------------------------------------------------------------------------------------------------------
 1、总是使用Log Facade，而不是具体Log Implementation
 具体来说，现在推荐使用 Log4j-API 或者 SLF4j，不推荐继续使用 JCL。
+门面模式（Facade Pattern），也称之为外观模式，其核心为：外部与一个子系统的通信必须通过一个统一的外观对象进行，使得子系统更易于使用。
+
+
 
 Slf4j 类似于Commons Logging，是一套简易Java日志门面，本身并无日志的实现。（Simple Logging Facade for Java，缩写Slf4j）。
 
@@ -37,3 +41,6 @@ http://www.cnblogs.com/chenhongliang/p/5312517.html
 https://blog.csdn.net/sgdd123/article/details/80701262
 https://blog.csdn.net/jeikerxiao/article/details/62423749
 http://ckjava.com/2019/02/24/Java-SLF4J-Logback/
+https://developer.aliyun.com/article/756446
+
+

@@ -1,3 +1,6 @@
+JDK使用可以参考官方Demo
+
+
 https://github.com/eclipse-ee4j/concurrency-api
 https://github.com/eclipse-ee4j/common-annotations-api
 https://github.com/eclipse-ee4j/jta-api
