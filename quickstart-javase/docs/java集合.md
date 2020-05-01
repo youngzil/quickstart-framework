@@ -6,7 +6,7 @@
 4、集合类HashMap详解  
 5、fail-fast机制/快速失败机制  
 6、延时队列DelayQueue  
-7、  
+7、HashMap和ConcurrentHashMap学习.md
   
   
   
