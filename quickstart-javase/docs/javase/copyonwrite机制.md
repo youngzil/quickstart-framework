@@ -1,3 +1,4 @@
+copyonwrite机制
 
 
 问除了加锁之外有没有其他方法来保证线程安全。楼下很多回答copyonwrite机制。这个问题回答有很多，但是copyonwrite的回答有点误导人。

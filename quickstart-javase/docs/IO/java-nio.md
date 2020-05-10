@@ -9,7 +9,7 @@ Buffer分配：3种
 buffer读写方法  
 Buffer的capacity,position和limit、mark
   
-直接内存：不受young gc的影响，只有full gc的时候回收，当众多的DirectByteBuffer对象从新生代被送入老年代后触发了 full gc才会会释放回收，  
+直接内存MappedByteBuffer：不受young gc的影响，只有full gc的时候回收，当众多的DirectByteBuffer对象从新生代被送入老年代后触发了 full gc才会会释放回收，  
 MappedByteBuffer在处理大文件时的确性能很高，但也存在一些问题，如内存占用、文件关闭不确定，被其打开的文件只有在垃圾回收的才会被关闭，而且这个时间点是不确定的。  
   
   
@@ -460,15 +460,11 @@ Selector BUG出现的原因
   
 Netty的解决办法  
 1、对Selector的select操作周期进行统计，每完成一次空的select操作进行一次计数，  
-2、若在某个周期内连续发生N次空轮询，则触发了epoll死循环bug。  
+2、若在某个周期内连续发生N次空轮询，则说明触发了JDK NIO的epoll死循环bug。  
 3、重建Selector，判断是否是其他线程发起的重建请求，若不是则将原SocketChannel从旧的Selector上去除注册，重新注册到新的Selector上，并将原来的Selector关闭。  
   
-Netty的解决策略：  
-对Selector的select操作周期进行统计。  
-每完成一次空的select操作进行一次计数。  
-在某个周期内如果连续N次空轮询，则说明触发了JDK NIO的epoll死循环bug。  
-创建新的Selector，将出现bug的Selector上的channel重新注册到新的Selector上。  
-关闭bug的Selector，使用新的Selector进行替换。  
+  
+创建新的Selector，将出现bug的Selector上的channel重新注册到新的Selector上。  关闭bug的Selector，使用新的Selector进行替换。  
 
 
 

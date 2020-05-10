@@ -5,8 +5,9 @@ https://www.lmax.com/
 http://lmax-exchange.github.io/disruptor/
 https://github.com/LMAX-Exchange/disruptor
 
-LMAX-Exchange源码github地址：https://github.com/LMAX-Exchange/disruptor
-带中文注释的源码github地址：https://github.com/daoqidelv/disruptor
+
+带中文注释的源码github地址：
+https://github.com/daoqidelv/disruptor
 
 
 http://ifeve.com/disruptor/

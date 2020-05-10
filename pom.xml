@@ -95,6 +95,7 @@
     <module>quickstart-easyexcel</module>
     <module>quickstart-hutool</module>
     <module>quickstart-jodd</module>
+    <module>quickstart-jol</module>
   </modules>
 
 </project>

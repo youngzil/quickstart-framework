@@ -1,4 +1,7 @@
 1、linux 内存清理/释放命令
+buffer/cache/swap的区别和清理方法
+
+    
 2、查看cpu的方法
 3、查找文件夹下某个文件
 
@@ -114,9 +117,27 @@ for file in `find $APP_HOME -name "start*.sh"`
 在$APP_HOME路径下面找start开头的sh文件，返回的是sh文件的全路径
 
 
-
-
 ssh  aiesb@10.76.232.148 "cd ~/esb_1/sbin;start_all.sh"
+
+
+
+
+buffer/cache/swap的区别和清理方法
+
+Swap用途：Swap意思是交换分区，通常我们说的虚拟内存，是从硬盘中划分出的一个分区。当物理内存不够用的时候，内核就会释放缓存区（buffers/cache）里一些长时间不用的程序，然后将这些程序临时放到Swap中，也就是说如果物理内存和缓存区内存不够用的时候，才会用到Swap。
+cache是高速缓存，用于CPU和内存之间的缓冲；
+buffer是I/O缓存，用于内存和硬盘的缓冲；
+buffer是即将要被写入磁盘的，而cache是被从磁盘中读出来的。
+
+
+swap清理：swapoff -a && swapon -a
+注意：这样清理有个前提条件，空闲的内存必须比已经使用的swap空间大
+
+
+
+参考
+https://www.cnblogs.com/kevingrace/p/5991604.html
+
 
 
 ---------------------------------------------------------------------------------------------------------------------
