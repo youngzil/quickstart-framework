@@ -9,9 +9,9 @@ buffer/cache/swap的区别和清理方法
   tar命令
   Linux根据端口号查看进程PID
 
-5、
+5、解压多个压缩包：.gz或.tar.gz
 
-6、
+6、使用grep命令进行多条件查询（AND，OR，NOT）
 
 7、
 
@@ -659,15 +659,86 @@ vim /proc/sys/kernel/pid_max
 ---------------------------------------------------------------------------------------------------------------------
 
 
+解压多个压缩包：.gz或.tar.gz
+对于解压多个.gz文件的，用此命令：
+for gz in *.gz; do gunzip $gz; done
+
+对于解压多个.tar.gz文件的，用下面命令：
+for tar in *.tar.gz;  do tar xvf $tar; done
+
+
+参考
+https://www.cnblogs.com/z00377750/p/9202558.html
 
 
 ---------------------------------------------------------------------------------------------------------------------
 
 
+使用grep命令进行多条件查询（AND，OR，NOT）
+
+Linux--使用grep命令进行多条件查询（AND，OR，NOT）
+
+grep -rn "runlog" *
+说明：
+-r 是递归查找
+-n 是显示行号
+* : 表示当前目录所有文件，也可以是某个文件名
+
+grep是一个非常好用的内容查询命令。如果使用grep来进行条件查询，你的水平就会提高又一等级。
 
 
+1.grep的AND，多条件的与查询。
+用法：
+grep 'pattern1' filename | grep 'pattern2'
+使用管道符连接多个grep命令就可以得到多个条件同时满足才能查询出来的结果。
+
+2.grep的OR，多条件的或查询。
+用法1：
+grep 'pattern1\|pattern2' filename
+使用转义字符将管道符转为'或'符号。
+
+用法2：
+grep -E 'pattern1|pattern2' filename
+使用正则表达式选项。
+
+用法3：
+egrep 'pattern1|pattern2' filename
+egrep相当于grep -E。
+
+grep -E "[1-9]+"
+或
+egrep "[1-9]+"
 
 
+3.grep的NOT，非查询（不满足当前条件的所有内容行）。
+用法：
+grep -v 'pattern' filename
+
+
+4.统计文件或者文本中包含匹配字符串的行数 -c 选项
+语法：
+grep -c "text" file_name
+
+
+1、或操作
+grep -E '123|abc' filename  // 找出文件（filename）中包含123或者包含abc的行
+egrep '123|abc' filename    // 用egrep同样可以实现
+awk '/123|abc/' filename   // awk 的实现方式
+
+2、与操作
+grep pattern1 files | grep pattern2 //显示既匹配 pattern1 又匹配 pattern2 的行。
+
+3、其他操作
+grep -i pattern files   //不区分大小写地搜索。默认情况区分大小写，
+grep -l pattern files   //只列出匹配的文件名，
+grep -L pattern files   //列出不匹配的文件名，
+grep -w pattern files  //只匹配整个单词，而不是字符串的一部分（如匹配‘magic’，而不是‘magical’），
+grep -C number pattern files //匹配的上下文分别显示[number]行，
+
+
+参考
+https://blog.csdn.net/liupeifeng3514/article/details/79880878
+https://blog.csdn.net/mmbbz/article/details/51035401
 
 
 

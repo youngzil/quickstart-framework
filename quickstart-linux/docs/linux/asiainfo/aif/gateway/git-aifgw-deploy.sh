@@ -118,7 +118,7 @@ aifgw()
   # cd $TAR_PACKAGE_PATH/;mkdir temp;cd temp;tar zxf ../aifgw-backend-1.0.tar.gz;cd aifgw-backend-1.0/conf;jar xf ../lib/aifgw-backend-boot-1.0.jar
   # cd $TAR_PACKAGE_PATH/temp;tar czf aifgw-backend-1.0.tar.gz aifgw-backend-1.0;mv aifgw-backend-1.0.tar.gz ~/deploy_oppf/dist_gateway/
   # cd $TAR_PACKAGE_PATH;rm -rf $TAR_PACKAGE_PATH/temp
-  echo "[echo] 项目$PROJECT_NAME编译完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
+  echo "[echo] 项目 $PROJECT_NAME 编译完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
 }
 
 oauth()
@@ -142,7 +142,7 @@ oauth()
   fi
   rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
   mv  $CODE_PATH/$PROJECT_NAME/aifgw-security-distribution/target/$TARGET_NAME   $TAR_PACKAGE_PATH/$TARGET_NAME
-  echo "[echo] 项目$PROJECT_NAME编译完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
+  echo "[echo] 项目 $PROJECT_NAME 编译完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
 }
 
 webapp()
@@ -173,7 +173,7 @@ webapp()
   fi
   rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
   mv  $CODE_PATH/$PROJECT_NAME/aifgw-web-app-distribution/target/$TARGET_NAME  $TAR_PACKAGE_PATH/$TARGET_NAME
-  echo "[echo] 项目$PROJECT_NAME编译完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
+  echo "[echo] 项目$PROJECT_NAME 编译完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
 }
 
 webdev()
@@ -207,7 +207,7 @@ webdev()
       rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
       mv $TARGET_NAME $TAR_PACKAGE_PATH/
   fi
-  echo "$TARGET_NAME打包完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
+  echo "$TARGET_NAME 打包完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
 }
 
 webopr()
@@ -241,7 +241,7 @@ webopr()
       rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
       mv $TARGET_NAME $TAR_PACKAGE_PATH/
   fi
-  echo "$TARGET_NAME打包完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
+  echo "$TARGET_NAME 打包完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
 }
 
 
@@ -282,4 +282,4 @@ END_DATE=$(date +%s)
 STAMP_DIFF=`expr $END_DATE - $START_DATE`
 
 echo "#####aifgw 版本:${ospversion}#####"
-echo "打包完成,耗时=$STAMP_DIFF秒，打包后的压缩包请查看$TAR_PACKAGE_PATH..."
+echo "打包完成,耗时=$STAMP_DIFF 秒，打包后的压缩包请查看$TAR_PACKAGE_PATH..."
