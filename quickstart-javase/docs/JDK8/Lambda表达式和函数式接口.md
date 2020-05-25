@@ -6,6 +6,16 @@ java 8提供 @FunctionalInterface作为注解,这个注解是非必须的，只�
 Java中的lambda无法单独出现，它需要一个函数式接口来盛放，lambda表达式方法体其实就是函数接口的实现，
 
 
+定义：
+第一个前提是要求接口类型，如示例中的 Runnable，可以从当前上下文中推断出来；
+第二个前提是要求接口中只有一个抽象方法。如果一个接口仅有一个抽象方法（除了来自 Object 的方法之外），它被称为函数式接口（functional interface）。
+
+函数式接口的特别之处在于其实例可以通过 Lambda 表达式或方法引用来创建。
+Java 8 的 java.util.function 包中添加了很多新的函数式接口。
+如果一个接口被设计为函数式接口，应该添加@FunctionalInterface 注解。
+编译器会确保该接口确实是函数式接口。当尝试往该接口中添加新的方法时，编译器会报错。
+
+
 
 Lambda语法
 包含三个部分
@@ -75,8 +85,28 @@ Supplier: 返回一个结果，并不要求每次调用都返回一个新的或�
 Predicate: 根据接收参数进行断言，返回boolean类型
 
 
+Function<T, R> 表示接受一个参数的函数，输入类型为 T，输出类型为 R。
+BiFunction<T, U, R>，T 和 U 分别是两个参数的类型，R 是输出类型。
+
+Consumer<T>：接受一个输入，没有输出。抽象方法为 void accept(T t)。
+Supplier<T>：没有输入，一个输出。抽象方法为 T get()。
+Predicate<T>：接受一个输入，输出为 boolean 类型。抽象方法为 boolean test(T t)。
+
+UnaryOperator<T>：接受一个输入，输出的类型与输入相同，相当于 Function<T, T>。
+BinaryOperator<T>：接受两个类型相同的输入，输出的类型与输入相同，相当于 BiFunction<T,T,T>。
+BiPredicate<T, U>：接受两个输入，输出为 boolean 类型。抽象方法为 boolean test(T t, U u)。
 
 
+
+
+参考
+https://www.ibm.com/developerworks/cn/java/j-understanding-functional-programming-4/index.html
+
+https://www.cnblogs.com/paulwang92115/p/12128494.html
+https://blog.csdn.net/chengxuyuan_110/article/details/81112913
+https://www.cnblogs.com/CarpenterLee/p/6729368.html
+https://blog.csdn.net/revivedsun/article/details/80088080
+https://www.baeldung.com/vavr
 
 
 ---------------------------------------------------------------------------------------------------------------------

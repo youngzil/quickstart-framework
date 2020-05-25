@@ -1,3 +1,8 @@
+Java 平台本身对函数式编程的支持，着重介绍 Lambda 表达式和流（Stream）。
+
+参考
+Lambda表达式和函数式接口.md
+
 
 诞生50多年之后，函数式编程（functional programming）开始获得越来越多的关注。
 

@@ -4,7 +4,11 @@ http://ifeve.com/abstractqueuedsynchronizer-use/
 AQS(AbstractQueuedSynchronizer)，AQS是JDK下提供的一套用于实现基于FIFO等待队列的阻塞锁和相关的同步器的一个同步框架。
 这个抽象类被设计为作为一些可用原子int值来表示状态的同步器的基类。
 如果你有看过类似 CountDownLatch 类的源码实现，会发现其内部有一个继承了 AbstractQueuedSynchronizer 的内部类 Sync。
-可见 CountDownLatch 是基于AQS框架来实现的一个同步器.类似的同步器在JUC下还有不少。(eg. Semaphore)        
+可见 CountDownLatch 是基于AQS框架来实现的一个同步器.类似的同步器在JUC下还有不少。(eg. Semaphore)   
+
+谈到并发，我们不得不说AQS(AbstractQueuedSynchronizer)，所谓的AQS即是抽象的队列式的同步器，内部定义了很多锁相关的方法，我们熟知的ReentrantLock、ReentrantReadWriteLock、CountDownLatch、Semaphore等都是基于AQS来实现的。
+
+     
     
     
 实现：一个int状态位和一个有序队列来配合完成        
@@ -72,5 +76,11 @@ state状态位来存储执行状态RUNNING、RUN、CANCELLED，当使用get()获
     
 在FutureTask实现了异步的执行和提交，作为可以被Executor提交的对象。通过Sync来维护任务的执行状态，从而保证只有工作线程任务执行完后，其他线程才能获取到执行结果。AQS的子类Sync在这里主要是借用state状态位来存储执行状态，来完成对对各种状态以及加锁、阻塞的实现。    
     
+
+
+
+参考
+https://cloud.tencent.com/developer/article/1624354
+
     
     
