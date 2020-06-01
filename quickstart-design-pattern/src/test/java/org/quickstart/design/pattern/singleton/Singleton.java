@@ -34,7 +34,7 @@ public class Singleton {
     private volatile static Singleton singleton2 = null;
 
     // 通过该方法获得实例对象
-    // （Double-Check）
+    // DCL（Double-Check Locking）
     public static Singleton getInstance2() {
         if (singleton2 == null) {
             synchronized (Singleton.class) {
