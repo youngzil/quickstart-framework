@@ -10,7 +10,7 @@ java并发包concurrent：
 Java并发工具类：
 并发开始：同步屏障CyclicBarrier
 并发结束：等待多线程完成的CountDownLatch
-并发控制：控制并发线程数的Semaphore
+并发控制：控制并发线程数的信号量Semaphore
 并发交换：两个线程进行数据交换的Exchanger
 
 并发类，如ThreadLocal 、volatile
@@ -38,7 +38,7 @@ Java并发工具类：
 
 并发开始：同步屏障CyclicBarrier
 并发结束：等待多线程完成的CountDownLatch
-并发控制：控制并发线程数的Semaphore
+并发控制：控制并发线程数的信号量Semaphore
 并发交换：两个线程进行数据交换的Exchanger
 
 CyclicBarrier 与 CountDownLatch 分别对应是等待一个线程还是一组线程完成，

@@ -45,21 +45,27 @@ CompletableFuture.allOf(c1, c2, c3, c4, c5);
 //不抛出中断异常，看着你做蛋糕
 //阻塞
 cf.join();
+
 //有异常，看着你做蛋糕
 //阻塞
 cf.get();
+
 //有异常，看着你做蛋糕一小时
 //阻塞
 cf.get(1, TimeUnit.HOURS);
+
 //蛋糕做好了吗？做好了我直接吃你做的，做不好我吃我的
 //非阻塞
 cf.getNow("my cake");
+
 // 我问糕点师：蛋糕是否不做了？
 //非阻塞
 cf.isCancelled();
+
 //我问糕点师：蛋糕是否做糊了？
 //非阻塞
 cf.isCompletedExceptionally();
+
 // 我问糕点师：蛋糕做完了吗？
 //非阻塞
 cf.isDone();

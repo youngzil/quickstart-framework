@@ -139,9 +139,20 @@ parallelStream其实就是一个并行执行的流。它通过默认的ForkJoinP
 parallelStream具有平行处理能力，处理的过程会分而治之，也就是将一个大任务切分成多个小任务，这表示每个任务都是一个操作：
 
 
+Stream中有两个个方法collect和collectingAndThen用于对流中的数据进行处理，可以对流中的数据进行聚合操作，如：
+
+将流中的数据转成集合类型: toList、toSet、toMap、toCollection
+将流中的数据(字符串)使用分隔符拼接在一起：joining
+对流中的数据求最大值maxBy、最小值minBy、求和summingInt、求平均值averagingDouble
+对流中的数据进行映射处理 mapping
+对流中的数据分组：groupingBy、partitioningBy
+对流中的数据累计计算：reducing
+Collectors.collectingAndThen() 收集之后继续做一些处理。
+Collectors.mapping 映射：先对集合中的元素进行映射，然后再对映射的结果使用Collectors操作
 
 
 参考
+https://blog.csdn.net/Alice_qixin/article/details/87169586
 https://blog.yangx.site/2018/03/28/java-8-stream/
 
 
