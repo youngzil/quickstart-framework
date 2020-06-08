@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
 <project
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-  xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <parent>
     <groupId>org.quickstart</groupId>
     <artifactId>quickstart-framework</artifactId>
@@ -9,7 +10,7 @@
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>quickstart-jgit</artifactId>
+  <artifactId>quickstart-sensitive</artifactId>
   <packaging>jar</packaging>
   <name>${project.artifactId}-${project.version}</name>
   <url>http://maven.apache.org</url>
@@ -20,25 +21,14 @@
   </properties>
 
   <dependencies>
-
+    <!-- https://mvnrepository.com/artifact/com.github.houbb/sensitive-core -->
     <dependency>
-      <groupId>org.eclipse.jgit</groupId>
-      <artifactId>org.eclipse.jgit</artifactId>
-      <version>5.4.0.201906121030-r</version>
+      <groupId>com.github.houbb</groupId>
+      <artifactId>sensitive-core</artifactId>
+      <version>0.0.9</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.eclipse.jgit</groupId>
-      <artifactId>org.eclipse.jgit.archive</artifactId>
-      <version>5.4.0.201906121030-r</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.jcraft</groupId>
-      <artifactId>jsch</artifactId>
-      <version>0.1.55</version>
-    </dependency>
-
+    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>

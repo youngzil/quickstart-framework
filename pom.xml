@@ -96,6 +96,7 @@
     <module>quickstart-hutool</module>
     <module>quickstart-jodd</module>
     <module>quickstart-jol</module>
+    <module>quickstart-sensitive</module>
   </modules>
 
   <build>

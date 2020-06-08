@@ -20,7 +20,7 @@
     <ganymed.ssh.version>build210</ganymed.ssh.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <JAVA_HOME>/Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home</JAVA_HOME>
+    <JAVA_HOME>/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home</JAVA_HOME>
   </properties>
 
   <dependencies>
@@ -71,7 +71,7 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>3.8.1</version>
+      <version>3.10</version>
     </dependency>
 
     <dependency>
