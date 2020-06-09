@@ -23,6 +23,7 @@ cat hostlist|while read line
 	  passwd=`echo "$line"|awk '{print $3}'`
 	  trusthost
    done
-chmod 755 -R *   
+#mac可以把下面这一行注释掉
+chmod 755 -R *
 sh sshph.sh
 rm sshph.sh

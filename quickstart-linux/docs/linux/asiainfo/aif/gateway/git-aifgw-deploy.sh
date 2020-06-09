@@ -5,7 +5,7 @@ set -e
 function usage(){
 cat << HELP
 
-Usage: sh git-aifgw-deploy.sh 项目名 环境
+Usage: sh git-aifgw-deploy.sh 项目名 分支名称 环境
 
 第一个参数是编译任务名（aifgw/oauth/webapp/webdev/webopr/all)
 第二个参数是分支名称（master/develop-shandong-unicom/develop-zhejiang-mobile/。。。)

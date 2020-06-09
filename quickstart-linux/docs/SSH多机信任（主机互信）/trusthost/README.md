@@ -4,3 +4,7 @@ cd sshpass-1.06
 ssh-keygen  -t  rsa
 一直回车就好了，生成的公钥和私钥在cd ~/.ssh/下面
 
+然后执行
+ssh trusthost.sh
+
+
