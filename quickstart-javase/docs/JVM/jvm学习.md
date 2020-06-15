@@ -953,6 +953,14 @@ JVM会自动的识别热点方法，并对它们使用方法内联优化。那�
 -XX:+UnlockDiagnosticVMOptions //解锁对JVM进行诊断的选项参数。默认是关闭的，开启后支持一些特定参数对JVM进行诊断
 -XX:+PrintInlining //将内联方法打印出来
 
+
+参考
+
+https://www.cnblogs.com/linghu-java/p/8589843.html
+https://blog.csdn.net/riemann_/article/details/104104967
+https://blog.csdn.net/wabiaozia/article/details/89414045
+https://blog.csdn.net/weixin_30267697/article/details/99446419
+
 ---------------------------------------------------------------------------------------------------------------------
 https://www.cnblogs.com/rgever/p/9534857.html
 https://blog.csdn.net/zhou2s_101216/article/details/79219953

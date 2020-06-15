@@ -109,6 +109,8 @@ https://colobu.com/2016/02/29/Java-CompletableFuture/#%E4%B8%BB%E5%8A%A8%E5%AE%8
   public static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier)
   public static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier, Executor executor)
   CompletableFuture.completedFuture(10000).get();
+  
+  
 2、计算完成时的处理：当Action执行完毕后它的结果返回原始的CompletableFuture的计算结果或者返回异常。所以不会对结果产生任何的作用。
   public CompletionStage<T> whenComplete(BiConsumer<? super T, ? super Throwable> action);
   public CompletionStage<T> whenCompleteAsync(BiConsumer<? super T, ? super Throwable> action);
