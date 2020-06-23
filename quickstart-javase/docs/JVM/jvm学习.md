@@ -168,10 +168,20 @@ Major collection当tenured space被占满时执行。他会清理tenured和young
 http://blog.csdn.net/u014086926/article/details/52106589#
 java对象的引用包括
   强引用，软引用，弱引用，虚引用
-１.强引用：强引用有引用变量指向时永远不会被垃圾回收，JVM宁愿抛出OutOfMemory错误也不会回收这种对象。
+１.强引用（StrongReference）：强引用有引用变量指向时永远不会被垃圾回收，JVM宁愿抛出OutOfMemory错误也不会回收这种对象。
 2.软引用（SoftReference）：如果一个对象具有软引用，内存空间足够，垃圾回收器就不会回收它；
 3.弱引用（WeakReference）：弱引用也是用来描述非必需对象的，当JVM进行垃圾回收时，无论内存是否充足，都会回收被弱引用关联的对象。
 4.虚引用（PhantomReference）：如果一个对象与虚引用关联，则跟没有引用与之关联一样，在任何时候都可能被垃圾回收器回收。
+
+
+Java中四种引用类型
+引用类型	被垃圾回收时间	用途	生存时间
+强引用 Strong Reference	从来不会	对象的一般状态	JVM停止运行时终止
+软引用 Soft Reference	在内存不足时	对象缓存	内存不足时终止
+弱引用 Weak Reference	在垃圾回收时	对象缓存	gc运行后终止
+虚引用 Phantom Reference	从来不会	可以用虚引用来跟踪对象被垃圾回收器回收的活动，当一个虚引用关联的对象被垃圾收集器回收之前会收到一条系统通知	JVM停止运行时终止
+
+
   
 Java中提供这四种引用类型主要有两个目的：
 第一是可以让程序员通过代码的方式决定某些对象的生命周期；
