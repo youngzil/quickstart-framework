@@ -1,191 +1,194 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<parent>
-		<groupId>org.quickstart</groupId>
-		<artifactId>quickstart-framework</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>..</relativePath> <!-- lookup parent from repository -->
-	</parent>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <parent>
+        <groupId>org.quickstart</groupId>
+        <artifactId>quickstart-framework</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>..</relativePath> <!-- lookup parent from repository -->
+    </parent>
 
-	<modelVersion>4.0.0</modelVersion>
-	<artifactId>quickstart-dropwizard</artifactId>
-	<packaging>jar</packaging>
-	<name>${project.artifactId}-${project.version}</name>
-	<url>http://maven.apache.org</url>
-	<description>Demo project for XXX</description>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>quickstart-dropwizard</artifactId>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}-${project.version}</name>
+    <url>http://maven.apache.org</url>
+    <description>Demo project for XXX</description>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
-		<maven-shade-plugin.version>3.2.0</maven-shade-plugin.version>
-		<maven-jar-plugin.version>3.1.0</maven-jar-plugin.version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+        <maven-shade-plugin.version>3.2.0</maven-shade-plugin.version>
+        <maven-jar-plugin.version>3.1.0</maven-jar-plugin.version>
 
-		<!-- You'll probably want to remove this for your project. We're just using it here so that dropwizard-example doesn't get deployed as a library. -->
-		<!-- <maven.deploy.skip>true</maven.deploy.skip> -->
-		<!-- You'll probably want to remove this for your project. We'Re just using it here so that dropwizard-example site doesn't get staged and deployed. -->
-		<!-- <maven.site.skip>true</maven.site.skip> -->
-		<!-- <maven.site.deploy.skip>true</maven.site.deploy.skip> -->
-
-
-		<dropwizard.version>1.2.9</dropwizard.version>
-		<dropwizard-metrics.version>3.2.5</dropwizard-metrics.version>
-		<!-- <dropwizard.version>1.3.7</dropwizard.version> -->
-	</properties>
+        <!-- You'll probably want to remove this for your project. We're just using it here so that dropwizard-example doesn't get deployed as a library. -->
+        <!-- <maven.deploy.skip>true</maven.deploy.skip> -->
+        <!-- You'll probably want to remove this for your project. We'Re just using it here so that dropwizard-example site doesn't get staged and deployed. -->
+        <!-- <maven.site.skip>true</maven.site.skip> -->
+        <!-- <maven.site.deploy.skip>true</maven.site.deploy.skip> -->
 
 
-	<dependencies>
+        <dropwizard.version>2.0.10</dropwizard.version>
+        <dropwizard-metrics.version>3.2.5</dropwizard-metrics.version>
+        <!-- <dropwizard.version>1.3.7</dropwizard.version> -->
+    </properties>
 
-		<dependency>
-			<groupId>io.dropwizard</groupId>
-			<artifactId>dropwizard-core</artifactId>
-			<version>${dropwizard.version}</version>
-		</dependency>
 
-		<dependency>
-			<groupId>io.dropwizard</groupId>
-			<artifactId>dropwizard-client</artifactId>
-			<version>${dropwizard.version}</version>
-		</dependency>
+    <dependencies>
 
-	</dependencies>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-core</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
 
-	<build>
-		<plugins>
-			<!-- <plugin> -->
-			<!-- <groupId>org.apache.maven.plugins</groupId> -->
-			<!-- <artifactId>maven-enforcer-plugin</artifactId> -->
-			<!-- <executions> -->
-			<!-- <execution> -->
-			<!-- <id>enforce</id> -->
-			<!-- <configuration> -->
-			<!-- <rules> -->
-			<!-- <DependencyConvergence /> -->
-			<!-- </rules> -->
-			<!-- </configuration> -->
-			<!-- <goals> -->
-			<!-- <goal>enforce</goal> -->
-			<!-- </goals> -->
-			<!-- </execution> -->
-			<!-- </executions> -->
-			<!-- </plugin> -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>${maven.compiler.source}</source>
-					<target>${maven.compiler.target}</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<archive>
-						<manifest>
-							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-						</manifest>
-					</archive>
-				</configuration>
-			</plugin>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-client</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-shade-plugin</artifactId>
-				<configuration>
-					<createDependencyReducedPom>true</createDependencyReducedPom>
-					<filters>
-						<filter>
-							<artifact>*:*</artifact>
-							<excludes>
-								<exclude>META-INF/*.SF</exclude>
-								<exclude>META-INF/*.DSA</exclude>
-								<exclude>META-INF/*.RSA</exclude>
-							</excludes>
-						</filter>
-					</filters>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>shade</goal>
-						</goals>
-						<configuration>
-							<transformers>
-								<transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
-								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<!-- application类路径 -->
-									<mainClass>org.quickstart.dropwizard.HelloWorldApplication</mainClass>
-								</transformer>
-							</transformers>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+    </dependencies>
 
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.2</version>
-				<executions>
-					<execution>
-						<id>prepare-agent</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<!-- 执行mvn clean package exec:java -->
-			<!-- <plugin> -->
-			<!-- <groupId>org.codehaus.mojo</groupId> -->
-			<!-- <artifactId>exec-maven-plugin</artifactId> -->
-			<!-- <configuration> -->
-			<!-- <mainClass> -->
-			<!-- org.quickstart.dropwizard.HelloWorldApplication -->
-			<!-- </mainClass> -->
-			<!-- <arguments> -->
-			<!-- <argument>server</argument> -->
-			<!-- <argument>conf/application.yml</argument> -->
-			<!-- </arguments> -->
-			<!-- </configuration> -->
-			<!-- </plugin> -->
+    <build>
+        <plugins>
+            <!-- <plugin> -->
+            <!-- <groupId>org.apache.maven.plugins</groupId> -->
+            <!-- <artifactId>maven-enforcer-plugin</artifactId> -->
+            <!-- <executions> -->
+            <!-- <execution> -->
+            <!-- <id>enforce</id> -->
+            <!-- <configuration> -->
+            <!-- <rules> -->
+            <!-- <DependencyConvergence /> -->
+            <!-- </rules> -->
+            <!-- </configuration> -->
+            <!-- <goals> -->
+            <!-- <goal>enforce</goal> -->
+            <!-- </goals> -->
+            <!-- </execution> -->
+            <!-- </executions> -->
+            <!-- </plugin> -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
 
-		</plugins>
-	</build>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <configuration>
+                    <createDependencyReducedPom>true</createDependencyReducedPom>
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <exclude>META-INF/*.SF</exclude>
+                                <exclude>META-INF/*.DSA</exclude>
+                                <exclude>META-INF/*.RSA</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <!-- application类路径 -->
+                                    <mainClass>org.quickstart.dropwizard.HelloWorldApplication</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
-	<profiles>
-		<profile>
-			<id>dev</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-shade-plugin</artifactId>
-						<executions>
-							<execution>
-								<phase>none</phase>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.2</version>
+                <executions>
+                    <execution>
+                        <id>prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- 执行mvn clean package exec:java -->
+            <!-- <plugin> -->
+            <!-- <groupId>org.codehaus.mojo</groupId> -->
+            <!-- <artifactId>exec-maven-plugin</artifactId> -->
+            <!-- <configuration> -->
+            <!-- <mainClass> -->
+            <!-- org.quickstart.dropwizard.HelloWorldApplication -->
+            <!-- </mainClass> -->
+            <!-- <arguments> -->
+            <!-- <argument>server</argument> -->
+            <!-- <argument>conf/application.yml</argument> -->
+            <!-- </arguments> -->
+            <!-- </configuration> -->
+            <!-- </plugin> -->
+
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-shade-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
