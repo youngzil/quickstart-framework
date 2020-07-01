@@ -54,7 +54,7 @@
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-log4j12</artifactId>
-      <version>1.7.26</version>
+      <version>1.7.30</version>
     </dependency>
 
     <dependency>
@@ -156,7 +156,7 @@
     <dependency>
       <groupId>cglib</groupId>
       <artifactId>cglib</artifactId>
-      <version>3.2.5</version>
+      <version>3.3.0</version>
     </dependency>
 
     <!-- local jar start -->

@@ -1,80 +1,83 @@
 <?xml version="1.0"?>
 <project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<parent>
-		<groupId>org.quickstart</groupId>
-		<artifactId>quickstart-framework</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>..</relativePath> <!-- lookup parent from repository -->
-	</parent>
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <parent>
+        <groupId>org.quickstart</groupId>
+        <artifactId>quickstart-framework</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>..</relativePath> <!-- lookup parent from repository -->
+    </parent>
 
-	<modelVersion>4.0.0</modelVersion>
-	<artifactId>quickstart-spring-integration-kafka</artifactId>
-	<packaging>jar</packaging>
-	<name>${project.artifactId}-${project.version}</name>
-	<url>http://maven.apache.org</url>
-	<description>Demo project for Spring Boot Admin</description>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>quickstart-spring-integration-kafka</artifactId>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}-${project.version}</name>
+    <url>http://maven.apache.org</url>
+    <description>Demo project for Spring Boot Admin</description>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.integration.kafka.version>2.3.0.RELEASE</spring.integration.kafka.version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.integration.kafka.version>3.3.0.RELEASE</spring.integration.kafka.version>
 
-		<kafka.version>0.11.0.1</kafka.version>
-		<!-- <kafka.version>0.9.0.1</kafka.version> -->
-		<!-- <kafka.version>0.8.2.2</kafka.version> -->
-		<kafka.scala.version>2.11</kafka.scala.version>
-		<!-- <kafka.scala.version>2.12</kafka.scala.version> -->
+        <kafka.version>0.11.0.1</kafka.version>
+        <kafka.version>2.5.0</kafka.version>
+        <kafka.scala.version>2.11</kafka.scala.version>
+        <kafka.scala.version>2.12</kafka.scala.version>
+        <kafka.scala.version>2.13</kafka.scala.version>
 
-		<logback.version>1.2.3</logback.version>
-	</properties>
+        <logback.version>1.2.3</logback.version>
+    </properties>
 
-	<dependencies>
+    <dependencies>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<version>1.5.8.RELEASE</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>org.springframework.integration</groupId>
-			<artifactId>spring-integration-kafka</artifactId>
-			<version>${spring.integration.kafka.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId> org.apache.avro</groupId>
-			<artifactId>avro</artifactId>
-			<version>1.7.7</version>
-		</dependency>
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			 <version>1.2.72</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.kafka</groupId>
-			<artifactId>kafka_${kafka.scala.version}</artifactId>
-			<version>${kafka.version}</version>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>1.5.22.RELEASE</version>
+        </dependency>
 
 
+        <dependency>
+            <groupId>org.springframework.integration</groupId>
+            <artifactId>spring-integration-kafka</artifactId>
+            <version>${spring.integration.kafka.version}</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.72</version>
+        </dependency>
 
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-core</artifactId>
-			<version>${logback.version}</version>
-		</dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka_${kafka.scala.version}</artifactId>
+            <version>${kafka.version}</version>
+        </dependency>
 
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
-		</dependency>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka_2.13</artifactId>
+            <version>2.5.0</version>
+        </dependency>
 
-	</dependencies>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+    </dependencies>
 </project>

@@ -1,88 +1,83 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<parent>
-		<groupId>org.quickstart</groupId>
-		<artifactId>quickstart-framework</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>..</relativePath> <!-- lookup parent from repository -->
-	</parent>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <parent>
+        <groupId>org.quickstart</groupId>
+        <artifactId>quickstart-framework</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>..</relativePath> <!-- lookup parent from repository -->
+    </parent>
 
-	<modelVersion>4.0.0</modelVersion>
-	<artifactId>quickstart-reflect</artifactId>
-	<packaging>jar</packaging>
-	<name>${project.artifactId}-${project.version}</name>
-	<url>http://maven.apache.org</url>
-	<description>Demo project for ${project.artifactId}</description>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>quickstart-reflect</artifactId>
+    <packaging>jar</packaging>
+    <name>${project.artifactId}-${project.version}</name>
+    <url>http://maven.apache.org</url>
+    <description>Demo project for ${project.artifactId}</description>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <rxnetty.version>0.5.2</rxnetty.version>
-    <logback.version>1.2.3</logback.version>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <rxnetty.version>0.5.2</rxnetty.version>
+        <logback.version>1.2.3</logback.version>
+    </properties>
 
-	<dependencies>
+    <dependencies>
 
-    <dependency>
-      <groupId>org.reflections</groupId>
-      <artifactId>reflections</artifactId>
-      <version>0.9.11</version>
-    </dependency>
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>0.9.12</version>
+        </dependency>
 
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>${logback.version}</version>
-    </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
 
-    <dependency>
-      <groupId>org.apache.commons</groupId>
-      <artifactId>commons-lang3</artifactId>
-      <version>3.10</version>
-    </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.10</version>
+        </dependency>
 
-    <dependency>
-      <groupId>com.google.inject</groupId>
-      <artifactId>guice</artifactId>
-      <version>4.2.2</version>
-    </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>4.2.3</version>
+        </dependency>
 
-    <dependency>
-      <groupId>javax.ws.rs</groupId>
-      <artifactId>javax.ws.rs-api</artifactId>
-      <version>2.1.1</version>
-    </dependency>
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.1.1</version>
+        </dependency>
 
-    <dependency>
-      <groupId>org.apache.geronimo.specs</groupId>
-      <artifactId>geronimo-jpa_2.0_spec</artifactId>
-      <version>1.1</version>
-    </dependency>
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jpa_2.0_spec</artifactId>
+            <version>1.1</version>
+        </dependency>
 
-		<dependency>
-			<groupId>com.esotericsoftware</groupId>
-			<artifactId>reflectasm</artifactId>
-			<version>1.11.7</version>
-		</dependency>
+        <dependency>
+            <groupId>com.esotericsoftware</groupId>
+            <artifactId>reflectasm</artifactId>
+            <version>1.11.9</version>
+        </dependency>
 
-		<dependency>
-			<groupId>org.javassist</groupId>
-			<artifactId>javassist</artifactId>
-			<version>3.24.0-GA</version>
-		</dependency>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.27.0-GA</version>
+        </dependency>
 
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.10</version>
-		</dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.3.0</version>
+        </dependency>
 
-		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib</artifactId>
-			<version>3.2.9</version>
-		</dependency>
-
-	</dependencies>
+    </dependencies>
 
 </project>
