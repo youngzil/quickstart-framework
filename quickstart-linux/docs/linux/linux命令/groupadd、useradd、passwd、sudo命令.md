@@ -23,6 +23,10 @@ groupdel testgroup 组的删除
 删除用户：userdel  -r  用户名
 
 
+新建用户、设置密码
+useradd -md /home/aioppf -s /bin/csh aioppf
+echo 'testroot' | passwd --stdin aioppf
+
 
 
 # useradd –d /home/sam -m sam
