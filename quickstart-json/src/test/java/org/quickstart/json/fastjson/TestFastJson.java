@@ -144,6 +144,10 @@ public class TestFastJson {
         list.add(map2);
         String jsonString = JSON.toJSONString(list);
         System.out.println("json字符串:" + jsonString);
+
+
+
+
         // 解析json字符串
         List<Map<String, Object>> list2 = JSON.parseObject(jsonString, new TypeReference<List<Map<String, Object>>>() {});
 

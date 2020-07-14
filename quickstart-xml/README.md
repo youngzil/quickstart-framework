@@ -1,3 +1,22 @@
+1》底层解析方式：存在编码复杂性、难扩展、难复用....。想了解底层解析方式请参考：浅谈 Java XML 底层解析方式
+
+2》Dom4j：基于 JAXP 解析方式，性能优异、功能强大、极易使用的优秀框架。
+
+3》Jdom：本质也是基于 JAXP 但包结构被重新组织， API 大量使用了 Collections 类，在性能上被 dm4j 压了好几个档次。
+
+4》XStream：基于 xmlpull 的 OXMapping 技术，更加倾向于将 XML 解析后映射为 Java 世界中的对象。
+
+
+
+
+http://www.jdom.org/
+https://github.com/hunterhacker/jdom/
+
+
+
+
+
+
 使用XStream解析MXL文件:依赖xmlpull-1.1.3.1.jar和xpp3_min-1.1.4c.jar
 总结：
    (1) XStream是一个可以将javaBean与XML双向转换的java类库。

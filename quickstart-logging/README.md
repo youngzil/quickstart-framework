@@ -8,6 +8,11 @@ https://www.cnblogs.com/dolphin0520/p/10396894.html
 
 
 
+
+该追加器使您的应用程序可以将其应用程序日志直接发布到Apache Kafka。
+https://github.com/danielwegener/logback-kafka-appender
+
+
 ---------------------------------------------------------------------------------------------------------------------
 1、总是使用Log Facade，而不是具体Log Implementation
 具体来说，现在推荐使用 Log4j-API 或者 SLF4j，不推荐继续使用 JCL。

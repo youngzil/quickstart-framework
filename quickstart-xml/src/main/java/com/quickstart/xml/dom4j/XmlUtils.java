@@ -1,5 +1,15 @@
-package com.quickstart.xml;
+package com.quickstart.xml.dom4j;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.lang.StringUtils;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.io.OutputFormat;
+import org.dom4j.io.XMLWriter;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -8,20 +18,26 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-import net.sf.json.JSONSerializer;
-import net.sf.json.xml.XMLSerializer;
+public class XmlUtils {
 
-public class XmlUtils2 {
+    public static byte[] jsonToXML(String json) throws Exception {
+        Map<String, Object> map = jsonToMap(json);
+        return mapToXML(map);
+    }
 
-    public static byte[] mapToXML(Map map) {
-        System.out.println("将Map转成Xml, Map：" + map.toString());
+    public static String jsonToXMLFile(String json, String path) throws Exception {
+        byte[] b = jsonToXML(json);
+        return writeXml(path, new String(b));
+    }
+
+    public static byte[] mapToXML(Map map) throws Exception {
+        if (1 != map.size()) {
+            throw new Exception("数据格式不正确，无法转为xml格式，xml文档中根元素后面的标记必须格式正确");
+        }
 
         StringBuffer sb = new StringBuffer();
+        sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         mapToXML(map, sb);
-
-        System.out.println("将Map转成Xml, Xml：" + sb.toString());
         try {
             return sb.toString().getBytes("UTF-8");
         } catch (Exception e) {
@@ -30,9 +46,13 @@ public class XmlUtils2 {
         return null;
     }
 
+    public static String mapToXMLFile(Map map, String path) throws Exception {
+        byte[] b = mapToXML(map);
+        return writeXml(path, new String(b));
+    }
+
     @SuppressWarnings("rawtypes")
     private static void mapToXML(Map map, StringBuffer sb) {
-        sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
         Set set = map.keySet();
         for (Iterator it = set.iterator(); it.hasNext();) {
             String key = (String) it.next();
@@ -62,53 +82,54 @@ public class XmlUtils2 {
     }
 
     /**
-     * JSON(数组)字符串<STRONG>转换</STRONG>成XML字符串
-     * 
-     * @param jsonString
-     * @return
+     * json string convert to map
      */
-    public static String json2xml(String jsonString) {
-        XMLSerializer xmlSerializer = new XMLSerializer();
-        return xmlSerializer.write(JSONSerializer.toJSON(jsonString));
-        // return xmlSerializer.write(JSONArray.fromObject(jsonString));//这种方式只支持JSON数组
+    @SuppressWarnings("unchecked")
+    private static <T> Map<String, Object> jsonToMap(String jsonStr) throws Exception {
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.readValue(jsonStr, Map.class);
     }
 
-    /**
-     * 将Map准换为JSON字符串
-     * 
-     * @param map
-     * @return JSON字符串
-     */
-    public static String getJsonStringFromMap(Map<?, ?> map) {
-        JSONObject object = JSONObject.fromObject(map);
-        return object.toString();
+    public static String writeXml(String path, String json) throws Exception {
+        if (StringUtils.isBlank(path)) {
+            path = "/Users/yangzl/test.xml";// 默认路径
+        } else if (!path.endsWith(".xml")) {
+            path += "/msgframe-config.xml";
+        }
+
+        Document document = DocumentHelper.parseText(json);
+        File file = new File(path);
+        if (file.exists()) {
+            file.delete();
+        }
+        XMLWriter out = null;
+        try {
+            file.createNewFile();
+            OutputFormat format = OutputFormat.createPrettyPrint();// 缩减型格式
+            out = new XMLWriter(new FileWriter(file), format);
+            out.write(document);
+            out.flush();
+            out.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            if (null != out) {
+                out.close();
+            }
+        }
+        return path;
     }
 
-    public static void main(String[] args) {
-
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("username", "horizon");
-        JSONArray jsonArray = new JSONArray();
-        JSONObject dataJson = new JSONObject();
-        jsonArray.add(jsonObject);
-        // jsonArray.add(jsonObject);
-        dataJson.put("data", jsonArray);
-        System.out.println(dataJson.toString());
-
-        String xml = json2xml(dataJson.toString());
-        System.out.println("xml:" + xml);
-
-    }
-
-    public static void main22(String[] args) {
+    public static void main(String[] args) throws Exception {
         Map<String, Object> dataMap = new LinkedHashMap<String, Object>(); // 默认
         dataMap.put("rtnCode", "02");
         dataMap.put("rtnMsg", "查询失败");
         dataMap.put("idWltCloudDistrict", "专区id");
 
         Map<String, Object> bizMap = new LinkedHashMap<String, Object>();
-        bizMap.put("serviceId", "serviceId001");
         bizMap.put("data", dataMap);// data节点是一个map
+        bizMap.put("data2", dataMap);// data节点是一个map
 
         Map<String, Object> objMap = new LinkedHashMap<String, Object>();
         objMap.put("idWltCloudDistrict", "专区id");
@@ -148,7 +169,9 @@ public class XmlUtils2 {
 
         dataMap.put("prodKindList", prodKindList1);
 
-        XmlUtils2.mapToXML(bizMap);
+        System.out.println(bizMap.size());
+        System.out.println(mapToXMLFile(bizMap, null));
+
     }
 
 }

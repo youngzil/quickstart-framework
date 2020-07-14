@@ -34,6 +34,9 @@ Jackson、FastJson、Gson类库各有优点，各有自己的专长，都具有�
 
 
 
+JSON-lib框架，转换JSON、XML
+https://www.kancloud.cn/digest/json-xml/140871
+
 
 
 

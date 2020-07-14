@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classGrid>
+    <classGridlb>
+        <class_id>320170105000009363</class_id>
+        <class_number>0301</class_number>
+        <adviser>018574</adviser>
+        <studentGrid>
+            <studentGridlb>
+                <stu_id>030101</stu_id>
+                <stu_name>齐天</stu_name>
+                <stu_age>9</stu_age>
+                <stu_birthday>2008-11-07</stu_birthday>
+            </studentGridlb>
+            <studentGridlb>
+                <stu_id>030102</stu_id>
+                <stu_name>张惠</stu_name>
+                <stu_age>10</stu_age>
+                <stu_birthday>2009-04-08</stu_birthday>
+            </studentGridlb>
+            <studentGridlb>
+                <stu_id>030103</stu_id>
+                <stu_name>龙五</stu_name>
+                <stu_age>9</stu_age>
+                <stu_birthday>2008-11-01</stu_birthday>
+            </studentGridlb>
+        </studentGrid>
+    </classGridlb>
+    <classGridlb>
+        <class_id>420170105000007363</class_id>
+        <class_number>0302</class_number>
+        <adviser>018577</adviser>
+        <studentGrid>
+            <studentGridlb>
+                <stu_id>030201</stu_id>
+                <stu_name>马宝</stu_name>
+                <stu_age>10</stu_age>
+                <stu_birthday>2009-09-02</stu_birthday>
+            </studentGridlb>
+        </studentGrid>
+    </classGridlb>
+</classGrid>

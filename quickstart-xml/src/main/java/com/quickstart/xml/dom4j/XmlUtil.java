@@ -1,4 +1,4 @@
-package com.quickstart.xml;
+package com.quickstart.xml.dom4j;
 
 import java.io.File;
 import java.io.FileWriter;

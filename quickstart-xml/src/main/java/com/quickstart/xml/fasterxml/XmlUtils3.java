@@ -1,4 +1,4 @@
-package com.quickstart.xml;
+package com.quickstart.xml.fasterxml;
 
 import java.util.ArrayList;
 import java.util.HashMap;
