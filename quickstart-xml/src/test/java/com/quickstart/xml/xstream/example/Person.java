@@ -23,10 +23,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Person {  
-    
-   
-    
-    //姓名  
+    //姓名
     private String name;  
     //性别  
     private String sex;  
@@ -34,5 +31,4 @@ public class Person {
     private int age;  
     //地址  
     private List<Address> Address;  
-      
-}  
+}

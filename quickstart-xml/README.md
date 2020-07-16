@@ -9,11 +9,14 @@
 
 
 
+https://dom4j.github.io/
+https://github.com/dom4j/dom4j
+
+
+
+
 http://www.jdom.org/
 https://github.com/hunterhacker/jdom/
-
-
-
 
 
 
@@ -37,6 +40,13 @@ KXML解析器是基于普通XML PULL解析器的一个小巧的解析器，官�
 
 
 
+示例参考
+https://blog.csdn.net/qq_36769100/article/details/82768723
+
+
+
+https://www.cnblogs.com/aspirant/p/10299004.html
+https://blog.csdn.net/lzghxjt/article/details/54564382
 
 
 

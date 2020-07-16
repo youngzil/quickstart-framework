@@ -27,7 +27,7 @@ public class AES {
   public static void main(String[] args) {
     String ee = encrypt("sss", "ddd");
 
-    String ff = decrypt("ee", "ddd");
+    String ff = decrypt("mzA0k4PtyEDNwxBgo58J2Tl+VOmrX9XO", "foo");
     System.out.println(ff);
 
   }

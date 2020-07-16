@@ -8,23 +8,28 @@
  */
 package org.quickstart.json.fastjson;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONException;
+import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
+import org.junit.Test;
+
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.TypeReference;
-
 /**
  * TestFastJson
- * 
+ *
  * @author：youngzil@163.com
  * @2017年12月13日 下午6:00:48
  * @since 1.0
  */
-/* 
- * 这里将json的转化和解析都放在一起了，大家可以根据实际需要来转化json字符串和解析json字符串 
+/*
+ * 这里将json的转化和解析都放在一起了，大家可以根据实际需要来转化json字符串和解析json字符串
  */
 public class TestFastJson {
 
@@ -125,7 +130,8 @@ public class TestFastJson {
         System.out.println("json字符串:" + jsonString);
 
         // 解析json字符串
-        List<String> list2 = JSON.parseObject(jsonString, new TypeReference<List<String>>() {});
+        List<String> list2 = JSON.parseObject(jsonString, new TypeReference<List<String>>() {
+        });
         System.out.println(list2.get(0) + "::" + list2.get(1) + "::" + list2.get(2));
         System.out.println("List<String>转化示例结束----------");
 
@@ -145,16 +151,92 @@ public class TestFastJson {
         String jsonString = JSON.toJSONString(list);
         System.out.println("json字符串:" + jsonString);
 
-
-
-
         // 解析json字符串
-        List<Map<String, Object>> list2 = JSON.parseObject(jsonString, new TypeReference<List<Map<String, Object>>>() {});
+        List<Map<String, Object>> list2 = JSON.parseObject(jsonString, new TypeReference<List<Map<String, Object>>>() {
+        });
 
         System.out.println("map的key1值" + list2.get(0).get("key1"));
         System.out.println("map的key2值" + list2.get(0).get("key2"));
         System.out.println("ma2p的key1值" + list2.get(1).get("key1"));
         System.out.println("map2的key2值" + list2.get(1).get("key2"));
+    }
+
+    @Test
+    public void testJsonType() {
+
+        try {
+            String json1 =
+                "{\"data1\":\"v1\",\"target\":[{\"a1\":\"va1\",\"a2\":\"va2\"},{\"a1\":\"va1\",\"a2\":\"va2\"}]} ";
+
+            String json2 =
+                "[\n" + "    {\n" + "        \"sysCode\": \"SYSTEM\",\n" + "        \"configName\": \"TOKEN\",\n"
+                    + "        \"configDesc\": \"configDesc1\",\n" + "        \"paramName\": \"BUFFER_TIME_SECONDS\",\n"
+                    + "        \"valueSeq\": 12,\n" + "        \"paramValue\": \"400\",\n"
+                    + "        \"valueDesc\": \"valueDesc1\"\n" + "    },\n" + "    {\n"
+                    + "         \"sysCode\": \"sysCode2\",\n" + "        \"configName\": \"configName2\",\n"
+                    + "        \"configDesc\": \"configDesc2\",\n" + "        \"paramName\": \"paramName2\",\n"
+                    + "        \"valueSeq\": 2,\n" + "        \"paramValue\": \"paramValue2\",\n"
+                    + "        \"valueDesc\": \"valueDesc2\"\n" + "    }\n" + "]";
+
+            JSONObject obj = JSON.parseObject(json1);
+            JSONArray obj2 = JSON.parseArray(json2);
+
+            Object data1Obj = obj.get("data1");
+            Object targetObj = obj.get("target");
+
+            if (targetObj instanceof JSONArray) {
+                System.out.println("JSONArray 数组");
+            } else if (targetObj instanceof JSONObject) {
+                System.out.println("JSONObject 对象");
+            }
+
+            Map map = (Map)JSON.parseObject(json1, Map.class);
+            System.out.println(map);
+
+        } catch (JSONException e) {
+            System.out.println("JSONException:" + e);
+        } catch (Exception e) {
+            System.out.println("Exception:" + e);
+        }
+
+    }
+
+    public static boolean isJSONArray(String text) {
+        char ch = text.charAt(1);
+        return ch == '[';
+    }
+
+    public static boolean isJSONObject(String text) {
+        char ch = text.charAt(1);
+        return ch == '{';
+    }
+
+    /**判断一个对象是否是基本类型或基本类型的封装类型*/
+    private boolean isPrimitive(Object obj) {
+
+        try {
+            return ((Class<?>)obj.getClass().getField("TYPE").get(null)).isPrimitive();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean isWrapClass(Class clz) {
+
+        Field[] fields = clz.getFields();
+        for (Field field : fields) {
+            System.out.println("Field：%s \n" + field.getName());
+            System.out.println("Type：\n  %s\n" + field.getType().getCanonicalName());
+            System.out.println("GenericType:\n  %s\n" + field.getGenericType().toString());
+            System.out.println("\n\n");
+        }
+
+        try {
+            return ((Class)clz.getField("TYPE").get(null)).isPrimitive();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
 }

@@ -48,6 +48,12 @@
             <classifier>jdk15</classifier>
         </dependency>
 
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20200518</version>
+        </dependency>
+
         <!-- json-lib中转为xml时候使用 -->
         <dependency>
             <groupId>xom</groupId>

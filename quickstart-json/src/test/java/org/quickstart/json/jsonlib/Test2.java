@@ -9,6 +9,8 @@
 package org.quickstart.json.jsonlib;
 
 import net.sf.json.JSONObject;
+import net.sf.json.util.JSONTokener;
+import org.junit.Test;
 
 /**
  * Test2
@@ -40,6 +42,18 @@ public class Test2 {
     @SuppressWarnings("unchecked")
     public static <T> T json2Bean(String jsonStr, Class<T> objClass) {
         return (T) JSONObject.toBean(JSONObject.fromObject(jsonStr), objClass);
+    }
+
+    @Test
+    public void testJsonType() {
+        // String str = "{\"name\":\"firmware\"}";
+        String str = "[{\"name\":\"name1\"},{\"name\":\"name2\"}]";
+        Object typeObject = new JSONTokener(str).nextValue();
+        /*if (typeObject instanceof org.json.JSONArray) {
+            System.out.print("JSONArray");
+        } else if (typeObject instanceof org.json.JSONObject) {
+            System.out.print("JSONObject");
+        }*/
     }
 
 }

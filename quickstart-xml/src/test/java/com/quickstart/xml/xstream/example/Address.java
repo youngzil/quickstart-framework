@@ -13,25 +13,22 @@ import lombok.Setter;
 
 /**
  * Address 
- *  
+ *
  * @author：youngzil@163.com
  * @2018年5月20日 下午11:18:32 
  * @since 1.0
  */
-@Getter@Setter
+@Getter
+@Setter
 public class Address {
-    
-   
-    
-  //国  
-    private String country;  
+    //国
+    private String country;
     //省  
-    private String province;  
+    private String province;
     //市  
-    private String city;  
+    private String city;
     //县  
-    private String county;  
+    private String county;
     //镇  
-    private String town;  
-
+    private String town;
 }
