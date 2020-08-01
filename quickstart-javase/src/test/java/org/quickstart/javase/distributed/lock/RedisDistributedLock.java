@@ -9,6 +9,7 @@
 package org.quickstart.javase.distributed.lock;
 
 import java.util.Collections;
+import java.util.Objects;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
@@ -57,11 +58,11 @@ public class RedisDistributedLock {
             throw new IllegalArgumentException("jedisPool obj is null");
         }
 
-        if (null == lockKey || "".equals(lockKey)) {
+        if(Objects.isNull(lockKey) || lockKey.isEmpty()){
             throw new IllegalArgumentException("lock key  is blank");
         }
 
-        if (null == requestId || "".equals(requestId)) {
+        if(Objects.isNull(requestId) || requestId.isEmpty()){
             throw new IllegalArgumentException("requestId is blank");
         }
 

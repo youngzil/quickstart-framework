@@ -8,28 +8,25 @@
  */
 package org.quickstart.crypto.utils;
 
-import java.security.Security;
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
+
 import javax.crypto.Cipher;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
-
-import java.security.*;
-import javax.crypto.*;
-import javax.crypto.spec.*;
-
-import org.apache.commons.codec.DecoderException;
-import org.apache.commons.codec.binary.Hex;
+import java.security.Security;
+import java.util.Objects;
 
 /**
  * DES 
- *  
+ *
  * @author：youngzil@163.com
  * @2019年6月6日 上午11:15:12 
  * @version 2.0
  */
 public class DES {
-    
+
     public static int _DES = 1;
     public static int _DESede = 2;
     public static int _Blowfish = 3;
@@ -55,8 +52,7 @@ public class DES {
         }
     }
 
-    public DES(int algorithm)
-            throws Exception {
+    public DES(int algorithm) throws Exception {
         this.selectAlgorithm(algorithm);
         Security.addProvider(new com.sun.crypto.provider.SunJCE());
         this.p_Cipher = Cipher.getInstance(this.p_Algorithm);
@@ -84,14 +80,12 @@ public class DES {
         this.p_Key = new SecretKeySpec(enckey, this.p_Algorithm);
     }
 
-    public byte[] encode(byte[] data)
-            throws Exception {
+    public byte[] encode(byte[] data) throws Exception {
         this.p_Cipher.init(Cipher.ENCRYPT_MODE, this.checkKey());
         return this.p_Cipher.doFinal(data);
     }
 
-    public byte[] decode(byte[] encdata, byte[] enckey)
-            throws Exception {
+    public byte[] decode(byte[] encdata, byte[] enckey) throws Exception {
         this.setKey(enckey);
         this.p_Cipher.init(Cipher.DECRYPT_MODE, this.p_Key);
         return this.p_Cipher.doFinal(encdata);
@@ -111,8 +105,7 @@ public class DES {
         return hs.toUpperCase();
     }
 
-    public byte[] hex2byte(String hex)
-            throws IllegalArgumentException {
+    public byte[] hex2byte(String hex) throws IllegalArgumentException {
         if (hex.length() % 2 != 0) {
             System.out.println("hex:" + hex + "\nlength:" + hex.length());
             throw new IllegalArgumentException();
@@ -127,8 +120,7 @@ public class DES {
         return b;
     }
 
-    public static String encrypt(String s)
-            throws Exception {
+    public static String encrypt(String s) throws Exception {
         // byte[] key; //��Կ�ļ�(byte)
         if (null == _instance) {
             _instance = new DES(DES._DESede);
@@ -143,8 +135,7 @@ public class DES {
         return hexenc;
     }
 
-    public static String decrypt(String s)
-            throws Exception {
+    public static String decrypt(String s) throws Exception {
         if (null == _instance) {
             _instance = new DES(DES._DESede);
         }
@@ -162,7 +153,7 @@ public class DES {
 
     /**
      * ʹ��BASE64���н������
-     * 
+     *
      * @param strTemp String
      * @return String
      */
@@ -170,7 +161,7 @@ public class DES {
         Hex hex = new Hex();
         byte[] bytes = null;
         String strReturn = "";
-        if (strTemp != null && !"".equals(strTemp)) {
+        if (Objects.nonNull(strTemp) && !strTemp.isEmpty()) {
             try {
                 bytes = hex.decode(strTemp.getBytes());
             } catch (DecoderException e) {
@@ -185,7 +176,7 @@ public class DES {
 
     /**
      * ʹ��BASE64���м��ܲ���
-     * 
+     *
      * @param strTemp String
      * @return String
      */
@@ -193,7 +184,7 @@ public class DES {
         Hex hex = new Hex();
         byte[] bytes = null;
         String strReturn = "";
-        if (strTemp != null && !"".equals(strTemp)) {
+        if (Objects.nonNull(strTemp) && !strTemp.isEmpty()) {
 
             bytes = hex.encode(strTemp.getBytes());
             strReturn = new String(bytes);
@@ -203,6 +194,11 @@ public class DES {
     }
 
     public static void main(String[] args) {
+
+        String ff = "            ";
+        System.out.println(ff.trim());
+        System.out.println(ff.trim().length());
+        System.out.println(ff.trim().isEmpty());
         try {
             System.out.println(DES.encrypt("zhangjiaqi1"));
             System.out.println(DES.encrypt("hwYBw5a2"));

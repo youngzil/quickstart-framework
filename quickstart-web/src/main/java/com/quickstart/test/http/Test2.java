@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLDecoder;
 import java.nio.charset.Charset;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -195,7 +196,7 @@ public class Test2 {
      * @return
      */
     public String replaceStr(String src) {
-        if (src == null || "".equals(src))
+        if (Objects.isNull(src) || src.isEmpty())
             return null;
         src = src.replaceAll("<!--", "");
         src = src.replaceAll("-->", "");

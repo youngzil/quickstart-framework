@@ -1,5 +1,6 @@
 package org.quickstart.javase.utils.base;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -87,7 +88,7 @@ public class StringUtils {
      * @return
      */
     public static String repeatString(String value, int count) {
-        if (value == null || "".equals(value) || count <= 1) {
+        if(Objects.isNull(value) || value.isEmpty() || count <= 1){
             return value;
         }
 
@@ -147,7 +148,8 @@ public class StringUtils {
      * @return
      */
     public static boolean isAllLowerCase(String value) {
-        if (value == null || "".equals(value)) {
+
+        if (Objects.isNull(value) || value.isEmpty()) {
             return false;
         }
         for (int i = 0; i < value.length(); i++) {
@@ -168,7 +170,7 @@ public class StringUtils {
      * @return
      */
     public static boolean isAllUpperCase(String value) {
-        if (value == null || "".equals(value)) {
+        if (Objects.isNull(value) || value.isEmpty()) {
             return false;
         }
         for (int i = 0; i < value.length(); i++) {

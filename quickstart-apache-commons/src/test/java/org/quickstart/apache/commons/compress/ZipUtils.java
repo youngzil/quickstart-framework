@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Enumeration;
+import java.util.Objects;
 import java.util.zip.CRC32;
 import java.util.zip.CheckedOutputStream;
 import java.util.zip.ZipEntry;
@@ -43,7 +44,8 @@ public class ZipUtils {
    * @throws Exception
    */
   private static void zip(String srcRootDir, File file, ZipOutputStream zos) throws Exception {
-    if (file == null) {
+
+    if (Objects.isNull(file)) {
       return;
     }
 

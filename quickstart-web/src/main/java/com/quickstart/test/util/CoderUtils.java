@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Objects;
 
 /**
  * code转换
@@ -39,7 +40,7 @@ public class CoderUtils {
     }
 
     public static int[] string2ASCII(String s) {// 字符串转换为ASCII码
-        if (s == null || "".equals(s)) {
+        if (Objects.isNull(s) || s.isEmpty()) {
             return null;
         }
 

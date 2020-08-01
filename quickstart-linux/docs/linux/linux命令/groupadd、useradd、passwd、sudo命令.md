@@ -1,5 +1,5 @@
 1、Linux 新建用户、用户组以及为新用户分配权限
-2、linux新建用户并增加sudo权限
+2、linux普通用户添加root权限
 3、linux如何查看所有的用户和组信息
 
 
@@ -60,7 +60,21 @@ https://blog.csdn.net/yue7603835/article/details/73699258
 https://blog.csdn.net/li_101357/article/details/69367457
 
 ---------------------------------------------------------------------------------------------------------------------
+
+linux普通用户添加root权限
+
+
 linux新建用户并增加sudo权限
+
+修改sudoers文件，加入写权限：
+
+chmod +w /etc/sudoers
+vi /etc/sudoers
+在root ALL=(ALL) ALL下面复制一行同样的只不过root改成你的用户名
+敲:wq保存后，撤销sudoers文件写权限：
+chmod -w /etc/sudoers
+
+
 
 .增加sudo（root）权限
 一般三种方法

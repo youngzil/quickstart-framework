@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  * @desc:时间处理工具类
@@ -102,7 +103,8 @@ public class DateUtils {
      */
     public static String addYearToDate(int year, String date, String format) {
         Date newDate = new Date();
-        if (null != date && !"".equals(date)) {
+
+        if (Objects.nonNull(date) && !date.isEmpty()) {
             newDate = string2Date(date, format);
         }
 
@@ -140,7 +142,7 @@ public class DateUtils {
      */
     public static String addMothToDate(int month, String date, String format) {
         Date newDate = new Date();
-        if (null != date && !"".equals(date)) {
+        if (Objects.nonNull(date) && !date.isEmpty()) {
             newDate = string2Date(date, format);
         }
 
@@ -178,7 +180,7 @@ public class DateUtils {
      */
     public static String addDayToDate(int day, String date, String format) {
         Date newDate = new Date();
-        if (null != date && !"".equals(date)) {
+        if (Objects.nonNull(date) && !date.isEmpty()) {
             newDate = string2Date(date, format);
         }
 
@@ -216,7 +218,7 @@ public class DateUtils {
      */
     public static String addHourToDate(int hour, String date, String format) {
         Date newDate = new Date();
-        if (null != date && !"".equals(date)) {
+        if (Objects.nonNull(date) && !date.isEmpty()) {
             newDate = string2Date(date, format);
         }
 
@@ -254,7 +256,7 @@ public class DateUtils {
      */
     public static String addMinuteToDate(int minute, String date, String format) {
         Date newDate = new Date();
-        if (null != date && !"".equals(date)) {
+        if (Objects.nonNull(date) && !date.isEmpty()) {
             newDate = string2Date(date, format);
         }
 
@@ -293,7 +295,7 @@ public class DateUtils {
      */
     public static String addSecondToDate(int second, String date, String format) {
         Date newDate = new Date();
-        if (null != date && !"".equals(date)) {
+        if (Objects.nonNull(date) && !date.isEmpty()) {
             newDate = string2Date(date, format);
         }
 
@@ -310,7 +312,7 @@ public class DateUtils {
      * @return Calendar
      */
     public static Calendar getCalendar(Date date, String format) {
-        if (date == null) {
+        if (Objects.isNull(date)) {
             date = getCurrentDate(format);
         }
 
@@ -330,7 +332,7 @@ public class DateUtils {
      * @return
      */
     public static Date string2Date(String value) {
-        if (value == null || "".equals(value)) {
+        if (Objects.isNull(value) || value.isEmpty()) {
             return null;
         }
 
@@ -356,7 +358,7 @@ public class DateUtils {
      * @return Date
      */
     public static Date string2Date(String value, String format) {
-        if (value == null || "".equals(value)) {
+        if (Objects.isNull(value) || value.isEmpty()) {
             return null;
         }
 
@@ -383,7 +385,7 @@ public class DateUtils {
      * @return String
      */
     public static String date2String(Date value, String format) {
-        if (value == null) {
+        if (Objects.isNull(value)) {
             return null;
         }
 
@@ -401,7 +403,7 @@ public class DateUtils {
      * @return
      */
     public static String date2String(Date value) {
-        if (value == null) {
+        if (Objects.isNull(value)) {
             return null;
         }
 

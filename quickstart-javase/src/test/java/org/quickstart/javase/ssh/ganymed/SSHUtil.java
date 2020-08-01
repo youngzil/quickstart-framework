@@ -1,5 +1,6 @@
 package org.quickstart.javase.ssh.ganymed;
 
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -160,7 +161,7 @@ public class SSHUtil {
      */
     private static String matchMemLineNumber(String content) {
         String result = "";
-        if (content == null || "".equals(content.trim())) {
+        if ( Objects.isNull(content) || content.trim().isEmpty()) {
             return result;
         }
         Pattern pattern = Pattern.compile("(\\d+)");
@@ -178,7 +179,7 @@ public class SSHUtil {
      * @return
      */
     public static double getUsCpu(String cpuLine) {
-        if (cpuLine == null || "".equals(cpuLine.trim())) {
+        if (Objects.isNull(cpuLine) || cpuLine.trim().isEmpty()) {
             return 0;
         }
         String[] items = cpuLine.split(",");
@@ -191,7 +192,7 @@ public class SSHUtil {
 
     private static String matchCpuLine(String content) {
         String result = "";
-        if (content == null || "".equals(content.trim())) {
+            if ( Objects.isNull(content) || content.trim().isEmpty()) {
             return result;
         }
         Pattern pattern = Pattern.compile("(\\d+).(\\d+)");

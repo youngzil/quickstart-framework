@@ -209,13 +209,13 @@ public class ExcelReadHelper {
 
     @SuppressWarnings("static-access")
     private static String getValue(Cell cell) {
-        if (cell.getCellType() == cell.CELL_TYPE_BOOLEAN) {
-            return String.valueOf(cell.getBooleanCellValue());
-        } else if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
-            return NumberToTextConverter.toText(cell.getNumericCellValue());
-        } else {
+//        if (cell.getCellType() == cell.CELL_TYPE_BOOLEAN) {
+//            return String.valueOf(cell.getBooleanCellValue());
+//        } else if (cell.getCellType() == cell.CELL_TYPE_NUMERIC) {
+//            return NumberToTextConverter.toText(cell.getNumericCellValue());
+//        } else {
             return String.valueOf(cell.getStringCellValue());
-        }
+//        }
     }
 
     /**

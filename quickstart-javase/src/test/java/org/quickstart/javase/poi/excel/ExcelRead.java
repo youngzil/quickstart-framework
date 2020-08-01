@@ -56,11 +56,11 @@ public class ExcelRead {
                         continue;
                     }
 
-                    String strVal = readCellSecondMethod(cell);
+                    /*String strVal = readCellSecondMethod(cell);
                     if (cellNum == 2) {
                         strVal = strVal.contains(".") ? strVal.substring(0, strVal.indexOf(".")) : strVal;
                     }
-                    System.out.print(" " + strVal);
+                    System.out.print(" " + strVal);*/
 
                     // System.out.print(" " + readCellFirstMethod(cell));
                     // System.out.print(" " + readCellSecondMethod(cell));
@@ -79,7 +79,7 @@ public class ExcelRead {
      * @param cell
      * @return
      */
-    public static String readCellFirstMethod(HSSFCell cell) {
+    /*public static String readCellFirstMethod(HSSFCell cell) {
         if (cell.getCellType() == HSSFCell.CELL_TYPE_BOOLEAN) {
             return String.valueOf(cell.getBooleanCellValue());
         } else if (cell.getCellType() == HSSFCell.CELL_TYPE_NUMERIC) {
@@ -91,7 +91,7 @@ public class ExcelRead {
         } else {
             return cell.getStringCellValue();
         }
-    }
+    }*/
 
     /**
      * 第二种方法 读取excel单元格的内容并针对其type进行不同的处理, 其中就包含 读取excel表格中日期格式的cell
@@ -99,7 +99,7 @@ public class ExcelRead {
      * @param cell
      * @return
      */
-    public static String readCellSecondMethod(HSSFCell cell) {
+    /*public static String readCellSecondMethod(HSSFCell cell) {
         // DecimalFormat df = new DecimalFormat("#");
         if (cell == null) {
             return "";
@@ -140,6 +140,6 @@ public class ExcelRead {
         }
 
         return "";
-    }
+    }*/
 
 }
