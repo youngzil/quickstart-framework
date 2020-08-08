@@ -1,5 +1,8 @@
 1、Log Facade：现在推荐使用 Log4j-API 或者 SLF4j，不推荐继续使用 JCL（Commons Logging）。
 2、Log Implementation：Logback，Log4j2，Log4j，Jul。
+3、 logback的appender重写：logback-kafka-appender.md
+
+
 
 
 Java 日志性能那些事

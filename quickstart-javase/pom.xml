@@ -20,7 +20,7 @@
     <ganymed.ssh.version>build210</ganymed.ssh.version>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <JAVA_HOME>/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home</JAVA_HOME>
+    <JAVA_HOME>/Library/Java/JavaVirtualMachines/jdk1.8.0_261.jdk/Contents/Home</JAVA_HOME>
   </properties>
 
   <dependencies>
