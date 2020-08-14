@@ -56,6 +56,7 @@
         <!-- producer configs are documented here: https://kafka.apache.org/documentation.html#newproducerconfigs -->
         <!-- bootstrap.servers is the only mandatory producerConfig -->
         <producerConfig>bootstrap.servers=localhost:9092</producerConfig>
+        <!-- don't wait for a broker to ack the reception of a batch.  -->
         <producerConfig>acks=0</producerConfig>
         <!-- wait up to 1000ms and collect log messages before sending them as a batch -->
         <producerConfig>linger.ms=1000</producerConfig>
