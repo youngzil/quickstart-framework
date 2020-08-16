@@ -99,6 +99,7 @@
     <module>quickstart-jodd</module>
     <module>quickstart-jol</module>
     <module>quickstart-sensitive</module>
+    <module>quickstart-liteflow</module>
   </modules>
 
   <build>

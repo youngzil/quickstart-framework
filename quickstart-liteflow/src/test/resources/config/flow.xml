@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow>
+    <nodes>
+        <node id="a" class="org.quickstart.liteflow.AComponent"/>
+        <node id="b" class="org.quickstart.liteflow.BComponent"/>
+        <node id="c" class="org.quickstart.liteflow.CComponent"/>
+        <node id="d" class="org.quickstart.liteflow.DComponent"/>
+        <node id="e" class="org.quickstart.liteflow.EComponent"/>
+    </nodes>
+
+    <chain name="demoChain">
+        <then value="a,b,c"/> <!-- then表示串行 -->
+        <when value="d,e"/> <!-- when表示并行 -->
+    </chain>
+</flow>
+
