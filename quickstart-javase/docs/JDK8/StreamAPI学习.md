@@ -1,10 +1,15 @@
 1、使用Stream的基本步骤
 2、Stream简介
+3、Stream操作
+  1、数据源
+  2、中间操作
+  3、终端操作
+4、
 
 ---------------------------------------------------------------------------------------------------------------------
 在此我们总结一下使用Stream的基本步骤：
 
-1、创建Stream；
+1、创建Stream；（数据源）
 2、转换Stream，每次转换原有Stream对象不改变，返回一个新的Stream对象（**可以有多次转换**）；
 3、对Stream进行聚合（Reduce）操作，获取想要的结果；
 
@@ -155,4 +160,46 @@ Collectors.mapping 映射：先对集合中的元素进行映射，然后再对�
 https://blog.csdn.net/Alice_qixin/article/details/87169586
 https://blog.yangx.site/2018/03/28/java-8-stream/
 
+---------------------------------------------------------------------------------------------------------------------
+Stream操作
+1、数据源
+2、中间操作：filter、distinct、skip、limit、map、flatMap、sorted、
+3、终端操作：anyMatch、noneMatch、allMatch、findAny、findFirst、forEach、collect、reduce、count
+
+
+一、Stream操作
+Stream操作分为中间操作和终端操作。每个Stream操作由数据源、零个或多个中间操作和一个终端操作组成。
+
+（一）数据源
+上文中提到的集合、数组和无限序列生成器（函数式接口）等都可作为数据源。
+
+（二）中间操作
+所有中间操作都是懒执行，即只有在终端操作执行时才会执行，执行中间操作实际上并不执行任何操作，而是创建一个新的流，当遍历该流时，它包含与给定谓词匹配的原始流的元素。因此在执行终端操作之前，流的遍历不会开始。
+这是非常重要的特性，对于无限流尤其重要——因为它允许我们创建只有在调用终端操作时才实际调用的流。
+常用的中间操作有filter()、map()、flatMap()等。
+
+（三）终端操作
+终端操作可以遍历流生成最终结果，执行终端操作即可认为消费管道，上文提到Stream的特点只可消费一次，故该管道已不能再被使用。
+几乎在所有情况下，终端操作都是立即执行的，这也是无限流的重要基础——我们是否可以限制无限流，例如limit()。
+常用的终端操作有forEach()、toArray()、collect()等。
+
+
+
+Java 8 Stream：
+Java 8 Stream（一、Stream简介及创建方式）
+Java 8 Stream（二、Stream操作和无限流）
+Java 8 Stream（三、Stream中间操作：filter()、distinct()、skip()、limit()、map()、flatMap()、sorted()、peek()）
+Java 8 Stream（四、Stream终端操作：forEach()、Match、find()、max、min()、reduce()、collect()、toArray()、count()）
+Java 8 Stream（五、Optional类和Stream调试）
+
+
+
+
+参考
+https://blog.csdn.net/qq_38718258/article/details/104696658
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
 
