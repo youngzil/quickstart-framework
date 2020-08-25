@@ -46,6 +46,10 @@ lambda的作用域
 
 
 
+JavaLambda表达式使用
+https://github.com/CarpenterLee/JavaLambdaInternals
+
+
 
 参考
 https://my.oschina.net/benhaile/blog/175012

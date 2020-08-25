@@ -1,6 +1,214 @@
 RTTI和反射机制区别
 反射的使用：获取类、构造方法，成员变量，成员方法、注解、泛型
 
+
+
+---------------------------------------------------------------------------------------------------------------------
+（1）反射的思想以及它的作用: 概念篇
+（2）反射的基本使用及应用场景: 应用篇
+（3）使用反射能给我们编码时带来的优势以及存在的缺陷: 分析篇
+
+
+
+（1）反射的思想以及它的作用: 概念篇
+反射的思想：在程序运行过程中确定和解析数据类的类型。
+反射的作用：对于在编译期无法确定使用哪个数据类的场景，通过反射可以在程序运行时构造出不同的数据类实例。
+
+
+
+
+（2）反射的基本使用及应用场景: 应用篇
+
+Java 反射的主要组成部分有4个：
+1、Class：任何运行在内存中的所有类都是该 Class 类的实例对象，每个 Class 类对象内部都包含了本来的所有信息。记着一句话，通过反射干任何事，先找 Class 准没错！
+2、Field：描述一个类的属性，内部包含了该属性的所有信息，例如数据类型，属性名，访问修饰符······
+3、Constructor：描述一个类的构造方法，内部包含了构造方法的所有信息，例如参数类型，参数名字，访问修饰符······
+4、Method：描述一个类的所有方法（包括抽象方法），内部包含了该方法的所有信息，与Constructor类似，不同之处是 Method 拥有返回值类型信息，因为构造方法是没有返回值的。
+
+
+反射中的用法有非常非常多，常见的功能有以下这几个：
+1、在运行时获取一个类的 Class 对象
+2、在运行时构造一个类的实例化对象
+3、在运行时获取一个类的所有信息：变量、方法、构造器、注解
+
+
+
+
+一、获取 Class 对象的方法有3种：
+1、类名.class：这种获取方式只有在编译前已经声明了该类的类型才能获取到 Class 对象
+  Class clazz = SmallPineapple.class;
+2、实例.getClass()：通过实例化对象获取该实例的 Class 对象
+  SmallPineapple sp = new SmallPineapple();
+  Class clazz = sp.getClass();
+3、Class.forName(className)：通过类的全限定名获取该类的 Class 对象
+  Class clazz = Class.forName("com.bean.smallpineapple");
+
+拿到 Class对象就可以对它为所欲为了：剥开它的皮（获取类信息）、指挥它做事（调用它的方法），看透它的一切（获取属性），总之它就没有隐私了。
+
+
+不过在程序中，每个类的 Class 对象只有一个，也就是说你只有这一个奴隶。我们用上面三种方式测试，通过三种方式打印各个 Class 对象都是相同的。
+
+Class clazz1 = Class.forName("com.bean.SmallPineapple");
+Class clazz2 = SmallPineapple.class;
+SmallPineapple instance = new SmallPineapple();
+Class clazz3 = instance.getClass();
+
+System.out.println("Class.forName() == SmallPineapple.class:" + (clazz1 == clazz2));
+System.out.println("Class.forName() == instance.getClass():" + (clazz1 == clazz3));
+System.out.println("instance.getClass() == SmallPineapple.class:" + (clazz2 == clazz3));
+
+
+内存中只有一个 Class 对象的原因要牵扯到 JVM 类加载机制的双亲委派模型，它保证了程序运行时，加载类时每个类在内存中仅会产生一个Class对象。
+可以简单地理解为 JVM 帮我们保证了一个类在内存中至多存在一个 Class 对象。
+
+
+
+
+二、构造类的实例化对象：
+
+通过Class对象调用 newInstance() 会走默认无参构造方法，如果想通过显式构造方法构造实例，需要提前从Class中调用getConstructor()方法获取对应的构造器，通过构造器去实例化对象。
+
+
+通过反射构造一个类的实例方式有2种：
+
+1、Class 对象调用newInstance()方法
+    Class clazz = Class.forName("com.bean.SmallPineapple");
+    SmallPineapple smallPineapple = (SmallPineapple) clazz.newInstance();
+    smallPineapple.getInfo();
+    // [null 的年龄是：0]
+即使 SmallPineapple 已经显式定义了构造方法，通过 newInstance()  创建的实例中，所有属性值都是对应类型的初始值，因为 newInstance() 构造实例会调用默认无参构造器。
+
+2、Constructor 构造器调用newInstance()方法
+    Class clazz = Class.forName("com.bean.SmallPineapple");
+    Constructor constructor = clazz.getConstructor(String.class, int.class);
+    constructor.setAccessible(true);
+    SmallPineapple smallPineapple2 = (SmallPineapple) constructor.newInstance("小菠萝", 21);
+    smallPineapple2.getInfo();
+    // [小菠萝 的年龄是：21]
+通过 getConstructor(Object... paramTypes) 方法指定获取指定参数类型的 Constructor， Constructor 调用 newInstance(Object... paramValues) 时传入构造方法参数的值，同样可以构造一个实例，且内部属性已经被赋值。
+
+
+
+
+三、获取一个类的所有信息（无法获取继承的属性）
+
+Class 对象中包含了该类的所有信息，在编译期我们能看到的信息就是该类的变量、方法、构造器，在运行时最常被获取的也是这些信息。
+
+获取类中的变量（Field）
+    Field[] getFields()：获取类中所有被public修饰的所有变量
+    Field getField(String name)：根据变量名获取类中的一个变量，该变量必须被public修饰
+    Field[] getDeclaredFields()：获取类中所有的变量，但无法获取继承下来的变量
+    Field getDeclaredField(String name)：根据姓名获取类中的某个变量，无法获取继承下来的变量
+
+获取类中的方法（Method）
+    Method[] getMethods()：获取类中被public修饰的所有方法
+    Method getMethod(String name, Class...<?> paramTypes)：根据名字和参数类型获取对应方法，该方法必须被public修饰
+    Method[] getDeclaredMethods()：获取所有方法，但无法获取继承下来的方法
+    Method getDeclaredMethod(String name, Class...<?> paramTypes)：根据名字和参数类型获取对应方法，无法获取继承下来的方法
+
+获取类的构造器（Constructor）
+    Constuctor[] getConstructors()：获取类中所有被public修饰的构造器
+    Constructor getConstructor(Class...<?> paramTypes)：根据参数类型获取类中某个构造器，该构造器必须被public修饰
+    Constructor[] getDeclaredConstructors()：获取类中所有构造器
+    Constructor getDeclaredConstructor(class...<?> paramTypes)：根据参数类型获取对应的构造器
+
+
+每种功能内部以 Declared 细分为2类：
+1、有Declared修饰的方法：可以获取该类内部包含的所有变量、方法和构造器，但是无法获取继承下来的信息
+2、无Declared修饰的方法：可以获取该类中public修饰的变量、方法和构造器，可获取继承下来的信息
+
+例如：要获取SmallPineapple获取类中所有的变量，代码应该是下面这样写。
+    Class clazz = Class.forName("com.bean.SmallPineapple");
+    // 获取 public 属性，包括继承
+    Field[] fields1 = clazz.getFields();
+    // 获取所有属性，不包括继承
+    Field[] fields2 = clazz.getDeclaredFields();
+
+如果父类的属性用protected修饰，利用反射是无法获取到的。
+protected 修饰符的作用范围：只允许同一个包下或者子类访问，可以继承到子类。
+getFields() 只能获取到本类的public属性的变量值；
+getDeclaredFields() 只能获取到本类的所有属性，不包括继承的；
+无论如何都获取不到父类的 protected 属性修饰的变量，但是它的的确确存在于子类中。
+
+
+
+
+四、获取注解（无法获取继承下来的注解）
+
+
+获取注解单独拧了出来，因为它并不是专属于 Class 对象的一种信息，每个变量，方法和构造器都可以被注解修饰，所以在反射中，Field，Constructor 和 Method 类对象都可以调用下面这些方法获取标注在它们之上的注解。
+
+Annotation[] getAnnotations()：获取该对象上的所有注解
+Annotation getAnnotation(Class annotaionClass)：传入注解类型，获取该对象上的特定一个注解
+Annotation[] getDeclaredAnnotations()：获取该对象上的显式标注的所有注解，无法获取继承下来的注解
+Annotation getDeclaredAnnotation(Class annotationClass)：根据注解类型，获取该对象上的特定一个注解，无法获取继承下来的注解
+
+只有注解的@Retension标注为RUNTIME时，才能够通过反射获取到该注解，@Retension 有3种保存策略：
+
+SOURCE：只在**源文件(.java)**中保存，即该注解只会保留在源文件中，编译时编译器会忽略该注解，例如 @Override 注解
+CLASS：保存在字节码文件(.class)中，注解会随着编译跟随字节码文件中，但是运行时不会对该注解进行解析
+RUNTIME：一直保存到运行时，用得最多的一种保存策略，在运行时可以获取到该注解的所有信息
+
+
+
+
+五、通过反射调用方法
+  通过反射获取到某个 Method 类对象后，可以通过调用invoke方法执行。
+  
+  invoke(Oject obj, Object... args)：参数``1指定调用该方法的**对象**，参数2`是方法的参数列表值。
+  如果调用的方法是静态方法，参数1只需要传入null，因为静态方法不与某个对象有关，只与某个类有关。
+  
+  可以像下面这种做法，通过反射实例化一个对象，然后获取Method方法对象，调用invoke()指定SmallPineapple的getInfo()方法。
+  
+  Class clazz = Class.forName("com.bean.SmallPineapple");
+  Constructor constructor = clazz.getConstructor(String.class, int.class);
+  constructor.setAccessible(true);
+  SmallPineapple sp = (SmallPineapple) constructor.newInstance("小菠萝", 21);
+  Method method = clazz.getMethod("getInfo");
+  if (method != null) {
+      method.invoke(sp, null);
+  }
+  // [小菠萝的年龄是：21]
+
+
+
+
+
+反射常见的应用场景这里介绍3个：
+1、Spring 实例化对象：当程序启动时，Spring 会读取配置文件applicationContext.xml并解析出里面所有的标签实例化到IOC容器中。
+2、反射 + 工厂模式：通过反射消除工厂中的多个分支，如果需要生产新的类，无需关注工厂类，工厂类可以应对各种新增的类，反射可以使得程序更加健壮。
+3、JDBC连接数据库：使用JDBC连接数据库时，指定连接数据库的驱动类时用到反射加载驱动类
+
+
+
+
+
+（3）使用反射能给我们编码时带来的优势以及存在的缺陷: 分析篇
+
+反射的优势及缺陷
+
+1、反射的优点：
+    增加程序的灵活性：面对需求变更时，可以灵活地实例化不同对象
+2、但是，有得必有失，一项技术不可能只有优点没有缺点，反射也有两个比较隐晦的缺点：
+    1、破坏类的封装性：可以强制访问 private 修饰的信息
+    2、性能损耗：反射相比直接实例化对象、调用方法、访问变量，中间需要非常多的检查步骤和解析步骤，JVM无法对它们优化。
+
+
+
+
+反射基础篇文末总结
+反射的思想：反射就像是一面镜子一样，在运行时才看到自己是谁，可获取到自己的信息，甚至实例化对象。
+反射的作用：在运行时才确定实例化对象，使程序更加健壮，面对需求变更时，可以最大程度地做到不修改程序源码应对不同的场景，实例化不同类型的对象。
+反射的应用场景常见的有3个：Spring的 IOC 容器，反射+工厂模式 使工厂类更稳定，JDBC连接数据库时加载驱动类
+反射的3个特点：增加程序的灵活性、破坏类的封装性以及性能损耗
+
+
+
+
+参考
+https://my.oschina.net/u/4138213/blog/4503593
+
+
 ---------------------------------------------------------------------------------------------------------------------
 参考
 https://blog.csdn.net/sinat_38259539/article/details/71799078

@@ -8,10 +8,14 @@
  */
 package org.quickstart.lombok;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -27,9 +31,16 @@ import lombok.extern.slf4j.Slf4j;
 @ToString  
 @EqualsAndHashCode
 @Slf4j
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Accessors(chain = true) //链式调用
 public class DataObject {
 //    @Setter
 //    @Getter
+
+//    @Delegate  代理模式
+
     private String id;
     private String name;
     private String userId;

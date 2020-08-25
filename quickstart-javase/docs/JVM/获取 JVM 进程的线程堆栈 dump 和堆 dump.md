@@ -152,3 +152,6 @@ jcmd PID GC.class_histogram -all
 
 
 
+java命令--jstack 工具
+https://www.cnblogs.com/kongzhongqijing/articles/3630264.html
+

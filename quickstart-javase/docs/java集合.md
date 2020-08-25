@@ -10,7 +10,7 @@
   
   
   
-  
+
   
 ---------------------------------------------------------------------------------------------------------------------  
 https://blog.csdn.net/touchSea/article/details/750923  
@@ -27,8 +27,38 @@ https://blog.csdn.net/zsj777/article/details/82260227
   
 List、Set、Map、Queue  
 并发集合：ConcurrentHashMap、ConcurrentSkipListSet、CopyOnWriteArrayList等  
+
+Java集合详解
+https://www.cnblogs.com/cxuanBlog/p/13424318.html
+
+Map 和 Collection 接口
+Map 接口和 Collection 接口是集合框架体系的两大门派，
+Collection 是存储元素本身，而 Map 是存储<key, value>键值对
+
+
+Collection 集合体系详解
+Collection 集合体系的顶层接口就是Collection，它规定了该集合下的一系列行为约定。
+
+该集合下可以分为三大类集合：List，Set和Queue
+1、Set接口定义了该类集合不允许存储重复的元素，且任何操作时均需要通过哈希函数映射到集合内部定位元素，集合内部的元素默认是无序的。
+2、List接口定义了该类集合允许存储重复的元素，且集合内部的元素按照元素插入的顺序有序排列，可以通过索引访问元素。
+3、Queue接口定义了该类集合是以队列作为存储结构，所以集合内部的元素有序排列，仅可以操作头结点元素，无法访问队列中间的元素。
   
-  
+
+Collection 接口提供了整个集合框架最通用的增删改查以及集合自身操作的抽象方法，让子类去实现
+Set 接口决定了它的子类都是无序、无重复元素的集合，其主要实现有HashSet、TreeSet、LinkedHashSet。
+    HashSet 底层采用 HashMap 实现，而 TreeSet 底层使用 TreeMap 实现，大部分 Set 集合的操作都会转换为 Map 的操作，TreeSet 可以将元素按照规则进行排序。
+List 接口决定了它的子类都是有序、可存储重复元素的集合，常见的实现有 ArrayList，LinkedList，Vector
+    ArrayList 使用数组实现，而 LinkedList 使用链表实现，所以它们两个的使用场景几乎是相反的，频繁查询的场景使用 ArrayList，而频繁插入删除的场景最好使用 LinkedList
+    LinkedList 和 ArrayDeque 都可用于双端队列，而 Josh Bloch and Doug Lea 认为 ArrayDeque 具有比 LinkedList 更好的性能，ArrayDeque使用数组实现双端队列，LinkedList使用链表实现双端队列。
+Queue 接口定义了队列的基本操作，子类集合都会拥有队列的特性：先进先出，主要实现有：LinkedList，ArrayDeque
+    PriorityQueue 底层使用二叉堆维护的优先级队列，而二叉堆是由数组实现的，它可以按照元素的优先级进行排序，优先级越高的元素，排在队列前面，优先被弹出处理。
+Map接口定义了该种集合类型是以<key,value>键值对形式保存，其主要实现有：HashMap，TreeMap，LinkedHashMap，Hashtable
+    LinkedHashMap 底层多加了一条双向链表，设置accessOrder为true并重写方法则可以实现LRU缓存
+    TreeMap 底层采用数组+红黑树实现，集合内的元素默认按照自然排序，也可以传入Comparator定制排序
+
+
+
   
 Collection  
 ├List  
