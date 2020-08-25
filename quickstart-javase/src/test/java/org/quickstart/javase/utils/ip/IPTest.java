@@ -1,4 +1,4 @@
-package org.quickstart.javase;
+package org.quickstart.javase.utils.ip;
 
 /**
  * @author youngzil@163.com

@@ -1,4 +1,4 @@
-package org.quickstart.javase.utils;
+package org.quickstart.javase.utils.ip;
 
 import org.apache.commons.lang3.StringUtils;
 
