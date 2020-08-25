@@ -11,18 +11,37 @@ package org.quickstart.javase.jdk.thread.pool;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * FutureTaskTest
- * 
+ *
  * http://www.importnew.com/25286.html
- * 
+ *
  * @author：youngzil@163.com
  * @2018年4月27日 下午12:45:29
  * @since 1.0
  */
 public class FutureTaskTest {
+
+    private static final int COUNT_BITS = Integer.SIZE - 3;
+    private static final int CAPACITY = (1 << COUNT_BITS) - 1;
+
+    // runState is stored in the high-order bits
+    private static final int RUNNING = -1 << COUNT_BITS;
+    private static final int SHUTDOWN = 0 << COUNT_BITS;
+    private static final int STOP = 1 << COUNT_BITS;
+    private static final int TIDYING = 2 << COUNT_BITS;
+    private static final int TERMINATED = 3 << COUNT_BITS;
+
     public static void main(String[] args) throws ExecutionException, InterruptedException {
+
+        System.out.println("CAPACITY=" + CAPACITY);
+        System.out.println("RUNNING=" + RUNNING);
+        System.out.println("SHUTDOWN=" + SHUTDOWN);
+        System.out.println("STOP=" + STOP);
+        System.out.println("TIDYING=" + TIDYING);
+        System.out.println("TERMINATED=" + TERMINATED);
 
         /**
          * 第一种方式:Future + ExecutorService Task task = new Task(); ExecutorService service = Executors.newCachedThreadPool(); Future<Integer> future = service.submit(task1); service.shutdown();
