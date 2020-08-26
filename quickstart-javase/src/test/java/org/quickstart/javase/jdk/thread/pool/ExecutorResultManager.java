@@ -36,6 +36,7 @@ public class ExecutorResultManager {
 
                 for (int i = 0; i < 10; i++) {
                     int index = i;
+
                     Future<String> submit = pool.submit(new Callable<String>() {
                         @Override
                         public String call() throws Exception {

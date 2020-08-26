@@ -16,8 +16,10 @@ beforeExecute、afterExecute、
 
 线程池源码解读
 
+CompletionService解读
 
 
+---------------------------------------------------------------------------------------------------------------------
 
 普通线程池：线程创建流程corePoolSize ---> queue ---> maximumPoolSize ,从queue中获取task时候，设置超时时间，并且等待keepAliveTime获取不到task就销毁thread
 定时任务线程池：线程创建流程一样，使用延时阻塞队列DelayedWorkQueue，线程不停地的等待task
@@ -32,8 +34,21 @@ beforeExecute、afterExecute、
 
 
 提交任务：execute() 和 submit()
-execute()：FutureTask（ExecutorCompletionService）
-submit()：Callable接口、Future接口
+execute()：只能执行Runnable，返回的Void
+submit()：执行Runnable和Callable接口，返回的是Future接口
+Future/FutureTask：表示异步计算的结果，可以对于具体的Runnable或者Callable任务进行查询是否完成，查询是否取消，获取执行结果，取消任务等操作。【直接包装一个线程并启动也是可以的，不仅仅是在线程池中】
+
+ExecutorService（ThreadPoolExecutor）和
+CompletionService（ExecutorCompletionService）
+
+感觉是ExecutorService需要自己保存submit之后的返回值Future，并且自己去轮序是否完成，并且无法按照先完成先获取，因为不知道哪个先完成，只能轮训去查询，【感觉是主动查询，没有完成后回调的意思】
+CompletionService直接调用(take/poll)获取即可，自动是按照先完成先获取的顺序来获取的【不是主动查询，完成后回调的感觉】
+
+ExecutorService：顺序轮序查询是否完成，中间有耗时的任务，就会导致后面已经完成的结果也无法及时处理
+CompletionService：先完成的必定先被取出。这样就减少了不必要的等待时间。
+
+
+
 
 RejectedExecutionHandler策略
 其他方法：beforeExecute、afterExecute、
@@ -128,7 +143,7 @@ beforeExecute、afterExecute、
 
 
 
-
+---------------------------------------------------------------------------------------------------------------------
 
 线程池有哪几种工作队列
 1、ArrayBlockingQueue （有界队列）：是一个基于数组结构的有界阻塞队列，此队列按 FIFO（先进先出）原则对元素进行排序。
@@ -171,7 +186,7 @@ http://www.cnblogs.com/tiancai/p/9407048.html
 
 
 
-
+---------------------------------------------------------------------------------------------------------------------
 
 
 线程池源码解读
@@ -235,5 +250,61 @@ http://ifeve.com/java-threadpoolexecutor/
 
 
 
+---------------------------------------------------------------------------------------------------------------------
 
+CompletionService解读
+
+
+ExecutorCompletionService 是 CompletionService 唯一实现类
+
+如果你使用过消息队列，你应该秒懂我要说什么了，CompletionService 实现原理很简单
+就是一个将异步任务的生产和任务完成结果的消费解耦的服务
+也就是说，CompletionService实现了生产者提交任务和消费者获取结果的解耦，生产者和消费者都不用关心任务的完成顺序，由CompletionService来保证，消费者一定是按照任务完成的先后顺序来获取执行结果。
+先完成的必定先被取出。这样就减少了不必要的等待时间。
+
+
+
+日常处理中，我们通过会在任务提交到线程池后将返回的任务Future放到一个集合中，然后遍历集合通过Future的get()相关方法获取执行结果。
+但如果在遍历过程中get()方法阻塞，即使位于集合后面的Future已经完成，遍历集合的线程也要继续等待，会影响执行结果的处理效率。
+好的方案是，在任务执行结束后，返回值能够立即被获取，避免被未完成任务所影响。
+
+
+ExecutorCompletionService类
+该类实现了CompletionService，维护一个阻塞队列（默认为LinkedBlockingQueue类型）保存已经完成的任务Future。
+某个任务执行结束后时会将任务的Future添加到该阻塞队列，阻塞队列按任务的完成顺序保存了任务的Future以便获取。
+
+
+
+CompletionService  是一个接口，它简单的只有 5 个方法：
+Future<V> submit(Callable<V> task);
+Future<V> submit(Runnable task, V result);
+Future<V> take() throws InterruptedException;
+Future<V> poll();
+Future<V> poll(long timeout, TimeUnit unit) throws InterruptedException;
+
+
+按大类划分上面5个方法，其实就是两个功能
+1、提交异步任务 （submit）
+2、从队列中拿取并移除第一个元素 (take/poll)
+
+Take: 如果队列为空，那么调用 take() 方法的线程会被阻塞
+Poll: 如果队列为空，那么调用 poll() 方法的线程会返回 null
+Poll-timeout: 以超时的方式获取并移除阻塞队列中的第一个元素，如果超时时间到，队列还是空，那么该方法会返回 null
+
+
+
+
+
+参考  
+https://www.cnblogs.com/aifuli/articles/8399252.html  
+https://www.jianshu.com/p/cfda708a3478  
+https://blog.csdn.net/ZYC88888/article/details/87706725
+https://juejin.im/entry/6844903861153431566
+https://blog.coderap.com/article/257
+https://my.oschina.net/dyyweb/blog/660798
+https://segmentfault.com/a/1190000019956568
+
+
+
+---------------------------------------------------------------------------------------------------------------------
 
