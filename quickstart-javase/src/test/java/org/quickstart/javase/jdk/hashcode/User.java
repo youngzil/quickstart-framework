@@ -8,6 +8,8 @@
  */
 package org.quickstart.javase.jdk.hashcode;
 
+import lombok.Data;
+
 import java.util.Objects;
 
 /**
@@ -19,6 +21,7 @@ import java.util.Objects;
  * @2018年1月24日 下午10:07:19
  * @since 1.0
  */
+@Data
 public class User {
 
     private String name;

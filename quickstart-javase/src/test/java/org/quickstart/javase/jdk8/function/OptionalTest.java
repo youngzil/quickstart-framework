@@ -4,6 +4,7 @@
 package org.quickstart.javase.jdk8.function;
 
 import org.junit.Test;
+import org.quickstart.javase.jdk.hashcode.User;
 
 import java.util.Arrays;
 import java.util.Optional;
@@ -20,6 +21,70 @@ import java.util.function.Supplier;
  * @since 1.0
  */
 public class OptionalTest {
+
+    // Option创建
+    @Test
+    public void testOptionalCreate() {
+
+        //        Optional类提供类三个方法用于实例化一个Optional对象，它们分别为empty()、of()、ofNullable()，这三个方法都是静态方法，可以直接调用。
+
+        //        empty()方法用于创建一个没有值的Optional对象：
+        //        empty()方法创建的对象没有值，如果对emptyOpt变量调用isPresent()方法会返回false，调用get()方法抛出NullPointerException异常。
+        Optional<String> emptyOpt = Optional.empty();
+
+        //        of()方法使用一个非空的值创建Optional对象：
+        String str = "Hello World";
+        Optional<String> notNullOpt = Optional.of(str);
+
+        //        ofNullable()方法接收一个可以为null的值：
+        //        如果str的值为null，得到的nullableOpt是一个没有值的Optional对象。
+        Optional<String> nullableOpt = Optional.ofNullable(str);
+
+    }
+
+    @Test
+    public void testOptionalObtain() {
+
+        //        使用Optional中提供的map()方法可以以更简单的方式实现：
+        Optional<User> userOpt = Optional.ofNullable(new User());
+        Optional<String> roleIdOpt = userOpt.map(User::getName);
+
+        //        使用orElse()方法获取值
+        //        Optional类还包含其他方法用于获取值，这些方法分别为：
+        //        1、 orElse()：如果有值就返回，否则返回一个给定的值作为默认值；
+        //        2、orElseGet()：与orElse()方法作用类似，区别在于生成默认值的方式不同。该方法接受一个Supplier<? extends T>函数式接口参数，用于生成默认值；
+        //        3、orElseThrow()：与前面介绍的get()方法类似，当值为null时调用这两个方法都会抛出NullPointerException异常，区别在于该方法可以指定抛出的异常类型。
+        String str = "Hello World";
+        Optional<String> strOpt = Optional.of(str);
+        String orElseResult = strOpt.orElse("Hello Shanghai");
+        String orElseGet = strOpt.orElseGet(() -> "Hello Shanghai");
+        String orElseThrow =
+            strOpt.orElseThrow(() -> new IllegalArgumentException("Argument 'str' cannot be null or blank."));
+
+        //        此外，Optional类还提供了一个ifPresent()方法，该方法接收一个Consumer<? super T>函数式接口，一般用于将信息打印到控制台：
+        Optional<String> strOpt2 = Optional.of("Hello World");
+        strOpt2.ifPresent(System.out::println);
+
+        //        使用filter()方法过滤
+        //        filter()方法可用于判断Optional对象是否满足给定条件，一般用于条件过滤：
+        //        在上面的代码中，如果filter()方法中的Lambda表达式成立，filter()方法会返回当前Optional对象值，否则，返回一个值为空的Optional对象。
+
+        Optional<String> optional = Optional.of("lw900925@163.com");
+        optional = optional.filter(str2 -> str2.contains("164"));
+
+        //        1、尽量避免在程序中直接调用Optional对象的get()和isPresent()方法；
+        //        2、避免使用Optional类型声明实体类的属性；
+        //        第一条建议中直接调用get()方法是很危险的做法，如果Optional的值为空，那么毫无疑问会抛出NullPointerException异常，而为了调用get()方法而使用isPresent()方法作为空值检查，这种做法与传统的用if语句块做空值检查没有任何区别。
+//        第二条建议避免使用Optional作为实体类的属性，它在设计的时候就没有考虑过用来作为类的属性，如果你查看Optional的源代码，你会发现它没有实现java.io.Serializable接口，这在某些情况下是很重要的（比如你的项目中使用了某些序列化框架），使用了Optional作为实体类的属性，意味着他们不能被序列化。
+
+
+        //不要使用isPresent()判断之后再使用get()取值，这种做法与传统的用if语句块做空值检查没有任何区别。
+       //要使用orElse、orElseGet、orElseThrow
+
+
+//        总结一下，新的Optional类让我们可以以函数式编程的方式处理null值，抛弃了Java 8之前需要嵌套大量if-else代码块，使代码可读性有了很大的提高。
+
+    }
 
   /*Optional类
 （二）常用方法
