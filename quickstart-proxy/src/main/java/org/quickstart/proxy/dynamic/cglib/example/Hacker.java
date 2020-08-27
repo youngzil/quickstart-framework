@@ -6,7 +6,7 @@
  * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.proxy.dynamic.sample3;
+package org.quickstart.proxy.dynamic.cglib.example;
 
 /**
  * Hacker 

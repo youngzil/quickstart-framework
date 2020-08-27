@@ -6,11 +6,11 @@
  * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.proxy.dynamic.sample2;
+package org.quickstart.proxy.dynamic.jdk.example;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.Proxy;
+
 import sun.misc.ProxyGenerator;
 
 /**

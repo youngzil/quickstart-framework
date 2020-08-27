@@ -6,7 +6,7 @@
  * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.proxy.dynamic.sample2;
+package org.quickstart.proxy.dynamic.jdk.example;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
