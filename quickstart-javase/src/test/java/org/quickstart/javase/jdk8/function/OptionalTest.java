@@ -35,6 +35,7 @@ public class OptionalTest {
         //        of()方法使用一个非空的值创建Optional对象：
         String str = "Hello World";
         Optional<String> notNullOpt = Optional.of(str);
+        notNullOpt.ifPresent(System.out::println);
 
         //        ofNullable()方法接收一个可以为null的值：
         //        如果str的值为null，得到的nullableOpt是一个没有值的Optional对象。

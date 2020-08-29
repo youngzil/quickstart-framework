@@ -6,7 +6,7 @@
  * Copyright yangzl Corporation 2017
  * 版权所有 *
  */
-package org.quickstart.example.designpattern.singleton;
+package org.quickstart.design.pattern.singleton;
 
 /**
  * Singleton
@@ -15,17 +15,17 @@ package org.quickstart.example.designpattern.singleton;
  * @2017年3月7日 下午2:25:12
  * @version 1.0
  */
-public class Singleton {
+public class Singleton3 {
 
-    private static Singleton instance;
+    private static Singleton3 instance;
 
-    private Singleton() {}
+    private Singleton3() {}
 
-    public static Singleton getInstance() { // 对获取实例的方法进行同步
+    public static Singleton3 getInstance() { // 对获取实例的方法进行同步
         if (instance == null) {
-            synchronized (Singleton.class) {
+            synchronized (Singleton3.class) {
                 if (instance == null)
-                    instance = new Singleton();
+                    instance = new Singleton3();
             }
         }
         return instance;

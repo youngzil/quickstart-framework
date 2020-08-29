@@ -6,7 +6,7 @@
  * Copyright yangzl Corporation 2017
  * 版权所有 *
  */
-package org.quickstart.example.designpattern.singleton;
+package org.quickstart.design.pattern.singleton;
 
 /**
  * SingletonTest
@@ -19,8 +19,8 @@ public class SingletonTest {
 
     public static void main(String[] args) {
 
-        Singleton singleton = Singleton.getInstance();
-        Singleton singleton3 = Singleton.getInstance();
+        Singleton3 singleton = Singleton3.getInstance();
+        Singleton3 singleton3 = Singleton3.getInstance();
 
         System.out.println(singleton);
         System.out.println(singleton3);
