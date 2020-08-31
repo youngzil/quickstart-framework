@@ -6,7 +6,7 @@
  * Copyright yangzl Corporation 2018
  * 版权所有 *
  */
-package org.quickstart.javase.jdk.juc;
+package org.quickstart.javase.jdk.juc.util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +19,7 @@ import java.util.concurrent.Exchanger;
  * @2018年5月8日 上午9:35:22 
  * @since 1.0
  */
-public class ExchangerTest {
+public class ExchangerTest2 {
     
     //多个线程如何进行交换，怎么交换？
     

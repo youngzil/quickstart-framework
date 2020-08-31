@@ -1,3 +1,6 @@
+
+
+---------------------------------------------------------------------------------------------------------------------
 http://ifeve.com/abstractqueuedsynchronizer-use/        
     
     
@@ -8,10 +11,18 @@ AQS(AbstractQueuedSynchronizer)，AQS是JDK下提供的一套用于实现基于F
 
 谈到并发，我们不得不说AQS(AbstractQueuedSynchronizer)，所谓的AQS即是抽象的队列式的同步器，内部定义了很多锁相关的方法，我们熟知的ReentrantLock、ReentrantReadWriteLock、CountDownLatch、Semaphore等都是基于AQS来实现的。
 
+AQS 内部维护了一个 FIFO 队列来管理锁。线程首先会尝试获取锁，如果失败，则将当前线程以及等待状态等信息包成一个 Node 节点放入同步队列阻塞起来，当持有锁的线程释放锁时，就会唤醒队列中的后继线程。
+
+
+AQS 的源码中方法很多，但主要做了三件事情：
+1.管理同步状态；
+2.维护同步队列；
+3.阻塞和唤醒线程。
+
      
     
     
-实现：一个int状态位和一个有序队列来配合完成        
+实现：一个int状态位和一个有序队列（链表队列）来配合完成        
     
 abstract static class Sync extends AbstractQueuedSynchronizer        
 三个重要属性的定义        
@@ -24,20 +35,24 @@ AQS对外呈现（或者说声明）的主要行为就是由一个状态位和�
     
 通过AbstractQueuedSynchronizer的子类Sync来实现，AbstractQueuedSynchronizer是模板方法，子类Sync通过override父类部分方法来实现对应功能        
 工具类中自己定义的内部类Sync继承自AQS，通过override部分方法来做到以父类AQS为基础，提供受委托工具类的功能要求        
-    
-    
-    
+
+CLH：Craig、Landin and Hagersten 队列，是一个单向链表，AQS中的队列是CLH变体的虚拟双向队列（FIFO）
+
+
+
+
+
 1、并发工具类的实现        
 CyclicBarrier：wait()        
 CountDownLatch：countDown()        
-Semaphore：acquire()、release()        
+Semaphore(信号量)：acquire()、release()        
 都要设置数量，就是state，通过增减state来实现线程的挂起和恢复        
     
 在信号量Semaphore中使用AQS的子类Sync，初始化state表示许可数，在每一次请求acquire()一个许可都会导致计数器减少1，同样每次释放一个许可release()都会导致计数器增加1。一旦达到了0，新的许可请求线程将被挂起。        
     
     
     
-2、ReentrantLock锁的实现：lock和unlock的数量一致，否则会一直占有锁，发生死锁，增加重入数也会检查是否超过最大值。        
+2、ReentrantLock锁（公平锁/非公平锁）的实现：lock和unlock的数量一致，否则会一直占有锁，发生死锁，增加重入数也会检查是否超过最大值。        
 ReentrantLock对外的主要方法是lock()【阻塞】，tryLock()【非阻塞】、unlock()、isLocked()、isFair()等方法        
     
 lock方法有对于FairSync和NoFairSync有两种不同的实现：        
@@ -78,9 +93,45 @@ state状态位来存储执行状态RUNNING、RUN、CANCELLED，当使用get()获
     
 
 
+5、ThreadPoolExecutor  (关于线程池的理解，可以查看 为什么要使用线程池? )
+
+
+
 
 参考
 https://cloud.tencent.com/developer/article/1624354
+https://github.com/doocs/source-code-hunter/blob/master/docs/JDK/concurrentCoding/%E8%AF%A6%E8%A7%A3AbstractQueuedSynchronizer.md
 
-    
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+Semaphore 信号量，可用于控制一定时间内，并发执行的线程数，基于 AQS 实现。可应用于网关限流、资源限制 (如 最大可发起连接数)。由于 release() 释放许可时，未对释放许可数做限制，所以可以通过该方法增加总的许可数量。
+
+获取许可支持公平和非公平模式，默认非公平模式。公平模式无论是否有许可，都会先判断是否有线程在排队，如果有线程排队，则进入排队，否则尝试获取许可；非公平模式无论许可是否充足，直接尝试获取许可。
+
+
+
+
+
+
+
+参考  
+https://github.com/doocs/source-code-hunter/blob/master/docs/JDK/concurrentCoding/Semaphore.md  
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
     

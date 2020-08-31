@@ -35,7 +35,7 @@ if [[ "$ARG1" =~ "-h" ]];then
     exit 0
 fi
 
-MODULE_ENV_LIST="aifgw oauth webapp webdev webopr all"   ###定义list
+MODULE_ENV_LIST="service ui aifgw oauth webapp webdev webopr all"   ###定义list
 if [[ -z $ARG1 ]] || [[ ! $MODULE_ENV_LIST =~ $ARG1 ]] ; then
   usage
   exit 0;
@@ -197,7 +197,7 @@ webdev()
     cp -rf $CODE_PATH/local/$PROJECT_NAME $CODE_PATH/$PROJECT_NAME
   fi
   #修改配置文件：替换routes.js文件
-  cp -rf ${HOME}/deploy_oppf/config_test/webdev_gateway/dist/src/routes.js $CODE_PATH/$PROJECT_NAME/src/
+#  cp -rf ${HOME}/deploy_oppf/config_test/webdev_gateway/dist/src/routes.js $CODE_PATH/$PROJECT_NAME/src/
 
   aid build -N
   if [ -d "dist" ];then
@@ -231,7 +231,7 @@ webopr()
     cp -rf $CODE_PATH/local/$PROJECT_NAME $CODE_PATH/$PROJECT_NAME
   fi
   #替换routes.js文件
-  cp -rf ${HOME}/deploy_oppf/config_test/webopr_gateway/dist/src/routes.js $CODE_PATH/$PROJECT_NAME/src/
+#  cp -rf ${HOME}/deploy_oppf/config_test/webopr_gateway/dist/src/routes.js $CODE_PATH/$PROJECT_NAME/src/
 
   aid build -N
   if [ -d "dist" ];then
@@ -264,6 +264,15 @@ case $ARG1 in
   ;;
   oauth)
       oauth
+  ;;
+  service)
+     aifgw
+     oauth
+     webapp
+  ;;
+  ui)
+     webdev
+     webopr
   ;;
   all)
       aifgw
