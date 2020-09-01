@@ -8,15 +8,16 @@
  */
 package org.quickstart.javase.jdk8.completablefuture;
 
-import java.util.concurrent.CompletableFuture;
-
 import org.junit.Test;
+
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 /**
  * CompletableFutureTest
- * 
+ *
  * https://www.jianshu.com/p/6f3ee90ab7d3
- * 
+ *
  * @author：youngzil@163.com
  * @2018年8月28日 下午11:35:30
  * @since 1.0
@@ -24,9 +25,9 @@ import org.junit.Test;
 public class CompletableFutureTest implements Runnable {
     CompletableFuture<Integer> re = null;
 
-    public CompletableFutureTest(CompletableFuture<Integer> re) {
-        this.re = re;
-    }
+//    public CompletableFutureTest(CompletableFuture<Integer> re) {
+//        this.re = re;
+//    }
 
     @Override
     public void run() {
@@ -39,8 +40,11 @@ public class CompletableFutureTest implements Runnable {
     }
 
     public static void main(String[] args) throws InterruptedException {
+
         final CompletableFuture<Integer> future = new CompletableFuture<Integer>();
-        new Thread(new CompletableFutureTest(future)).start();
+        future.complete(200);//调用 complete() 方法手动的结束一个 Future
+
+//        new Thread(new CompletableFutureTest(future)).start();
         // 模拟长时间的计算过程
         Thread.sleep(1000);
         // 告知完成结果
@@ -235,6 +239,30 @@ public class CompletableFutureTest implements Runnable {
             return "hello world";
         }).join();
         System.out.println(result);
+    }
+
+    @Test
+    public void exceptionally2() throws ExecutionException, InterruptedException {
+        Integer age = 18;
+
+        CompletableFuture<String> maturityFuture = CompletableFuture.supplyAsync(() -> {
+            if (age < 0) {
+                throw new IllegalArgumentException("何方神圣？");
+            }
+            if (age > 18) {
+                return "大家都是成年人";
+            } else {
+                return "未成年禁止入内";
+            }
+        }).thenApply((str) -> {
+            System.out.println("游戏开始");
+            return str;
+        }).exceptionally(ex -> {
+            System.out.println("必有蹊跷，来者" + ex.getMessage());
+            return "Unknown!";
+        });
+
+        System.out.println(maturityFuture.get());
     }
 
     // 当运行完成时，对结果的记录。这里的完成时有两种情况，一种是正常执行，返回值。

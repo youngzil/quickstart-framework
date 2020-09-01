@@ -81,10 +81,41 @@ lock方法有对于FairSync和NoFairSync有两种不同的实现：
 写线程获取写入锁后可以再次获取读取锁，但是读线程获取读取锁后却不能获取写入锁。    
     
     
- ReentrantReadWriteLock中提供了两个Lock：ReentrantReadWriteLock.ReadLock和ReentrantReadWriteLock.WriteLock。对外提供功能的是两个lock，但是内部封装的是一个同步器Sync，有公平和不公平两个版本。借用了AQS的state状态位来保存锁的计数信息。高16位表示共享锁的数量，低16位表示独占锁的重入次数。在AQS子类的对应try字体方法中实现对state的维护。    
-    
-    
-    
+ ReentrantReadWriteLock中提供了两个Lock：
+ ReentrantReadWriteLock.ReadLock和ReentrantReadWriteLock.WriteLock。
+ 
+ 对外提供功能的是两个lock，但是内部封装的是一个同步器Sync，有公平和不公平两个版本。
+ 借用了AQS的state状态位来保存锁的计数信息。高16位表示共享锁的数量，低16位表示独占锁的重入次数。在AQS子类的对应try字体方法中实现对state的维护。    
+ 
+ 读写状态设计
+ 如果要在一个 int 类型变量上维护多个状态，那肯定就需要拆分了。我们知道 int 类型数据占32位，所以我们就有机会按位切割使用state了。我们将其切割成两部分：
+1、高16位表示读
+2、低16位表示写
+
+
+读写锁的升级与降级：
+1、读写锁的升级是不可以的（读锁、写锁，释放锁）
+2、使用写锁可以降级（写锁、读锁、释放锁）：但是不降级，获取的只是最新的数据，可能部署自己修改后的数据
+
+Reentrancy还允许通过获取写锁定，然后读取锁定然后释放写入锁定，从写入锁定降级到读取锁定。 然而，从读锁定写锁定升级是不可能的。
+
+
+
+假如线程A修改完数据之后， 经过耗时操作后想要再使用数据时，希望使用的是自己修改后的数据，而不是其他线程修改后的数据，这样的话确实是需要锁降级；
+如果只是希望最后使用数据的时候，拿到的是最新的数据，而不一定是自己刚修改过的数据，那么先释放写锁，再获取读锁，然后使用数据也无妨
+
+
+
+参考
+https://tech.meituan.com/2018/11/15/java-lock.html
+https://zhuanlan.zhihu.com/p/38012123
+https://www.cnblogs.com/duanxz/p/4088682.html
+https://www.cnblogs.com/liuling/p/2013-8-21-03.html
+https://www.apiref.com/java11-zh/java.base/java/util/concurrent/locks/ReentrantReadWriteLock.html
+
+
+
+
 4、FutureTask    
     
 state状态位来存储执行状态RUNNING、RUN、CANCELLED，当使用get()获取执行结果的时候，未完成就挂起，在父类AQS中获取共享锁的线程会阻塞。即实现“任务未完成调用get方法的线程会阻塞”这样的功能。    

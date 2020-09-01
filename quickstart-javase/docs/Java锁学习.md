@@ -167,5 +167,11 @@ ReentrantLock结合Condition可以实现前面介绍过的“选择性通知”,
 https://blog.csdn.net/chenchaofuck1/article/details/51592429
 https://blog.csdn.net/zhang199416/article/details/70771238
 
+
+
+参考
+https://tech.meituan.com/2018/11/15/java-lock.html
+
+
 ---------------------------------------------------------------------------------------------------------------------  
 

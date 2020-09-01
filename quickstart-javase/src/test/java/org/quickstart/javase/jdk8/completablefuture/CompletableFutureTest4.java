@@ -22,7 +22,9 @@ public class CompletableFutureTest4 {
 
   public static void main(String[] args) throws InterruptedException, ExecutionException {
     CompletableFuture<Void> fu = CompletableFuture.supplyAsync(() -> calc(50))//
-        .thenCompose((i) -> CompletableFuture.supplyAsync(() -> calc(i))).thenApply((str) -> "\"" + str + "\"").thenAccept(System.out::println);
+        .thenCompose((i) -> CompletableFuture.supplyAsync(() -> calc(i)))//
+        .thenApply((str) -> "\"" + str + "\"")//
+        .thenAccept(System.out::println);
     fu.get();
   }
 

@@ -38,6 +38,15 @@ execute()：只能执行Runnable，返回的Void
 submit()：执行Runnable和Callable接口，返回的是Future接口
 Future/FutureTask：表示异步计算的结果，可以对于具体的Runnable或者Callable任务进行查询是否完成，查询是否取消，获取执行结果，取消任务等操作。【直接包装一个线程并启动也是可以的，不仅仅是在线程池中】
 
+Runnable 你太清楚了，它既可以用在 Thread 类中，也可以用在 ExecutorService 类中配合线程池的使用；
+Callable 只能在 ExecutorService 中使用
+
+Runnable 接口中的 run 方法签名上没有 throws ，自然也就没办法向上传播受检异常；
+而 Callable 的 call() 方法签名却有 throws，所以它可以处理受检异常；
+
+
+
+
 ExecutorService（ThreadPoolExecutor）和
 CompletionService（ExecutorCompletionService）
 
@@ -146,6 +155,7 @@ beforeExecute、afterExecute、
 ---------------------------------------------------------------------------------------------------------------------
 
 线程池有哪几种工作队列
+
 1、ArrayBlockingQueue （有界队列）：是一个基于数组结构的有界阻塞队列，此队列按 FIFO（先进先出）原则对元素进行排序。
 2、LinkedBlockingQueue （无界队列）：一个基于链表结构的阻塞队列，此队列按FIFO （先进先出） 排序元素，吞吐量通常要高于ArrayBlockingQueue。静态工厂方法Executors.newFixedThreadPool()使用了这个队列。
 3、SynchronousQueue（同步队列）: 一个不存储元素的阻塞队列。每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，吞吐量通常要高于LinkedBlockingQueue，静态工厂方法Executors.newCachedThreadPool使用了这个队列。
@@ -155,7 +165,7 @@ beforeExecute、afterExecute、
 
 
 ArrayBlockingQueue ：一个由数组结构组成的有界阻塞队列。
-LinkedBlockingQueue ：一个由链表结构组成的有界阻塞队列。
+LinkedBlockingQueue ：一个由链表结构组成的有界阻塞队列。该队列的默认和最大长度为 Integer.MAX_VALUE 
 PriorityBlockingQueue ：一个支持优先级排序的无界阻塞队列。
 DelayQueue：一个使用优先级队列实现的无界阻塞队列。
 SynchronousQueue：一个不存储元素的阻塞队列。
@@ -163,10 +173,25 @@ LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
 LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
 
 
+链表形式的队列，其存取效率要比数组形式的队列高。但是在一些并发程序中，数组形式的队列由于具有一定的可预测性，因此可以在某些场景中获得更高的效率
+
+
 
 怎么理解无界队列和有界队列
 有界队列即长度有限，满了以后ArrayBlockingQueue会插入阻塞。
 无界队列就是里面能放无数的东西而不会因为队列长度限制被阻塞，但是可能会出现OOM异常。
+
+
+
+队列方法：存取、检查
+抛出异常：add、remove、element
+非阻塞返回特殊值：offer、poll、peek
+一直阻塞直到有数据：put、take
+
+
+
+
+
 
 
 

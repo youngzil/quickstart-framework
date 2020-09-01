@@ -31,6 +31,8 @@ public class CompletableFutureTest2 {
 
 //    CompletableFuture的异步执行：
     public static void main(String[] args) throws InterruptedException, ExecutionException {
+
+
         final CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> calc(50));
         System.out.println(future.get());
     }

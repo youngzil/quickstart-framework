@@ -1,4 +1,3 @@
-
 1、CompletableFuture原理解析
 2、CompletableFuture使用
 
@@ -104,6 +103,11 @@ https://colobu.com/2016/02/29/Java-CompletableFuture/#%E4%B8%BB%E5%8A%A8%E5%AE%8
 
 
 1、创建CompletableFuture对象
+
+CompletableFuture.completedFuture()
+
+final CompletableFuture<Integer> future = new CompletableFuture<Integer>();
+
   public static CompletableFuture<Void> runAsync(Runnable runnable)
   public static CompletableFuture<Void> runAsync(Runnable runnable, Executor executor)
   public static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier)
@@ -123,7 +127,8 @@ https://colobu.com/2016/02/29/Java-CompletableFuture/#%E4%B8%BB%E5%8A%A8%E5%AE%8
   public <U> CompletionStage<U> handle(BiFunction<? super T, Throwable, ? extends U> fn);
   public <U> CompletionStage<U> handleAsync(BiFunction<? super T, Throwable, ? extends U> fn);
   public <U> CompletionStage<U> handleAsync(BiFunction<? super T, Throwable, ? extends U> fn,Executor executor);
-  
+
+
 3、转换
   3.1、进行变换
     public <U> CompletionStage<U> thenApply(Function<? super T,? extends U> fn);
@@ -188,6 +193,97 @@ https://colobu.com/2016/02/29/Java-CompletableFuture/#%E4%B8%BB%E5%8A%A8%E5%AE%8
       // anyOf方法是当任意一个CompletableFuture执行完后就会执行计算，计算的结果相同。
       // public static CompletableFuture<Void> 	    allOf(CompletableFuture<?>... cfs)
       // public static CompletableFuture<Object> 	anyOf(CompletableFuture<?>... cfs)
+
+
+
+
+串行关系
+then 直译【然后】，也就是表示下一步，所以通常是一种串行关系体现, then 后面的单词（比如 run /apply/accept）就是上面说的函数式接口中的抽象方法名称了，它的作用和那几个函数式接口的作用是一样一样滴
+
+CompletableFuture<Void> thenRun(Runnable action)
+CompletableFuture<Void> thenRunAsync(Runnable action)
+CompletableFuture<Void> thenRunAsync(Runnable action, Executor executor)
+  
+<U> CompletableFuture<U> thenApply(Function<? super T,? extends U> fn)
+<U> CompletableFuture<U> thenApplyAsync(Function<? super T,? extends U> fn)
+<U> CompletableFuture<U> thenApplyAsync(Function<? super T,? extends U> fn, Executor executor)
+  
+CompletableFuture<Void> thenAccept(Consumer<? super T> action) 
+CompletableFuture<Void> thenAcceptAsync(Consumer<? super T> action)
+CompletableFuture<Void> thenAcceptAsync(Consumer<? super T> action, Executor executor)
+  
+<U> CompletableFuture<U> thenCompose(Function<? super T, ? extends CompletionStage<U>> fn)  
+<U> CompletableFuture<U> thenComposeAsync(Function<? super T, ? extends CompletionStage<U>> fn)
+<U> CompletableFuture<U> thenComposeAsync(Function<? super T, ? extends CompletionStage<U>> fn, Executor executor)
+
+
+
+
+
+聚合 And 关系
+combine... with... 和 both...and... 都是要求两者都满足，也就是 and 的关系了
+
+<U,V> CompletableFuture<V> thenCombine(CompletionStage<? extends U> other, BiFunction<? super T,? super U,? extends V> fn)
+<U,V> CompletableFuture<V> thenCombineAsync(CompletionStage<? extends U> other, BiFunction<? super T,? super U,? extends V> fn)
+<U,V> CompletableFuture<V> thenCombineAsync(CompletionStage<? extends U> other, BiFunction<? super T,? super U,? extends V> fn, Executor executor)
+
+<U> CompletableFuture<Void> thenAcceptBoth(CompletionStage<? extends U> other, BiConsumer<? super T, ? super U> action)
+<U> CompletableFuture<Void> thenAcceptBothAsync(CompletionStage<? extends U> other, BiConsumer<? super T, ? super U> action)
+<U> CompletableFuture<Void> thenAcceptBothAsync( CompletionStage<? extends U> other, BiConsumer<? super T, ? super U> action, Executor executor)
+  
+CompletableFuture<Void> runAfterBoth(CompletionStage<?> other, Runnable action)
+CompletableFuture<Void> runAfterBothAsync(CompletionStage<?> other, Runnable action)
+CompletableFuture<Void> runAfterBothAsync(CompletionStage<?> other, Runnable action, Executor executor)
+
+
+
+
+
+聚合 Or 关系
+Either...or... 表示两者中的一个，自然也就是 Or 的体现了
+
+<U> CompletableFuture<U> applyToEither(CompletionStage<? extends T> other, Function<? super T, U> fn)
+<U> CompletableFuture<U> applyToEitherAsync(、CompletionStage<? extends T> other, Function<? super T, U> fn)
+<U> CompletableFuture<U> applyToEitherAsync(CompletionStage<? extends T> other, Function<? super T, U> fn, Executor executor)
+
+CompletableFuture<Void> acceptEither(CompletionStage<? extends T> other, Consumer<? super T> action)
+CompletableFuture<Void> acceptEitherAsync(CompletionStage<? extends T> other, Consumer<? super T> action)
+CompletableFuture<Void> acceptEitherAsync(CompletionStage<? extends T> other, Consumer<? super T> action, Executor executor)
+
+CompletableFuture<Void> runAfterEither(CompletionStage<?> other, Runnable action)
+CompletableFuture<Void> runAfterEitherAsync(CompletionStage<?> other, Runnable action)
+CompletableFuture<Void> runAfterEitherAsync(CompletionStage<?> other, Runnable action, Executor executor)
+
+
+
+
+
+异常处理
+exceptionally-------》try/catch
+whenComplete 和 handle-------》try/finally
+
+whenComplete 和 handle 的区别如果你看接受的参数函数式接口名称你也就能看出差别了，
+前者使用Comsumer, 自然也就不会有返回值；后者使用 Function，自然也就会有返回值
+
+CompletableFuture<T> exceptionally(Function<Throwable, ? extends T> fn)
+CompletableFuture<T> exceptionallyAsync(Function<Throwable, ? extends T> fn)
+CompletableFuture<T> exceptionallyAsync(Function<Throwable, ? extends T> fn, Executor executor)
+        
+CompletableFuture<T> whenComplete(BiConsumer<? super T, ? super Throwable> action)
+CompletableFuture<T> whenCompleteAsync(BiConsumer<? super T, ? super Throwable> action)
+CompletableFuture<T> whenCompleteAsync(BiConsumer<? super T, ? super Throwable> action, Executor executor)
+        
+       
+<U> CompletableFuture<U> handle(BiFunction<? super T, Throwable, ? extends U> fn)
+<U> CompletableFuture<U> handleAsync(BiFunction<? super T, Throwable, ? extends U> fn)
+<U> CompletableFuture<U> handleAsync(BiFunction<? super T, Throwable, ? extends U> fn, Executor executor)
+
+
+
+
+
+
+
 
 ---------------------------------------------------------------------------------------------------------------------
 
