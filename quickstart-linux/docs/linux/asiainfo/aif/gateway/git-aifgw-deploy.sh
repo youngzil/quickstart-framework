@@ -197,7 +197,7 @@ webdev()
     cp -rf $CODE_PATH/local/$PROJECT_NAME $CODE_PATH/$PROJECT_NAME
   fi
   #修改配置文件：替换routes.js文件
-#  cp -rf ${HOME}/deploy_oppf/config_test/webdev_gateway/dist/src/routes.js $CODE_PATH/$PROJECT_NAME/src/
+  cp -rf $CODE_PATH/$PROJECT_NAME/src/modules/osp-dev/routes.js $CODE_PATH/$PROJECT_NAME/src/
 
   aid build -N
   if [ -d "dist" ];then
@@ -231,7 +231,7 @@ webopr()
     cp -rf $CODE_PATH/local/$PROJECT_NAME $CODE_PATH/$PROJECT_NAME
   fi
   #替换routes.js文件
-#  cp -rf ${HOME}/deploy_oppf/config_test/webopr_gateway/dist/src/routes.js $CODE_PATH/$PROJECT_NAME/src/
+  cp -rf $CODE_PATH/$PROJECT_NAME/src/modules/osp-opr/routes.js $CODE_PATH/$PROJECT_NAME/src/
 
   aid build -N
   if [ -d "dist" ];then

@@ -15,6 +15,7 @@ import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.ObjectUtils;
 import org.dom4j.Attribute;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
@@ -236,7 +237,7 @@ public class XmlUtil {
     /**
      * xml转map 带属性
      * 
-     * @param e
+     * @param element
      * @return
      */
     private static Map xml2mapWithAttr(Element element) {
@@ -603,7 +604,7 @@ public class XmlUtil {
                     map2xml(iter, subElement);
                 }
             } else {// 不包含子元素
-                subElement.setText(subElementInfo.get("text").toString());
+                subElement.setText(ObjectUtils.toString(subElementInfo.get("text"),()->""));
             }
 
         }

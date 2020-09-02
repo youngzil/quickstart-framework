@@ -27,6 +27,10 @@ String strLine = bufferedReader.readLine();
 
 
 
+Java BIO教程
+http://tutorials.jenkov.com/java-io/index.html
+
+
 
 File、
 RandomAccessFile：可以跳跃读写
