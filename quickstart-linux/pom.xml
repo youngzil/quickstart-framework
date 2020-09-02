@@ -4,7 +4,7 @@
 		<groupId>org.quickstart</groupId>
 		<artifactId>quickstart-framework</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-<!--		<relativePath>..</relativePath> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<modelVersion>4.0.0</modelVersion>
