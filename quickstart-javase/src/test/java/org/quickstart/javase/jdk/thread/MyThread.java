@@ -1,5 +1,7 @@
 package org.quickstart.javase.jdk.thread;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @author youngzil@163.com
  * @description TODO
@@ -17,6 +19,7 @@ public class MyThread extends Thread {
         Thread thread = new MyThread();
         thread.start();
         try {
+            TimeUnit.SECONDS.sleep(100);
             Thread.sleep(2000);
             thread.interrupt();
         } catch (InterruptedException e) {

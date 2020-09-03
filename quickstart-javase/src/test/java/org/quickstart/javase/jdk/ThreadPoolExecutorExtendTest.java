@@ -36,6 +36,7 @@ public class ThreadPoolExecutorExtendTest extends ThreadPoolExecutor {
     workQueue：线程池所使用的缓存队列
      */
     public static void main(String[] args) {
+
         ThreadPoolExecutor exec = new ThreadPoolExecutorExtendTest(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
         exec.execute(new DoSomething(5));
         exec.execute(new DoSomething(4));
