@@ -31,7 +31,7 @@ UNIX 是一个交互式系统，用于同时处理多进程和多用户同时在
 ##  Linux接口
 
 Linux 系统是一种金字塔模型的系统
-![Linux接口模型](../../images/Linux接口模型.png "ReferencePicture")
+![Linux接口模型](https://github.com/youngzil/quickstart-framework/raw/master/quickstart-linux/docs/images/Linux%E6%8E%A5%E5%8F%A3%E6%A8%A1%E5%9E%8B.png "ReferencePicture")
 
 Linux 具有三种不同的接口：  
 1、系统调用接口  
