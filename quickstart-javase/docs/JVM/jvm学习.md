@@ -1,3 +1,22 @@
+- [JVM介绍](#JVM介绍)
+    - [JVM概述](#JVM概述)
+- [Netty实现原理](#Netty实现原理)
+    - [Netty协议](#Netty协议)
+        - [Netty的HTTP协议数据](#Netty的HTTP协议数据)
+- [参考资料](#参考资料)
+    - [Netty官网](#Netty官网)
+
+
+
+---------------------------------------------------------------------------------------------------------------------  
+## JVM介绍
+
+
+### JVM概述
+
+
+
+
 
 计算机内存模型和CPU缓存一致性协议MESI
 缓存伪共享
@@ -59,6 +78,24 @@ HotSpot虚拟机还会逐渐启用分层编译（Tiered Compilation）的策略�
 逃逸分析与TLAB、内存泄漏
 
 Java编译器优化与运行期优化技术浅析
+
+
+
+1. JVM、JRE和JDK的区别和联系
+2. JVM是什么？以及它的主要作用
+3. JVM的核心功能有哪些
+4. 类加载机制和过程
+5. 运行时数据区的逻辑结构
+6. JVM的内存模型
+7. 如何确定对象是垃圾
+8. 垃圾收集的算法有哪些
+9. 各种问世的垃圾收集器
+10. JVM调优的参数配置
+
+
+参考  
+https://developer.aliyun.com/article/768681  
+https://developer.aliyun.com/article/770672  
 
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -1238,6 +1275,39 @@ Java既是编译语言也是解释语言，因为需要编译代码生成字节�
 
 
 ---------------------------------------------------------------------------------------------------------------------
+
+## JVM类型种类
+
+1. HotSpot VM,(Oracle)  
+    Oracle / Sun JDK、OpenJDK的各种变种（例如IcedTea、Zulu），用的都是相同核心的HotSpot VM。  
+    从Java SE 7开始，HotSpot VM就是Java规范的“参考实现”（RI，Reference Implementation）。把它叫做“标准JVM”完全不为过。  
+
+2. Zing是一个兼容并符合Java SE规范的JVM。(Zing是收费的)
+   https://cn.azul.com/products/zing/  
+   https://blog.csdn.net/21aspnet/article/details/88667880  
+   
+3. J9 VM
+   J9是IBM开发的一个高度模块化的JVM。  
+   J9 VM的性能水平大致跟HotSpot VM是一个档次的。有时HotSpot快些，有时J9
+   快些。  
+   不过J9 VM有一些HotSpot VM在JDK8还不支持的功能，最显著的一个就是J9支持AOT编译和更强大的class data sharing。  
+   
+4. JRockit
+5. 
+6. 
+
+
+
+
+参考  
+https://www.zhihu.com/question/29265430  
+https://my.oschina.net/mengzhang6/blog/1618746  
+https://blog.csdn.net/lxlmycsdnfree/article/details/69286099  
+https://www.cnblogs.com/qianguyihao/p/4748348.html  
+
+
+
+
 
 
 

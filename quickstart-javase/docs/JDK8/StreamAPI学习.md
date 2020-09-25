@@ -13,6 +13,7 @@
 2、转换Stream，每次转换原有Stream对象不改变，返回一个新的Stream对象（**可以有多次转换**）；
 3、对Stream进行聚合（Reduce）操作，获取想要的结果；
 
+Stream执行流程很简单，主要有三个，首先创建一个Stream，然后使用Stream操作数据，最后终止Stream。有点类似于Stream的生命周期。
 
 
 
@@ -195,9 +196,9 @@ Java 8 Stream（五、Optional类和Stream调试）
 
 
 
-参考
-https://blog.csdn.net/qq_38718258/article/details/104696658
-
+参考  
+https://blog.csdn.net/qq_38718258/article/details/104696658  
+https://cloud.tencent.com/developer/article/1654648
 
 
 

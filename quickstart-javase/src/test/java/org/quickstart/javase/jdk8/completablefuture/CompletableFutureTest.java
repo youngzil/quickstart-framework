@@ -10,6 +10,7 @@ package org.quickstart.javase.jdk8.completablefuture;
 
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -270,7 +271,7 @@ public class CompletableFutureTest implements Runnable {
     // 因为这几个方法都会返回CompletableFuture，
     // 当Action执行完毕后它的结果返回原始的CompletableFuture的计算结果或者返回异常。所以不会对结果产生任何的作用。
     @Test
-    public void whenComplete() {
+    public void whenComplete() throws IOException {
         String result = CompletableFuture.supplyAsync(() -> {
             try {
                 Thread.sleep(3000);
@@ -282,13 +283,39 @@ public class CompletableFutureTest implements Runnable {
             }
             return "s1";
         }).whenComplete((s, t) -> {
-            System.out.println(s);
+            System.out.println("whenComplete:"+ s);
             System.out.println(t.getMessage());
         }).exceptionally(e -> {
             System.out.println(e.getMessage());
             return "hello world";
         }).join();
         System.out.println(result);
+        System.out.println("---------------------------");
+
+        CompletableFuture.supplyAsync(() -> {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            if (1 == 1) {
+                throw new RuntimeException("测试一下异常情况");
+            }
+            return "s1";
+        }).whenComplete((s, t) -> {
+            System.out.println("whenComplete:"+ s);
+            System.out.println(t.getMessage());
+        }).exceptionally(e -> {
+            System.out.println(e.getMessage());
+            return "hello world";
+        }).handle((s, t) ->{
+            System.out.println("result:" + s);
+            System.out.println(t.getMessage());//exceptionally已经处理异常了，这里不会再输出异常
+            return s;
+        });
+
+        System.in.read();
+
     }
 
     // 这里也可以看出，如果使用了exceptionally，就会对最终的结果产生影响，它没有口子返回如果没有异常时的正确的值，

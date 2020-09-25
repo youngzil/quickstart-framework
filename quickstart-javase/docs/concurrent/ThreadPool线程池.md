@@ -132,6 +132,18 @@ public class ExecutorCompletionService<V> implements CompletionService<V> {
 但是不手动remove掉对象，线程重复使用的时候，可能后面的任务会取到前面任务存进去的值，导致程序出错
 
 
+内存泄露
+模拟内存泄漏借助了ThreadLocal对象来完成，ThreadLocal是一个线程私有变量，可以绑定到线程上，在整个线程的生命周期都会存在，但是由于ThreadLocal的特殊性，ThreadLocal是基于ThreadLocalMap实现的，ThreadLocalMap的Entry继承WeakReference，而Entry的Key是WeakReference的封装，换句话说Key就是弱引用，弱引用在下次GC之后就会被回收，
+如果ThreadLocal在set之后不进行后续的操作，因为GC会把Key清除掉，但是Value由于线程还在存活，所以Value一直不会被回收，最后就会发生内存泄漏。
+
+
+ThreadLocalMap 是通过 WeakReference 包装了 TreadLocal ，取的是 TreadLocal 的弱引用 对象
+那么在 GC 的时候就会造成 TreadLocal 肯定就会被回收掉。 Entry 对象的 key 就为 null 了，然后 value 却是强引用 无法回收。
+如果这个方法又长时间不结束的话，就有会这么一条 强引用的 GCROOT 引用链 的存在：
+Thread Ref -> Thread -> ThreaLocalMap -> Entry -> value ； value 就一直不会被回收， 因为它的 另一半 key 已经不存在了，所以它也不会被调用。 这就造成了内存泄漏。
+
+
+
 ThreadLocal内存泄漏的根源是：由于ThreadLocalMap的生命周期跟Thread一样长，如果没有手动删除对应key就会导致内存泄漏，而不是因为弱引用。
 可是ThreadLocal并不会产生内存泄露，因为ThreadLocalMap在选择key的时候，并不是直接选择ThreadLocal实例，而是ThreadLocal实例的弱引用。
 

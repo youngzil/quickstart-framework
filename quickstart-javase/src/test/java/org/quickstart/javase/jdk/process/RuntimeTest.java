@@ -26,6 +26,13 @@ public class RuntimeTest {
     private static final int MY_TIMEOUT = 20;
 
     public static void main(String[] args) throws IOException, InterruptedException {
+
+        try {
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler http://www.baidu.com");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         String cmd = "cmd " + "/c " + "ipconfig/all";
         Process process = Runtime.getRuntime().exec(cmd);
 
@@ -51,6 +58,7 @@ public class RuntimeTest {
                 p.destroyForcibly();
             }
         }
+
 
     }
 }

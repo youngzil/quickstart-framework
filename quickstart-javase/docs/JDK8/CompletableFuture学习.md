@@ -131,7 +131,7 @@ final CompletableFuture<Integer> future = new CompletableFuture<Integer>();
 
 3、转换
   3.1、进行变换
-    public <U> CompletionStage<U> thenApply(Function<? super T,? extends U> fn);
+    public <U> CompletionStage<U> thenApply(Function<? super T,? extends 文件描述符示意> fn);
     public <U> CompletionStage<U> thenApplyAsync(Function<? super T,? extends U> fn);
     public <U> CompletionStage<U> thenApplyAsync(Function<? super T,? extends U> fn,Executor executor);
     
