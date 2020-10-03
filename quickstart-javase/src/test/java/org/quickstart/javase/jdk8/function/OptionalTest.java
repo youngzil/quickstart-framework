@@ -76,14 +76,30 @@ public class OptionalTest {
         //        1、尽量避免在程序中直接调用Optional对象的get()和isPresent()方法；
         //        2、避免使用Optional类型声明实体类的属性；
         //        第一条建议中直接调用get()方法是很危险的做法，如果Optional的值为空，那么毫无疑问会抛出NullPointerException异常，而为了调用get()方法而使用isPresent()方法作为空值检查，这种做法与传统的用if语句块做空值检查没有任何区别。
-//        第二条建议避免使用Optional作为实体类的属性，它在设计的时候就没有考虑过用来作为类的属性，如果你查看Optional的源代码，你会发现它没有实现java.io.Serializable接口，这在某些情况下是很重要的（比如你的项目中使用了某些序列化框架），使用了Optional作为实体类的属性，意味着他们不能被序列化。
-
+        //        第二条建议避免使用Optional作为实体类的属性，它在设计的时候就没有考虑过用来作为类的属性，如果你查看Optional的源代码，你会发现它没有实现java.io.Serializable接口，这在某些情况下是很重要的（比如你的项目中使用了某些序列化框架），使用了Optional作为实体类的属性，意味着他们不能被序列化。
 
         //不要使用isPresent()判断之后再使用get()取值，这种做法与传统的用if语句块做空值检查没有任何区别。
-       //要使用orElse、orElseGet、orElseThrow
+        //要使用orElse、orElseGet、orElseThrow
 
+        //        总结一下，新的Optional类让我们可以以函数式编程的方式处理null值，抛弃了Java 8之前需要嵌套大量if-else代码块，使代码可读性有了很大的提高。
 
-//        总结一下，新的Optional类让我们可以以函数式编程的方式处理null值，抛弃了Java 8之前需要嵌套大量if-else代码块，使代码可读性有了很大的提高。
+    }
+
+    @Test
+    public void testUsage() {
+
+        // Optional类已经成为Java 8类库的一部分，在Guava中早就有了，可能Oracle是直接拿来使用了
+        // Optional用来解决空指针异常，使代码更加严谨，防止因为空指针NullPointerException对代码造成影响
+        String msg = "hello";
+        Optional<String> optional = Optional.of(msg);
+        // 判断是否有值，不为空
+        boolean present = optional.isPresent();
+        // 如果有值，则返回值，如果等于空则抛异常
+        String value = optional.get();
+        // 如果为空，返回else指定的值
+        String hi = optional.orElse("hi");
+        // 如果值不为空，就执行Lambda表达式
+        optional.ifPresent(opt -> System.out.println(opt));
 
     }
 

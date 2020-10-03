@@ -101,6 +101,7 @@
     <module>quickstart-sensitive</module>
     <module>quickstart-liteflow</module>
     <module>quickstart-simpleimage</module>
+    <module>quickstart-oshi</module>
   </modules>
 
   <build>
