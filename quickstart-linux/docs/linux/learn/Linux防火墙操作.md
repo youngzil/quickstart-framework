@@ -10,6 +10,8 @@ systemctl stop firewalld
 
 查看防火墙某个端口是否开放
 firewall-cmd --query-port=80/tcp
+firewall-cmd --query-port=41363/tcp
+firewall-cmd --query-port=26908/tcp
 
 开放防火墙端口80：要重新加载下防火墙
 firewall-cmd --zone=public --add-port=80/tcp --permanent
