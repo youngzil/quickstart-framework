@@ -190,6 +190,7 @@ public class Main {
             }
             return 200;
         });
+
         CompletableFuture<String> f10 = future9.applyToEither(future10, i -> i.toString());
 
         System.out.println(f10.get()); // 100 or 200

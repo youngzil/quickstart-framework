@@ -1,9 +1,9 @@
-1、CompletableFuture原理解析
-2、CompletableFuture使用
+- [CompletableFuture原理解析](#CompletableFuture原理解析)
+- [CompletableFuture使用](#CompletableFuture使用)
 
 
 ---------------------------------------------------------------------------------------------------------------------
-CompletableFuture原理解析
+## CompletableFuture原理解析
 
 
 
@@ -80,7 +80,7 @@ https://www.jianshu.com/p/3aa308a5f182
 
 
 ---------------------------------------------------------------------------------------------------------------------
-CompletableFuture使用
+## CompletableFuture使用
 
 
 文章和代码
@@ -282,7 +282,12 @@ CompletableFuture<T> whenCompleteAsync(BiConsumer<? super T, ? super Throwable> 
 
 
 
-
+示例参考  
+https://dzone.com/articles/20-examples-of-using-javas-completablefuture  
+https://www.callicoder.com/java-8-completablefuture-tutorial/  
+https://medium.com/@Mumuksia/completablefuture-practical-guide-e4564f332f83  
+https://www.nurkiewicz.com/2013/05/java-8-definitive-guide-to.html  
+https://mincong.io/2020/05/30/exception-handling-in-completable-future/  
 
 
 ---------------------------------------------------------------------------------------------------------------------

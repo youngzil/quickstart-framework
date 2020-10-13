@@ -266,6 +266,12 @@
             <version>2.10.6</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.threeten</groupId>
+            <artifactId>threetenbp</artifactId>
+            <version>1.4.5</version>
+        </dependency>
+
         <!--    计算Java对象所占内存的大小start-->
         <dependency>
             <groupId>org.apache.lucene</groupId>
