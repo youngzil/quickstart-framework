@@ -1,3 +1,10 @@
+- [JMX的三层结构](#JMX的三层结构)
+- [JVM四类MXBean](#JVM四类MXBean)
+- [JMX使用开启](#JMX使用开启)
+
+
+## JMX的三层结构
+
 JMX的结构一共分为三层：
 1、基础层：主要是MBean，被管理的资源。
 2、适配层：MBeanServer，主要是提供对资源的注册和管理。
@@ -29,7 +36,7 @@ MBean与MXBean编写规则非常相似,同样是定义xxxMXBean interface,实现
 当我们启动java进程后，经常会使用jps，jinfo，jmap，jstat等jdk自带的命令去查询进程的状态，这其中的原理就是，当java进程启动后，会创建一个用于本机连接的“localConnectorAddress”放到当前用户目录下，当使用jps等连接时，会到当前用户目录下取到“localConnectorAddress”并连接。
 
 
-JVM四类MXBean：
+## JVM四类MXBean
 OperatingSystemMXBean osMXBean = java.lang.management.ManagementFactory.getOperatingSystemMXBean();
 RuntimeMXBean runtimeMXBean = java.lang.management.ManagementFactory.getRuntimeMXBean();
 List<GarbageCollectorMXBean> garbageCollectorMXBeanList = ManagementFactory.getGarbageCollectorMXBeans();
@@ -51,9 +58,11 @@ java进程自带的mbean
 
 
 
-Dynamic MBean工具：pojo-mbean
-https://github.com/zhongl/pojo-mbean
-https://code.google.com/p/pojo-mbean/
+Dynamic MBean工具：pojo-mbean  
+[pojo-mbean Github](https://github.com/zhongl/pojo-mbean)  
+[pojo-mbean Google Code](https://code.google.com/p/pojo-mbean/)
+
+
 
 
 
@@ -96,22 +105,22 @@ SNMP：中文名 简单网络管理协议  外文名 Simple Network Management P
 
 
 
-开启
+## JMX使用开启
 JMX（Java Management Extensions，即Java管理扩展）是一个为Java应用程序植入管理功能的框架。当需要通过JMX对远程服务器上的JVM进行监控时，可以在Java应用启动时增加如下参数：
 
-        -Dcom.sun.management.jmxremote
+   -Dcom.sun.management.jmxremote
 
-        -Djava.rmi.server.hostname=100.0.66.1
+   -Djava.rmi.server.hostname=100.0.66.1
 
-        -Dcom.sun.management.jmxremote.port=9999
+   -Dcom.sun.management.jmxremote.port=9999
 
-        -Dcom.sun.management.jmxremote.ssl=false
+   -Dcom.sun.management.jmxremote.ssl=false
 
-        -Dcom.sun.management.jmxremote.authenticate=false
+   -Dcom.sun.management.jmxremote.authenticate=false
 
-        其中，ssl=false表示不使用ssl；authenticate=false表示不需要认证，即不需要用户名、密码，如果该参数为true，则还需要其他用户名、密码的相关参数。
+   其中，ssl=false表示不使用ssl；authenticate=false表示不需要认证，即不需要用户名、密码，如果该参数为true，则还需要其他用户名、密码的相关参数。
 
-        需要注意的是，这几个参数在使用时要连在一起，实际使用过程中发现，如果这几个参数中间有夹杂其他的JVM参数，则可能无法开启JMX的远程访问。
+   需要注意的是，这几个参数在使用时要连在一起，实际使用过程中发现，如果这几个参数中间有夹杂其他的JVM参数，则可能无法开启JMX的远程访问。
 
 
 

@@ -1,45 +1,37 @@
+- [HashMap实际使用技巧](#HashMap实际使用技巧)
+- [默认大小、负载因子以及扩容倍数](#默认大小、负载因子以及扩容倍数)
+- [为什么设置的负载因子是0.75](#为什么设置的负载因子是0.75)
+- [数组长度为什么是2的幂次方](#数组长度为什么是2的幂次方)
+    - [HashMap的扩容机制为什么是2幂次方](#HashMap的扩容机制为什么是2幂次方)
+- [查找、插入、扩容过程](#查找、插入、扩容过程)
+- [HashMap为什么多线程下会不安全](#HashMap为什么多线程下会不安全)
+- [什么是CAS算法](#什么是CAS算法)
+- [ConcurrentHashMap是如何解决线程安全问题的](#ConcurrentHashMap是如何解决线程安全问题的)
+- [ConcurrentHashMap查找以及插入过程](#ConcurrentHashMap查找以及插入过程)
+- [怎么设计hashcode更均衡](怎么设计hashcode更均衡.md)
+    - [分布均匀的hash函数](怎么设计hashcode更均衡.md#分布均匀的hash函数)
+        - [原理解释](怎么设计hashcode更均衡.md#原理解释)
+    - [一致性哈希算法（consistent hashing）](怎么设计hashcode更均衡.md#一致性哈希算法consistent-hashing)
+- [底层数据结构](#底层数据结构)
+-[如何计算key的hash值](#如何计算key的hash值)
+-[如何处理hash冲突](#如何处理hash冲突)
+- [在HashMap中使用可变对象作为Key带来的问题](#在HashMap中使用可变对象作为Key带来的问题)
 
-HashMap是面试中经常问到的一个知识点，也是判断一个候选人基础是否扎实的标准之一，因为通过HashMap可以引出很多知识点，比如数据结构(数组、链表、红黑树)、equals和hashcode方法，除此之外还可以引出线程安全的问题
-
-默认大小、负载因子以及扩容倍数
-为什么设置的负载因子是0.75
-
-底层数据结构
-如何处理hash冲突
-如何计算key的hash值
-数组长度为什么是2的幂次方
-HashMap的扩容机制为什么是2幂
-查找、插入、扩容过程
-
-HashMap为什么多线程下会不安全
-什么是CAS算法
-ConcurrentHashMap是如何解决线程安全问题的
-ConcurrentHashMap查找以及插入过程
 
 
-数据结构
-在 JDK1.8 中，HashMap 是由 数组+链表+红黑树构成(1.7版本是数组+链表)
 
-HashMap实际使用技巧
+数组+链表=哈希表，具体原理是？
+
 
 ConcurrentHashMap和HashMap
-
-怎么设计hashcode更均衡.md
 
 如何设计一个HashMap：分布均衡，hash冲突解决方式
 HashMap的原理源码
 
-
-
-
-其中一种问法是这样的：一个普通的对象，能够作为HashMap的key么？
-答案显然是可以的，但需要注意重写hashCode和equals方法。如果忘记重写的话，大概率会造成内存泄漏。
-
-
-
-
+HashMap是面试中经常问到的一个知识点，也是判断一个候选人基础是否扎实的标准之一，因为通过HashMap可以引出很多知识点，比如数据结构(数组、链表、红黑树)、equals和hashcode方法，除此之外还可以引出线程安全的问题
 
 ---------------------------------------------------------------------------------------------------------------------  
+## HashMap实际使用技巧
 
 HashMap实际使用技巧：
 1、要设置HashMap的初始化容量
@@ -80,14 +72,25 @@ https://developer.aliyun.com/article/756448
 
 ---------------------------------------------------------------------------------------------------------------------  
 
-默认大小、负载因子以及扩容倍数
+## 默认大小、负载因子以及扩容倍数
 默认初始容量为16，默认负载因子为0.75
 threshold = 数组长度 * loadFactor，当元素个数超过threshold(容量阈值)时，HashMap会进行扩容操作
 table数组中存放指向链表的引用
 
 
+Map是一个双列集合  
+HashMap：默认初始容量为16  
+    为何是16：16是2^4，可以提高查询效率，另外，32=16<<1       -->至于详细的原因可另行分析，或分析源代码）  
+    加载因子为0.75：即当 元素个数 超过 容量长度的0.75倍 时，进行扩容  
+    扩容增量：原容量的 1 倍  
+    如 HashSet的容量为16，一次扩容后是容量为32  
 
-为什么设置的负载因子是0.75
+[ArrayList 和 HashMap 的默认大小是多数？](https://blog.csdn.net/qq_32575047/article/details/78942965)
+
+
+
+
+### 为什么设置的负载因子是0.75
 为什么是0.75 ， 不是0.5或者1？
 
 1、当负载因子是1.0的时候，负载因子过大，虽然空间利用率上去了，但是时间效率降低了。
@@ -118,24 +121,37 @@ https://www.jianshu.com/p/64f6de3ffcc1
 https://blog.csdn.net/SDDDLLL/article/details/104040352
 
 
-底层数据结构
-如何处理hash冲突
-如何计算key的hash值
+
+
+## 底层数据结构
 在 JDK1.8 中，HashMap 是由 数组+链表+红黑树构成(1.7版本是数组+链表)
+
+
+
+## 如何计算key的hash值
+Java中HashMap的hash方法是：Objects.hashCode(key) ^ Objects.hashCode(value)
+使用key的hashCode和value的hashCode进行^（异或运算符）
+
+
+
+## 如何处理hash冲突
+链地址法解决
 当一个值中要存储到HashMap中的时候会根据Key的值来计算出他的hash，通过hash值来确认存放到数组中的位置，如果发生hash冲突就以链表的形式存储，当链表过长的话，HashMap会把这个链表转换成红黑树来存储
 
 
-数组长度为什么是2的幂次方
-1、当数组长度为2的幂次方时，可以使用位运算来计算元素在数组中的下标
+### 数组长度为什么是2的幂次方
+（主数组的长度为何必须是2的整数倍）  
+1、当数组长度为2的幂次方时，可以使用位运算来计算元素在数组中的下标，减少resize扩容过程中元素移动的数量  
 2、 增加hash值的随机性，减少hash冲突
 
 
-HashMap的扩容机制为什么是2幂
-在旧数组中同一条Entry链上的元素，在resize过程中，通过重新计算索引位置后，有可能被放到了新数组的不同位置上。JDK8做了一些优化，resize过程中对Hash表数组大小的修改使用的是2次幂的扩展（指长度扩为原来2倍），这样有2个好处。
+### HashMap的扩容机制为什么是2幂次方
+
+在旧数组中同一条Entry链上的元素，在resize过程中，通过重新计算索引位置后，有可能被放到了新数组的不同位置上。JDK8做了一些优化，resize过程中对Hash表数组大小的修改使用的是2次幂的扩展（指长度扩为原来2倍），这样有2个好处。  
 1、分布更加均衡，不然按照现有的定位函数，会有数组位置永远不可能被entry占用，造成浪费
-put方法会调用indexFor(int h, int length)方法，这个方法主要是根据key的hash值找到这个entry在Hash表数组中的位置
-注意最后return的是h&(length-1)。如果length不为2的幂，比如15。那么length-1的2进制就会变成1110。在h为随机数的情况下，和1110做&操作。尾数永远为0。那么0001、1001、1101等尾数为1的位置就永远不可能被entry占用。这样会造成浪费，不随机等问题。 length-1 二进制中为1的位数越多，那么分布就平均。
-2、resize过程中，只需要看看原来的hash值新增的那个bit是1还是0就好了，是0的话索引没变，是1的话索引变成“原索引+oldCap”
+put方法会调用indexFor(int h, int length)方法，这个方法主要是根据key的hash值找到这个entry在Hash表数组中的位置  
+注意最后return的是h&(length-1)。如果length不为2的幂，比如15。那么length-1的2进制就会变成1110。在h为随机数的情况下，和1110做&操作。尾数永远为0。那么0001、1001、1101等尾数为1的位置就永远不可能被entry占用。这样会造成浪费，不随机等问题。 length-1 二进制中为1的位数越多，那么分布就平均。  
+2、resize过程中，只需要看看原来的hash值新增的那个bit是1还是0就好了，是0的话索引没变，是1的话索引变成“原索引+oldCap”  
 resize过程中不需要像JDK1.7的实现那样重新计算hash，只需要看看原来的hash值新增的那个bit是1还是0就好了，是0的话索引没变，是1的话索引变成“原索引+oldCap”，可以看看下图为16扩充为32的resize示意图（一方面位运算更快，另一方面抗碰撞的Hash函数其实挺耗时的）
 
 
@@ -145,7 +161,7 @@ https://blog.csdn.net/dalong3976/article/details/83934609
 
 
 
-查找、插入、扩容过程
+## 查找、插入、扩容过程
 扩容
 HashMap每次扩容都是建立一个新的table数组，长度和容量阈值都变为原来的两倍，然后把原数组元素重新映射到新数组上，具体步骤如下：
 1、首先会判断table数组长度，如果大于0说明已被初始化过，那么按当前table数组长度的2倍进行扩容，阈值也变为原来的2倍
@@ -208,7 +224,7 @@ HashMap的删除操作并不复杂，仅需三个步骤即可完成。
 ConcurrentHashMap和HashMap在很多地方是类似的，比如底层都是数组+链表+红黑树、数组大小都是2的幂次方等.
 
 
-HashMap为什么多线程下会不安全
+## HashMap为什么多线程下会不安全
 
 HashMap在并发环境下主要有以下几个问题：
 1、死循环(JDK1.7)：在1.7版本，当扩容后生成新数组，在转移元素的过程中，使用的是头插法，也就是链表的顺序会翻转，当多个线程执行插入操作时可能会发生死循环。在1.8版本时将头插法改成了尾插法，解决了死循环的问题。
@@ -221,7 +237,7 @@ HashMap在并发环境下主要有以下几个问题：
 
 
 
-什么是CAS算法
+## 什么是CAS算法
 CAS可以看做是乐观锁的一种实现方式，Java原子类中的递增操作就通过CAS自旋实现的。
 CAS全称 Compare And Swap（比较与交换），是一种无锁算法。在不使用锁（没有线程被阻塞）的情况下实现多线程之间的变量同步。
 
@@ -233,7 +249,7 @@ AtomicMarkableReference则是将一个boolean值作是否有更改的标记，�
 
 
 
-ConcurrentHashMap是如何解决线程安全问题的
+## ConcurrentHashMap是如何解决线程安全问题的
 ConcurrentHashMap支持并发的读写。跟1.7版本相比，JDK1.8的实现已经摒弃了Segment的概念，而是直接用Node数组+链表+红黑树的数据结构来实现，并发控制使用Synchronized和CAS来操作，虽然源码里面还保留了，也只是为了兼容性的考虑，因此本文主要讲解的是JDK1.8版本的ConcurrentHashMap。
 
 在JDK1.7的实现上，ConrruentHashMap由一个个Segment组成，简单来说，ConcurrentHashMap是一个Segment数组，它通过继承ReentrantLock来进行加锁，通过每次锁住一个segment来保证每个segment内的操作的线程安全性从而实现全局线程安全。
@@ -244,7 +260,7 @@ ConcurrentHashMap和HashMap都是由数组+链表+红黑树构成，不过有一
 
 
 
-ConcurrentHashMap查找以及插入过程
+## ConcurrentHashMap查找以及插入过程
 
 查询
 在介绍get方法之前先来看看ConurrentHashMap如何计算key的hash值，ConcurrentHashMap用了spread函数来求hash值，它与HashMap的hash函数有略微不同，代码如下：
@@ -312,8 +328,17 @@ https://blog.csdn.net/jingzi123456789/article/details/78004074
 
 ---------------------------------------------------------------------------------------------------------------------  
 
+## 在HashMap中使用可变对象作为Key带来的问题
+其中一种问法是这样的：一个普通的对象，能够作为HashMap的key么？  
+答案显然是可以的，但需要注意重写hashCode和equals方法。如果忘记重写的话，大概率会造成内存泄漏。  
+对象作为HashMap结构的key，则一定要注意重写equals和hashCode两个方法。  
 
 
+HashMap的key可以是任意对象，但如果对象的hashCode改变了，那么将找不到原来该key所对应的value
+
+
+[在HashMap中将可变对象用作Key，需要注意什么？](https://my.oschina.net/dabird/blog/821230)  
+[对象作为HashMap的key](https://blog.csdn.net/qq_22076345/article/details/98253557)  
 
 
 

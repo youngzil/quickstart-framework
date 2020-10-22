@@ -6,14 +6,14 @@ svn官方地址：https://svn.java.net/svn/gchisto~svn
 
 http://java.net/projects/gchisto
 https://github.com/jewes/gchisto
-﻿https://github.com/vimerzhao/gchisto
-﻿https://github.com/wengyingjian/gchisto
+https://github.com/vimerzhao/gchisto
+https://github.com/wengyingjian/gchisto
 
 (2)GCLogViewer
 http://code.google.com/p/gclogviewer/
 
 (3)HPjmeter
-﻿http://www.javaperformancetuning.com/tools/hpjmeter/index.shtml
+http://www.javaperformancetuning.com/tools/hpjmeter/index.shtml
 获取地址 http://www.hp.com/go/java
 参考文档 http://www.javaperformancetuning.com/tools/hpjtune/index.shtml
 
@@ -26,7 +26,7 @@ https://github.com/chewiebug/GCViewer
 https://blog.csdn.net/gzh0222/article/details/8223277
 
 
-﻿http://sysadminsjourney.com/2008/09/15/profile-gc-with-gchisto/
+http://sysadminsjourney.com/2008/09/15/profile-gc-with-gchisto/
 https://www.openhub.net/p/gchisto
 
 

@@ -1,4 +1,9 @@
-jar包和替换jar包类
+- [jar命令替换jar包类](#jar命令替换jar包类)
+
+
+-------------------------------------------------------------------------
+## jar命令替换jar包类
+
 
  jar uvf aiesb.jar com/yangzl/openplatform/isb/restful/security/resources/Authorization.class 
  

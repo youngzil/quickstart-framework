@@ -58,7 +58,6 @@ Calls to getSeed(): This provides data read from /dev/random
 
 7.一般使用SecureRandom不需要设置Seed，不需要设置算法，使用默认的，甚至一个静态的即可，如果有需求的话可以在运行一段时间后setSeed一下。
 
-参考
-https://mp.weixin.qq.com/s/q2WcDxM-v-gp_tZNe6gcIw
-```
+参考 [那些年我曾犯过的错-SecureRandom](https://mp.weixin.qq.com/s/q2WcDxM-v-gp_tZNe6gcIw)
+
 

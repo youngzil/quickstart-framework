@@ -1,3 +1,23 @@
+- [NIO的介绍和分类](#NIO的介绍和分类)
+- [NIO的模型：文件IO和网络IO](#NIO的模型：文件IO和网络IO)
+- [Netty的高性能及NIO的epoll空轮询bug](#Netty的高性能及NIO的epoll空轮询bug)
+- [Java NIO浅析](#Java-NIO浅析)
+- [Java NIO的selector和linux的epoll select](#Java-NIO的selector和linux的epoll-select)
+- [Java NIO使用](#Java-NIO使用)
+    - [NIO核心部件：Channels、Buffers、Selectors](#NIO核心部件：Channels、Buffers、Selectors)
+    - [Selectors:CONNECT、ACCEPT、READ、WRITE四个事件](#Selectors:CONNECT、ACCEPT、READ、WRITE四个事件)
+    - [Channels实现](#Channels实现)
+    - [Buffer实现](#Buffer实现)
+    - [Buffer分配和读写](#Buffer分配和读写)
+    - [Zero Copy零拷贝](#Zero-Copy零拷贝)
+    - [内存映射文件](#内存映射文件)
+
+
+
+-------------------------------------------------------------------------
+## NIO的介绍和分类
+
+
 BIO是面向流、阻塞IO，顺序读  
 NIO面向缓冲、非阻塞IO、选择器Selector，可以使用position等跳跃读  
   
@@ -30,7 +50,7 @@ nio的模型：文件IO和网络IO
 
 
 ---------------------------------------------------------------------------------------------------------------------  
-nio的模型：文件IO和网络IO
+## NIO的模型：文件IO和网络IO
 
 nio的模型：
 文件IO：三个变量怎么切换的，常用方法，内存整理
@@ -174,9 +194,9 @@ Java NIO 与 IO之间的区别:https://blog.csdn.net/evan_man/article/details/50
 
   
 ---------------------------------------------------------------------------------------------------------------------  
+## Java NIO使用
   
   
-java nio学习  
 http://ifeve.com/overview/  
 https://blog.csdn.net/column/details/15438.html  
   
@@ -202,21 +222,27 @@ double：64位，数据范围在4.9e-324~1.8e308，赋值时可以加d或D也可
 BIO是面向流、阻塞IO，顺序读  
 NIO面向缓冲、非阻塞IO、选择器Selector，可以使用position等跳跃读  
   
-  
+
+
+### NIO核心部件：Channels、Buffers、Selectors
 Java NIO 由以下几个核心部分组成：  
 Channels  
 Buffers  
 Selectors  
   
   
-Selectors:CONNECT、ACCEPT、READ、WRITE四个事件  
-  
+### Selectors:CONNECT、ACCEPT、READ、WRITE四个事件
+
+
+### Channels实现
 Channels：这些通道涵盖了UDP 和 TCP 网络IO，以及文件IO。  
 FileChannel 从文件中读写数据。  
 DatagramChannel 能通过UDP读写网络中的数据。  
 SocketChannel 能通过TCP读写网络中的数据。  
 ServerSocketChannel可以监听新进来的TCP连接，像Web服务器那样。对每一个新进来的连接都会创建一个SocketChannel。  
-  
+
+
+### Buffer实现
 Buffer实现：Buffer覆盖了你能通过IO发送的基本数据类型：byte,char, short, int, long, float, double  
 ByteBuffer：HeapByteBuffer、DirectByteBuffer  
   
@@ -232,7 +258,10 @@ DoubleBuffer
 Java NIO 还有个 MappedByteBuffer、  
   
 缓冲区本质上是一块可以写入数据，然后可以从中读取数据的内存。这块内存被包装成NIO Buffer对象，并提供了一组方法，用来方便的访问该块内存。  
-  
+
+
+### Buffer分配和读写
+
 Buffer分配：  
 1、HeapByteBuffer:ByteBuffer.allocate(cap);  
 2、DirectByteBuffer:ByteBuffer.allocateDirect(cap);  
@@ -260,9 +289,12 @@ FileChannel实例的size()方法将返回该实例所关联文件的大小
 FileChannel.truncate()方法截取一个文件  
 FileChannel.force()方法将通道里尚未写入磁盘的数据强制写到磁盘上  
 关闭FileChannel.close()用完FileChannel后必须将其关闭  
-  
-  
-zero copy零拷贝：  
+
+
+
+
+### Zero Copy零拷贝
+
 transferFrom方法和transferTo方法:零拷贝  
 toChannel.transferFrom(position, count, fromChannel);  
 fromChannel.transferTo(position, count, toChannel);  
@@ -390,7 +422,9 @@ DatagramChannel：
 BIO是面向流、阻塞IO  
 NIO面向缓冲、非阻塞IO、选择器Selector  
   
-  
+
+
+### 内存映射文件
 内存映射文件：map()  
 （1）直接内存DirectMemory的大小默认为 -Xmx 的JVM堆的最大值，但是并不受其限制，而是由JVM参数 MaxDirectMemorySize单独控制。  
 （2）直接内存不是分配在JVM堆中。并且直接内存不受 GC(新生代的Minor GC)影响，只有当执行老年代的 Full GC时候才会顺便回收直接内存！  
@@ -403,7 +437,7 @@ https://juejin.im/post/5cad6f1ef265da039f0ef5df
   
   
   
-java nio的selector  和linux的epoll select  
+## Java NIO的selector和linux的epoll select
   
 https://www.cnblogs.com/jukan/p/5272257.html  
 http://blog.csdn.net/u010853261/article/details/53464475  
@@ -452,7 +486,7 @@ https://blog.csdn.net/zhangjunli/article/details/89382006
   
   
   
-Netty的高性能及NIO的epoll空轮询bug  
+## Netty的高性能及NIO的epoll空轮询bug  
   
   
 Selector BUG出现的原因  
@@ -477,7 +511,7 @@ Netty的解决办法：对Selector的select操作周期进行统计，每完成�
   
 ---------------------------------------------------------------------------------------------------------------------  
   
-Java NIO浅析：  
+## Java NIO浅析
   
 BIO模型：线程池：单请求单线程，请求:线程=1:1  
   

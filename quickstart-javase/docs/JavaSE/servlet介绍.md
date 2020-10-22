@@ -1,7 +1,12 @@
-Servlet3规范demo代码
-https://github.com/zhangkaitao/servlet3-showcase
+- [Servlet3.0规范](#Servlet3.0规范)  
+- [Java监听器Listener使用说明](#Java监听器Listener使用说明)  
+- [Java Filter使用说明](#Java-Filter使用说明)  
 
 
+[Servlet3规范demo代码](https://github.com/zhangkaitao/servlet3-showcase)  
+
+
+## Servlet3.0规范
 在Servlet 3.0规范推出之后，允许在Servlet代码中使用声明式语法来代替web.xml中的描述信息，这才让web.xml瘦身下来。
 注解
 web应用中，使用了注解的类只有被放到WEB-INF/classes目录中或WEB-INF/lib目录下的jar中注解才会被Web容器处理。web.xml配置文件的元素的metadata-complete默认为false，表示Web容器必须检查类的注解和web fragments，否则忽略注解和web fragments。
@@ -29,7 +34,8 @@ servlet容器需要在应用项目启动时，给应用项目初始化一个Serv
 容器将<context-param></context-param>转化为键值对,并交给ServletContext.
 
 
-Java监听器Listener使用说明
+
+## Java监听器Listener使用说明
 1、什么是Java监听器
 监听器也叫Listener，是Servlet的监听器，它可以监听客户端的请求、服务端的操作等。通过监听器，可以自动激发一些操作，比如监听在线的用户的数量。
 
@@ -43,6 +49,10 @@ Java监听器Listener使用说明
 
 3.1> ServletRequestListener监听Request对象
 3.2> ServletRequestAttributeListener监听Requset中的属性操作
+
+
+
+## Java Filter使用说明
 
 一个filter必须实现javax.servlet.Filter。
 三个方法

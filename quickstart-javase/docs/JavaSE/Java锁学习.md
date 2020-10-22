@@ -1,20 +1,17 @@
-1、锁的分类和锁升级：可升不可降
-2、synchronized和lock的实现原理、区别
-    synchronized的缺陷：不中断，不并发读，不知道有没有成功获取到锁
-    Lock和synchronized对比：可重入，不中断，不公平，lock可中断、可公平，并发读，手动释放，是接口类
-3、Condition的signal和Object的notify
-    总的来说, Lock + Condition + await()/signal/signalAll ≈ Synchronized + Object.wait()/notify/signalAll
-    Condition原理：线程放入等待链表,可以实现“选择性通知”，而notify由JVM随机选择的
-
-
+- [锁的分类和锁升级：可升不可降](#锁的分类和锁升级：可升不可降)
+- [synchronized和lock的实现原理、区别](#Synchronized和lock的实现原理、区别)
+- [Condition的signal和Object的notify](#Condition的signal和Object的notify)
 
 sleep和wait区别：sleep不会释放对象锁，wait释放对象锁
 线程的状态切换
 
-Java中的读/写锁
-https://ifeve.com/read-write-locks/
+[Java中的读/写锁](https://ifeve.com/read-write-locks/)
+
+
+
 ---------------------------------------------------------------------------------------------------------------------  
-锁的分类和锁升级
+
+## 锁的分类和锁升级：可升不可降
 
 锁的分类：
 1、可重入锁
@@ -60,7 +57,11 @@ https://blog.csdn.net/susidian/article/details/51068858
 
 
 ---------------------------------------------------------------------------------------------------------------------  
-synchronized和lock的实现原理、区别
+## Synchronized和lock的实现原理、区别
+
+synchronized的缺陷：不中断，不并发读，不知道有没有成功获取到锁
+Lock和synchronized对比：可重入，不中断，不公平，lock可中断、可公平，并发读，手动释放，是接口类
+    
 
 锁相关的
 synchronized的缺陷
@@ -137,10 +138,13 @@ synchronized的底层也是一个基于CAS操作的等待队列，但JVM实现�
 
 
 ---------------------------------------------------------------------------------------------------------------------  
-Condition的signal和Object的notify
+## Condition的signal和Object的notify
 
 
-总的来说, Lock + Condition + await()/signal/signalAll ≈ Synchronized + Object.wait()/notify/notifyAll
+总的来说, Lock + Condition + await()/signal/signalAll ≈ Synchronized + Object.wait()/notify/signalAll
+    Condition原理：线程放入等待链表,可以实现“选择性通知”，而notify由JVM随机选择的
+
+
 
 Condition中的await()方法相当于Object的wait()方法，Condition中的signal()方法相当于Object的notify()方法，Condition中的signalAll()相当于Object的notifyAll()方法. 
 不同的是, 同一个锁可以有多个 Condition, 提供多种情况的互不干扰的控制.

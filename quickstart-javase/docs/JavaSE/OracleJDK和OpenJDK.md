@@ -1,7 +1,10 @@
-1、OpenJDK与OracleJDK的区别
-2、Java的三个分支：JavaSE、JavaEE、JavaME
+- [OpenJDK与OracleJDK的区别](#OpenJDK与OracleJDK的区别)
+- [Java的三个分支：JavaSE、JavaEE、JavaME](#Java的三个分支：JavaSE、JavaEE、JavaME)
 
 
+---------------------------------------------------------------------------------------------------------------------
+
+## OpenJDK与OracleJDK的区别
 
 首先要明白JDK的发布模型。一年多以前，伴随着JDK9的发布，JDK就开启了新的发布模式（如下图所示）。JDK分为OracleJDK、OpenJDK。
 OpenJDK是Sun在2006年末把Java开源而形成的项目，这里的“开源”是通常意义上的源码开放形式，即源码是可被复用的
@@ -79,7 +82,8 @@ https://my.oschina.net/u/2518341/blog/1931088
 
 
 
-
+---------------------------------------------------------------------------------------------------------------------
+## Java的三个分支：JavaSE、JavaEE、JavaME
 
 Java分为三个版本：Java SE(标准版)、Java EE(企业版)、Java ME(微型版)。其中JavaSE就是大家学JavaEE和JavaME的基础，换而言之学Java先从JavaSE开始，JavaSE 包含了支持 Java Web 服务开发的类，JavaEE是企业最常用的用于企业级开发应用的，Java ME主要是移动段的开发应用。
 

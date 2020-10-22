@@ -1,11 +1,22 @@
-copyonwrite机制
+## copyonwrite机制
+
+
+总结：  
+- 使用注意事项：  
+    copyonwrite并不能保证线程安全，主要是为了读写分离，也就是读写锁的功能，并发写的时候，写的时候还是要加锁，还是要处理线程并发安全的问题
+    写不是线程安全的，不加锁会丢失数据，也可能导致超过capacity
+- 使用场景：读多写少
+- CopyOnWriteArrayList代码：底层使用ReentrantLock控制并发写
+- 阿里限流框架sentinel中类似代码：底层使用volatile + Double-Check Locking
+
+
 
 
 问除了加锁之外有没有其他方法来保证线程安全。楼下很多回答copyonwrite机制。这个问题回答有很多，但是copyonwrite的回答有点误导人。
 
 copyonwrite并不能保证线程安全，主要是为了读写分离，也就是读写锁的功能，并发写的时候，写的时候还是要加锁，还是要处理线程并发安全的问题
 
-写不是线程安全的，不加锁会丢失数据，也可能到之超过capacity
+写不是线程安全的，不加锁会丢失数据，也可能导致超过capacity
 
 
 

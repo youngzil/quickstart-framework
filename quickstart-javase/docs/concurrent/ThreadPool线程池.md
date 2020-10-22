@@ -1,25 +1,30 @@
-ThreadPoolExecutor或者Executors工具类（4种）来创建
-参数：7个
-拒绝策略
+- [线程池的分类和创建线程流程](#线程池的分类和创建线程流程)
+- [线程池创建和7个参数](#线程池创建和7个参数)
+- [RejectedExecutionHandler拒绝策略](#RejectedExecutionHandler拒绝策略)
+- [线程池中ThreadLocal使用](#线程池中ThreadLocal使用)
+- [线程池有哪几种工作队列](#线程池有哪几种工作队列)
+- [怎么理解无界队列和有界队列](#怎么理解无界队列和有界队列)
+- [线程池源码解读](#线程池源码解读)
+- [CompletionService解读](#CompletionService解读)
+
+
+
+
 创建线程流程和销毁线程流程
-JDK 为我们内置了五种常见线程池的实现
-
-
-线程池有哪几种工作队列
-怎么理解无界队列和有界队列
-
-线程创建工作流程
+什么时候创建线程
 什么时候销毁线程
+
+
+JDK为我们内置了4种常见线程池的实现
+
 
 线程池其他方法：
 beforeExecute、afterExecute、
 
-线程池源码解读
-
-CompletionService解读
-
 
 ---------------------------------------------------------------------------------------------------------------------
+## 线程池的分类和创建线程流程
+
 
 普通线程池：线程创建流程corePoolSize ---> queue ---> maximumPoolSize ,从queue中获取task时候，设置超时时间，并且等待keepAliveTime获取不到task就销毁thread
 定时任务线程池：线程创建流程一样，使用延时阻塞队列DelayedWorkQueue，线程不停地的等待task
@@ -59,37 +64,10 @@ CompletionService：先完成的必定先被取出。这样就减少了不必要
 
 
 
-RejectedExecutionHandler策略
-其他方法：beforeExecute、afterExecute、
+## 线程池创建和7个参数
 
-ThreadLocal使用：以线程为单位进行隔离，因为WeakReference不会导致内存泄漏，线程复用的时候没有remove可能会导致后面的任务取到前面任务存进去的值，导致程序出错
+ThreadPoolExecutor或者Executors工具类（4种）来创建
 
-
-
-
-线程池：
-ExecutorService
-ThreadPoolExecutor或者Executors工具类来创建
-public ThreadPoolExecutor(int corePoolSize,
-                              int maximumPoolSize,
-                              long keepAliveTime,
-                              TimeUnit unit,
-                              BlockingQueue<Runnable> workQueue,
-                              ThreadFactory threadFactory,
-                              RejectedExecutionHandler handler) 
-RejectedExecutionHandler:
-ThreadPoolExecutor.AbortPolicy()，抛出java.util.concurrent.RejectedExecutionException异常 
-ThreadPoolExecutor.CallerRunsPolicy，它直接在 execute 方法的调用线程中运行被拒绝的任务；如果执行程序已关闭，则会丢弃该任务。
-ThreadPoolExecutor.DiscardOldestPolicy();，先poll掉workQueue中的一个任务，然后调用线程池的execute方法执行当前task
-ThreadPoolExecutor.DiscardPolicy，拒绝策略方法为空，就是不做任何处理，默认情况下它将丢弃被拒绝的任务。
-
-线程池其他方法：
-beforeExecute、afterExecute、
-
-
-
-
-线程池：
 ExecutorService
 ThreadPoolExecutor或者Executors工具类来创建
 
@@ -103,11 +81,26 @@ public ThreadPoolExecutor(int corePoolSize,    //核心线程的数量
                           ) {...}
 
 
-JDK 为我们内置了五种常见线程池的实现，均可以使用 Executors 工厂类创建。
+JDK为我们内置了4种常见线程池的实现，均可以使用 Executors 工厂类创建。
 1.newFixedThreadPool
 2.newSingleThreadExecutor
 3.newCachedThreadPool
 4.newScheduledThreadPool
+
+
+
+
+## RejectedExecutionHandler拒绝策略
+
+RejectedExecutionHandler:
+ThreadPoolExecutor.AbortPolicy()，默认的，抛出java.util.concurrent.RejectedExecutionException异常 
+ThreadPoolExecutor.CallerRunsPolicy，它直接在 execute 方法的调用线程中运行被拒绝的任务；如果执行程序已关闭，则会丢弃该任务。
+ThreadPoolExecutor.DiscardOldestPolicy();，先poll掉workQueue中的一个任务，然后调用线程池的execute方法执行当前task
+ThreadPoolExecutor.DiscardPolicy，拒绝策略方法为空，就是不做任何处理，默认情况下它将丢弃被拒绝的任务。
+
+线程池其他方法：
+beforeExecute、afterExecute、
+
 
 
 ExecutorService 提供了两种提交任务的方法：
@@ -127,6 +120,12 @@ ThreadFactory、
 
 ThreadLocal
 public class ExecutorCompletionService<V> implements CompletionService<V> {
+
+
+
+
+## 线程池中ThreadLocal使用
+ThreadLocal使用：以线程为单位进行隔离，因为WeakReference不会导致内存泄漏，线程复用的时候没有remove可能会导致后面的任务取到前面任务存进去的值，导致程序出错
 
 有人说ThreadLocal使用的线程是在线程池中重复使用的时候，会导致内存泄露，其实不会，因为key使用的是WeakReference，
 但是不手动remove掉对象，线程重复使用的时候，可能后面的任务会取到前面任务存进去的值，导致程序出错
@@ -152,21 +151,9 @@ https://juejin.im/post/5ac2eb52518825555e5e06ee
 
 
 
-
-RejectedExecutionHandler:
-ThreadPoolExecutor.AbortPolicy()，默认的，抛出java.util.concurrent.RejectedExecutionException异常 
-ThreadPoolExecutor.CallerRunsPolicy，它直接在 execute 方法的调用线程中运行被拒绝的任务；如果执行程序已关闭，则会丢弃该任务。
-ThreadPoolExecutor.DiscardOldestPolicy();，先poll掉workQueue中的一个任务，然后调用线程池的execute方法执行当前task
-ThreadPoolExecutor.DiscardPolicy，拒绝策略方法为空，就是不做任何处理，默认情况下它将丢弃被拒绝的任务。
-
-线程池其他方法：
-beforeExecute、afterExecute、
-
-
-
 ---------------------------------------------------------------------------------------------------------------------
 
-线程池有哪几种工作队列
+## 线程池有哪几种工作队列
 
 1、ArrayBlockingQueue （有界队列）：是一个基于数组结构的有界阻塞队列，此队列按 FIFO（先进先出）原则对元素进行排序。
 2、LinkedBlockingQueue （无界队列）：一个基于链表结构的阻塞队列，此队列按FIFO （先进先出） 排序元素，吞吐量通常要高于ArrayBlockingQueue。静态工厂方法Executors.newFixedThreadPool()使用了这个队列。
@@ -189,7 +176,7 @@ LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
 
 
 
-怎么理解无界队列和有界队列
+## 怎么理解无界队列和有界队列
 有界队列即长度有限，满了以后ArrayBlockingQueue会插入阻塞。
 无界队列就是里面能放无数的东西而不会因为队列长度限制被阻塞，但是可能会出现OOM异常。
 
@@ -224,9 +211,7 @@ http://www.cnblogs.com/tiancai/p/9407048.html
 
 
 ---------------------------------------------------------------------------------------------------------------------
-
-
-线程池源码解读
+## 线程池源码解读
 
 ThreadPoolExecutor---》AbstractExecutorService---》ExecutorService接口---》Executor接口
 
@@ -289,7 +274,7 @@ http://ifeve.com/java-threadpoolexecutor/
 
 ---------------------------------------------------------------------------------------------------------------------
 
-CompletionService解读
+## CompletionService解读
 
 
 ExecutorCompletionService 是 CompletionService 唯一实现类

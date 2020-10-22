@@ -1,9 +1,19 @@
+- [AQS定义和AQS在几个同步工具类中的使用](#AQS定义和AQS在几个同步工具类中的使用)
+    - [AQS主要方法](#AQS主要方法)
+    - [AQS实现](#AQS实现)
+    - [1、并发工具类的实现](#1、并发工具类的实现)
+    - [2、ReentrantLock锁（公平锁/非公平锁）的实现](#2、ReentrantLock锁（公平锁/非公平锁）的实现)
+    - [3、ReentrantReadWriteLock可重入读写锁](#3、ReentrantReadWriteLock可重入读写锁)
+    - [4、FutureTask](#4、FutureTask)
+    - [5、ThreadPoolExecutor](#5、ThreadPoolExecutor)
+- [Semaphore信号量](#Semaphore信号量)
 
 
 ---------------------------------------------------------------------------------------------------------------------
-http://ifeve.com/abstractqueuedsynchronizer-use/        
-    
-    
+## AQS定义和AQS在几个同步工具类中的使用
+
+[源码剖析AQS在几个同步工具类中的使用](http://ifeve.com/abstractqueuedsynchronizer-use/)
+
 AQS(AbstractQueuedSynchronizer)，AQS是JDK下提供的一套用于实现基于FIFO等待队列的阻塞锁和相关的同步器的一个同步框架。
 这个抽象类被设计为作为一些可用原子int值来表示状态的同步器的基类。
 如果你有看过类似 CountDownLatch 类的源码实现，会发现其内部有一个继承了 AbstractQueuedSynchronizer 的内部类 Sync。
@@ -14,14 +24,18 @@ AQS(AbstractQueuedSynchronizer)，AQS是JDK下提供的一套用于实现基于F
 AQS 内部维护了一个 FIFO 队列来管理锁。线程首先会尝试获取锁，如果失败，则将当前线程以及等待状态等信息包成一个 Node 节点放入同步队列阻塞起来，当持有锁的线程释放锁时，就会唤醒队列中的后继线程。
 
 
-AQS 的源码中方法很多，但主要做了三件事情：
+
+### AQS主要方法
+AQS的源码中方法很多，但主要做了三件事情：
 1.管理同步状态；
 2.维护同步队列；
 3.阻塞和唤醒线程。
 
-     
-    
-    
+
+
+
+## AQS实现
+
 实现：一个int状态位和一个有序队列（链表队列）来配合完成        
     
 abstract static class Sync extends AbstractQueuedSynchronizer        
@@ -42,7 +56,7 @@ CLH：Craig、Landin and Hagersten 队列，是一个单向链表，AQS中的队
 
 
 
-1、并发工具类的实现        
+## 1、并发工具类的实现
 CyclicBarrier：wait()        
 CountDownLatch：countDown()        
 Semaphore(信号量)：acquire()、release()        
@@ -52,7 +66,8 @@ Semaphore(信号量)：acquire()、release()
     
     
     
-2、ReentrantLock锁（公平锁/非公平锁）的实现：lock和unlock的数量一致，否则会一直占有锁，发生死锁，增加重入数也会检查是否超过最大值。        
+### 2、ReentrantLock锁（公平锁/非公平锁）的实现
+lock和unlock的数量一致，否则会一直占有锁，发生死锁，增加重入数也会检查是否超过最大值。        
 ReentrantLock对外的主要方法是lock()【阻塞】，tryLock()【非阻塞】、unlock()、isLocked()、isFair()等方法        
     
 lock方法有对于FairSync和NoFairSync有两种不同的实现：        
@@ -75,7 +90,9 @@ lock方法有对于FairSync和NoFairSync有两种不同的实现：
     
     
     
-3、ReentrantReadWriteLock可重入读写锁：除了支持公平非公平的Sync外，还有两种不同的锁，ReadLock和WriteLock。    
+### 3、ReentrantReadWriteLock可重入读写锁
+
+除了支持公平非公平的Sync外，还有两种不同的锁，ReadLock和WriteLock。    
     
 即读和读之间是兼容的，写和任何操作都是排他的，允许多个读线程同时持有锁，但是只有一个写线程可以持有锁    
 写线程获取写入锁后可以再次获取读取锁，但是读线程获取读取锁后却不能获取写入锁。    
@@ -116,7 +133,7 @@ https://www.apiref.com/java11-zh/java.base/java/util/concurrent/locks/ReentrantR
 
 
 
-4、FutureTask    
+### 4、FutureTask
     
 state状态位来存储执行状态RUNNING、RUN、CANCELLED，当使用get()获取执行结果的时候，未完成就挂起，在父类AQS中获取共享锁的线程会阻塞。即实现“任务未完成调用get方法的线程会阻塞”这样的功能。    
     
@@ -124,7 +141,9 @@ state状态位来存储执行状态RUNNING、RUN、CANCELLED，当使用get()获
     
 
 
-5、ThreadPoolExecutor  (关于线程池的理解，可以查看 为什么要使用线程池? )
+### 5、ThreadPoolExecutor
+
+(关于线程池的理解，可以查看 为什么要使用线程池? )
 
 
 
@@ -137,7 +156,7 @@ https://github.com/doocs/source-code-hunter/blob/master/docs/JDK/concurrentCodin
 
 
 ---------------------------------------------------------------------------------------------------------------------
-
+## Semaphore信号量
 
 Semaphore 信号量，可用于控制一定时间内，并发执行的线程数，基于 AQS 实现。可应用于网关限流、资源限制 (如 最大可发起连接数)。由于 release() 释放许可时，未对释放许可数做限制，所以可以通过该方法增加总的许可数量。
 

@@ -1,3 +1,10 @@
+- [直接内存分配和释放](#直接内存分配和释放)
+- [直接内存原理分析](#直接内存原理分析)
+
+
+-------------------------------------------------------------------------
+## 直接内存分配和释放
+
 在我目前的接触到的Java中分配直接内存主要有如下三种方式:
 1、Unsafe.allocateMemory()
 2、ByteBuffer.allocateDirect()
@@ -25,7 +32,10 @@ Cleaner、Deallocator则与内存释放相关。
 
 内存释放是通过Cleaner和Deallocator来实现的。
 
-原理分析
+
+
+
+## 直接内存原理分析
 查看ByteBuffer 源码可知 ByteBuffer.allocateDirect()创建DirectByteBuffer实例，DirectByteBuffer通过Unsafe分配内存，下面具体看一下执行过程。
 1. 调用 ByteBuffer.allocateDirect(int cap)
 2. 创建DirectByteBuffer：主要分三步，

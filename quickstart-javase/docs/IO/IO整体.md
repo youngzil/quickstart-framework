@@ -1,4 +1,12 @@
-  
+- [Java IO分类](#Java-IO分类)
+- [I/O多路复用技术](#I/O多路复用技术)
+- [I/O模型：同步I/O和异步I/O，阻塞I/O和非阻塞I/O](#I/O模型：同步I/O和异步I/O，阻塞I/O和非阻塞I/O)
+- [EPOLL事件有两种模型](#EPOLL事件有两种模型)
+- [用户空间与内核空间](#用户空间与内核空间)
+
+
+-------------------------------------------------------------------------
+
 Scalable IO in Java：http://gee.cs.oswego.edu/dl/cpjslides/nio.pdf  
 李林峰的netty系列文章：http://www.infoq.com/cn/minibooks/netty-in-depth  
 BIO NIO AIO到底是什么鬼？看这篇文章就够了。http://www.cnblogs.com/dolphin0520/p/3916526.html  
@@ -13,10 +21,11 @@ http://ifeve.com/overview/
 https://blog.csdn.net/crazymakercircle/article/details/85858596  
 https://my.oschina.net/haitaohu/blog/1844621  
 https://blog.csdn.net/github_38737621/article/details/80216082  
-  
-  
-  
-  
+
+
+
+
+## Java IO分类
 文件IO、网络IO  
 BIO、NIO、AIO  
   
@@ -74,10 +83,9 @@ I/O模型	文件I/O	标准I/O
 写	write()	fwrite()/fputc()/fputs()…  
 定位	lseek()	fseek()/ftell()/rewind()/fsetpos()/fgetpos()  
 关闭	close()	fclose()  
-  
-  
-  
-  
+
+
+
 网络IO：  
 http://blog.csdn.net/qq_30154277/article/details/51981821  
 网络HttpURLConnection 类  
@@ -100,9 +108,11 @@ Linux提供select/poll，进程通过将一个或多个fd传递给select或poll�
 5、异步I/O  
 告知内核启动某个操作，并让内核在整个操作完成后（包括数据的复制）通知进程。  
     信号驱动I/O模型通知的是何时可以开始一个I/O操作，异步I/O模型有内核通知I/O操作何时已经完成。  
-  
-  
-I/O多路复用技术：  
+
+
+
+
+## I/O多路复用技术
 I/O编程中，需要处理多个客户端接入请求时，可以利用多线程或者I/O多路复用技术进行处理。  
     正如前面的简介，I/O多路复用技术通过把多个I/O的阻塞复用到同一个select的阻塞上，从而使得系统在单线程的情况下可以同时处理多个客户端请求。  
     与传统的多线程模型相比，I/O多路复用的最大优势就是系统开销小，系统不需要创建新的额外线程，也不需要维护这些线程的运行，降低了系统的维护工作量，节省了系统资源。  
@@ -117,7 +127,9 @@ I/O编程中，需要处理多个客户端接入请求时，可以利用多线�
     使用mmap加速内核与用户空间的数据传递。  
     epoll拥有更加简单的API。  
   
-I/O模型：同步I/O和异步I/O，阻塞I/O和非阻塞I/O  
+
+
+## I/O模型：同步I/O和异步I/O，阻塞I/O和非阻塞I/O
 http://blog.csdn.net/shenlei19911210/article/details/49305413  
 blocking IO的特点就是在IO执行的两个阶段（等待数据准备就绪和拷贝数据两个阶段）都被block了。  
 在非阻塞式IO中，用户进程其实是需要不断的主动询问kernel数据准备好了没有。  
@@ -177,7 +189,7 @@ IO复用模型：IO复用，默认是同步阻塞，可以设置为非阻塞
 虽然表面上看非阻塞的方式可以明显的提高CPU的利用率，但是也带了另外一种后果就是系统的线程切换增加。增加的CPU执行时间能不能补偿系统的切换成本需要好好评估。  
   
   
-EPOLL事件有两种模型：  
+## EPOLL事件有两种模型
 Level Triggered (LT)  
 Edge Triggered (ET)  
   
@@ -190,7 +202,7 @@ ET:在ET模式下，当有事件发生时，系统只会通知你一次，即在
   
   
   
-用户空间与内核空间  
+## 用户空间与内核空间
 现在操作系统都是采用虚拟存储器，对32位操作系统而言，它的寻址空间（虚拟存储空间）为4G（2的32次方）。  
 操作系统的核心是内核，独立于普通的应用程序，可以访问受保护的内存空间，也有访问底层硬件设备的所有权限。  
 为了保证用户进程不能直接操作内核（kernel），保证内核的安全，操作系统将虚拟空间划分为两部分，一部分为内核空间，一部分为用户空间。  
