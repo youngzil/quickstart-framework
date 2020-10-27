@@ -1,11 +1,11 @@
-https://projectlombok.org/
-http://zwitserloot.com/html/
-https://github.com/rzwitserloot/lombok
+[Lombok官网](https://projectlombok.org/)  
+[Lombok介绍](http://zwitserloot.com)  
+[Lombok Github](https://github.com/rzwitserloot/lombok)  
 
 
-参考学习文章
-https://www.jianshu.com/p/365ea41b3573
-https://blog.csdn.net/tuxedolinux/article/details/79340011
+参考学习文章  
+[Lombok简介](https://www.jianshu.com/p/365ea41b3573)  
+[Lombok 之 ToString](https://blog.csdn.net/tuxedolinux/article/details/79340011)
 
 
 

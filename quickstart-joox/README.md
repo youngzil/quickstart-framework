@@ -16,18 +16,14 @@ HTML DOM可以用JavaScript中的流行jQuery产品进行操作。为什么我�
 jOOX 是 Java Object Oriented XML 的缩写（尽管我觉得这名字有点猥琐），是 org.w3c.dom 包的简单封装。用于 XML 文档的创建以及 DOM 的操作，其思路很像 jQuery。
 
 
+[jOOL Github](https://github.com/jOOQ/jOOL)  
 
-https://github.com/jOOQ/jOOL
+[jOOR Github](https://github.com/jOOQ/jOOR)  
 
+[jOOU Github](https://github.com/jOOQ/jOOU)  
 
-https://github.com/jOOQ/jOOR
-
-
-https://github.com/jOOQ/jOOU
-
-
-https://github.com/jOOQ/jOOX
-https://www.oschina.net/p/joox
+[jOOX Github](https://github.com/jOOQ/jOOX)  
+[jOOX介绍](https://www.oschina.net/p/joox)  
 
 
 

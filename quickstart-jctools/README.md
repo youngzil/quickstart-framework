@@ -1,19 +1,27 @@
-http://jctools.github.io/JCTools
-https://github.com/JCTools/JCTools
+JCTools简介
 
-示例
-https://github.com/JCTools/ShadeJCToolsSamples
-https://my.oschina.net/go4it/blog/1528958
-
-
-JC工具
 JVM的Java并发工具。该项目旨在提供JDK当前缺少的一些并发数据结构：
 
-1、并发队列的SPSC / MPSC / SPMC / MPMC变体：
-    SPSC-单一生产者单一消费者（免费，有界和无界）
-    MPSC-多生产者单个消费者（较少锁定，有界和无界）
-    SPMC-单生产者多消费者（锁定较少，有界）
-    MPMC-多生产者多消费者（较少锁定，有界）
+
+[JCTools官网](http://jctools.github.io/JCTools)  
+[JCTools Github](https://github.com/JCTools/JCTools)  
+
+
+
+
+使用示例  
+[ShadeJCToolsSamples](https://github.com/JCTools/ShadeJCToolsSamples)  
+[JCTools简介](https://my.oschina.net/go4it/blog/1528958)
+
+
+
+
+
+1、并发队列的SPSC / MPSC / SPMC / MPMC变体：  
+    SPSC-单一生产者单一消费者（免费，有界和无界）  
+    MPSC-多生产者单个消费者（较少锁定，有界和无界）  
+    SPMC-单生产者多消费者（锁定较少，有界）  
+    MPMC-多生产者多消费者（较少锁定，有界）  
 
 2、SPSC / MPSC链接阵列队列可在性能，分配和占用空间之间实现平衡
 
@@ -25,19 +33,19 @@ JVM的Java并发工具。该项目旨在提供JDK当前缺少的一些并发数�
 JCTools是一款对jdk并发数据结构进行增强的并发工具，主要提供了map以及queue的增强数据结构。原来netty还是自己写的MpscLinkedQueueNode，后来新版本就换成使用JCTools的并发队列了。
 
 增强map
-ConcurrentAutoTable(后面几个map/set结构的基础)
-NonBlockingHashMap
-NonBlockingHashMapLong
-NonBlockingHashSet
-NonBlockingIdentityHashMap
-NonBlockingSetInt
+- ConcurrentAutoTable(后面几个map/set结构的基础)
+- NonBlockingHashMap
+- NonBlockingHashMapLong
+- NonBlockingHashSet
+- NonBlockingIdentityHashMap
+- NonBlockingSetInt
 
 
-增强队列
-SPSC - Single Producer Single Consumer (Wait Free, bounded and unbounded)
-MPSC - Multi Producer Single Consumer (Lock less, bounded and unbounded)
-SPMC - Single Producer Multi Consumer (Lock less, bounded)
-MPMC - Multi Producer Multi Consumer (Lock less, bounded)
+增强队列queue  
+- SPSC - Single Producer Single Consumer (Wait Free, bounded and unbounded)
+- MPSC - Multi Producer Single Consumer (Lock less, bounded and unbounded)
+- SPMC - Single Producer Multi Consumer (Lock less, bounded)
+- MPMC - Multi Producer Multi Consumer (Lock less, bounded)
 
 
 
@@ -57,10 +65,8 @@ protected long consumerIndex;
 
 
 
-
-
-源码解析
-https://blog.csdn.net/theludlows/article/details/90646236
-https://blog.csdn.net/youaremoon/article/details/50351929
+源码解析  
+https://blog.csdn.net/theludlows/article/details/90646236  
+https://blog.csdn.net/youaremoon/article/details/50351929  
 
 

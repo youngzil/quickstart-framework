@@ -16,7 +16,7 @@ Plexus和Maven的开发者是同一群人，可以想见Plexus和Maven的紧密�
 
 
 
-参考
-https://blog.csdn.net/songhuiqiao/article/details/49908165
+参考  
+[Plexus——Spring之外的IoC容器](https://blog.csdn.net/songhuiqiao/article/details/49908165)
 
 

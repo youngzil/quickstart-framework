@@ -1,10 +1,43 @@
-- [](#)
-    - [](#)
-- [](#)
-    - [](#)
-        - [](#)
-- [](#)
-    - [](#)
+- [JVM内存模型](#JVM内存模型)
+- [Java finalize()方法不可靠表现2方面](#Java-finalize()方法不可靠表现2方面)
+- [判断对象是否存活一般有两种方式](#判断对象是否存活一般有两种方式)
+    - [如何确定某个对象是“垃圾”](#如何确定某个对象是“垃圾”)
+    - [在Java语言中，GCRoots包括](#在Java语言中，GCRoots包括)
+- [Java对象的引用包括：强引用，软引用，弱引用，虚引用](#Java对象的引用包括：强引用，软引用，弱引用，虚引用)
+    - [Java中四种引用类型](#Java中四种引用类型)
+    - [Java中提供这四种引用类型主要有两个目的](#Java中提供这四种引用类型主要有两个目的)
+
+
+
+
+
+- [典型的垃圾收集算法](#典型的垃圾收集算法)
+- [目前常用的垃圾回收算法有很多种](#目前常用的垃圾回收算法有很多种)
+- [方法区也会发生垃圾回收，只是效率和性价比较低。回收主要分为两部分内容：废弃常量、无用的类。](#方法区也会发生垃圾回收，只是效率和性价比较低。回收主要分为两部分内容：废弃常量、无用的类。)
+- [内存溢出（OOM）现象及举例](#内存溢出（OOM）现象及举例)
+- [JVM垃圾收集器发展历程：串行、并行、并发、G1并发](#JVM垃圾收集器发展历程：串行、并行、并发、G1并发)
+- [JVM垃圾收集器](#JVM垃圾收集器)
+- [注意并发（Concurrent）和并行（Parallel）的区别](#注意并发（Concurrent）和并行（Parallel）的区别)
+- [典型的垃圾收集器](#典型的垃圾收集器)
+- [四、JVM内存调优](#四、JVM内存调优)
+- [CMS收集周期](#CMS收集周期)
+- [G1收集器讲解](#G1收集器讲解)
+    - [G1的推荐用例：大内存、低延迟](#G1的推荐用例：大内存、低延迟)
+    - [G1和CMS区别对比](#G1和CMS区别对比)
+
+
+
+
+
+- [JVM快速找出耗内存大对象](#JVM快速找出耗内存大对象)
+- [JVM参数设置和详解](#JVM参数.md)
+- [Java中内存堆，内存栈，常量池三者的关系](#Java中内存堆，内存栈，常量池三者的关系)
+- [JAVA中的内存泄露](#JAVA中的内存泄露)
+- [Java OOM的排查](#Java-OOM的排查)
+- [几种OOM（OutOfMemory）产生的过程](#几种OOM（OutOfMemory）产生的过程)
+- [发生OOM的可能原因](#发生OOM的可能原因)
+- [Linux环境下如何查找哪个线程使用CPU最长](#Linux环境下如何查找哪个线程使用CPU最长)
+- [堆内内存与堆外内存区别：DirectBuffer OOM是堆外内存](#堆内内存与堆外内存区别：DirectBuffer OOM是堆外内存)
 
 
 
@@ -23,20 +56,15 @@
 零拷贝
 在JavaSE.md
 
-JVM参数.md
 
 JVM内存模型：五个区域和各自保存的对象，会抛出什么异常：年轻代、年老代、持久代（方法去）、堆外内存（直接内存）
 
+
+
+
 垃圾回收：垃圾收集算法、垃圾收集器，对象存活方式判断，类回收条件，堆（年轻代、年老代），java对象的引用（强引用，软引用，弱引用，虚引用）
-方法区垃圾回收：废弃常量、无用的类
 
 
-finalize()方法不可靠表现2方面
-判断对象是否存活一般有两种方式、GC Roots包括
-
-G1收集器讲解
-G1的推荐用例：大内存、低延迟、
-G1和CMS区别对比
 
 内存调优：减少youngGC的频率和fullGC的次数
 常见参数：废弃类回收的控制参数、堆参数（初始大小，最大大小、年轻代和年老代比例）、设置GC回收器，GC打印格式和文件、HeapDump日志路径、并行收集器设置
@@ -50,10 +78,7 @@ ClassLoader可以实现的功能：
 2、系统开发模块化，比如阿里的jarslink、支付宝的sofaArk
 3、热部署功能、热加载
 
-java对象的引用包括：强引用，软引用，弱引用，虚引用
-Java中提供这四种引用类型主要有两个目的：
-第一是可以让程序员通过代码的方式决定某些对象的生命周期；
-第二是有利于JVM进行垃圾回收。
+
 
 JVM内存结构，和Java虚拟机的运行时区域有关。 
 Java内存模型，和Java的并发编程有关。 
@@ -124,17 +149,19 @@ CPU(Processer<-->HighSpeedCache)<-->CacheCoherence<-->MainMemory
 JVM内部原理
 http://ifeve.com/jvm-internals/
 
-测试JVM GC
-https://blog.csdn.net/shi2huang/article/details/80067608
-https://blog.csdn.net/shi2huang/article/details/80077843
-
+测试JVM GC  
+[Minor GC和Full GC触发条件](https://blog.csdn.net/shi2huang/article/details/80067608)  
+[如何逃脱垃圾回收](https://blog.csdn.net/shi2huang/article/details/80077843)
 
 关于jvm
 https://blog.csdn.net/ITer_ZC/column/info/talk-about-jvm
 
+---------------------------------------------------------------------------------------------------------------------
+## Java finalize()方法不可靠表现2方面
 
 
-http://blog.csdn.net/carolzhang8406/article/details/6705831
+[Java finalize方法使用](https://blog.csdn.net/carolzhang8406/article/details/6705831)
+
 java提供finalize()方法，垃圾回收器准备释放内存的时候，会先调用finalize()。
           (1).对象不一定会被回收。
        (2).垃圾回收不是析构函数。
@@ -150,17 +177,29 @@ finalize()方法不可靠表现2方面：
 2、即使执行了finalize()方法，但是之后对象又被引用，就不会进行回收，后续再次回收的时候，就不会执行finalize()方法了，finalize()方法只执行一次
 
 
-JVM GC垃圾回收算法：
-http://blog.csdn.net/doc_sgl/article/details/46594975
-判断对象是否存活一般有两种方式：
+---------------------------------------------------------------------------------------------------------------------
+
+## JVM GC垃圾回收算法
+
+[JVM GC垃圾回收算法](https://blog.csdn.net/doc_sgl/article/details/46594975)
+
+## 判断对象是否存活一般有两种方式
 1.引用计数：每个对象有一个引用计数属性，新增一个引用时计数加1，引用释放时计数减1，计数为0时可以回收。此方法简单，无法解决对象相互循环引用的问题。
 2.可达性分析（Reachability Analysis）：从GC Roots开始向下搜索，搜索所走过的路径称为引用链。当一个对象到GC Roots没有任何引用链相连时，则证明此对象是不可用的。不可达对象。
 
-在Java语言中，GCRoots包括：
+## 如何确定某个对象是“垃圾”
+1、引用计数法
+2、在Java中采取了 可达性分析法。该方法的基本思想是通过一系列的“GC Roots”对象作为起点进行搜索，如果在“GC Roots”和一个对象之间没有可达路径，则称该对象是不可达的，不过要注意的是被判定为不可达的对象不一定就会成为可回收对象。被判定为不可达的对象要成为可回收对象必须至少经历两次标记过程，如果在这两次标记过程中仍然没有逃脱成为可回收对象的可能性，则基本上就真的成为可回收对象了。
+
+
+## 在Java语言中，GCRoots包括
 1、虚拟机栈(栈帧中的本地变量表)中引用的对象；
 2、本地方法栈中JNI引用的对象。原生方法栈（Native Method Stack）中 JNI 中引用的对象。
 3、方法区中类静态属性实体引用的对象。
 4、方法区中常量引用的对象。
+
+
+
 
 堆：年轻代、年老代
 方法区：持久代
@@ -171,9 +210,14 @@ http://blog.csdn.net/doc_sgl/article/details/46594975
 
 
 
+
+
+
+### 方法区也会发生垃圾回收，只是效率和性价比较低。回收主要分为两部分内容：废弃常量、无用的类。
+
 JVM 方法区回收小结：很多人习惯称方法区为永久代（hotspot以永久代来实现方法区）
 java虚拟机规范中提到：可以不要求虚拟机在方法区实现垃圾收集。而且在方法区的垃圾回收“性价比”一般比较低。在堆中，尤其是在年轻的，一次垃圾回收一般可以回收70-95%的空间
-方法区也会发生垃圾回收，只是效率和性价比较低。回收主要分为两部分内容：废弃常量、无用的类。
+
 1、废弃常量的回收
 回收常量与java堆的对象回收非常相似。“没有地方引用”
 这与堆中对象的回收类似。以常量池的字符串为例，如果没有任何对象引用了此字符串，那么它就有可能被系统清理出常量池。
@@ -202,16 +246,16 @@ Major collection当tenured space被占满时执行。他会清理tenured和young
 
 
 
-http://blog.csdn.net/u014086926/article/details/52106589#
-java对象的引用包括
-  强引用，软引用，弱引用，虚引用
+## Java对象的引用包括：强引用，软引用，弱引用，虚引用
+[JAVA四种引用方式](https://blog.csdn.net/u014086926/article/details/52106589)  
+
 １.强引用（StrongReference）：强引用有引用变量指向时永远不会被垃圾回收，JVM宁愿抛出OutOfMemory错误也不会回收这种对象。
 2.软引用（SoftReference）：如果一个对象具有软引用，内存空间足够，垃圾回收器就不会回收它；
 3.弱引用（WeakReference）：弱引用也是用来描述非必需对象的，当JVM进行垃圾回收时，无论内存是否充足，都会回收被弱引用关联的对象。
 4.虚引用（PhantomReference）：如果一个对象与虚引用关联，则跟没有引用与之关联一样，在任何时候都可能被垃圾回收器回收。
 
 
-Java中四种引用类型
+### Java中四种引用类型
 引用类型	被垃圾回收时间	用途	生存时间
 强引用 Strong Reference	从来不会	对象的一般状态	JVM停止运行时终止
 软引用 Soft Reference	在内存不足时	对象缓存	内存不足时终止
@@ -220,7 +264,7 @@ Java中四种引用类型
 
 
   
-Java中提供这四种引用类型主要有两个目的：
+### Java中提供这四种引用类型主要有两个目的
 第一是可以让程序员通过代码的方式决定某些对象的生命周期；
 第二是有利于JVM进行垃圾回收。
 
@@ -233,10 +277,16 @@ Java中提供这四种引用类型主要有两个目的：
 ◆多条引用路径可及性判断:几条路径中，最强的一条的引用决定对象的可及性。
 
 
-https://www.cnblogs.com/dolphin0520/p/3613043.html
-http://blog.csdn.net/zcw4237256/article/category/7397381
-JVM内存模型
-http://blog.csdn.net/zcw4237256/article/details/79042143
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+## JVM内存模型
+[JVM内存模型](https://blog.csdn.net/zcw4237256/article/details/79042143)  
+[JVM的内存区域划分](https://www.cnblogs.com/dolphin0520/p/3613043.html)  
+[jvm详解（一）](https://blog.csdn.net/zcw4237256/category_7397381.html)  
+
+
 Java虚拟机(Java Virtual Machine=JVM)的内存空间分为五个部分，分别是： 
 1. 程序计数器 ：程序计数器里面记录的是当前线程正在执行的那一条字节码指令的地址。不会内存溢出
 2. Java虚拟机栈(JVM Stack)：使用 递归方法的时候容易导致栈内存溢出的现象，由于每个线程正在执行的方法可能不同，因此每个线程都会有一个自己的Java栈，互不干扰。
@@ -259,29 +309,6 @@ Java虚拟机(Java Virtual Machine=JVM)的内存空间分为五个部分，分�
 
 
 在大量使用反射、动态代理、CGLib 等 ByteCode 框架、动态生成 JSP 以及 OSGi 这类频繁自定义 ClassLoader 的场景都需要虚拟机具备类卸载功能，以保证不会出现内存溢出。
-
-
-
-关于进程、线程和轻量级进程，线程模型的讨论 
-http://blog.csdn.net/tianyue168/article/details/7403693
-https://blog.csdn.net/mm_hh/article/details/72587207
-http://blog.chinaunix.net/uid-22287947-id-1775625.html
-进程是资源管理的最小单元；而线程是程序执行的最小单元。
-一个进程的组成实体可以分为两大部分：线程集合和资源集合。
-资源，包括地址空间、打开的文件、用户信息等等，由进程内的线程共享。
-进程中的线程是动态的对象；代表了进程指令的执行。
-线程有自己的私有数据：程序计数器，栈空间以及寄存器。
-
-线程：其实可以先简单理解成cpu的一个执行流，指令序列。
-
-传统进程的缺点
-a. fork一个子进程的消耗是很大的，fork是一个昂贵的系统调用，即使使用现代的写时复制(copy-on-write)技术。
-b. 各个进程拥有自己独立的地址空间，进程间的协作需要复杂的IPC（进程间通信）技术，如***消息队列、共享内存、信号量***等。
-
-用户态线程和内核态线程；主要的区分就是“谁来管理”线程，用户态是用户管理，内核态是内核管理（但肯定要提供一些API，例如创建）。
-
-
-
 
 
 
@@ -351,16 +378,46 @@ Java虚拟机的内存模型中一共有两个“堆”，一个是原本的堆�
 而堆、方法区是线程共享的，在Java虚拟机中只有一个堆、一个方法栈。并在JVM启动的时候就创建，JVM停止才销毁。
 对象的内存分配，往大方向上讲就是在堆上分配，对象主要分配在新生代的Eden Space和From Space，少数情况下会直接分配在老年代。
 
-jvm:标记复制、标记清除、标记整理算法（垃圾回收）
-http://blog.csdn.net/u010841296/article/details/50945390
 
 
-http://blog.csdn.net/zcw4237256/article/details/79042308
-如何确定某个对象是“垃圾”？
-1、引用计数法
-2、在Java中采取了 可达性分析法。该方法的基本思想是通过一系列的“GC Roots”对象作为起点进行搜索，如果在“GC Roots”和一个对象之间没有可达路径，则称该对象是不可达的，不过要注意的是被判定为不可达的对象不一定就会成为可回收对象。被判定为不可达的对象要成为可回收对象必须至少经历两次标记过程，如果在这两次标记过程中仍然没有逃脱成为可回收对象的可能性，则基本上就真的成为可回收对象了。
+---------------------------------------------------------------------------------------------------------------------
 
-典型的垃圾收集算法
+
+
+
+
+
+关于进程、线程和轻量级进程，线程模型的讨论 
+http://blog.csdn.net/tianyue168/article/details/7403693
+https://blog.csdn.net/mm_hh/article/details/72587207
+http://blog.chinaunix.net/uid-22287947-id-1775625.html
+进程是资源管理的最小单元；而线程是程序执行的最小单元。
+一个进程的组成实体可以分为两大部分：线程集合和资源集合。
+资源，包括地址空间、打开的文件、用户信息等等，由进程内的线程共享。
+进程中的线程是动态的对象；代表了进程指令的执行。
+线程有自己的私有数据：程序计数器，栈空间以及寄存器。
+
+线程：其实可以先简单理解成cpu的一个执行流，指令序列。
+
+传统进程的缺点
+a. fork一个子进程的消耗是很大的，fork是一个昂贵的系统调用，即使使用现代的写时复制(copy-on-write)技术。
+b. 各个进程拥有自己独立的地址空间，进程间的协作需要复杂的IPC（进程间通信）技术，如***消息队列、共享内存、信号量***等。
+
+用户态线程和内核态线程；主要的区分就是“谁来管理”线程，用户态是用户管理，内核态是内核管理（但肯定要提供一些API，例如创建）。
+
+
+
+
+
+
+
+
+[jvm:停止复制、标记清除、标记整理算法（垃圾回收）](https://blog.csdn.net/u010841296/article/details/50945390)  
+
+[jvm垃圾回收机制（二）算法和如何进行判断对象是否回收实例](https://blog.csdn.net/zcw4237256/article/details/79042308)
+
+
+## 典型的垃圾收集算法
 1.Copying（复制）算法：对内存空间的使用做出了高昂的代价，因为能够使用的内存缩减到原来的一半。
 　　很显然，Copying算法的效率跟存活对象的数目多少有很大的关系，如果存活对象很多，那么Copying算法的效率将会大大降低。
 2.Mark-Sweep（标记-清除）算法：容易产生内存碎片，碎片太多可能会导致后续过程中需要为大对象分配空间时无法找到足够的空间而提前触发新的一次垃圾收集动作
@@ -372,7 +429,7 @@ http://blog.csdn.net/zcw4237256/article/details/79042308
 
 
 
-目前常用的垃圾回收算法有很多种：
+### 目前常用的垃圾回收算法有很多种
 引用计数器法（Reference Counting）
 标记清除法（Mark-Sweep）
 复制算法（Coping）
@@ -388,7 +445,9 @@ http://blog.csdn.net/zcw4237256/article/details/79042308
 NIO的Buffer还提供了一个可以直接访问系统物理内存，而不需要进行用户态和内核态之间的拷贝，即Direct Memory的类-DirectByteBuffe，是Direct I/O模式。 
 通过byteBuffer.allocateDirect(capacity)在DirectMemory上进行分配。
 
-内存溢出（OOM）现象及举例
+
+
+### 内存溢出（OOM）现象及举例
 一.HeapSize OOM(堆空间内存溢出)
 A.eg:List.add(" ")在一个死循环中不断的调用add却没有remove。
 B.并发导致。
@@ -420,9 +479,7 @@ C.IoException:too many open files
 
 
 
-
-
-JVM垃圾收集器发展历程：串行、并行、并发、G1并发
+### JVM垃圾收集器发展历程：串行、并行、并发、G1并发
 
 第一阶段，Serial（串行）收集器
 在jdk1.3.1之前，java虚拟机仅仅能使用Serial收集器。 Serial收集器是一个单线程的收集器，但它的“单线程”的意义并不仅仅是说明它只会使用一个CPU或一条收集线程去完成垃圾收集工作，更重要的是在它进行垃圾收集时，必须暂停其他所有的工作线程，直到它收集结束。
@@ -438,7 +495,7 @@ G1收集器（或者垃圾优先收集器）的设计初衷是为了尽量缩短
 
 
 
-JVM垃圾收集器
+### JVM垃圾收集器
 1.新生代
  Serial (第一代)
  PraNew (第二代)
@@ -455,12 +512,13 @@ JVM垃圾收集器
  
 
 
-注意并发（Concurrent）和并行（Parallel）的区别：
+### 注意并发（Concurrent）和并行（Parallel）的区别
 1、并发是指用户线程与GC线程同时执行（不一定是并行，可能交替，但总体上是在同时执行的），不需要停顿用户线程（其实在CMS中用户线程还是需要停顿的，只是非常短，GC线程在另一个CPU上执行）；
 2、并行收集是指多个GC线程并行工作，但此时用户线程是暂停的；
 
 
-典型的垃圾收集器
+
+### 典型的垃圾收集器
 1.Serial/Serial Old
 　　Serial/Serial Old收集器是最基本最古老的收集器，它是一个单线程收集器，并且在它进行垃圾收集时，必须暂停所有用户线程。Serial收集器是针对新生代的收集器，采用的是Copying算法，Serial Old收集器是针对老年代的收集器，采用的是Mark-Compact算法。它的优点是实现简单高效，但是缺点是会给用户带来停顿。
 
@@ -490,11 +548,11 @@ JVM垃圾收集器
 在执行机制上JVM提供了串行GC（Serial GC）、并行回收GC（Parallel Scavenge）和并行GC（ParNew）
 
 
-JVM、垃圾回收、内存调优、常见参数
-http://blog.csdn.net/u010305706/article/details/50978370
 
 
-四、JVM内存调优
+## 四、JVM内存调优
+[JVM、垃圾回收、内存调优、常见参数](https://blog.csdn.net/u010305706/article/details/50978370)
+
 对JVM内存的系统级的调优主要的目的是减少GC的频率和Full GC的次数，过多的GC和Full GC是会占用很多的系统资源（主要是CPU），影响系统的吞吐量。特别要关注Full GC，因为它会对整个堆进行整理，导致Full GC一般由于以下几种情况：
 
 1、旧生代空间不足
@@ -537,13 +595,14 @@ http://blog.csdn.net/endlu/article/details/51423996
 
 
 
-CMS收集周期
+### CMS收集周期
 CMS并非没有暂停，而是用两次短暂停来替代串行标记整理算法的长暂停，它的收集周期是这样：
 初始标记(CMS-initial-mark) -> 并发标记(CMS-concurrent-mark) -> 重新标记(CMS-remark) -> 并发清除(CMS-concurrent-sweep) ->并发重设状态等待下次CMS的触发(CMS-concurrent-reset)。
 其中的1，3两个步骤需要暂停所有的应用程序线程的。第一次暂停从root对象开始标记存活的对象，这个阶段称为初始标记；第二次暂停是在并发标记之后， 暂停所有应用程序线程，重新标记并发标记阶段遗漏的对象（在并发标记阶段结束后对象状态的更新导致）。第一次暂停会比较短，第二次暂停通常会比较长，并且 remark这个阶段可以并行标记。
 
 
-G1收集器讲解
+
+### G1收集器讲解
 初始标记-->并发标记-->最终标记-->筛选回收
 G1收集器是 G1最大的特点是引入分区的思路，弱化了分代的概念。把新生代、年老代等在各个分区进行分别回收
 
@@ -584,7 +643,7 @@ RSet
 
 
 
-G1的推荐用例：大内存、低延迟、
+### G1的推荐用例：大内存、低延迟
 G1的第一个重要特点是为用户的应用程序的提供一个低GC延时和大内存GC的解决方案。这意味着堆大小6GB或更大，稳定和可预测的暂停时间将低于0.5秒。
 如果应用程序使用CMS或ParallelOld垃圾回收器具有一个或多个以下特征，将有利于切换到G1：
  1、Full GC持续时间太长或太频繁
@@ -593,7 +652,8 @@ G1的第一个重要特点是为用户的应用程序的提供一个低GC延时�
 注意：如果你正在使用CMS或ParallelOld收集器，并且你的应用程序没有遇到长时间的垃圾收集暂停，则保持与您的当前收集器是很好的，升级JDK并不必要更新收集器为G1。
 
 
-java中内存堆，内存栈，常量池三者的关系
+
+## Java中内存堆，内存栈，常量池三者的关系
 http://blog.csdn.net/u011001723/article/details/46005639
 运行时常量池是方法区的一部分。方法区是堆得一部分
 1.寄存器：最快的存储区, 由编译器根据需求进行分配,我们在程序中无法控制. 
@@ -609,6 +669,10 @@ http://blog.csdn.net/u011001723/article/details/46005639
 3是常量，存放在方法区中的运行时常量池。
 new String使用new出来的，都是全新的对象，就跟基础类型的包装类一样，否则是存放在常量池中共享的
 
+
+
+
+### JAVA中的内存泄露
 内存泄漏
 http://blog.csdn.net/wtt945482445/article/details/52483944
 https://www.cnblogs.com/Sharley/p/5285045.html
@@ -632,7 +696,10 @@ java内存泄露典型特征:
 * 方案3: 增加-XX:+TraceClassLoading和-XX:+TraceClassUnloading, 看看哪些class加载了，哪些class卸载了. 如果一些特殊的class一直被加载而没有被卸载说明也是有问题的。(如下图) 
 执行jmap -permgen(jstat -gcutil  可以查看内存增长速度和区域)命令看看Perm区中的内容, 初步确定是否存在问题 (如下图)
 
-Java oom的排查：
+
+
+
+### Java OOM的排查
 http://blog.csdn.net/john8169/article/details/55802651
 http://blog.csdn.net/u010256841/article/details/41121755
 https://www.jianshu.com/p/2fdee831ed03
@@ -659,7 +726,7 @@ eclipse MAT中点击Histogram可以看出所有heap中的对象列表，以及�
 
 
 
-几种OOM（OutOfMemory）产生的过程：
+### 几种OOM（OutOfMemory）产生的过程
 http://blog.csdn.net/cutesource/article/details/8244250
 1）Java堆：所有对象的实例分配都在Java堆上分配内存，堆大小由-Xmx和-Xms来调节
 Exception in thread "main" java.lang.OutOfMemoryError: Java heap space
@@ -671,7 +738,9 @@ Exception in thread "main" java.lang.OutOfMemoryError: PermGen space
 Exception in thread "main" java.lang.StackOverflowError
 线程太多也会占满栈区域，报出异常：Exception in thread "main" java.lang.OutOfMemoryError:unable to create new native thread
 
-发生oom的可能原因：
+
+
+### 发生OOM的可能原因
 http://blog.csdn.net/ls5718/article/details/52411211
 jvm的几个内存区域，除了程序计数器
 1、java虚拟机栈：栈区域有两种异常类型：
@@ -692,8 +761,10 @@ Java中如何获取到线程dump文件
 另外提一点，Thread类提供了一个getStackTrace()方法也可以用于获取线程堆栈。这是一个实例方法，因此此方法是和具体线程实例绑定的，
 每次获取获取到的是具体某个线程当前运行的堆栈，
 
- 
- Linux环境下如何查找哪个线程使用CPU最长
+
+
+
+### Linux环境下如何查找哪个线程使用CPU最长
 这是一个比较偏实践的问题，这种问题我觉得挺有意义的。可以这么做：
 （1）获取项目的pid，jps或者ps -ef | grep java，这个前面有讲过
 （2）top -H -p pid，顺序不能改变
@@ -768,7 +839,9 @@ jmap -dump:format=b,file=heap.hprof 1234。
 
 
 
-堆内内存与堆外内存区别：DirectBuffer OOM是堆外内存
+---------------------------------------------------------------------------------------------------------------------
+
+## 堆内内存与堆外内存区别：DirectBuffer OOM是堆外内存
 
 https://blog.csdn.net/yangguosb/article/details/77870791
 优点： 提升了IO效率（避免了数据从用户态向内核态的拷贝）；减少了GC次数（节约了大量的堆内内存）。 
@@ -1023,7 +1096,7 @@ https://www.cnblogs.com/felixzh/p/9001041.html
 https://zhuanlan.zhihu.com/p/89574608
 
 
-G1和CMS区别对比
+### G1和CMS区别对比
 G1和cms对比，有什么优缺点？G1可以设置单个块最大的回收时间，真实有效吗？达到了这个时间会发生什么？
 
 CMS：过程、优点、缺点、
@@ -1307,6 +1380,25 @@ https://www.cnblogs.com/qianguyihao/p/4748348.html
 
 
 
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+## JVM快速找出耗内存大对象
+
+
+备注：  
+class name表示：  
+
+[C is a char[]  
+[S is a short[]  
+[I is a int[]  
+[B is a byte[]  
+[[I is a int[][]  
+
+
+
+[JVM快速找出耗内存大对象](https://www.jianshu.com/p/931384b89c4d)  
 
 
 

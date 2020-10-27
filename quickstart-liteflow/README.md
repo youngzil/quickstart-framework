@@ -1,9 +1,12 @@
-https://gitee.com/bryan31/liteFlow
-https://github.com/bryan31/liteflow
+[liteflow文档](https://bryan31.gitee.io/liteflow)  
+[liteflow Github](https://github.com/bryan31/liteflow)  
+[liteflow Gitee](https://gitee.com/bryan31/liteFlow)  
 
 
-文档
-https://bryan31.gitee.io/liteflow
+做最轻量级，最实用的微流程框架.
+
+liteFlow能够帮助你的项目实现业务组件化  
+liteFlow能最大程度上解耦，支持即时调整策略的一个中间件
 
 
 

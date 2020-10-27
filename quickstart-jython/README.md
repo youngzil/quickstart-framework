@@ -1,8 +1,8 @@
-http://www.jython.org/
 
+Python for the Java Platform
 
-http://www.jython.org/Project/
-http://www.jython.org/downloads.html
+[Jython官网](http://www.jython.org/)  
+[Jython Github](https://github.com/jython/jython)  
 
 
 Python是用C编写的高级的、面向对象的、开放源代码的编程语言。所以又叫CPython.

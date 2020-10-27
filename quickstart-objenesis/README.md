@@ -1,6 +1,5 @@
-http://objenesis.org/
-https://github.com/easymock/objenesis
-
+[Objenesis官网](http://objenesis.org/)  
+[Objenesis Github](https://github.com/easymock/objenesis)  
 
 Objenesis是一个专用于在创建对象时绕过构造函数的库。在任何JVM上都有。
 Objenesis是一个轻量级的Java库，作用是绕过构造器创建一个实例。

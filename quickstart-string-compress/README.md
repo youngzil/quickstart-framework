@@ -1,6 +1,10 @@
 QuickLZ
-QuickLZ的官网：http://www.quicklz.com/
+
+[QuickLZ的官网](http://www.quicklz.com/)
+
 QuickLZ 是一个号称世界压缩速度最快的压缩库，并且也是个开源的压缩库，其遵守 GPL 1, 2 或 3协议。
+
+QuickLZ是世界上最快的压缩库，每个内核达到308 Mbyte / s。如果已获得商业许可，则可以使用它，也可以根据GPL 1、2或3使用，其中必须公开发布任何东西。
 
 
 LZ4
@@ -12,6 +16,10 @@ https://github.com/lz4/lz4-java
 https://commons.apache.org/proper/commons-compress/javadocs/api-release/org/apache/commons/compress/compressors/lz4/package-summary.html
 
 LZ4 (Extremely Fast Compression algorithm)
+
+LZ4是无损压缩算法，每个核心提供的压缩速度> 500 MB / s（> 0.15字节/周期）。 它具有极快的解码器，每个内核的速度为多个GB / s（〜1 Byte / cycle）。 可以使用一种称为LZ4_HC的高压缩导数，将可定制的CPU时间用于压缩率。 LZ4库作为使用BSD许可证的开源软件提供。
+
+
 参考示例
 https://www.programcreek.com/java-api-examples/index.php?api=net.jpountz.lz4.LZ4Compressor
 

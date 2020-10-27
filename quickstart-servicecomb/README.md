@@ -1,16 +1,11 @@
+Apache ServiceComb 开源微服务解决方案
 
+[ServiceComb官网](http://servicecomb.io)  
+[ServiceComb Java Chassis](https://github.com/ServiceComb/ServiceComb-Java-Chassis)  
+[ServiceComb Service Center](https://github.com/ServiceComb/service-center)  
+[ServiceComb Java Chassis Gitee网站](https://gitee.com/servicecomb/ServiceComb-Java-Chassis)  
+[ServiceComb介绍](https://www.oschina.net/p/servicecomb)  
 
-http://servicecomb.io
-
-https://github.com/ServiceComb/ServiceComb-Java-Chassis
-
-https://github.com/ServiceComb/service-center
-https://gitee.com/servicecomb/ServiceComb-Java-Chassis
-
-
-
-
-https://www.oschina.net/p/servicecomb
 
 
 ServiceComb 是华为开源的一套包含代码框架生成，服务注册发现，负载均衡，服务可靠性（容错熔断，限流降级，调用链追踪）等功能的微服务框架。

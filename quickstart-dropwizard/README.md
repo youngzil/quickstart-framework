@@ -1,5 +1,11 @@
-https://www.dropwizard.io
-https://github.com/dropwizard/dropwizard
+Dropwizard
+
+[Dropwizard官网](https://www.dropwizard.io)
+[Dropwizard Github](https://github.com/dropwizard/dropwizard)
+
+Dropwizard is a Java framework for developing ops-friendly, high-performance, RESTful web services.
+
+Dropwizard是一个Java框架，用于开发对操作友好的高性能RESTful Web服务。  
 
 
 应用请求8080

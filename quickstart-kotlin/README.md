@@ -1,18 +1,15 @@
-官网：https://kotlinlang.org/
-https://github.com/JetBrains/kotlin
+[Kotlin官网](https://kotlinlang.org/)  
+[Kotlin Github](https://github.com/JetBrains/kotlin)  
+[Kotlin中文网站](https://www.kotlincn.net/)  
+[]()  
 
 
-中文网站https://www.kotlincn.net/
+Java 和 Kotlin、Groovy、Scala的使用参考  
+[JGSK项目](https://github.com/SidneyXu/JGSK) ：Java,Groovy,Scala,Kotlin 四种语言的特点对比  
+[Java & Groovy & Scala & Kotlin - 29.与 Java 交互](https://www.jianshu.com/p/715fb9ad58c0)  
+[Kotlin菜鸟教程](http://www.runoob.com/kotlin/kotlin-tutorial.html)  
 
-
-Java 和 Kotlin、Groovy、Scala的使用参考
-https://github.com/SidneyXu/JGSK
-https://www.jianshu.com/p/715fb9ad58c0
-
-
-菜鸟教程http://www.runoob.com/kotlin/kotlin-tutorial.html
-
-【官方文档】Kotlin 1.2 的新增特性https://www.oschina.net/translate/whats-new-in-kotlin-12?from=20171203
+[【官方文档】Kotlin 1.2 的新增特性](https://www.oschina.net/translate/whats-new-in-kotlin-12?from=20171203)
 
 
 Kotlin是一种在Java虚拟机上运行的静态类型编程语言，它也可以被编译成为JavaScript源代码。它主要是由俄罗斯圣彼得堡的JetBrains开发团队所发展出来的编程语言，其名称来自于圣彼得堡附近的科特林岛。[3]2012年1月，著名期刊《Dr. Dobb's Journal》中Kotlin被认定为该月的最佳语言。[4]虽然与Java语法并不兼容，但Kotlin被设计成可以和Java代码相互运作，并可以重复使用如Java集合框架等的现有Java类库。

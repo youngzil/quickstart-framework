@@ -1,49 +1,55 @@
-https://github.com/google/guice
+Guice
+
+[Guice Github](https://github.com/google/guice)
 
 
 Guice (pronounced 'juice') is a lightweight dependency injection framework for Java 6 and above, brought to you by Google. 
 
+Guice（发音为“ juice”）是Google提供给您的Java 6及更高版本的轻量级依赖注入框架。
+
 
 术语
-Guice：整个框架的门面
-Injector：一个依赖的管理上下文
-Binder：一个接口和实现的绑定
-Module：一组Binder
-Provider：bean的提供者
-Key：Binder中对应一个Provider
-Scope：Provider的作用域
-Stage：运行方式（为了不同的要求）
+- Guice：整个框架的门面
+- Injector：一个依赖的管理上下文
+- Binder：一个接口和实现的绑定
+- Module：一组Binder
+- Provider：bean的提供者
+- Key：Binder中对应一个Provider
+- Scope：Provider的作用域
+- Stage：运行方式（为了不同的要求）
 
 
-Guice和它的扩展提供了很多作用域，有单例Singleton，Session作用域SessionScoped，Request请求作用域RequestScoped等等。我们可以根据需要选择合适的作用域。
+
+Guice和它的扩展提供了很多作用域，有单例Singleton，Session作用域SessionScoped，Request请求作用域RequestScoped等等。  
+我们可以根据需要选择合适的作用域。 
+
+如果一个类型上存在多个冲突的作用域，Guice会使用bind()方法中指定的作用域。如果不想使用注解的作用域，可以在bind()方法中将对象绑定为Scopes.NO_SCOPE。
+ 
 使用：
-1、可以在实现类上应用@Singleton注解。
-2、在配置类中指定。bind(TransactionLog.class).to(InMemoryTransactionLog.class).in(Singleton.class);
-3、在@Provides方法中也可以指定单例。
+- 1、可以在实现类上应用@Singleton注解。
+- 2、在配置类中指定。bind(TransactionLog.class).to(InMemoryTransactionLog.class).in(Singleton.class);
+- 3、在@Provides方法中也可以指定单例。
   @Provides @Singleton
- @Provides @Singleton
+  @Provides @Singleton
   TransactionLog provideTransactionLog() {
     ...
   }
 
 
+
 依赖绑定方式：
-1、简单绑定，链式绑定（绑定后然后可以通过@Inject注解依赖绑定）
-2、注解绑定@Inject（构造器，有@Named过滤 或 自定义注解过滤）
-3、@Provides绑定【复杂的对象构建】
-
-
-作用域：
-默认情况下Guice会在每次注入的时候创建一个新对象。
-如果希望创建一个单例依赖的话，
-1、可以在实现类上应用@Singleton注解。
-2、或者也可以在配置类中指定。
-3、在@Provides方法中也可以指定单例。
+- 1、简单绑定，链式绑定（绑定后然后可以通过@Inject注解依赖绑定）
+- 2、注解绑定@Inject（构造器，有@Named过滤 或 自定义注解过滤）
+- 3、@Provides绑定【复杂的对象构建】
 
 
 
-Guice和它的扩展提供了很多作用域，有单例Singleton，Session作用域SessionScoped，Request请求作用域RequestScoped等等
-如果一个类型上存在多个冲突的作用域，Guice会使用bind()方法中指定的作用域。如果不想使用注解的作用域，可以在bind()方法中将对象绑定为Scopes.NO_SCOPE。
+作用域：  
+默认情况下Guice会在每次注入的时候创建一个新对象。  
+如果希望创建一个单例依赖的话，  
+- 1、可以在实现类上应用@Singleton注解。
+- 2、或者也可以在配置类中指定。
+- 3、在@Provides方法中也可以指定单例。
 
 
 
@@ -65,15 +71,15 @@ JSR-330 javax.inject	Guice com.google.inject
 @Singleton	@Singleton	可互换
 Provider	Provider	Guice的Provider继承了JSR-330的Provider
 
+[@Inject和@Autowired以及@Resource区别](https://blog.csdn.net/u012734441/article/details/51706504)  
+- 1、@Inject，这是jsr330中的规范，通过‘AutowiredAnnotationBeanPostProcessor’ 类实现的依赖注入。
+- 2、@Autowired：是Spring提供的注解，通过‘AutowiredAnnotationBeanPostProcessor’ 类实现的依赖注入，与@inject二者具有可互换性。
+- 3、@Resource：这是JSR250 (Common Annotations for Java) 规范的实现，‘@Resource’通过 ‘CommonAnnotationBeanPostProcessor’ 类实现依赖注入。
 
-https://blog.csdn.net/u012734441/article/details/51706504
-@Inject和@Autowired以及@Resource区别
-1、@Inject，这是jsr330中的规范，通过‘AutowiredAnnotationBeanPostProcessor’ 类实现的依赖注入。
-2、@Autowired：是Spring提供的注解，通过‘AutowiredAnnotationBeanPostProcessor’ 类实现的依赖注入，与@inject二者具有可互换性。
-3、@Resource：这是JSR250 (Common Annotations for Java) 规范的实现，‘@Resource’通过 ‘CommonAnnotationBeanPostProcessor’ 类实现依赖注入。
 
 三个注解的相异之处
 @Autowired和@Inject基本是一样的，因为两者都是使用AutowiredAnnotationBeanPostProcessor来处理依赖注入。但是@Resource是个例外，它使用的是CommonAnnotationBeanPostProcessor来处理依赖注入。当然，两者都是BeanPostProcessor。
+
 
 总结
 个人在使用上，更偏重使用@Inject，这是jsr330规范的实现，而@Autowired是spring的实现，如果不用spring一般用不上这个，而@Resource则是jsr250的实现，这是多年前的规范。
@@ -81,14 +87,15 @@ https://blog.csdn.net/u012734441/article/details/51706504
 
 
 
-
-AOP Alliance (Java/J2EE AOP standards)：aopalliance-1.0.jar
+AOP Alliance (Java/J2EE AOP standards)
 AOP联盟项目是几个对AOP和Java感兴趣的软件工程人员之间的联合开源项目。
 Aop Alliance项目是许多对Aop和java有浓厚兴趣的软件开发人员联合成立的开源项目，其提供的源码都是完全免费的(Public Domain).
-官方网站http://aopalliance.sourceforge.net/。
 
-参考
-https://blog.csdn.net/zhang_shufeng/article/details/38052007
+[AOP Alliance官方网站](http://aopalliance.sourceforge.net/)
+
+参考  
+[aopalliance解析(一) 概述](https://blog.csdn.net/zhang_shufeng/article/details/38052007)
+
 
 
 
@@ -105,12 +112,10 @@ JSR-305：供检查软件缺陷用的注解：jsr305-1.3.9.jar
     <version>3.0.1</version>
 </dependency>
 
-参考
-http://www.infoq.com/cn/news/2008/07/jsr-305-update
 
 
-
-
+参考  
+[JSR-305：供检查软件缺陷用的注解](http://www.infoq.com/cn/news/2008/07/jsr-305-update)
 
 
 
