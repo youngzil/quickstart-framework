@@ -1,22 +1,19 @@
-JVM堆栈大小参数
-GC收集器设置
-GC日志垃圾回收统计信息
-打印JVM参数
-让JVM在遇到OOM(OutOfMemoryError)时生成Dump文件
-
-开启远程debug参数
-JMX参数设置
-JVM的GC参数设置
-
-JVM类回收和加载参数
-JVM内联和逃逸分析参数
-
-查看所有的-XX参数
-java -XX:+PrintFlagsFinal -version
+- [开启远程debug参数](#开启远程debug参数)
+- [JMX参数设置](#JMX参数设置)
+- [JVM的GC参数设置](#JVM的GC参数设置)
+- [JVM类回收和加载参数](#JVM类回收和加载参数)
+- [JVM内联和逃逸分析参数](#JVM内联和逃逸分析参数)
+- [JVM堆栈大小参数](#JVM堆栈大小参数)
+- [GC收集器设置：串行、串行、CMS收集器、G1收集器](#GC收集器设置：串行、串行、CMS收集器、G1收集器)
+- [GC日志垃圾回收统计信息](#GC日志垃圾回收统计信息)
+- [打印JVM参数](#打印JVM参数)
+- [让JVM在遇到OOM(OutOfMemoryError)时生成Dump文件](#让JVM在遇到OOM(OutOfMemoryError)时生成Dump文件)
+- 查看所有的-XX参数
+    - java -XX:+PrintFlagsFinal -version
 
 
 ---------------------------------------------------------------------------------------------------------------------
-开启远程debug参数
+## 开启远程debug参数
 -Xdebug -Xrunjdwp:transport
 
 
@@ -24,7 +21,7 @@ JAVA_OPT="${JAVA_OPT} -Xdebug -Xrunjdwp:transport=dt_socket,address=9555,server=
 JDK1.5之后：export JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=1043,server=y,suspend=n"
 
 ---------------------------------------------------------------------------------------------------------------------
-JMX参数设置
+## JMX参数设置
 端口、开启SSL、认证、密码文件
 
 
@@ -54,7 +51,7 @@ fi
 注意：在catalina.sh文件中添加上面这些JVM参数后，运行shutdown.sh的时候，会提示jmxremote端口被占用,原因是运行shutdown.sh脚本的时候会启动一个JVM，又会尝试绑定jmxremote的端口，导致这个问题。见https://issues.apache.org/bugzilla/show_bug.cgi?id=36976。暂时没想办法去解决它，直接kill进程了（应该可以通过配置解决）。
 
 ---------------------------------------------------------------------------------------------------------------------
-JVM的GC参数设置
+## JVM的GC参数设置
 
 查看gc日志，堆空间日志和gc日志
 -XX:+HeapDumpOnOutOfMemoryError
@@ -92,7 +89,7 @@ fi
 
 
 ---------------------------------------------------------------------------------------------------------------------
-JVM类回收和加载参数
+## JVM类回收和加载参数
 
 JVM提供了几个参数控制类回收：
 -Xnoclassgc：关闭CLASS的垃圾回收功能
@@ -102,7 +99,7 @@ JVM提供了几个参数控制类回收：
 
 
 ---------------------------------------------------------------------------------------------------------------------
-JVM内联和逃逸分析参数
+## JVM内联和逃逸分析参数
 
 内联参数
 -XX:CompileThreshold 代码需要执行多少次触发JIT内联优化
@@ -123,7 +120,7 @@ JVM内联和逃逸分析参数
 
 
 ---------------------------------------------------------------------------------------------------------------------
-JVM堆栈大小参数：
+## JVM堆栈大小参数
 
 -Xss128k：设置每个线程的栈大小。
 -Xms3550m：设置JVM初始堆内存为3550M。
@@ -139,7 +136,7 @@ JVM堆栈大小参数：
 
 
 
-GC收集器设置：串行、串行、CMS收集器、G1收集器
+## GC收集器设置：串行、串行、CMS收集器、G1收集器
 1、串行
 -XX:+UseSerialGC:设置串行收集器，年轻代和年老代
 
@@ -182,7 +179,8 @@ b.-XX:GCTimeRation：直接设置吞吐量大小，是一个大于0小于100的�
 -XX:G1HeapRegionSize=16m -XX:G1ReservePercent=25 
 
 
-GC日志垃圾回收统计信息
+
+## GC日志垃圾回收统计信息
 -XX:+PrintGC 输出GC日志
 -XX:+PrintGCDetails 输出GC的详细日志
 -XX:+PrintGCTimeStamps 输出GC的时间戳（以基准时间的形式）
@@ -192,7 +190,7 @@ GC日志垃圾回收统计信息
 -verbose.gc开关可显示GC的操作内容。打开它，可以显示最忙和最空闲收集行为发生的时间、收集前后的内存大小、收集需要的时间等
 
 
-打印JVM参数
+## 打印JVM参数
 -XX:+PrintFlagsFinal and -XX:+PrintFlagsInitial
 -XX:+PrintCommandLineFlags 这个参数让JVM打印出那些已经被用户或者JVM设置过的详细的XX参数的名称和值。
 
@@ -205,7 +203,8 @@ GC日志垃圾回收统计信息
 -XX:MaxTenuringThreshold=7：表示一个对象如果在Survivor区（救助空间）移动了7次还没有被垃圾回收就进入年老代
 
 
-让JVM在遇到OOM(OutOfMemoryError)时生成Dump文件
+
+## 让JVM在遇到OOM(OutOfMemoryError)时生成Dump文件
 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/path/heap/dump
 
 保存错误日志或者数据到文件中

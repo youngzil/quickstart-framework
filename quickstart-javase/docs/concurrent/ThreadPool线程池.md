@@ -82,10 +82,10 @@ public ThreadPoolExecutor(int corePoolSize,    //核心线程的数量
 
 
 JDK为我们内置了4种常见线程池的实现，均可以使用 Executors 工厂类创建。
-1.newFixedThreadPool
-2.newSingleThreadExecutor
-3.newCachedThreadPool
-4.newScheduledThreadPool
+1. newFixedThreadPool
+2. newSingleThreadExecutor
+3. newCachedThreadPool
+4. newScheduledThreadPool
 
 
 
@@ -93,19 +93,19 @@ JDK为我们内置了4种常见线程池的实现，均可以使用 Executors �
 ## RejectedExecutionHandler拒绝策略
 
 RejectedExecutionHandler:
-ThreadPoolExecutor.AbortPolicy()，默认的，抛出java.util.concurrent.RejectedExecutionException异常 
-ThreadPoolExecutor.CallerRunsPolicy，它直接在 execute 方法的调用线程中运行被拒绝的任务；如果执行程序已关闭，则会丢弃该任务。
-ThreadPoolExecutor.DiscardOldestPolicy();，先poll掉workQueue中的一个任务，然后调用线程池的execute方法执行当前task
-ThreadPoolExecutor.DiscardPolicy，拒绝策略方法为空，就是不做任何处理，默认情况下它将丢弃被拒绝的任务。
+- ThreadPoolExecutor.AbortPolicy()，默认的，抛出java.util.concurrent.RejectedExecutionException异常 
+- ThreadPoolExecutor.CallerRunsPolicy，它直接在 execute 方法的调用线程中运行被拒绝的任务；如果执行程序已关闭，则会丢弃该任务。
+- ThreadPoolExecutor.DiscardOldestPolicy();，先poll掉workQueue中的一个任务，然后调用线程池的execute方法执行当前task
+- ThreadPoolExecutor.DiscardPolicy，拒绝策略方法为空，就是不做任何处理，默认情况下它将丢弃被拒绝的任务。
 
-线程池其他方法：
+线程池其他方法：  
 beforeExecute、afterExecute、
 
 
 
 ExecutorService 提供了两种提交任务的方法：
-execute()：提交不需要返回值的任务
-submit()：提交需要返回值的任务
+- execute()：提交不需要返回值的任务
+- submit()：提交需要返回值的任务
 
 
 ExecutorCompletionService来submit处理任务获取返回值，或者execute提交FutureTask任务
@@ -155,11 +155,11 @@ https://juejin.im/post/5ac2eb52518825555e5e06ee
 
 ## 线程池有哪几种工作队列
 
-1、ArrayBlockingQueue （有界队列）：是一个基于数组结构的有界阻塞队列，此队列按 FIFO（先进先出）原则对元素进行排序。
-2、LinkedBlockingQueue （无界队列）：一个基于链表结构的阻塞队列，此队列按FIFO （先进先出） 排序元素，吞吐量通常要高于ArrayBlockingQueue。静态工厂方法Executors.newFixedThreadPool()使用了这个队列。
-3、SynchronousQueue（同步队列）: 一个不存储元素的阻塞队列。每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，吞吐量通常要高于LinkedBlockingQueue，静态工厂方法Executors.newCachedThreadPool使用了这个队列。
-4、DelayQueue（延迟队列）：一个任务定时周期的延迟执行的队列。根据指定的执行时间从小到大排序，否则根据插入到队列的先后排序。
-5、PriorityBlockingQueue（优先级队列）: 一个具有优先级得无限阻塞队列。
+- 1、ArrayBlockingQueue （有界队列）：是一个基于数组结构的有界阻塞队列，此队列按 FIFO（先进先出）原则对元素进行排序。
+- 2、LinkedBlockingQueue （无界队列）：一个基于链表结构的阻塞队列，此队列按FIFO （先进先出） 排序元素，吞吐量通常要高于ArrayBlockingQueue。静态工厂方法Executors.newFixedThreadPool()使用了这个队列。
+- 3、SynchronousQueue（同步队列）: 一个不存储元素的阻塞队列。每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，吞吐量通常要高于LinkedBlockingQueue，静态工厂方法Executors.newCachedThreadPool使用了这个队列。
+- 4、DelayQueue（延迟队列）：一个任务定时周期的延迟执行的队列。根据指定的执行时间从小到大排序，否则根据插入到队列的先后排序。
+- 5、PriorityBlockingQueue（优先级队列）: 一个具有优先级得无限阻塞队列。
 
 
 
@@ -177,19 +177,15 @@ LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
 
 
 ## 怎么理解无界队列和有界队列
-有界队列即长度有限，满了以后ArrayBlockingQueue会插入阻塞。
-无界队列就是里面能放无数的东西而不会因为队列长度限制被阻塞，但是可能会出现OOM异常。
+- 有界队列即长度有限，满了以后ArrayBlockingQueue会插入阻塞。
+- 无界队列就是里面能放无数的东西而不会因为队列长度限制被阻塞，但是可能会出现OOM异常。
 
 
 
 队列方法：存取、检查
-抛出异常：add、remove、element
-非阻塞返回特殊值：offer、poll、peek
-一直阻塞直到有数据：put、take
-
-
-
-
+- 抛出异常：add、remove、element
+- 非阻塞返回特殊值：offer、poll、peek
+- 一直阻塞直到有数据：put、take
 
 
 
@@ -238,15 +234,15 @@ private static final int TIDYING = 2 << COUNT_BITS;
 private static final int TERMINATED = 3 << COUNT_BITS;
 
 
-1）RUNNING
+- 1）RUNNING
 此时可以接收任务，并执行
-2）SHUTDOWN
+- 2）SHUTDOWN
 此时线程池不接收新的任务，但是会等待所有任务执行完毕；当调用shutdown()，则状态会从running变为shutdown
-3）STOP
+- 3）STOP
 此时线程池不接收新的任务，并且尝试中断正在执行的任务；当调用shutdownNow()，则状态会从running/shutdown变为stop
-4）TIDYING
+- 4）TIDYING
 所有任务都已经终止，任务数为0，则状态为变成tidying，并且会回调terminated()方法；当队列和pool都为空，则会变为tidying
-5）TERMINATED
+- 5）TERMINATED
 terminated()方法执行完毕，状态即为terminated；可以调用awaitTermination()，则当状态变为terminated之前会一直阻塞
 
 
@@ -306,8 +302,8 @@ Future<V> poll(long timeout, TimeUnit unit) throws InterruptedException;
 
 
 按大类划分上面5个方法，其实就是两个功能
-1、提交异步任务 （submit）
-2、从队列中拿取并移除第一个元素 (take/poll)
+- 1、提交异步任务 （submit）
+- 2、从队列中拿取并移除第一个元素 (take/poll)
 
 Take: 如果队列为空，那么调用 take() 方法的线程会被阻塞
 Poll: 如果队列为空，那么调用 poll() 方法的线程会返回 null

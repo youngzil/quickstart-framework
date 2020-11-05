@@ -121,7 +121,7 @@ Java编译器优化与运行期优化技术浅析
 参考  
 https://developer.aliyun.com/article/768681  
 https://developer.aliyun.com/article/770672  
-
+[Java虚拟机（JVM）学习](https://blog.csdn.net/qq_41701956/article/details/81664921)  
 
 ---------------------------------------------------------------------------------------------------------------------
 

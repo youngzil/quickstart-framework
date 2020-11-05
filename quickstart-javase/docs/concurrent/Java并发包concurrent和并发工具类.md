@@ -16,11 +16,11 @@
 ## Java并发包concurrent
 
 package java.util.concurrent
-1、Atomic原子类型：Long、Integer、Boolean、Refrence等
-2、并发锁Lock锁：ReentrantLock、ReentrantReadWriteLock等
-3、线程池：Callable接口、Future接口、FutureTask（ExecutorCompletionService）、Executors、ExecutorService、ThreadPoolExecutor、ThreadFactory、
-4、并发集合：ConcurrentHashMap、ConcurrentSkipListSet、CopyOnWriteArrayList和CopyOnWriteArraySet等
-5、并发工具类：CountDownLatch、CyclicBarrier、Semaphore、Exchanger、ForkJoinPool等
+- 1、Atomic原子类型：Long、Integer、Boolean、Refrence等
+- 2、并发锁Lock锁：ReentrantLock、ReentrantReadWriteLock等
+- 3、线程池：Callable接口、Future接口、FutureTask（ExecutorCompletionService）、Executors、ExecutorService、ThreadPoolExecutor、ThreadFactory、
+- 4、并发集合：ConcurrentHashMap、ConcurrentSkipListSet、CopyOnWriteArrayList和CopyOnWriteArraySet等
+- 5、并发工具类：CountDownLatch、CyclicBarrier、Semaphore、Exchanger、ForkJoinPool等
 
 从JDK1.5开始Java并发包里提供了两个使用CopyOnWrite机制实现的并发容器,它们是CopyOnWriteArrayList和CopyOnWriteArraySet。
 
@@ -30,19 +30,19 @@ package java.util.concurrent
 ## JUC包中包含的工具
 
 如果按照用途与特性进行粗略的划分，JUC 包中包含的工具大体可以分为 6 类：
-1、执行者与线程池
-2、并发队列
-3、同步工具
-4、并发集合
-5、锁
-6、原子变量
+- 1、执行者与线程池
+- 2、并发队列
+- 3、同步工具
+- 4、并发集合
+- 5、锁
+- 6、原子变量
 
 
 
 ## Java并发队列
-Java并发队列按照实现方式来进行划分可以分为 2 种：
-1、阻塞队列
-2、非阻塞队列
+Java并发队列按照实现方式来进行划分可以分为2种：
+- 1、阻塞队列
+- 2、非阻塞队列
 
 如果你已经看完并发系列锁的实现，你已经能够知道他们实现的区别：
     前者就是基于锁实现的，后者则是基于 CAS 非阻塞算法实现的
@@ -55,16 +55,16 @@ Java并发队列按照实现方式来进行划分可以分为 2 种：
 
 
 ## Java并发工具类
-并发开始、并发完成、、并发控制、线程数据交换
+并发开始、并发完成、并发控制、线程数据交换
 
-并发开始：同步屏障CyclicBarrier
-并发结束：等待多线程完成的CountDownLatch
-并发控制：控制并发线程数的信号量Semaphore
-并发交换：两个线程进行数据交换的Exchanger
+- 并发开始：同步屏障CyclicBarrier  
+- 并发结束：等待多线程完成的同步栅栏CountDownLatch  
+- 并发控制：控制并发线程数的信号量Semaphore  
+- 并发交换：两个线程进行数据交换的Exchanger
 
-CyclicBarrier 与 CountDownLatch 分别对应是等待一个线程还是一组线程完成，
-CyclicBarrier 是一组线程之间相互等待，
-而CountDownLatch 只是一个线程去等待其余线程完成的任务场景
+CyclicBarrier 与 CountDownLatch 分别对应是等待一个线程还是一组线程完成，  
+CyclicBarrier 是一组线程之间相互等待，  
+而CountDownLatch 只是一个线程去等待其余线程完成的任务场景  
 
 
 
@@ -77,7 +77,7 @@ java.util.concurrent包：
 6. 并发编程（如volatile,原子类，不变类）
 
 1.原子类 [java中的原子操作类AtomicInteger及其实现原理](https://blog.csdn.net/reggergdsg/article/details/51835184)  
-有一个atomic子包，其中有几个以Atomic打头的类，例如AtomicInteger和AtomicLong。它们利用了现代处理器的特性，可以用非阻塞的方式完成原子操作。
+有一个atomic子包，其中有几个以Atomic打头的类，例如AtomicInteger和AtomicLong。它们利用了现代处理器的特性，可以用非阻塞的方式完成原子操作。  
 get,set方法因为不依赖于当前值，所以直接可以进行操作（有value的volatile保证可见性），对于依赖当前值的操作，则通过unsafe来进行操作
 
 
@@ -85,34 +85,42 @@ get,set方法因为不依赖于当前值，所以直接可以进行操作（有v
 ## Unsafe类的CAS操作
 
 
-http://www.cnblogs.com/xrq730/p/4976007.html
+
+[Unsafe与CAS](http://www.cnblogs.com/xrq730/p/4976007.html)  
 Unsafe类的CAS操作可能是用的最多的，它为Java的锁机制提供了一种新的解决办法，比如AtomicInteger等类都是通过该方法来实现的。compareAndSwap方法是原子的，可以避免繁重的锁机制，提高代码效率。这是一种乐观锁，通常认为在大部分情况下不出现竞态条件，如果操作失败，会不断重试直到成功。
 
 CAS：比如java中的AtomicInteger的addAndGet方法，会一直做do-while循环，直到操作成功获取并且增加
+
 CAS，Compare and Swap即比较并交换，设计并发算法时常用到的一种技术，java.util.concurrent包全完建立在CAS之上，没有CAS也就没有此包，可见CAS的重要性。
+
 当前的处理器基本都支持CAS，只不过不同的厂家的实现不一样罢了。CAS有三个操作数：内存值V、旧的预期值A、要修改的值B，当且仅当预期值A和内存值V相同时，将内存值修改为B并返回true，否则什么都不做并返回false。
 
 CAS的缺点:不能解决ABA问题，如果需要解决ABA问题，使用传统的互斥同步可能回避原子类更加高效。
+
 这个漏洞称为CAS操作的"ABA"问题。java.util.concurrent包为了解决这个问题，提供了一个带有标记的原子引用类"AtomicStampedReference"，它可以通过控制变量值的版本来保证CAS的正确性。不过目前来说这个类比较"鸡肋"，大部分情况下ABA问题并不会影响程序并发的正确性，如果需要解决ABA问题，使用传统的互斥同步可能回避原子类更加高效。
 
 
-http://ifeve.com/java-copy-on-write/http://ifeve.com/java-copy-on-write/
+
+[聊聊并发-Java中的Copy-On-Write容器](http://ifeve.com/java-copy-on-write/)  
 从JDK1.5开始Java并发包里提供了两个使用CopyOnWrite机制实现的并发容器,它们是CopyOnWriteArrayList和CopyOnWriteArraySet。
+
 CopyOnWrite容器即写时复制的容器。通俗的理解是当我们往一个容器添加元素的时候，不直接往当前容器添加，而是先将当前容器进行Copy，复制出一个新的容器，然后新的容器里添加元素，添加完元素之后，再将原容器的引用指向新的容器。这样做的好处是我们可以对CopyOnWrite容器进行并发的读，而不需要加锁，因为当前容器不会添加任何元素。所以CopyOnWrite容器也是一种读写分离的思想，读和写不同的容器。
-CopyOnWrite并发容器用于读多写少的并发场景。
+
+CopyOnWrite并发容器用于读多写少的并发场景。  
+
 CopyOnWrite容器有很多优点，但是同时也存在两个问题，即内存占用问题和数据一致性问题。所以在开发的时候需要注意一下。
 
 
 
-J.U.C原子工具类AtomicXXX中，set和lazySet的区别
-http://ifeve.com/juc-atomic-class-lazyset-que/
-http://www.dengshenyu.com/java/2017/04/12/java-concurrency.html
+J.U.C原子工具类AtomicXXX中，set和lazySet的区别  
+[JUC中Atomic class之lazySet的一点疑惑](http://ifeve.com/juc-atomic-class-lazyset-que/)  
+[J.U.C原子工具类AtomicXXX中，set和lazySet的区别](https://blog.csdn.net/aitangyong/article/details/41577503)  
 
 set()和volatile具有一样的效果(能够保证内存可见性，能够避免指令重排序)，
 但是使用lazySet不能保证其他线程能立刻看到修改后的值(有可能发生指令重排序)。
 简单点理解：lazySet比set()具有性能优势，但是使用场景很有限。在网上没有找到lazySet和set的性能数据对比，而且CPU的速度很快的，应用的瓶颈往往不在CPU，而是在IO、网络、数据库等。对于并发程序要优先保证正确性，然后出现性能瓶颈的时候再去解决。因为定位并发导致的问题，往往要比定位性能问题困难很多。
 
-[J.U.C原子工具类AtomicXXX中，set和lazySet的区别](https://blog.csdn.net/aitangyong/article/details/41577503)  
+
 
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -169,10 +177,10 @@ http://blog.csdn.net/pange1991/article/details/53860651
 https://blog.csdn.net/u010687392/article/details/50549236
 https://www.cnblogs.com/Mainz/p/3556430.html
 
-ThreadLocal：线程隔离共享
-Volatile：可见性和有序性，不保证原子性，非CAS、读多写少，也就是简单存取，没有其他操作，因为没有原子性
-Atomic类型：保证原子性和可见性，CAS，写多读多，可以保证原子性，自旋锁
-synchronized：严格锁定同步，效率低
+- ThreadLocal：线程隔离共享
+- Volatile：可见性和有序性，不保证原子性，非CAS、读多写少，也就是简单存取，没有其他操作，因为没有原子性
+- Atomic类型：保证原子性和可见性，CAS，写多读多，可以保证原子性，自旋锁
+- synchronized：严格锁定同步，效率低
 
 
 

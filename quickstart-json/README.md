@@ -1,4 +1,8 @@
-[JSON官网](http://www.json.org/json-zh.html)
+[JSON官网](https://www.json.org/json-en.html)  
+[JSON官网中文](http://www.json.org/json-zh.html)  
+
+
+
 
 JSON(JavaScript Object Notation)是轻量级的数据交换格式。具有良好的可读和便于快速编写的特性，可在不同平台之间进行数据交换。兼容性很高、完全独立于语言文本格式。
 

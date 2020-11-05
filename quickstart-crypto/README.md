@@ -8,10 +8,11 @@
 ---------------------------------------------------------------------------------------------------------------------
 ## Tink加解密库
 
-https://github.com/google/tink
+[Tink Github地址](https://github.com/google/tink)
 
 
 Tink is a multi-language, cross-platform, open source library that provides cryptographic APIs that are secure, easy to use correctly, and hard(er) to misuse.
+
 Tink是一个多语言、跨平台、开源的库，它提供了安全、易于正确使用、不易滥用的加密api。
 
 
@@ -67,13 +68,21 @@ https://www.jianshu.com/p/3d92030d18b5
 Cryptographic hash function (CHFs)
 
 Password4j is a Java utility package for hashing and checking passwords with different Cryptographic hash function (CHFs).
+
 Password4j是一个Java实用程序包，用于使用不同的加密哈希函数（CHFs）哈希和检查密码。
 
-password4j
-https://github.com/Password4j/password4j
+
+[Password4j](https://github.com/Password4j/password4j)  
+
+🔒 Password4j is a utility package for hashing securely passwords and update non-secure hashed passwords.
+
+🔒Password4j是一个实用程序包，用于安全地散列密码并更新非安全的散列密码。
+
 
 Password4j提供了三个主要功能。
+
 1、散列密码：Hash the password
+
 2、验证哈希：Verify the hash
 
 3、更新哈希：Update the hash
@@ -90,17 +99,17 @@ Password4j提供了三个主要功能。
 
 
 流行的算法：Popular Hash Functions
-1、Message Digest (MD)：MD2, MD4, MD5 and MD6.
-2、Secure Hash Function (SHA)： SHA-0, SHA-1, SHA-2, and SHA-3
-3、RIPEMD：
-4、Whirlpool：
+- 1、Message Digest (MD)：MD2, MD4, MD5 and MD6.
+- 2、Secure Hash Function (SHA)： SHA-0, SHA-1, SHA-2, and SHA-3
+- 3、RIPEMD：
+- 4、Whirlpool：
 
 
 哈希函数的应用：Applications of Hash Functions
-1、密码验证：Password Storage
-2、数字签名校验：Data Integrity Check
+- 1、密码验证：Password Storage
+- 2、数字签名校验：Data Integrity Check
     签名生成和验证：Signature Generation and Verification
-3、文件校验：Verifying File and Message Integrity
+- 3、文件校验：Verifying File and Message Integrity
 
 
 
@@ -109,10 +118,10 @@ Password4j提供了三个主要功能。
 
 
 增强加密哈希
-1、盐化会将随机数据添加到每个明文凭证中。结果：两个相同的纯文本密码现在以加密文本形式区分，因此无法检测到重复的密码。
-2、键控哈希函数
+- 1、盐化会将随机数据添加到每个明文凭证中。结果：两个相同的纯文本密码现在以加密文本形式区分，因此无法检测到重复的密码。
+- 2、键控哈希函数
   密钥哈希函数（也称为哈希消息身份验证代码或HMAC）是一种算法，该算法使用加密密钥和加密哈希函数来生成被密钥化和哈希化的消息身份验证代码。
-3、自适应哈希函数
+- 3、自适应哈希函数
   自适应单向函数是设计为在其内部工作过程中进行迭代，以某种方式导致输出（最终）花费更长的时间来回馈输入的功能。这是自适应的，因为开发人员可以调整迭代次数。为了保护存储的密码，架构师已将自适应设计应用于哈希函数（例如PBKDF2）和加密方案（例如bcrypt）。
 
 
@@ -148,8 +157,13 @@ https://baike.baidu.com/item/%E5%AF%86%E7%A0%81%E6%95%A3%E5%88%97%E5%87%BD%E6%95
 ---------------------------------------------------------------------------------------------------------------------
 ## Wycheproof针对已知攻击测试加密库
 
+[Wycheproof Github地址](https://github.com/google/wycheproof)
 
-https://github.com/google/wycheproof
+Project Wycheproof tests crypto libraries against known attacks.
+
+项目Wycheproof测试对已知攻击加密库。
+
+
 
 Wycheproof，这款加密套件包括了一系列安全测试，用来检测加密库（cryptographic libraries）软件是否存在各种已知漏洞。
 
@@ -183,7 +197,7 @@ String provider = cn.gmssl.jsse.provider.GMJSSE.NAME;
 SSLContext ctx = SSLContext.getInstance(protocol, provider);
 
 小结
-  通过使用国密JCE和国密JSSE，Java很容易编程来使用国密SSL连接国密Web网站。www.gmssl.cn提供了全部免费的测试组件,并且支持双向国密SSL，可供学习和测试。
+通过使用国密JCE和国密JSSE，Java很容易编程来使用国密SSL连接国密Web网站。www.gmssl.cn提供了全部免费的测试组件,并且支持双向国密SSL，可供学习和测试。
 
 
 参考

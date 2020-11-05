@@ -14,9 +14,9 @@
 
 [源码剖析AQS在几个同步工具类中的使用](http://ifeve.com/abstractqueuedsynchronizer-use/)
 
-AQS(AbstractQueuedSynchronizer)，AQS是JDK下提供的一套用于实现基于FIFO等待队列的阻塞锁和相关的同步器的一个同步框架。
-这个抽象类被设计为作为一些可用原子int值来表示状态的同步器的基类。
-如果你有看过类似 CountDownLatch 类的源码实现，会发现其内部有一个继承了 AbstractQueuedSynchronizer 的内部类 Sync。
+AQS(AbstractQueuedSynchronizer)，AQS是JDK下提供的一套用于实现基于FIFO等待队列的阻塞锁和相关的同步器的一个同步框架。  
+这个抽象类被设计为作为一些可用原子int值来表示状态的同步器的基类。  
+如果你有看过类似 CountDownLatch 类的源码实现，会发现其内部有一个继承了 AbstractQueuedSynchronizer 的内部类 Sync。  
 可见 CountDownLatch 是基于AQS框架来实现的一个同步器.类似的同步器在JUC下还有不少。(eg. Semaphore)   
 
 谈到并发，我们不得不说AQS(AbstractQueuedSynchronizer)，所谓的AQS即是抽象的队列式的同步器，内部定义了很多锁相关的方法，我们熟知的ReentrantLock、ReentrantReadWriteLock、CountDownLatch、Semaphore等都是基于AQS来实现的。
@@ -37,16 +37,17 @@ AQS的源码中方法很多，但主要做了三件事情：
 ## AQS实现
 
 实现：一个int状态位和一个有序队列（链表队列）来配合完成        
-    
+
 abstract static class Sync extends AbstractQueuedSynchronizer        
-三个重要属性的定义        
-private transient volatile Node head;        
-private transient volatile Node tail;        
-private volatile int state;        
-注释其实已经告诉我们了，Node类型的head和tail是一个FIFO的wait queue；一个int类型的状态位state        
-AQS对外呈现（或者说声明）的主要行为就是由一个状态位和一个有序队列来配合完成。        
-    
-    
+三个重要属性的定义  
+private transient volatile Node head;  
+private transient volatile Node tail;  
+private volatile int state;  
+注释其实已经告诉我们了，Node类型的head和tail是一个FIFO的wait queue；一个int类型的状态位state  
+AQS对外呈现（或者说声明）的主要行为就是由一个状态位和一个有序队列来配合完成。  
+
+
+
 通过AbstractQueuedSynchronizer的子类Sync来实现，AbstractQueuedSynchronizer是模板方法，子类Sync通过override父类部分方法来实现对应功能        
 工具类中自己定义的内部类Sync继承自AQS，通过override部分方法来做到以父类AQS为基础，提供受委托工具类的功能要求        
 
@@ -57,15 +58,16 @@ CLH：Craig、Landin and Hagersten 队列，是一个单向链表，AQS中的队
 
 
 ## 1、并发工具类的实现
-CyclicBarrier：wait()        
-CountDownLatch：countDown()        
-Semaphore(信号量)：acquire()、release()        
+CyclicBarrier（并发屏障）：wait()   
+CountDownLatch（并发栅栏）：countDown()   
+Semaphore(信号量)：acquire()、release()  
 都要设置数量，就是state，通过增减state来实现线程的挂起和恢复        
-    
-在信号量Semaphore中使用AQS的子类Sync，初始化state表示许可数，在每一次请求acquire()一个许可都会导致计数器减少1，同样每次释放一个许可release()都会导致计数器增加1。一旦达到了0，新的许可请求线程将被挂起。        
-    
-    
-    
+
+在信号量Semaphore中使用AQS的子类Sync，初始化state表示许可数，在每一次请求acquire()一个许可都会导致计数器减少1，同样每次释放一个许可release()都会导致计数器增加1。一旦达到了0，新的许可请求线程将被挂起。 
+
+
+
+
 ### 2、ReentrantLock锁（公平锁/非公平锁）的实现
 lock和unlock的数量一致，否则会一直占有锁，发生死锁，增加重入数也会检查是否超过最大值。        
 ReentrantLock对外的主要方法是lock()【阻塞】，tryLock()【非阻塞】、unlock()、isLocked()、isFair()等方法        

@@ -14,10 +14,9 @@
 ## 使用Stream的基本步骤
 
 在此我们总结一下使用Stream的基本步骤：
-
-1、创建Stream；（数据源）
-2、转换Stream，每次转换原有Stream对象不改变，返回一个新的Stream对象（**可以有多次转换**）；
-3、对Stream进行聚合（Reduce）操作，获取想要的结果；
+- 1、创建Stream；（数据源）
+- 2、转换Stream，每次转换原有Stream对象不改变，返回一个新的Stream对象（**可以有多次转换**）；
+- 3、对Stream进行聚合（Reduce）操作，获取想要的结果；
 
 Stream执行流程很简单，主要有三个，首先创建一个Stream，然后使用Stream操作数据，最后终止Stream。有点类似于Stream的生命周期。
 
@@ -58,18 +57,18 @@ Stream执行流程很简单，主要有三个，首先创建一个Stream，然�
 
 
 常用方法:
-1、distinct: 对于Stream中包含的元素进行去重操作（去重逻辑依赖元素的equals方法），新生成的Stream中没有重复的元素；
-2、filter: 对于Stream中包含的元素使用给定的过滤函数进行过滤操作，新生成的Stream只包含符合条件的元素；
-3、map: 对于Stream中包含的元素使用给定的转换函数进行转换操作，新生成的Stream只包含转换生成的元素。
+- 1、distinct: 对于Stream中包含的元素进行去重操作（去重逻辑依赖元素的equals方法），新生成的Stream中没有重复的元素；
+- 2、filter: 对于Stream中包含的元素使用给定的过滤函数进行过滤操作，新生成的Stream只包含符合条件的元素；
+- 3、map: 对于Stream中包含的元素使用给定的转换函数进行转换操作，新生成的Stream只包含转换生成的元素。
 mapToInt，mapToLong和mapToDouble。比如mapToInt就是把原始Stream转换成一个新的Stream，这个新生成的Stream中的元素都是int类型。之所以会有这样三个变种方法，可以免除自动装箱/拆箱的额外消耗；
-4、flatMap：和map类似，不同的是其每个元素转换得到的是Stream对象，会把子Stream中的元素压缩到父集合中；
+- 4、flatMap：和map类似，不同的是其每个元素转换得到的是Stream对象，会把子Stream中的元素压缩到父集合中；
   
 
-5、peek: 生成一个包含原Stream的所有元素的新Stream，同时会提供一个消费函数（Consumer实例），新Stream每个元素被消费的时候都会执行给定的消费函数；
+- 5、peek: 生成一个包含原Stream的所有元素的新Stream，同时会提供一个消费函数（Consumer实例），新Stream每个元素被消费的时候都会执行给定的消费函数；
 
 
-6、limit: 对一个Stream进行截断操作，获取其前N个元素，如果原Stream中包含的元素个数小于N，那就获取其所有的元素；
-7、skip: 返回一个丢弃原Stream的前N个元素后剩下元素组成的新Stream，如果原Stream中包含的元素个数小于N，那么返回空Stream；
+- 6、limit: 对一个Stream进行截断操作，获取其前N个元素，如果原Stream中包含的元素个数小于N，那就获取其所有的元素；
+- 7、skip: 返回一个丢弃原Stream的前N个元素后剩下元素组成的新Stream，如果原Stream中包含的元素个数小于N，那么返回空Stream；
   
 
 
@@ -173,9 +172,9 @@ https://blog.yangx.site/2018/03/28/java-8-stream/
 
 ---------------------------------------------------------------------------------------------------------------------
 ## Stream操作
-1、数据源
-2、中间操作：filter、distinct、skip、limit、map、flatMap、sorted、
-3、终端操作：anyMatch、noneMatch、allMatch、findAny、findFirst、forEach、collect、reduce、count
+- 1、数据源
+- 2、中间操作：filter、distinct、skip、limit、map、flatMap、sorted、
+- 3、终端操作：anyMatch、noneMatch、allMatch、findAny、findFirst、forEach、collect、reduce、count
 
 
 一、Stream操作

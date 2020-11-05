@@ -1,4 +1,3 @@
-
 Python for the Java Platform
 
 [Jython官网](http://www.jython.org/)  
@@ -11,9 +10,9 @@ Jython是一种完整的语言，而不是一个Java翻译器或仅仅是一个P
 
 
 Jython配置和使用
-1、下载地址：http://www.jython.org/downloads.html
-2、安装：java -jar *-install.jar
-3、配置环境变量
+- 1、下载地址：http://www.jython.org/downloads.html
+- 2、安装：java -jar *-install.jar
+- 3、配置环境变量
 设置JYTHON_HOME:
     JYTHON_HOME=/Users/yangzl/mysoft/jython2.7.0
 添加PATH:

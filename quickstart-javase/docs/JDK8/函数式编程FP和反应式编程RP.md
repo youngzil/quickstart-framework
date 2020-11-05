@@ -9,9 +9,9 @@
 
 
 
-RP：Reactive programming，反应式编程
-FP：(Functional Programming) 函数式编程
-FRP：Functional Reactive Programming
+- RP：Reactive programming，反应式编程
+- FP：(Functional Programming) 函数式编程
+- FRP：Functional Reactive Programming
 
 RP本身是建立于观察者模式之上的一种编程范式（级别同MV*），FP则更偏向底层解决一般化问题。
 

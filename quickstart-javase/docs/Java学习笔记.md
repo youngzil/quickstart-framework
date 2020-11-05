@@ -1,4 +1,51 @@
 - [Java基础](#Java基础)
+    - [JavaOOM类型](JavaSE/JavaOOM类型/JavaOOM类型.md)
+    - [正则表达式Regex](JavaSE/正则表达式Regex/正则表达式Regex.md)
+    - [bit、byte、位、字节、汉字的关系](JavaSE/bit、byte、位、字节、汉字的关系.md)
+    - [BloomFilter与CuckooFilter](JavaSE/BloomFilter与CuckooFilter.md)
+    - [ClassLoader学习](JavaSE/ClassLoader学习.md)
+    - [copyonwrite机制](JavaSE/copyonwrite机制.md)
+    - [CPU缓存和内存屏障](JavaSE/CPU缓存和内存屏障.md)
+    - [java new一个对象的过程中发生了什么](JavaSE/java new一个对象的过程中发生了什么.md)
+    - [javaagent](JavaSE/javaagent.md)
+    - [Java中boolean类型占用多少个字节](JavaSE/Java中boolean类型占用多少个字节.md)
+    - [Java中char](JavaSE/Java中char.md)
+    - [java中有三种移位运算符](JavaSE/java中有三种移位运算符.md)
+    - [Java反射和agent](JavaSE/Java反射和agent.md)
+    - [Java接口默认实现方法](JDK8/Java接口默认实现方法.md)
+    - [java的jar和war的打包解压](JavaSE/java的jar和war的打包解压.md)
+    - [Java的简单类型及其封装器类](JavaSE/Java的简单类型及其封装器类.md)
+    - [java读取文件方式](JavaSE/java读取文件方式.md)
+    - [JAVA调用系统命令Process](JavaSE/JAVA调用系统命令Process.md)
+    - [Java链式调用-Builder模式](JavaSE/Java链式调用-Builder模式.md)
+    - [Java锁学习](JavaSE/Java锁学习.md)
+    - [JMX](JavaSE/JMX.md)
+    - [JVM与Linux的内存关系详解](JavaSE/JVM与Linux的内存关系详解.md)
+    - [N进制转换](JavaSE/N进制转换.md)
+    - [OracleJDK和OpenJDK](JavaSE/OracleJDK和OpenJDK.md)
+    - [SecureRandom详解](JavaSE/SecureRandom详解.md)
+    - [servlet介绍](JavaSE/servlet介绍.md)
+    - [Thread线程学习](JavaSE/Thread线程学习.md)
+    - [unsafe类学习](JavaSE/unsafe类学习.md)
+    - [从n个数选出最大的m个的算法比较](JavaSE/从n个数选出最大的m个的算法比较.md)
+    - [代码优化](JavaSE/代码优化.md)
+    - [内存泄漏](JavaSE/内存泄漏.md)
+    - [内部类](JavaSE/内部类.md)
+    - [单例模式](JavaSE/单例模式.md)
+    - [图片加载缓慢优化](JavaSE/图片加载缓慢优化.md)
+    - [如何优雅地根治null值](JavaSE/如何优雅地根治null值.md)
+    - [如何计算Java对象所占内存的大小](JavaSE/如何计算Java对象所占内存的大小.md)
+    - [定位常见Java性能问题](JavaSE/定位常见Java性能问题.md)
+    - [怎么设计hashcode更均衡](collection/怎么设计hashcode更均衡.md)
+    - [日期处理类库](JavaSE/日期处理类库.md)
+    - [泛型通配符extends与super的区别](JavaSE/泛型通配符extends与super的区别.md)
+    - [深入理解JAVA反序列化漏洞](JavaSE/深入理解JAVA反序列化漏洞.md)
+    - [深入理解JAVA反序列化漏洞PDF](JavaSE/深入理解JAVA反序列化漏洞.pdf)
+    - [负载均衡](JavaSE/负载均衡.md)
+    - [进程，线程和协程的区别](JavaSE/进程，线程和协程的区别.md)
+    - [重写hashCode()方法和equals()方法及如何重写](JavaSE/重写hashCode()方法和equals()方法及如何重写.md)
+    - [锁的种类](JavaSE/锁的种类.md)
+    - [零拷贝](JavaSE/零拷贝.md)
     - [JavaOOM类型](#JavaOOM类型)
     - [Java泛型的类型擦除和Java语法糖](#Java泛型的类型擦除和Java语法糖)
     - [sleep和wait方法](#sleep和wait方法)
@@ -17,11 +64,41 @@
     - [Java线程和操作系统线程的关系](#Java线程和操作系统线程的关系)
     - [Java中判断字符串是否是数字的几种方法](#Java中判断字符串是否是数字的几种方法)
 - [Java集合](#Java集合)
+    - [HashMap和ConcurrentHashMap学习](collection/HashMap和ConcurrentHashMap学习.md)
+    - [java集合](collection/java集合.md)
 - [Java并发](#Java并发)
+    - [Java并发编程的艺术](concurrent/Java并发编程的艺术.pdf)
+    - [Java多线程学习](concurrent/Java多线程学习.md)
+    - [java并发包concurrent和并发工具类](concurrent/java并发包concurrent和并发工具类.md)
+    - [java并发基础AQS类](concurrent/java并发基础AQS类.md)
+    - [ThreadPool线程池](concurrent/ThreadPool线程池.md)
+    - [并发编程学习](concurrent/并发编程学习.md)
 - [JVM](#JVM)
+    - [ClassLoader种类和类隔离](JVM/ClassLoader种类和类隔离.md)
+    - [HotSpot VM](JVM/HotSpot VM.md)
+    - [java-GC日志分析](JVM/java-GC日志分析.md)
+    - [JVM参数](JVM/JVM参数.md)
+    - [jvm学习](JVM/jvm学习.md)
+    - [openjdk](JVM/OpenJDK.md)
+    - [获取JVM进程的线程堆栈dump和堆dump](JVM/获取JVM进程的线程堆栈dump和堆dump.md)
 - [I/O](#IO)
+    - [epoll的ET和LT模式详解](IO/epoll的ET和LT模式详解.md)
+    - [IO整体](IO/IO整体.md)
+    - [java-AIO](IO/java-AIO.md)
+    - [java-BIO](IO/java-BIO.md)
+    - [java-nio](IO/java-nio.md)
+    - [Java直接内存](IO/Java直接内存.md)
 - [JDK8](#JDK8)
+    - [CompletableFuture学习](JDK8/CompletableFuture学习.md)
+    - [ForkJoin框架](JDK8/ForkJoin框架.md)
+    - [JDK8学习](JDK8/JDK8学习.md)
+    - [Lambda表达式和函数式接口](JDK8/Lambda表达式和函数式接口.md)
+    - [ManagedBlocker学习](JDK8/ManagedBlocker学习.md)
+    - [StreamAPI学习](JDK8/StreamAPI学习.md)
+    - [函数式编程FP和反应式编程RP](JDK8/函数式编程FP和反应式编程RP.md)
+    - [函数式编程（functional programming）](JDK8/函数式编程（functional programming）.md)
 - [JDK9](#JDK9)
+    - [JDK9以上学习](JDK9/JDK9以上学习.md)
 
 
 
@@ -61,6 +138,23 @@ https://www.toutiao.com/c/user/93762594808/#mid=1594621692172296
 ---------------------------------------
 [勾引]戳此进直播间啦：https://ke.qq.com/webcourse/index.html?cid=399017&term_id=100475965&taid=9751182080087721&from=41
 
+
+
+
+[坏笑]完整成体系的从BIO到NIO到EPOLL多路复用器
+----------------
+🔔网络IO的本质是什么
+🔔BIO模型如何实现通信，优缺点？
+🔔NIO在内核中的表现是什么，优缺点？
+🔔NIO在JDK中的表现是什么，优缺点？
+🔔多路复用器的演变过程是什么？
+🔔select，poll，epoll多路复用器的差异？
+🔔IO知识体系的重要性，重点在那里？
+🔔什么是系统调用？
+🔔什么是内核？和IO什么关系？
+🔔不同IO模型在内核的演变过程？
+----------------
+🚀戳此进直播间：https://ke.qq.com/course/399017?taid=10573088496686761&tuin=a028e035
 
 
 
@@ -140,123 +234,6 @@ https://www.toutiao.com/c/user/93762594808/#mid=1594621692172296
 
 
 
-
----------------------------------------------------------------------------------------------------------------------
-
-## Java基础
-
-### [JavaOOM类型](JavaSE/JavaOOM类型/JavaOOM类型.md)
-### [正则表达式Regex](JavaSE/正则表达式Regex/正则表达式Regex.md)
-### [](JavaSE/bit、byte、位、字节、汉字的关系.md)
-### [](JavaSE/BloomFilter与CuckooFilter.md)
-### [](JavaSE/ClassLoader学习.md)
-### [](JavaSE/copyonwrite机制.md)
-### [](JavaSE/CPU缓存和内存屏障.md)
-### [](JavaSE/java new一个对象的过程中发生了什么.md)
-### [](JavaSE/javaagent.md)
-### [](JavaSE/Java中boolean类型占用多少个字节.md)
-### [](JavaSE/Java中char.md)
-### [](JavaSE/java中有三种移位运算符.md)
-### [Java反射和agent](JavaSE/Java反射和agent.md)
-### [](JDK8/Java接口默认实现方法.md)
-### [](JavaSE/java的jar和war的打包解压.md)
-### [](JavaSE/Java的简单类型及其封装器类.md)
-### [](JavaSE/java读取文件方式.md)
-### [](JavaSE/JAVA调用系统命令Process.md)
-### [](JavaSE/Java链式调用-Builder模式.md)
-### [](JavaSE/Java锁学习.md)
-### [](JavaSE/JMX.md)
-### [](JavaSE/JVM与Linux的内存关系详解.md)
-### [](JavaSE/N进制转换.md)
-### [](JavaSE/OracleJDK和OpenJDK.md)
-### [](JavaSE/SecureRandom详解.md)
-### [](JavaSE/servlet介绍.md)
-### [](JavaSE/Thread线程学习.md)
-### [](JavaSE/unsafe类学习.md)
-### [](JavaSE/从n个数选出最大的m个的算法比较.md)
-### [](JavaSE/代码优化.md)
-### [](JavaSE/内存泄漏.md)
-### [](JavaSE/内部类.md)
-### [](JavaSE/单例模式.md)
-### [](JavaSE/图片加载缓慢优化.md)
-### [](JavaSE/如何优雅地根治null值.md)
-### [](JavaSE/如何计算Java对象所占内存的大小.md)
-### [](JavaSE/定位常见Java性能问题.md)
-### [](collection/怎么设计hashcode更均衡.md)
-### [](JavaSE/日期处理类库.md)
-### [](JavaSE/泛型通配符extends与super的区别.md)
-### [](JavaSE/深入理解JAVA反序列化漏洞.md)
-### [](JavaSE/深入理解JAVA反序列化漏洞.pdf)
-### [](JavaSE/负载均衡.md)
-### [](JavaSE/进程，线程和协程的区别.md)
-### [](JavaSE/重写hashCode()方法和equals()方法及如何重写.md)
-### [](JavaSE/锁的种类.md)
-### [](JavaSE/零拷贝.md)
-
-
-
-
----------------------------------------------------------------------------------------------------------------------
-
-## Java集合
-
-### [](collection/HashMap和ConcurrentHashMap学习.md)
-### [](collection/java集合.md)
-
----------------------------------------------------------------------------------------------------------------------
-
-## Java并发
-
-### [](concurrent/Java并发编程的艺术.pdf)
-### [](concurrent/Java多线程学习.md)
-### [](concurrent/java并发包concurrent和并发工具类.md)
-### [](concurrent/java并发基础AQS类.md)
-### [](concurrent/ThreadPool线程池.md)
-### [](concurrent/并发编程学习.md)
-
-
-
----------------------------------------------------------------------------------------------------------------------
-
-## JVM
-### [](JVM/ClassLoader种类和类隔离.md)
-### [](JVM/HotSpot VM.md)
-### [](JVM/java-GC日志分析.md)
-### [](JVM/JVM参数.md)
-### [](JVM/jvm学习.md)
-### [](JVM/openjdk.md)
-### [](JVM/获取JVM进程的线程堆栈dump和堆dump.md)
-
-
----------------------------------------------------------------------------------------------------------------------
-
-## IO
-### [](IO/epoll的ET和LT模式详解.md)
-### [](IO/IO整体.md)
-### [](IO/java-AIO.md)
-### [](IO/java-BIO.md)
-### [](IO/java-nio.md)
-### [](IO/Java直接内存.md)
----------------------------------------------------------------------------------------------------------------------
-## JDK8
-### [](JDK8/CompletableFuture学习.md)
-### [](JDK8/ForkJoin框架.md)
-### [](JDK8/JDK8学习.md)
-### [](JDK8/Lambda表达式和函数式接口.md)
-### [](JDK8/ManagedBlocker学习.md)
-### [](JDK8/StreamAPI学习.md)
-### [](JDK8/函数式编程FP和反应式编程RP.md)
-### [](JDK8/函数式编程（functional programming）.md)
-
-
----------------------------------------------------------------------------------------------------------------------
-
-## JDK9
-
-### [](JDK9/JDK9以上学习.md)
-
-
----------------------------------------------------------------------------------------------------------------------
 
 
 ---------------------------------------------------------------------------------------------------------------------
