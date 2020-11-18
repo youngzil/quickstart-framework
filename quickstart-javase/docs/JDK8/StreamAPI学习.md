@@ -125,7 +125,9 @@ https://www.w3cschool.cn/java/codetag-stream-stream_group.html
 https://www.jianshu.com/p/e4275cca364c
 https://blog.jooq.org/2014/06/13/java-8-friday-10-subtle-mistakes-when-using-the-streams-api/
 
-
+https://juejin.im/post/6844903880690696199  
+https://juejin.im/post/6844904016149741575  
+https://juejin.im/post/6844903712788316174  
 
 ---------------------------------------------------------------------------------------------------------------------
 ## Stream简介

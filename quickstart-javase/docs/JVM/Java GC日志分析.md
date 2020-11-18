@@ -67,6 +67,18 @@ jprofiler,jmap dump出来用MAT分析
 
 
 
+
+
+使用jstack和TDA进行java线程dump分析
+
+TDA - Thread Dump Analyzer
+
+[https://github.com/irockel/tda](https://github.com/irockel/tda)  
+[https://github.com/mkbrv/tda](https://github.com/mkbrv/tda)  
+[使用jstack和TDA进行java线程dump分析](https://blog.csdn.net/everlasting_188/article/details/51943095)  
+
+
+
 参考  
 [gc日志分析工具](https://cloud.tencent.com/developer/article/1200360)  
 [可视化GC日志分析工具](https://juejin.im/post/6844903873279344653)  

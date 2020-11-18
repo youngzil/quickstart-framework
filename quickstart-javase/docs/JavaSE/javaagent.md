@@ -639,6 +639,17 @@ java dump两种：thread dump文件和heap dump文件
 ./jmap -dump:format=b,file=heap.hprof 2576
 ./jstack 2576 > thread.txt
 
+感觉问题不对劲，ssh大法登陆机器，top，top -Hp,jstack，jmap四连击保存下来堆栈，cpu使用最高的线程，内存信息准备分析。
+
+通过jhat命令生成html的内存信息页面：  
+jhat heap.hprof
+
+然后输入http://localhost:7000查看
+
+使用JProfiler软件打开heap.hprof查看
+
+
+
 
 java 获取内存dump 的几种方式
 1、获取内存详情：jmap -dump:format=b,file=e.bin pid

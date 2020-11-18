@@ -13,6 +13,7 @@
     - [java中有三种移位运算符](JavaSE/java中有三种移位运算符.md)
     - [Java反射和agent](JavaSE/Java反射和agent.md)
     - [Java接口默认实现方法](JDK8/Java接口默认实现方法.md)
+    - [Java System.getProperty vs System.getenv](JavaSE/Java System.getProperty vs System.getenv.md)
     - [java的jar和war的打包解压](JavaSE/java的jar和war的打包解压.md)
     - [Java的简单类型及其封装器类](JavaSE/Java的简单类型及其封装器类.md)
     - [java读取文件方式](JavaSE/java读取文件方式.md)
