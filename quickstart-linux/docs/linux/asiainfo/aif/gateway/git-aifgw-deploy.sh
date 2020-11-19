@@ -55,6 +55,8 @@ fi
 CODE_PATH=${HOME}/deploy_oppf/git_gateway/src
 MAVEN_HOME=${HOME}/deploy_oppf/bin/maven/bin
 TAR_PACKAGE_PATH=${HOME}/deploy_oppf/dist_gateway_git/$BRANCH_NAME
+PROJECT_VERSION='1.0'
+ERROR_FLAG="ERROR"
 
 #创建目录
 mkdir -p $CODE_PATH
@@ -94,10 +96,31 @@ checkVueEnvironment(){
   echo "[echo] aid版本:" `aid -v`
 }
 
+setProjectVersion(){
+
+  # 接受的是传递给函数的参数
+  PROJECT_PATH=$1
+  PROJECT_NAME=$2
+
+  cd $PROJECT_PATH
+
+  PROJECT_VERSION=$($MAVEN_HOME/mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.version -q -DforceStdout)
+  if [[ $PROJECT_VERSION == *$ERROR_FLAG* ]]
+  then
+      echo "项目${PROJECT_NAME}的POM配置文件有误，请检查"
+      echo $PROJECT_VERSION
+  else
+      echo "当前正在打包[分支=$BRANCH_NAME,工程=$PROJECT_NAME,版本=$PROJECT_VERSION]"
+  fi
+}
+
 aifgw()
 {
   PROJECT_NAME=aifgw-backend-parent
-  TARGET_NAME=aifgw-backend-1.0.tar.gz
+
+  setProjectVersion $CODE_PATH/$PROJECT_NAME $PROJECT_NAME
+
+  TARGET_NAME=aifgw-backend-${PROJECT_NAME}.tar.gz
 
   cd $CODE_PATH/$PROJECT_NAME
   echo "[echo] 开始编译$PROJECT_NAME..."
@@ -110,7 +133,7 @@ aifgw()
   $MAVEN_HOME/mvn -Prelease-all -Pbuild-$PROFILE_ENV -DskipTests clean install -U
 
   if [ ! -f $CODE_PATH/$PROJECT_NAME/aifgw-distribution/target/$TARGET_NAME ];then
-          echo "请确认$PROJECT_NAME打包是否成功"
+          echo "打包失败,请确认$PROJECT_NAME打包是否成功"
           exit 1
   fi
   rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
@@ -118,13 +141,16 @@ aifgw()
   # cd $TAR_PACKAGE_PATH/;mkdir temp;cd temp;tar zxf ../aifgw-backend-1.0.tar.gz;cd aifgw-backend-1.0/conf;jar xf ../lib/aifgw-backend-boot-1.0.jar
   # cd $TAR_PACKAGE_PATH/temp;tar czf aifgw-backend-1.0.tar.gz aifgw-backend-1.0;mv aifgw-backend-1.0.tar.gz ~/deploy_oppf/dist_gateway/
   # cd $TAR_PACKAGE_PATH;rm -rf $TAR_PACKAGE_PATH/temp
-  echo "[echo] 项目 $PROJECT_NAME 编译完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
+  echo "[echo] 项目${PROJECT_NAME}编译完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
 }
 
 oauth()
 {
   PROJECT_NAME=aifgw-security-parent
-  TARGET_NAME=aifgw-security-1.0.tar.gz
+
+  setProjectVersion $CODE_PATH/$PROJECT_NAME $PROJECT_NAME
+
+  TARGET_NAME=aifgw-security-${PROJECT_NAME}.tar.gz
 
   cd $CODE_PATH/$PROJECT_NAME
   echo "[echo] 开始编译$PROJECT_NAME..."
@@ -137,12 +163,12 @@ oauth()
   $MAVEN_HOME/mvn -Pbuild-$PROFILE_ENV -DskipTests clean install -U
 
   if [ ! -f $CODE_PATH/$PROJECT_NAME/aifgw-security-distribution/target/$TARGET_NAME ];then
-          echo "请确认$PROJECT_NAME打包是否成功"
+          echo "打包失败,请确认$PROJECT_NAME打包是否成功"
           exit 1
   fi
   rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
   mv  $CODE_PATH/$PROJECT_NAME/aifgw-security-distribution/target/$TARGET_NAME   $TAR_PACKAGE_PATH/$TARGET_NAME
-  echo "[echo] 项目 $PROJECT_NAME 编译完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
+  echo "[echo] 项目${PROJECT_NAME}编译完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
 }
 
 webapp()
@@ -168,12 +194,12 @@ webapp()
   $MAVEN_HOME/mvn -Prelease-all -DskipTests clean install -U
 
   if [ ! -f $CODE_PATH/$PROJECT_NAME/aifgw-web-app-distribution/target/$TARGET_NAME ];then
-          echo "请确认$PROJECT_NAME打包是否成功"
+          echo "打包失败,请确认$PROJECT_NAME打包是否成功"
           exit 1
   fi
   rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
   mv  $CODE_PATH/$PROJECT_NAME/aifgw-web-app-distribution/target/$TARGET_NAME  $TAR_PACKAGE_PATH/$TARGET_NAME
-  echo "[echo] 项目$PROJECT_NAME 编译完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
+  echo "[echo] 项目${PROJECT_NAME}编译完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
 }
 
 webdev()
@@ -207,7 +233,7 @@ webdev()
       rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
       mv $TARGET_NAME $TAR_PACKAGE_PATH/
   fi
-  echo "$TARGET_NAME 打包完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
+  echo "${TARGET_NAME}打包完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
 }
 
 webopr()
@@ -241,7 +267,7 @@ webopr()
       rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
       mv $TARGET_NAME $TAR_PACKAGE_PATH/
   fi
-  echo "$TARGET_NAME 打包完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
+  echo "${TARGET_NAME}打包完成,打包文件的文件请查看$TAR_PACKAGE_PATH/$TARGET_NAME..."
 }
 
 
@@ -291,4 +317,4 @@ END_DATE=$(date +%s)
 STAMP_DIFF=`expr $END_DATE - $START_DATE`
 
 echo "#####aifgw 版本:${ospversion}#####"
-echo "打包完成,耗时=$STAMP_DIFF 秒，打包后的压缩包请查看$TAR_PACKAGE_PATH..."
+echo "打包完成,耗时=${STAMP_DIFF}秒，打包后的压缩包请查看$TAR_PACKAGE_PATH..."

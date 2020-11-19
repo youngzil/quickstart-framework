@@ -1,5 +1,12 @@
-https://asm.ow2.io/
-https://gitlab.ow2.org/asm/asm
+ASM
+
+[ASM官网](https://asm.ow2.io/)  
+[ASM gitlab](https://gitlab.ow2.org/asm/asm)  
+
+
+ASM is an all purpose Java bytecode manipulation and analysis framework. It can be used to modify existing classes or to dynamically generate classes, directly in binary form. ASM provides some common bytecode transformations and analysis algorithms from which custom complex transformations and code analysis tools can be built. ASM offers similar functionality as other Java bytecode frameworks, but is focused on performance. Because it was designed and implemented to be as small and as fast as possible, it is well suited for use in dynamic systems (but can of course be used in a static way too, e.g. in compilers).
+
+ASM是一个通用的Java字节码操作和分析框架。 它可以直接以二进制形式用于修改现有类或动态生成类。 ASM提供了一些常见的字节码转换和分析算法，可以从中构建定制的复杂转换和代码分析工具。 ASM提供与其他Java字节码框架类似的功能，但侧重于性能。 因为它的设计和实现是尽可能的小和尽可能快，所以它非常适合在动态系统中使用（但当然也可以以静态方式使用，例如在编译器中使用）。
 
 
 什么是ASM
