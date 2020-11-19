@@ -120,7 +120,7 @@ aifgw()
 
   setProjectVersion $CODE_PATH/$PROJECT_NAME $PROJECT_NAME
 
-  TARGET_NAME=aifgw-backend-${PROJECT_NAME}.tar.gz
+  TARGET_NAME=aifgw-backend-${PROJECT_VERSION}.tar.gz
 
   cd $CODE_PATH/$PROJECT_NAME
   echo "[echo] 开始编译${PROJECT_NAME}..."
@@ -150,7 +150,7 @@ oauth()
 
   setProjectVersion $CODE_PATH/$PROJECT_NAME $PROJECT_NAME
 
-  TARGET_NAME=aifgw-security-${PROJECT_NAME}.tar.gz
+  TARGET_NAME=aifgw-security-${PROJECT_VERSION}.tar.gz
 
   cd $CODE_PATH/$PROJECT_NAME
   echo "[echo] 开始编译$PROJECT_NAME..."
