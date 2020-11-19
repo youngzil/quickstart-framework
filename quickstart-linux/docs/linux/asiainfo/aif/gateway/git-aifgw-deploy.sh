@@ -110,7 +110,7 @@ setProjectVersion(){
       echo "项目${PROJECT_NAME}的POM配置文件有误，请检查"
       echo $PROJECT_VERSION
   else
-      echo "当前正在打包[分支=$BRANCH_NAME,工程=$PROJECT_NAME,版本=$PROJECT_VERSION]"
+      echo "当前正在打包[分支=${BRANCH_NAME},工程=${PROJECT_NAME},版本=${PROJECT_VERSION}]"
   fi
 }
 
@@ -123,17 +123,17 @@ aifgw()
   TARGET_NAME=aifgw-backend-${PROJECT_NAME}.tar.gz
 
   cd $CODE_PATH/$PROJECT_NAME
-  echo "[echo] 开始编译$PROJECT_NAME..."
+  echo "[echo] 开始编译${PROJECT_NAME}..."
 
   if [ -d $CODE_PATH/local/$PROJECT_NAME ]; then
-    echo "[echo] 开始替换代码$PROJECT_NAME..."
+    echo "[echo] 开始替换代码${PROJECT_NAME}..."
     cp -rf $CODE_PATH/local/$PROJECT_NAME $CODE_PATH/$PROJECT_NAME
   fi
 
   $MAVEN_HOME/mvn -Prelease-all -Pbuild-$PROFILE_ENV -DskipTests clean install -U
 
   if [ ! -f $CODE_PATH/$PROJECT_NAME/aifgw-distribution/target/$TARGET_NAME ];then
-          echo "打包失败,请确认$PROJECT_NAME打包是否成功"
+          echo "打包失败,请确认${PROJECT_NAME}打包是否成功"
           exit 1
   fi
   rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
@@ -156,14 +156,14 @@ oauth()
   echo "[echo] 开始编译$PROJECT_NAME..."
 
   if [ -d $CODE_PATH/local/$PROJECT_NAME ]; then
-    echo "[echo] 开始替换代码$PROJECT_NAME..."
+    echo "[echo] 开始替换代码${PROJECT_NAME}..."
     cp -rf $CODE_PATH/local/$PROJECT_NAME $CODE_PATH/$PROJECT_NAME
   fi
 
   $MAVEN_HOME/mvn -Pbuild-$PROFILE_ENV -DskipTests clean install -U
 
   if [ ! -f $CODE_PATH/$PROJECT_NAME/aifgw-security-distribution/target/$TARGET_NAME ];then
-          echo "打包失败,请确认$PROJECT_NAME打包是否成功"
+          echo "打包失败,请确认${PROJECT_NAME}打包是否成功"
           exit 1
   fi
   rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
@@ -177,10 +177,10 @@ webapp()
   TARGET_NAME=gateway-console-server.tar.gz
 
   cd $CODE_PATH/$PROJECT_NAME
-  echo "[echo] 开始编译$PROJECT_NAME..."
+  echo "[echo] 开始编译${PROJECT_NAME}..."
 
   if [ -d $CODE_PATH/local/$PROJECT_NAME ]; then
-    echo "[echo] 开始替换代码$PROJECT_NAME..."
+    echo "[echo] 开始替换代码${PROJECT_NAME}..."
     cp -rf $CODE_PATH/local/$PROJECT_NAME $CODE_PATH/$PROJECT_NAME
   fi
 
@@ -194,7 +194,7 @@ webapp()
   $MAVEN_HOME/mvn -Prelease-all -DskipTests clean install -U
 
   if [ ! -f $CODE_PATH/$PROJECT_NAME/aifgw-web-app-distribution/target/$TARGET_NAME ];then
-          echo "打包失败,请确认$PROJECT_NAME打包是否成功"
+          echo "打包失败,请确认${PROJECT_NAME}打包是否成功"
           exit 1
   fi
   rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
@@ -209,7 +209,7 @@ webdev()
   TARGET_NAME=webdev.war
 
   cd $CODE_PATH/$PROJECT_NAME
-  echo "[echo] 开始编译$PROJECT_NAME..."
+  echo "[echo] 开始编译${PROJECT_NAME}..."
 
   cp ${HOME}/deploy_oppf/git_gateway/node_modules.tar.gz .
   tar -xzvf node_modules.tar.gz  > /dev/null
@@ -219,7 +219,7 @@ webdev()
 
   #code 覆盖
   if [ -d $CODE_PATH/local/$PROJECT_NAME ]; then
-    echo "[echo] 开始替换代码$PROJECT_NAME..."
+    echo "[echo] 开始替换代码${PROJECT_NAME}..."
     cp -rf $CODE_PATH/local/$PROJECT_NAME $CODE_PATH/$PROJECT_NAME
   fi
   #修改配置文件：替换routes.js文件
@@ -227,7 +227,7 @@ webdev()
 
   aid build -N
   if [ -d "dist" ];then
-  echo "开始打包$TARGET_NAME的war包..."
+  echo "开始打包${PROJECT_NAME}的war包..."
       cd dist
       jar cf $TARGET_NAME *
       rm -rf $TAR_PACKAGE_PATH/$TARGET_NAME
@@ -243,7 +243,7 @@ webopr()
   TARGET_NAME=webopr.war
 
   cd $CODE_PATH/$PROJECT_NAME
-  echo "[echo] 开始编译$PROJECT_NAME..."
+  echo "[echo] 开始编译${PROJECT_NAME}..."
 
   cp ${HOME}/deploy_oppf/git_gateway/node_modules.tar.gz .
   tar -xzvf node_modules.tar.gz  > /dev/null
@@ -253,7 +253,7 @@ webopr()
 
   #code 覆盖
   if [ -d $CODE_PATH/local/$PROJECT_NAME ]; then
-    echo "[echo] 开始替换代码$PROJECT_NAME..."
+    echo "[echo] 开始替换代码${PROJECT_NAME}..."
     cp -rf $CODE_PATH/local/$PROJECT_NAME $CODE_PATH/$PROJECT_NAME
   fi
   #替换routes.js文件
