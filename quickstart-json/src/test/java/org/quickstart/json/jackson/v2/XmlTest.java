@@ -38,7 +38,7 @@ public class XmlTest {
     public void testXmlStr() throws JsonProcessingException {
 
         String b =
-            "<?xml version='1.0' encoding='UTF-8'?><RESP_PARAM><PUB_INFO><RETURN_RESULT>21600013</RETURN_RESULT><RETURN_DESC>返回码未配置[11100015]:[输入号码不是浙江移动的用户号码！]</RETURN_DESC><OSB_SERIAL_NO>way-app-default^15920437560000000001</OSB_SERIAL_NO></PUB_INFO><BUSI_INFO></BUSI_INFO></RESP_PARAM>";
+            "<?xml version='1.0' encoding='UTF-8'?><RESP_PARAM><PUB_INFO><RETURN_RESULT>21600013</RETURN_RESULT><RETURN_DESC>返回码未配置[11100015]:[输入号码不是用户号码！]</RETURN_DESC><OSB_SERIAL_NO>way-app-default^15920437560000000001</OSB_SERIAL_NO></PUB_INFO><BUSI_INFO></BUSI_INFO></RESP_PARAM>";
 
         XmlMapper xmlMapper = new XmlMapper();
         Map map = xmlMapper.readValue(b, Map.class);

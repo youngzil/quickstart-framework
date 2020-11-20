@@ -1,5 +1,5 @@
 /**
- * 项目名称：msgframe-common 
+ * 项目名称：msgtest-common
  * 文件名：TestMap.java
  * 版本信息：
  * 日期：2018年3月12日

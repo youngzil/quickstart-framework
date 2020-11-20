@@ -34,10 +34,10 @@ echo 'testroot' | passwd --stdin aioppf
 passwd 选项 用户名
 
 
-groupadd aifgwgroup
+groupadd gatewaytestgroup
 
-useradd aifgw
-passwd aifgw
+useradd gatewaytest
+passwd gatewaytest
 
 
 授权用户访问路径

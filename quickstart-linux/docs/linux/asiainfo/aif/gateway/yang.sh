@@ -6,7 +6,7 @@ VARS=$#
 if [ $VARS -lt 1 ];
 then
         echo "必须传入1个参数
-第一个参数是编译任务名（aifgw/oauth/webapp/webdev/webopr/all)
+第一个参数是编译任务名（gatewaytest/oauth/webapp/webdev/webopr/all)
 usage: $0  all"
         exit 0;
 fi

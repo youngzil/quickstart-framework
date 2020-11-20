@@ -16,7 +16,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export PATH=$JAVA_HOME/bin:$PATH
 
 
-su - aimsgframe
+su - aimsgtest
 vi .bashrc  
 输入$符号跳转到行尾
 
@@ -29,7 +29,7 @@ source .bash_profile
 scp jdk-8u221-linux-x64.tar.gz aifgw@20.26.85.230:~
 
 
-export JAVA_HOME=/home/aimsgframe/jdk1.7.0_79
+export JAVA_HOME=/home/aimsgtest/jdk1.7.0_79
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export PATH=$JAVA_HOME/bin:$PATH
 
@@ -40,7 +40,7 @@ source /etc/profile
 
 用户级别：ll -a 查看全部文件和目录
 修改其个人用户主目录下的.bashrc文件
-source /home/msgframe/.bashrc
+source /home/msgtest/.bashrc
 
 shell级别：
 直接执行export命令
@@ -55,7 +55,7 @@ java -version
 ## Linux下配置jdk环境变量的三种方法
 
 一、修改/etc/profile文件当本机仅仅作为开发使用时推荐使用这种方法，因为此种配置时所有用户的shell都有权使用这些环境变量，可能会给系统带来安全性问题。用文本编辑器打开/etc/profile，在profile文件末尾加入：
-export JAVA_HOME=/home/msgframe/jdk1.8.0_152
+export JAVA_HOME=/home/msgtest/jdk1.8.0_152
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export PATH=$JAVA_HOME/bin:$PATH
 重新登录即可。

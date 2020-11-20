@@ -31,10 +31,10 @@ public class ScpTest {
 
         String ip = "10.21.20.154";
         int port = 22;
-        String username = "msgframe";
-        String password = "msgframe";
-        String remoteDir = "/home/msgframe/100";
-        String remoteFile = "/home/msgframe/100/100.jpg";
+        String username = "msgtest";
+        String password = "msgtest";
+        String remoteDir = "/home/msgtest/100";
+        String remoteFile = "/home/msgtest/100/100.jpg";
         String localFile = "/Users/yangzl/100.jpg";
         String localDir = "/Users/yangzl/101";
 

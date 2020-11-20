@@ -61,7 +61,7 @@ xyz : 就是刚刚提到的数字类型的权限属性，为 rwx 属性数值的
 chmod 777 .bashrc
 
 授权用户访问路径
-sudo chown -R aifgw:aifgw /app
+sudo chown -R gatewaytest:gatewaytest /app
 
 
 那么我们就可以使用 u, g, o 来代表三种身份的权限！

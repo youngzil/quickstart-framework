@@ -204,8 +204,8 @@ public class SSHUtil {
     }
 
     public static void main(String[] args) throws Exception {
-        String dd = SSHUtil.execute("10.21.20.154", 22, "msgframe", "msgframe", "mkdir haha");
-        String dd2 = SSHUtil.execute("10.21.20.154", 22, "msgframe", "msgframe", "tar -xzvf apache-activemq-5.14.5-bin.tar.gz -C ./haha");
+        String dd = SSHUtil.execute("10.21.20.154", 22, "msgtest", "msgtest", "mkdir haha");
+        String dd2 = SSHUtil.execute("10.21.20.154", 22, "msgtest", "msgtest", "tar -xzvf apache-activemq-5.14.5-bin.tar.gz -C ./haha");
         System.out.println(dd);
 
         // while(true){

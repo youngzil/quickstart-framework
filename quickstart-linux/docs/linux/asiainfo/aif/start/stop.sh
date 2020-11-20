@@ -3,7 +3,7 @@
 #add by yougw at 2017-7-12
 ################
 
-serviceId='com.si.aifgw.Applicaion'
+serviceId='com.si.gatewaytest.Applicaion'
 
 user=`whoami`
 

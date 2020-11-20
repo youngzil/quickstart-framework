@@ -1,12 +1,12 @@
 #!/bin/bash
 
-cd $HOME/aifgw
-rm -rf aifgw-backend-parent/*
-svn export --force --username XXXUSERNAME --password XXXPASSWORD http://IP:PORT/svn/AIOPENPLATFORM/aifgateway/aifgw-backend-parent/  aifgw-backend-parent
+cd $HOME/gatewaytest
+rm -rf gatewaytest-backend-parent/*
+svn export --force --username XXXUSERNAME --password XXXPASSWORD http://IP:PORT/svn/AIOPENPLATFORM/aifgateway/gatewaytest-backend-parent/  gatewaytest-backend-parent
 
-export MAVEN_HOME=$HOME/aifgw/apache-maven-3.6.1
+export MAVEN_HOME=$HOME/gatewaytest/apache-maven-3.6.1
 export PATH=$PATH:$MAVEN_HOME/bin
 
 #mvn -v
-cd aifgw-backend-parent
+cd gatewaytest-backend-parent
 mvn -Prelease-all -DskipTests clean install -U

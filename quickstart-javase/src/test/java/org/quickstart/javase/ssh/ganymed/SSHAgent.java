@@ -151,14 +151,14 @@ public final class SSHAgent {
 
     public static void main(String[] args) throws IOException {
         SSHAgent sshAgent = new SSHAgent();
-        sshAgent.initSession("10.21.20.154", "msgframe", "msgframe");
+        sshAgent.initSession("10.21.20.154", "msgtest", "msgtest");
 
         String execCommand = sshAgent.execCommand("pwd ; date");
         System.out.println("pwd ; date:" + execCommand);
         String execCommand2 = sshAgent.execCommand("who  ");
         System.out.println("who  :" + execCommand2);
 
-        sshAgent.transferFile("/Users/yangzl/100.jpg", "/home/msgframe");
+        sshAgent.transferFile("/Users/yangzl/100.jpg", "/home/msgtest");
         // sshAgent.transferDirectory("/home/xx/Documents", "/home/xx/book");
 
         // 执行bash脚本

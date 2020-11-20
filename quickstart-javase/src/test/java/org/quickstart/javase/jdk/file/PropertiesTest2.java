@@ -35,15 +35,15 @@ public class PropertiesTest2 {
         // 2.2 获取当前类所在的工程名：
         System.out.println("user.dir path: " + System.getProperty("user.dir"));
 
-//        InputStream in = Object.class.getResourceAsStream("/Users/yangzl/msgframe.properties");
+//        InputStream in = Object.class.getResourceAsStream("/Users/yangzl/msgtest.properties");
 
 //        InputStream ips1 = Enumeration.class.getClassLoader().getResourceAsStream("cn/zhao/enumStudy/testPropertiesPath1.properties");
 //        InputStream ips2 = Enumeration.class.getResourceAsStream("testPropertiesPath1.properties");
 //        InputStream ips3 = Enumeration.class.getResourceAsStream("properties/testPropertiesPath2.properties");
-        // InputStream inputFile = Thread.currentThread().getContextClassLoader().getResourceAsStream(msgframePropertiesPath);
+        // InputStream inputFile = Thread.currentThread().getContextClassLoader().getResourceAsStream(msgtestPropertiesPath);
 
         
-        InputStream in = new FileInputStream("/Users/yangzl/workspace/../msgframe.properties");
+        InputStream in = new FileInputStream("/Users/yangzl/workspace/../msgtest.properties");
         
         if (null == in) {
             System.out.println("未加载到");

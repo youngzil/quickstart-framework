@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<msgframeCfg xmlns="http://www.cmos.com/msgframe">
+<msgtestCfg xmlns="http://www.cmos.com/msgtest">
 	<!--［1-＊］ 客户端所属中心，如果是服务端配置centerCfg节点可以有多个，如果是客户端配置centerCfg只有一个 -->
 	<centerCfg>
 		<!--［1-1］ 中心名称 -->
@@ -38,8 +38,8 @@
 			<!-- belong:可选,未配置就是自己的中心 -->
 			<!-- name:必选,主题名称 -->
 			<!-- order属性这个是此主题是否用于顺序消息，true或者false 不设置此属性时默认false -->
-			<!-- ruleClass可选：默认是com.ai.aif.msgframe.common.route.impl.DefaultDestinationRule，如果是默认，小队列的规则是name＋number -->
-	 		<queue name="order"  ruleClass="com.cmos.msgframe.common.route.impl.TestDestinationRule"/>
+			<!-- ruleClass可选：默认是com.quickstart.msgtest.common.route.impl.DefaultDestinationRule，如果是默认，小队列的规则是name＋number -->
+	 		<queue name="order"  ruleClass="com.cmos.msgtest.common.route.impl.TestDestinationRule"/>
 			<queue name="PerfTest"  belong="orderCenter"/>
 		</destinations>
 
@@ -49,14 +49,14 @@
 			<!-- processThreadNums:可选，默认consumeCfg->processThreadNums.处理消息的线程 -->
 			<subscribe subDestination="PerfTest" >
 				<!-- 配置实现类，利用管道流的思想，按照配置顺序依次处理消息.只支持异步消息 -->
-				<implclass>com.cmos.msgframe.SubscribeImpl1</implclass>
-				<!--<implclass>com.ai.aif.msgframe.SubscribeImpl2</implclass> -->
+				<implclass>com.cmos.msgtest.SubscribeImpl1</implclass>
+				<!--<implclass>com.quickstart.msgtest.SubscribeImpl2</implclass> -->
 			</subscribe>
 
 			<subscribe subDestination="order">
 				<!-- 配置实现类，利用管道流的思想，按照配置顺序依次处理消息.只支持异步消息 -->
-				<implclass>com.cmos.msgframe.SubscribeImpl1</implclass>
-				<!--<implclass>com.ai.aif.msgframe.SubscribeImpl2</implclass> -->
+				<implclass>com.cmos.msgtest.SubscribeImpl1</implclass>
+				<!--<implclass>com.quickstart.msgtest.SubscribeImpl2</implclass> -->
 			</subscribe>
 		</subscribes>
 
@@ -81,10 +81,10 @@
 				<isExceptionPersitence>false</isExceptionPersitence>
 				<!-- 持久化类型：db（数据库）,class(实现类) -->
 				<exceptionType>class</exceptionType>
-				<!-- 生产者异常处理,必须实现com.ai.aif.msgframe.common.ex.exception.IExceptionPersitence接口 -->
-				<producerExceptionClass>com.cmos.msgframe.producer.ex.ProducerExceptionHandle</producerExceptionClass>
-				<!-- 消费者异常处理,必须实现com.ai.aif.msgframe.common.ex.exception.IExceptionPersitence接口 -->
-				<consumerExceptionClass>com.cmos.msgframe.consumer.ex.ConsumerExceptionHandle</consumerExceptionClass>
+				<!-- 生产者异常处理,必须实现com.quickstart.msgtest.common.ex.exception.IExceptionPersitence接口 -->
+				<producerExceptionClass>com.cmos.msgtest.producer.ex.ProducerExceptionHandle</producerExceptionClass>
+				<!-- 消费者异常处理,必须实现com.quickstart.msgtest.common.ex.exception.IExceptionPersitence接口 -->
+				<consumerExceptionClass>com.cmos.msgtest.consumer.ex.ConsumerExceptionHandle</consumerExceptionClass>
 			</exceptionPersistence>
 
 			<!-- logPersistence 消息是否进行客户端持久化-false、true -->
@@ -96,4 +96,4 @@
 
 		</persistence>
 	</centerCfg>
-</msgframeCfg>
+</msgtestCfg>

@@ -19,7 +19,7 @@ import org.apache.commons.codec.binary.Base64;
  * @Description: 该类的功能描述
  *
  * @version: v1.0.0
- * @author: zhangmeng3
+ * @author: yangzl
  * @date: 2014-9-17 下午03:12:23
  *
  */

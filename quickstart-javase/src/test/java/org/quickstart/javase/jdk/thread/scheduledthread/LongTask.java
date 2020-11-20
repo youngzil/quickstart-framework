@@ -1,5 +1,5 @@
 /**
- * 项目名称：msgframe-client 
+ * 项目名称：client
  * 文件名：LongTask.java
  * 版本信息：
  * 日期：2017年12月18日

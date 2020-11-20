@@ -2,7 +2,7 @@
 
 <!--name属性是必须的，标识对哪个element的限制，required是可选的，为false则标识该element是可选的，不存在或者为true都是表示element是必须的，默认为true ，type目前暂不做校验-->
 <!-- 考虑到标签的重复性，该限制也是根据层级关系来做限制-->
-<element name="msgframeCfg" required="true">
+<element name="msgtestCfg" required="true">
 	<element name="centerCfg" required="true">
 		<element name="destinations" required="true">
 			<attribute name="number" required="true"></attribute>

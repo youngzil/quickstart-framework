@@ -29,7 +29,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
  * @Description: 该类的功能描述
  *
  * @version: v1.0.0
- * @author: zhangmeng3
+ * @author: yangzl
  * @date: 2014-9-17 上午10:38:45
  *
  */
@@ -338,7 +338,7 @@ public class RSAUtils {
         // System.out.println("privateKey=" + privateKey);
         // System.out.println("publicKey=" + publicKey);
         //
-        // String md5String = "亚信科技能力开放平台V1.0";
+        // String md5String = "能力开放平台V1.0";
         // md5String = MD5Util.MD5(MD5_String);
         // System.out.println("MD5加密后：" + md5String);
         //

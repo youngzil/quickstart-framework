@@ -55,9 +55,9 @@ public class TestJsch {
      */
     public static void main(String[] args) throws Exception {
         String hostname = "10.21.20.154";
-        String username = "msgframe";
-        String password = "msgframe";
-        String remoteFile = "/home/msgframe/100.jpg";
+        String username = "msgtest";
+        String password = "msgtest";
+        String remoteFile = "/home/msgtest/100.jpg";
         String localFile = "/Users/yangzl/100.jpg";
         String localFile2 = "/Users/yangzl/101.jpg";
 

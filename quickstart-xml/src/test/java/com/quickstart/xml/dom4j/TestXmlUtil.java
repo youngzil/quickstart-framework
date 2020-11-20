@@ -13,7 +13,7 @@ public class TestXmlUtil {
     @SuppressWarnings("unchecked")
     public static void main(String[] args) throws Exception {
 
-        String configXml = FileUtils.readFileToString(new File("config/msgframe-config.xml"), "UTF-8");
+        String configXml = FileUtils.readFileToString(new File("config/msgtest-config.xml"), "UTF-8");
 
         // Map<String, Object> map = XmlUtil.xml2map(configXml, false);
         Map<String, Object> map = XmlUtil.xml2mapWithAttr(configXml, false);

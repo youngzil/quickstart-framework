@@ -29,10 +29,10 @@ awk -F ',,' '{print $1"|"$2}' res.txt>res.txt
 cat res.txt | awk -F ',,' '{print $1"|"$2}' >res.txt
 
 
-cat aifgw-service-qa-0f5659cecfdb.txt|grep TotalTime|awk -F ' - ' '{print $2}'>res.txt
-cat aifgw-service-qa-0f5659cecfdb.txt|grep TotalTime|awk -F ' - ' '{print $2}'|awk -F ',' '{print $1","$2","$3}' >res.txt
+cat gatewaytest-service-qa-0f5659cecfdb.txt|grep TotalTime|awk -F ' - ' '{print $2}'>res.txt
+cat gatewaytest-service-qa-0f5659cecfdb.txt|grep TotalTime|awk -F ' - ' '{print $2}'|awk -F ',' '{print $1","$2","$3}' >res.txt
 
-cat aifgw-service-qa-0f5659cecfdb.txt 读取文件内容
+cat gatewaytest-service-qa-0f5659cecfdb.txt 读取文件内容
 grep TotalTime 筛选有TotalTime的行
 awk -F ' - ' '{print $2}' 按照-分隔，提取第二列
 awk -F ',' '{print $1","$2","$3}'  按照,分隔，提取123列

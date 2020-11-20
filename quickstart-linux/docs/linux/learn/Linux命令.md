@@ -260,7 +260,7 @@ bogon:Documents yangzl$ jar
 jar cvf classes.jar Foo.class Bar.class
 
 更新jar
-jar -uvf aiesb.jar com/asiainfo/openplatform/isb/restful/server/servlet/AopResourceConfig.class
+jar -uvf aiesb.jar com/quickstart/openplatform/isb/restful/server/servlet/AopResourceConfig.class
 jar -uvf aop-common-task-jar-with-dependencies.jar log4j.properties
 
 解压

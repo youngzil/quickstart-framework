@@ -6,7 +6,7 @@ package org.quickstart.crypto.utils;
  * <p>Description: </p>
  * <p>Copyright: Copyright (c) 2008</p>
  * <p>Company: AI(NanJing)</p>
- * @author Yang Hua
+ * @author yangzl
  * @version 5.5
  */
 public final class K {

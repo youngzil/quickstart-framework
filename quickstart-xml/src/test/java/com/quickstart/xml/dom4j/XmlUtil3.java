@@ -71,7 +71,7 @@ public class XmlUtil3 {
         if (StringUtils.isBlank(path)) {
             path = "/Users/yangzl/test.xml";// 默认路径
         } else if (!path.endsWith(".xml")) {
-            path += "/msgframe-config.xml";
+            path += "/msgtest-config.xml";
         }
 
         Document document = DocumentHelper.parseText(json);
@@ -102,7 +102,7 @@ public class XmlUtil3 {
         String schemaXml = FileUtils.readFileToString(new File("config/config-schema.xml"), "UTF-8");
         SchemaElement schemaElement = schemaXml2mapWithAttr(schemaXml);
 
-        String configXml = FileUtils.readFileToString(new File("config/msgframe-config.xml"), "UTF-8");
+        String configXml = FileUtils.readFileToString(new File("config/msgtest-config.xml"), "UTF-8");
 
         Map<String, Object> map = xml2map(configXml, false);
         Map<String, Object> map2 = xml2mapWithAttr(configXml, false);

@@ -96,9 +96,9 @@ public class XmlUtil {
 
     public static String writeXml(String path, String xmlStr) throws Exception {
         if (StringUtils.isBlank(path)) {
-            path = "config/test-msgframe-config.xml";// 默认路径
+            path = "config/test-msgtest-config.xml";// 默认路径
         } else if (!path.endsWith(".xml")) {
-            path += "/test-msgframe-config.xml";
+            path += "/test-msgtest-config.xml";
         }
 
         Document document = DocumentHelper.parseText(xmlStr);
@@ -285,9 +285,9 @@ public class XmlUtil {
     private static SchemaElement getSchemaElement(String path) throws Exception {
 
         if (StringUtils.isBlank(path)) {
-            path = "config/msgframe-config-schema.xml";// 默认路径
+            path = "config/msgtest-config-schema.xml";// 默认路径
         } else if (!path.endsWith(".xml")) {
-            path += "/msgframe-config-schema.xml";
+            path += "/msgtest-config-schema.xml";
         }
 
         String schemaXml = FileUtils.readFileToString(new File(path), "UTF-8");

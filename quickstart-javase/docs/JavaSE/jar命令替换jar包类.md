@@ -8,8 +8,8 @@
  jar uvf aiesb.jar com/yangzl/openplatform/isb/restful/security/resources/Authorization.class 
  
  
-cd /Users/yangzl/workspace/gateway5/aifgw-security-parent/aifgw-security-zjauth/target/classes/
-jar uvf /Users/yangzl/Documents/aifgw-security-1.0/lib/aifgw-security-zjauth-1.0.jar com/asiainfo/aifgw/security/zjauth/service/BaseAuthorizationService.class
+cd /Users/yangzl/workspace/gateway5/security-parent/security-zjauth/target/classes/
+jar uvf /Users/yangzl/Documents/security-1.0/lib/security-zjauth-1.0.jar com/quickstart/security/zjauth/service/BaseAuthorizationService.class
 
 
 

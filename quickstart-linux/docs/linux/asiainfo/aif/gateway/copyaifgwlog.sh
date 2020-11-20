@@ -3,7 +3,7 @@
 function usage(){
 cat << HELP
 
-Usage: sh copyaifgwlog.sh aifgwback 132 01 15
+Usage: sh copygatewaytestlog.sh gatewaytestback 132 01 15
 
 第一个参数是路径根目录文件夹名字
 第二个参数为host节点信息，必须是132/133/159/34
@@ -11,10 +11,10 @@ Usage: sh copyaifgwlog.sh aifgwback 132 01 15
 第四个参数为天数，必须是01、02。。。
 
 Example:
-    sh copyaifgwlog.sh aifgwback 132 01 15
-    sh copyaifgwlog.sh aifgwback 133 01 15
-    sh copyaifgwlog.sh aifgwback 159 01 15
-    sh copyaifgwlog.sh aifgwback 34 01 15
+    sh copygatewaytestlog.sh gatewaytestback 132 01 15
+    sh copygatewaytestlog.sh gatewaytestback 133 01 15
+    sh copygatewaytestlog.sh gatewaytestback 159 01 15
+    sh copygatewaytestlog.sh gatewaytestback 34 01 15
 
 HELP
 }

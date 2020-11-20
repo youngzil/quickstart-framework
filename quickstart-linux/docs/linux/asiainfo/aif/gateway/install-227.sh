@@ -3,19 +3,19 @@
 srcHome=/Users/yangzl/workspace/gateway
 
 deployHost=20.26.85.227
-username=aifgw
-password=aifgw
+username=gatewaytest
+password=gatewaytest
 
 
 
 DeploySecurity()
 {
 #deploy security
-cd $srcHome/aifgw-security-parent/
+cd $srcHome/gatewaytest-security-parent/
 
 mvn -Pbuild-test -DskipTests clean install -U
 
-cd aifgw-security-distribution/target
+cd gatewaytest-security-distribution/target
 
 ftp -n<<!
 open $deployHost
@@ -23,8 +23,8 @@ user $username $password
 binary
 cd ~
 prompt
-rename aifgw-security-1.0.tar.gz aifgw-security-1.0-bak.tar.gz
-put aifgw-security-1.0.tar.gz
+rename gatewaytest-security-1.0.tar.gz gatewaytest-security-1.0-bak.tar.gz
+put gatewaytest-security-1.0.tar.gz
 close
 bye
 !

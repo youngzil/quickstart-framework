@@ -94,7 +94,7 @@ public class XmlUtils {
         if (StringUtils.isBlank(path)) {
             path = "/Users/yangzl/test.xml";// 默认路径
         } else if (!path.endsWith(".xml")) {
-            path += "/msgframe-config.xml";
+            path += "/msgtest-config.xml";
         }
 
         Document document = DocumentHelper.parseText(json);
