@@ -3,9 +3,15 @@
 - [HashMap和ConcurrentHashMap在1.7和1.8的区别](#HashMap和ConcurrentHashMap在1.7和1.8的区别)
 - [HashMap和ConcurrentHashMap学习](HashMap和ConcurrentHashMap学习.md)
 - [LinkedHashMap如何保证元素迭代的顺序](#LinkedHashMap如何保证元素迭代的顺序)
-- [fail-fast机制/快速失败机制](#Java集合迭代快速失败机制)
+- [快速失败(fail-fast)和安全失败(fail-safe)](#Java集合迭代快速失败和安全失败)
+    - [fail-fast机制/快速失败机制](#Java集合迭代快速失败机制)
+    - [CopyOnWrite实现原理](../JavaSE/copyonwrite机制.md)
 - [延时队列DelayQueue](#延时队列DelayQueue)
 - [利用LinkedHashMap实现LRU算法缓存 ](#利用LinkedHashMap实现LRU算法缓存 )
+- [Java中集合的有序性怎么实现的（TreeMap、PriorityQueue优先队列）](#Java中集合的有序性怎么实现的)
+    - [TreeMap实现有序的原理(基于红黑树（Red-Black tree）实现)](#TreeMap实现有序的原理)
+    - [PriorityQueue优先队列实现原理(最小堆的完全二叉树)](#PriorityQueue优先队列实现原理)
+
 
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -293,12 +299,70 @@ LRU即Least Recently Used，最近最少使用，也就是说，当缓存满了�
 
 [详解LinkedHashMap如何保证元素迭代的顺序](https://www.php.cn/java-article-362041.html)
 
----------------------------------------------------------------------------------------------------------------------  
+---------------------------------------------------------------------------------------------------------------------
+
+## Java集合迭代快速失败和安全失败
+
+快速失败(fail-fast)和安全失败(fail-safe)
+
+一:快速失败(fail—fast)
+
+在用迭代器遍历一个集合对象时，如果遍历过程中对集合对象的内容进行了修改(增 加、删除、修改)，则会抛出Concurrent Modification Exception。
+
+原理:迭代器在遍历时直接访问集合中的内容，并且在遍历过程中使用一个 modCo unt 变量。集合在被遍历期间如果内容发生变化，就会改变 modCount 的值。每当迭代器使 用 hashNext()/next()遍历下一个元素之前，都会检测 modCount 变量是否为 expectedmod Count 值，是的话就返回遍历;否则抛出异常，终止遍历。
+
+注意:这里异常的抛出条件是检测到 modCount!=expectedmodCount 这个条件。如 果集合发生变化时修改 modCount 值刚好又设置为了 expectedmodCount 值，则异常不会 抛出。因此，不能依赖于这个异常是否抛出而进行并发操作的编程，这个异常只建议用于检 测并发修改的 bug。
+
+场景:java.util 包下的集合类都是快速失败的，不能在多线程下发生并发修改(迭代过 程中被修改)。
+
+
+
+二:安全失败(fail—safe)
+
+采用安全失败机制的集合容器，在遍历时不是直接在集合内容上访问的，而是先复制原有集合内容，在拷贝的集合上进行遍历。
+
+原理:由于迭代时是对原集合的拷贝进行遍历，所以在遍历过程中对原集合所作的修改
+并不能被迭代器检测到，所以不会触发Concurrent Modification Exception。
+
+缺点:基于拷贝内容的优点是避免了Concurrent Modification Exception，但同样地， 迭代器并不能访问到修改后的内容，即:迭代器遍历的是开始遍历那一刻拿到的集合拷贝， 在遍历期间原集合发生的修改迭代器是不知道的。
+
+场景:java.util.concurrent 包下的容器都是安全失败，可以在多线程下并发使用并发修改。
+
+
+
+
+快速失败和安全失败是对迭代器而言的。 
+
+快速失败:当在迭代一个集合的时候，如果有另 外一个线程在修改这个集合，就会抛出 ConcurrentModification 异常，java.util 下都是快速 失败。 
+
+安全失败:在迭代时候会在集合二层做一个拷贝，所以在修改集合上层元素不会影 响下层。在 java.util.concurrent 下都是安全失败
+
+
+快速失败和安全失败是对迭代器而言的。 
+
+快速失败：当在迭代一个集合的时候，如果有另外一个线程在修改这个集合，就会抛出ConcurrentModification异常，java.util包下都是快速失败。 比如HashMap,Vector,ArrayList,HashSet
+
+安全失败：在迭代时候会对集合做一个拷贝，所以在修改原集合上元素不会影响拷贝的集合。在java.util.concurrent包下都是安全失败，比如ConcurrentHashMap、CopyOnWriteArrayList。
+
+
+
+
+参考  
+[java中快速失败(fail-fast)和安全失败(fail-safe)的区别是什么？](https://www.cnblogs.com/williamjie/p/11158588.html)  
+[快速失败(fail-fast)和安全失败(fail-safe)](https://blog.csdn.net/pange1991/article/details/84826630)  
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
 https://blog.csdn.net/chenssy/article/details/38151189  
 https://blog.csdn.net/onlyoncelove/article/details/81193662  
 
 
 ## Java集合迭代快速失败机制
+
+
+## 快速失败(fail-fast)和安全失败(fail-safe)
 
 fail-fast机制/快速失败机制
 
@@ -399,6 +463,76 @@ https://blog.csdn.net/neweastsun/article/details/88085955
   
   
   
+---------------------------------------------------------------------------------------------------------------------
+
+## Java中集合的有序性怎么实现的
+
+
+## TreeMap实现有序的原理
+
+LinkedHashMap是按照插入顺序排序，而TreeMap是按照Key的自然顺序或者Comprator的顺序进行排序。
+
+在实现原理上LinkedHashMap是双向链表，TreeMap是红黑树。TreeMap还有个好兄弟叫TreeSet，实现原理是一样的。
+
+
+TreeMap是一个有序的key-value集合，是非线程安全的，基于红黑树（Red-Black tree）实现。其映射根据键的自然顺序进行排序，或者根据创建映射时提供的 Comparator 进行排序，具体取决于使用的构造方法。其基本操作 containsKey、get、put 和 remove 的时间复杂度是 log(n) 。TreeMap是非同步的。 它的iterator 方法返回的迭代器是fail-fastl的。
+
+
+
+[TreeMap实现原理及源码分析之JDK8](https://www.cnblogs.com/nananana/p/10426377.html)  
+[TreeMap实现有序的原理](https://blog.csdn.net/u010623927/article/details/87177156)  
+
+
+
+
+## PriorityQueue优先队列实现原理
+
+
+Java中PriorityQueue通过二叉小顶堆实现，可以用一棵完全二叉树表示（任意一个非叶子节点的权值，都不大于其左右子节点的权值），也就意味着可以通过数组来作为PriorityQueue的底层实现。
+
+PriorityQueue是非线程安全的，所以Java提供了PriorityBlockingQueue（实现BlockingQueue接口）用于Java多线程环境。
+
+
+
+什么是最小堆
+
+最小堆是一个完全二叉树，所谓的完全二叉树是一种没有空节点的二叉树。
+
+最小堆的完全二叉树有一个特性是根节点必定是最小节点，子女节点一定大于其父节点。还有一个特性是叶子节点数量=全部非叶子节点数量+1
+
+在 PriorityQueue队列中，基于数组保存了完全二叉树。所以在已知任意一个节点在数组中的位置，就可以通过一个公式推算出其左子树和右子树的下标。已知节点下标是i，那么他的左子树是2*i+1，右子树是2*i+2。
+
+
+
+插入原理：
+
+新加入的元素x可能会破坏小顶堆的性质，因此需要进行调整。调整的过程为：从k指定的位置开始，将x逐层与当前点的parent进行比较并交换，直到满足x >= queue[parent]为止。注意这里的比较可以是元素的自然顺序，也可以是依靠比较器的顺序。
+
+2、为什么要调整节点顺序？  
+因为这是一个最小堆，最小堆必须要严格按照子节点大于父亲节点的顺序做数组中存放。
+
+3、如何调整？  
+
+siftup方法有个if-else判断，如果有比较器，则使用siftUpUsingComparator(k, x);如果没有则调用siftUpComparable(k, x);这个方法会默认给一个比较器。
+
+比较什么呢？？我们说最小堆实现了这个队列，队列一定有入队操作，入队是元素首先进入队列尾，然后和自己的父节点比较，像冒泡一样将该节点冒到合适的位置，即比自己的父亲节点大，比自己的儿子节点小。
+
+
+
+
+应用场景：PriorityQueue队列不适合进场出队入队的频繁操作，但是他的优先级特性非常适合一些对顺序有要求的数据处理场合。
+     
+
+
+
+[PriorityQueue的用法和底层实现原理](https://blog.csdn.net/u010623927/article/details/87179364)  
+[PriorityQueue优先队列实现原理](https://blog.csdn.net/lisuyibmd/article/details/53205403)  
+[优先队列原理与实现](https://www.cnblogs.com/luoxn28/p/5616101.html)  
+
+
+
 ---------------------------------------------------------------------------------------------------------------------  
+
+
 
 
