@@ -1,7 +1,7 @@
 - [分布均匀的hash函数](#分布均匀的hash函数)
     - [原理解释](#原理解释)
 - [一致性哈希算法（consistent hashing）](#一致性哈希算法consistent-hashing)
-
+- [看下JDK8中的hash算法](#看下JDK8中的hash算法)
 
 ## 分布均匀的hash函数
 1、jump consistent hash  
@@ -48,5 +48,31 @@ https://www.hellojava.com/a/86523.html
 https://segmentfault.com/a/1190000020182775
 
 
+
+
+
+
+## 看下JDK8中的hash算法
+
+就是把高16位不变，低16位和高16位进行异或运算
+
+//重新计算哈希值
+static final int hash(Object key) {
+    int h;
+    return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);//key如果是null 新hashcode是0 否则 计算新的hashcode
+}
+
+
+首先是取key的hashCode算法，然后对16进行异或运算和右移运算。
+
+将h无符号右移16为相当于将高区16位移动到了低区的16位，再与原hashcode做异或运算，可以将高低位二进制特征混合起来
+
+右位移16位，正好是32bit的一半，自己的高半区和低半区做异或，就是为了混合原始哈希码的高位和低位，以此来加大低位的随机性。而且混合后的低位掺杂了高位的部分特征，这样高位的信息也被变相保留下来。
+
+
+[HashMap中的hash算法总结](https://www.cnblogs.com/wang-meng/p/9b6c35c4b2ef7e5b398db9211733292d.html)  
+[JDK 源码中 HashMap 的 hash 方法原理是什么？](https://www.zhihu.com/question/20733617)  
+[HashMap中的hash算法总结](https://blog.csdn.net/a314774167/article/details/100110216)  
+[HashMap中的hash算法中的几个疑问](https://www.cnblogs.com/zxporz/p/11204233.html)  
 
 

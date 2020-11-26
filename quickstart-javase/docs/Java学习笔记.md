@@ -61,12 +61,12 @@
     - [Java线程的6种状态及切换](#Java线程的6种状态及切换)
     - [虚拟机线程状态 vs 操作系统线程状态](#虚拟机线程状态-vs-操作系统线程状态)
     - [Java线程和操作系统线程的关系](#Java线程和操作系统线程的关系)
-    - [sleep和yield和wait和join的区别](#sleep和yield和wait和join的区别)
+    - [sleep和yield和wait和join的区别](#Sleep和yield和wait和join的区别)
     - [Java线程和操作系统线程的关系](#Java线程和操作系统线程的关系)
     - [Java中判断字符串是否是数字的几种方法](#Java中判断字符串是否是数字的几种方法)
 - [Java集合](#Java集合)
     - [HashMap和ConcurrentHashMap学习](collection/HashMap和ConcurrentHashMap学习.md)
-    - [java集合](collection/java集合.md)
+    - [java集合](collection/Java集合.md)
 - [Java并发](#Java并发)
     - [Java并发编程的艺术](concurrent/Java并发编程的艺术.pdf)
     - [Java多线程学习](concurrent/Java多线程学习.md)
@@ -581,7 +581,7 @@ https://www.cnblogs.com/jimoer/p/13283355.html
 
 ---------------------------------------------------------------------------------------------------------------------
 
-## sleep和yield和wait和join的区别
+## Sleep和yield和wait和join的区别
 sleep、yield、wait、join的区别
 
 只有runnable到running时才会占用cpu时间片，其他都会出让cpu时间片。

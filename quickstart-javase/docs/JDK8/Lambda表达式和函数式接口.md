@@ -77,8 +77,8 @@ https://blog.csdn.net/jiangchao858/article/details/73730038
 
 - Function：接受一个T参数，返回一个R参数。接收一个泛型T，返回泛型R，调用这个函数后，可以改变返回的类型
 - Consumer：接受一个参数，不返回参数
-
 - Supplier：无参数，有返回值
+
 - Predicate：用于测试是否符合条件,传入一个泛型参数T，返回boolean类型
 
 

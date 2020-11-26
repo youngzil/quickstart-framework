@@ -14,7 +14,7 @@ https://github.com/zy475459736/On-the-Way/blob/master/NettySeries/网络传输�
   
 http://ifeve.com/overview/  
   
-另外这个是蚂蚁开源的基于netty的实践通信框架，代码不多，很适合学习网络编程。也可以看下 https://github.com/alipay/sofa-bolt  
+另外这个是蚂蚁开源的基于netty的实践通信框架，代码不多，很适合学习网络编程。也可以看下https://github.com/alipay/sofa-bolt  
 用AIO写的框架，可以看下：https://git.oschina.net/smartboot/smart-socket  
   
 从底层入手，图解 Java NIO BIO MIO AIO 四大IO模型与原理  
@@ -34,8 +34,8 @@ BIO和NIO中都有文件IO
   
   
 Java NIO：  
-BIO是面向流、阻塞IO  
-NIO面向缓冲、非阻塞IO、选择器Selector  
+BIO是面向流、阻塞IO，顺序读  
+NIO面向缓冲、非阻塞IO、选择器Selector，可以使用position等跳跃读  
   
 标准的IO基于字节流和字符流进行操作的  
 NIO是基于通道（Channel）和缓冲区（Buffer）进行操作，数据总是从通道读取到缓冲区中，或者从缓冲区写入到通道中。      

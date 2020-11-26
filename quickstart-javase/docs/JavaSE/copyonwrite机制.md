@@ -86,8 +86,9 @@ public void addChild(Node node) {
 
 
 
-参考
-https://www.jianshu.com/p/afc6e0ae08b0
+参考  
+[java并发面试常识之copyonwrite](https://www.jianshu.com/p/afc6e0ae08b0)  
+
 
 
 

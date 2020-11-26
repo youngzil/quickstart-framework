@@ -63,9 +63,9 @@ https://www.cnblogs.com/mickole/articles/3757278.html
 http://www.importnew.com/14511.html
 https://blog.csdn.net/zhxdick/article/details/52003123
 
-线程池、队列的超时等待：UNSAFE.park(false, nanos)、unpark，线程--》队列的poll超时--》Condition的await---》LockSupport.park---UNSAFE.park
-nio的DirectByteBuffer内存分配：unsafe.allocateMemory(size)，freeMemory(long)
-原子类的cas方法：unsafe.compareAndSwapInt方法、unsafe.compareAndSwapLong
+队列的超时等待(如线程池中的)：UNSAFE.park(false, nanos)、unpark，线程--》队列的poll超时--》Condition的await---》LockSupport.park---UNSAFE.park
+NIO的DirectByteBuffer内存分配：unsafe.allocateMemory(size)，freeMemory(long)
+原子类的CAS方法：unsafe.compareAndSwapInt方法、unsafe.compareAndSwapLong
 
 - 1、通过Unsafe类可以分配内存，可以释放内存；
 类中提供的3个本地方法allocateMemory、reallocateMemory、freeMemory分别用于分配内存，扩充内存和释放内存，与C语言中的3个方法对应。
@@ -417,51 +417,5 @@ Thread和Runnable的区别
 
 
 ---------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
----------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
----------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----------------------------------------------------------------------------------------------------------------------
-
-
-
 
 

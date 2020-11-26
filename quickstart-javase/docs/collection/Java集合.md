@@ -11,6 +11,7 @@
 - [Java中集合的有序性怎么实现的（TreeMap、PriorityQueue优先队列）](#Java中集合的有序性怎么实现的)
     - [TreeMap实现有序的原理(基于红黑树（Red-Black tree）实现)](#TreeMap实现有序的原理)
     - [PriorityQueue优先队列实现原理(最小堆的完全二叉树)](#PriorityQueue优先队列实现原理)
+    - [各种树的复杂度和原理](https://github.com/youngzil/notes/blob/master/docs/base/datastructure/%E5%90%84%E7%A7%8D%E6%A0%91%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%92%8C%E5%8E%9F%E7%90%86.md)
 
 
 
@@ -47,7 +48,7 @@ Collection 集合体系的顶层接口就是Collection，它规定了该集合�
 1、Set接口定义了该类集合不允许存储重复的元素，且任何操作时均需要通过哈希函数映射到集合内部定位元素，集合内部的元素默认是无序的。
 2、List接口定义了该类集合允许存储重复的元素，且集合内部的元素按照元素插入的顺序有序排列，可以通过索引访问元素。
 3、Queue接口定义了该类集合是以队列作为存储结构，所以集合内部的元素有序排列，仅可以操作头结点元素，无法访问队列中间的元素。
-  
+
 
 Collection 接口提供了整个集合框架最通用的增删改查以及集合自身操作的抽象方法，让子类去实现
 Set 接口决定了它的子类都是无序、无重复元素的集合，其主要实现有HashSet、TreeSet、LinkedHashSet。
@@ -61,9 +62,10 @@ Map接口定义了该种集合类型是以<key,value>键值对形式保存，其
     LinkedHashMap 底层多加了一条双向链表，设置accessOrder为true并重写方法则可以实现LRU缓存
     TreeMap 底层采用数组+红黑树实现，集合内的元素默认按照自然排序，也可以传入Comparator定制排序
 
+LinkedList(双向链表)  
+ArrayList（数组）  
 
 
-  
 Collection  
 ├List  
 │├LinkedList  不安全的，可以通过List list = Collections.synchronizedList(new LinkedList(...));构建安全的  
@@ -92,9 +94,11 @@ https://blog.csdn.net/top_code/article/details/8650729
 add        增加一个元索                     如果队列已满，则抛出一个IIIegaISlabEepeplian异常
 remove   移除并返回队列头部的元素    如果队列为空，则抛出一个NoSuchElementException异常
 element  返回队列头部的元素             如果队列为空，则抛出一个NoSuchElementException异常
+
 offer       添加一个元素并返回true       如果队列已满，则返回false
 poll         移除并返问队列头部的元素    如果队列为空，则返回null
 peek       返回队列头部的元素             如果队列为空，则返回null
+
 put         添加一个元素                      如果队列满，则阻塞
 take        移除并返回队列头部的元素     如果队列为空，则阻塞
   
@@ -173,12 +177,14 @@ Iterator 是工作在一个独立的线程中，并且拥有一个 mutex 锁。 
    由所有HashMap类的“collection 视图方法”所返回的迭代器都是快速失败的：在迭代器创建之后，如果从结构上对映射进行修改，除非通过迭代器本身的 remove 方法，其他任何时间任何方式的修改，迭代器都将抛出ConcurrentModificationException。因此，面对并发的修改，迭代器很快就会完全失败，而不冒在将来不确定的时间发生任意不确定行为的风险。  
   
    注意，迭代器的快速失败行为不能得到保证，一般来说，存在非同步的并发修改时，不可能作出任何坚决的保证。快速失败迭代器尽最大努力抛出 ConcurrentModificationException。因此，编写依赖于此异常的程序的做法是错误的，正确做法是：迭代器的快速失败行为应该仅用于检测程序错误。  
-     
-  
+
+
+
 hash冲突解决：  
 java中hashmap是通过数据+链表/红黑树的方式来解决的  
-  
-  
+
+
+
 总结：  
 1、HashMap的key和value都可以是null
 2、Map的key和value都不允许是基本数据类型
@@ -226,7 +232,8 @@ ConcurrentHashMap：
 总结  
 其实可以看出JDK1.8版本的ConcurrentHashMap的数据结构已经接近HashMap，相对而言，ConcurrentHashMap只是增加了同步的操作来控制并发，  
 从JDK1.7版本的ReentrantLock+Segment+HashEntry，
-到JDK1.8版本中synchronized+CAS+HashEntry+红黑树，CAS操作  
+到JDK1.8版本中CAS+同步锁、数组+链表+红黑树：synchronized+CAS+HashEntry+红黑树，CAS操作  
+
   
 1.数据结构：取消了Segment分段锁的数据结构，取而代之的是数组+链表+红黑树的结构。  
 2.保证线程安全机制：JDK1.7采用segment的分段锁机制实现线程安全，其中segment继承自ReentrantLock。JDK1.8采用CAS+Synchronized保证线程安全。  
@@ -346,6 +353,8 @@ LRU即Least Recently Used，最近最少使用，也就是说，当缓存满了�
 
 
 
+[CopyOnWrite实现原理](../JavaSE/copyonwrite机制.md)
+
 
 参考  
 [java中快速失败(fail-fast)和安全失败(fail-safe)的区别是什么？](https://www.cnblogs.com/williamjie/p/11158588.html)  
@@ -401,9 +410,12 @@ CopyOnWriterArrayList根本就不会产生ConcurrentModificationException异常�
 因为CopyOnWriterArrayList的方法根本就没有像ArrayList中使用checkForComodification方法来判断expectedModCount 与 modCount 是否相等。  
   
 CopyOnWriterArrayList所代表的核心概念就是：任何对array在结构上有所改变的操作（add、remove、clear等），CopyOnWriterArrayList都会copy现有的数据，再在copy的数据上修改，这样就不会影响COWIterator中的数据了，修改完成之后改变原有数据的引用即可。同时这样造成的代价就是产生大量的对象，同时数组的copy也是相当有损耗的。  
-  
-  
-  
+
+
+
+[CopyOnWrite实现原理](../JavaSE/copyonwrite机制.md)
+
+
 ---------------------------------------------------------------------------------------------------------------------  
 ## 延时队列DelayQueue  
   // implements Delayed ，实现getDelay方法  
@@ -521,14 +533,14 @@ siftup方法有个if-else判断，如果有比较器，则使用siftUpUsingCompa
 
 
 应用场景：PriorityQueue队列不适合进场出队入队的频繁操作，但是他的优先级特性非常适合一些对顺序有要求的数据处理场合。
-     
-
 
 
 [PriorityQueue的用法和底层实现原理](https://blog.csdn.net/u010623927/article/details/87179364)  
 [PriorityQueue优先队列实现原理](https://blog.csdn.net/lisuyibmd/article/details/53205403)  
 [优先队列原理与实现](https://www.cnblogs.com/luoxn28/p/5616101.html)  
 
+
+[各种树的复杂度和原理](https://github.com/youngzil/notes/blob/master/docs/base/datastructure/%E5%90%84%E7%A7%8D%E6%A0%91%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%92%8C%E5%8E%9F%E7%90%86.md)  
 
 
 ---------------------------------------------------------------------------------------------------------------------  

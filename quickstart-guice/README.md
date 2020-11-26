@@ -1,6 +1,7 @@
 Guice
 
-[Guice Github](https://github.com/google/guice)
+[Guice Github](https://github.com/google/guice)  
+[Guice文档](https://github.com/google/guice/wiki)  
 
 
 Guice (pronounced 'juice') is a lightweight dependency injection framework for Java 6 and above, brought to you by Google. 
@@ -53,11 +54,14 @@ Guice和它的扩展提供了很多作用域，有单例Singleton，Session作�
 
 
 
-参考
+参考  
+https://cloud.tencent.com/developer/article/1605665
 https://www.jianshu.com/p/a648322dc680
 https://blog.csdn.net/u011054333/article/details/57179999
-https://blog.csdn.net/zhaowen25/article/details/52927193
 https://juejin.im/post/5a375e156fb9a0452a3c6b96
+[深入剖析Guice（Google依赖注入框架）](https://blog.csdn.net/zhaowen25/article/details/52927193)  
+[Google Guice 一个轻量级的依赖注入框架](https://www.jianshu.com/p/7fba7b43146a)  
+[Guice 的工作原理](https://www.codenong.com/cs105864553/)  
 
 
 
@@ -117,5 +121,16 @@ JSR-305：供检查软件缺陷用的注解：jsr305-1.3.9.jar
 参考  
 [JSR-305：供检查软件缺陷用的注解](http://www.infoq.com/cn/news/2008/07/jsr-305-update)
 
+
+
+
+
+
+
+
+
+
+
+[Guice Aop 与 Hasor Aop 原理及其实现](https://my.oschina.net/ta8210/blog/178369)  
 
 

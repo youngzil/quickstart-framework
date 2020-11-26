@@ -20,14 +20,14 @@
 
 BIO是面向流、阻塞IO，顺序读  
 NIO面向缓冲、非阻塞IO、选择器Selector，可以使用position等跳跃读  
-  
+
 Channels：4种  
 Buffers：1+2+3+1  
 Selectors：4个事件  
 Buffer分配：3种  
 常用的方法：常用的读写切换、定位等  
 buffer读写方法  
-Buffer的capacity,position和limit、mark
+Buffer的capacity,position和limit、mark(读的时候)
   
 直接内存MappedByteBuffer：不受young gc的影响，只有full gc的时候回收，当众多的DirectByteBuffer对象从新生代被送入老年代后触发了 full gc才会会释放回收，  
 MappedByteBuffer在处理大文件时的确性能很高，但也存在一些问题，如内存占用、文件关闭不确定，被其打开的文件只有在垃圾回收的才会被关闭，而且这个时间点是不确定的。  
@@ -52,7 +52,7 @@ nio的模型：文件IO和网络IO
 ---------------------------------------------------------------------------------------------------------------------  
 ## NIO的模型：文件IO和网络IO
 
-nio的模型：
+NIO的模型：
 文件IO：三个变量怎么切换的，常用方法，内存整理
 
 默认是写模式，从头开始写，position=0，limit=capacity
