@@ -66,8 +66,8 @@ gitClone(){
   echo "[INFO] 开始下载源码..."
   cd $CODE_PATH
   rm -rf * .[!.]*
-  #git clone http://yangzl:nihao%40124@10.19.14.241/OSP/gateway.git $CODE_PATH
-  git clone http://10.19.14.241/OSP/gateway.git  $CODE_PATH
+  #git clone http://yangzl:test%40124@127.0.0.1/test/gateway.git $CODE_PATH
+  git clone http://127.0.0.1/test/gateway.git  $CODE_PATH
   CURRENT_BRANCH_NAME=`git branch | sed -n '/\* /s///p'`
   #echo $CURRENT_BRANCH_NAME
   if [[ $CURRENT_BRANCH_NAME != $BRANCH_NAME ]];then

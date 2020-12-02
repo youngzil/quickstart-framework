@@ -25,7 +25,7 @@ export JAVA_HOME=/app/jdk
 
 $JAVA_HOME/bin/java $JAVA_OPTS \
         -Dai.service.name=$serviceId \
-        com.ai.gatewaytest.gatewaytesttastpost.AifgwTastpostApplication  > "${log_path}/tastpost.out" 2>&1 < /dev/null &
+        com.quickstart.gatewaytest.gatewaytesttastpost.AifgwTastpostApplication  > "${log_path}/tastpost.out" 2>&1 < /dev/null &
 
 
 tail -f ${log_path}/tastpost.out

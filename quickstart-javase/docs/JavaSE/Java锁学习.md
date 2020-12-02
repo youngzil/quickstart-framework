@@ -13,6 +13,8 @@ sleep和wait区别：sleep不会释放对象锁，wait释放对象锁
 
 ## 锁的分类和锁升级：可升不可降
 
+
+
 锁的分类：
 1、可重入锁
 2.可中断锁
@@ -32,14 +34,31 @@ sleep和wait区别：sleep不会释放对象锁，wait释放对象锁
 互斥锁：竞争激烈，时间长
 
 
+乐观锁：CAS
+悲观锁：synchronized、ReentrantLock
+
+
 前面提到了java的4种锁，他们分别是重量级锁、自旋锁、轻量级锁和偏向锁，
 重量级锁是悲观锁的一种，
 自旋锁、轻量级锁与偏向锁属于乐观锁
 
 
+锁优化：
+1. 减少锁的时间
+2. 减少锁的粒度：拆锁的粒度不能无限拆，最多可以将一个锁拆为当前cup数量个锁即可；
+3. 锁粗化：假如有一个循环，循环内的操作需要加锁，我们应该把锁放到循环外面，否则每次进出循环，都进出一次临界区，效率是非常差的；
+4. 使用读写锁：ReentrantReadWriteLock 是一个读写锁，读操作加读锁，可以并发读，写操作使用写锁，只能单线程写；
+5. 读写分离：CopyOnWriteArrayList 、CopyOnWriteArraySet
+    CopyOnWrite容器即写时复制的容器。所以CopyOnWrite容器也是一种读写分离的思想，读和写不同的容器。
+6. 使用cas
+7. 消除缓存行的伪共享
+
+
+
+
 锁升级
-https://blog.csdn.net/tongdanping/article/details/79647337
 https://blog.csdn.net/zqz_zqz/article/details/70233767
+https://blog.csdn.net/tongdanping/article/details/79647337
 https://blog.csdn.net/J080624/article/details/82463399
 
 偏向锁：因此 流程是这样的 偏向锁->轻量级锁->重量级锁

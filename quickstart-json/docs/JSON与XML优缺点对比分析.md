@@ -12,7 +12,7 @@ JSON(JavaScript Object Notation)一种轻量级的数据交换格式，具有良
 
 JSON基于JavaScript Programming Language , Standard ECMA-262 3rd Edition - December 1999 的一个子集。
 
- 
+
 
 2. XML和JSON优缺点
 

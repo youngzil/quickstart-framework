@@ -6,10 +6,10 @@ Linux 指令详解 alias 设置别名
 指令：alias
 设置指令的别名
 
-语法：#  alias name='command line'
+语法：# alias name='command line'
 
 参数：
--p：    打印出现有的别名（唯一的参数）
+-p：  打印出现有的别名（唯一的参数）
 若不加任何参数，则列出目前所有的别名设置
 
 
@@ -20,7 +20,7 @@ Linux 指令详解 alias 设置别名
 
 查看alias：
 列出目前所有的别名设置。
-# alias    或    # alias -p
+# alias  或  # alias -p
 
 
 查看具体一条指令的别名
@@ -40,7 +40,7 @@ alias重置的方法与第一次设置的时候一样
 
 删除别名：
 格式：unalias name
-#  unalias cp
+# unalias cp
 ————————————————
 版权声明：本文为CSDN博主「doiido」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
 原文链接：https://blog.csdn.net/doiido/article/details/43762791

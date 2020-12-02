@@ -2,14 +2,14 @@
 - [Java并发工具类](#Java并发工具类)
 - [Unsafe类的CAS操作](#Unsafe类的CAS操作)
 - [并发编程中的三个概念：原子性，可见性，有序性](#并发编程中的三个概念：原子性，可见性，有序性)
-- [Java线程状态转换和线程并发](#)
+- [Java线程状态转换和线程并发](#Java线程状态转换和线程并发)
 - [并发同步关键字：ThreadLocal、Volatile、synchronized、Atomic](#并发同步关键字：ThreadLocal、Volatile、synchronized、Atomic)
 - [JUC包中包含的工具](#JUC包中包含的工具)
 - [Java并发队列](#Java并发队列)
 - [Java中interrupt的使用](#Java中interrupt的使用)
-- [volatile关键字的两层语义](#volatile关键字的两层语义)
+- [volatile关键字的两层语义](#Volatile关键字的两层语义)
 - [Java并发基础AQS类](Java并发基础AQS类.md)
-
+- [Synchronized、ReentrantLock和volatile、CAS的区别](#Synchronized、ReentrantLock和volatile、CAS的区别)
 
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -86,8 +86,39 @@ get,set方法因为不依赖于当前值，所以直接可以进行操作（有v
 
 
 
+CAS（Compare-and-Swap），即比较并替换，是一种实现并发算法时常用到的技术，Java并发包中的很多类都使用了CAS技术。
+
 [Unsafe与CAS](http://www.cnblogs.com/xrq730/p/4976007.html)  
 Unsafe类的CAS操作可能是用的最多的，它为Java的锁机制提供了一种新的解决办法，比如AtomicInteger等类都是通过该方法来实现的。compareAndSwap方法是原子的，可以避免繁重的锁机制，提高代码效率。这是一种乐观锁，通常认为在大部分情况下不出现竞态条件，如果操作失败，会不断重试直到成功。
+
+getAndAddInt方法解析：拿到内存位置的最新值v，使用CAS尝试修将内存位置的值修改为目标值v+delta，如果修改失败，则获取该内存位置的新值v，然后继续尝试，直至修改成功。
+
+
+CAS是什么？
+CAS是英文单词CompareAndSwap的缩写，中文意思是：比较并替换。CAS需要有3个操作数：内存地址V，旧的预期值A，即将要更新的目标值B。
+
+CAS指令执行时，当且仅当内存地址V的值与预期值A相等时，将内存地址V的值修改为B，否则就什么都不做。整个比较并替换的操作是一个原子操作。
+
+
+
+源码分析：  
+
+上面源码分析时，提到最后调用了compareAndSwapInt方法，接着继续深入探讨该方法，该方法在Unsafe中对应的源码如下。
+
+可以看到调用了“Atomic::cmpxchg”方法，“Atomic::cmpxchg”方法在linux_x86和windows_x86的实现如下。
+
+Atomic::cmpxchg方法解析：
+
+在执行Linux内核中，提供了比较并交换的函数cmpxchg之前，先执行LOCK_IF_MP(mp)
+
+LOCK_IF_MP(mp)会根据mp的值来决定是否为cmpxchg指令添加lock前缀。
+
+如果通过mp判断当前系统是多处理器（即mp值为1），则为cmpxchg指令添加lock前缀。  
+否则，不加lock前缀。
+
+这是一种优化手段，认为单处理器的环境没有必要添加lock前缀，只有在多核情况下才会添加lock前缀，因为lock会导致性能下降。cmpxchg是汇编指令，作用是比较并交换操作数。
+
+
 
 CAS：比如java中的AtomicInteger的addAndGet方法，会一直做do-while循环，直到操作成功获取并且增加
 
@@ -97,7 +128,36 @@ CAS，Compare and Swap即比较并交换，设计并发算法时常用到的一�
 
 CAS的缺点:不能解决ABA问题，如果需要解决ABA问题，使用传统的互斥同步可能回避原子类更加高效。
 
-这个漏洞称为CAS操作的"ABA"问题。java.util.concurrent包为了解决这个问题，提供了一个带有标记的原子引用类"AtomicStampedReference"，它可以通过控制变量值的版本来保证CAS的正确性。不过目前来说这个类比较"鸡肋"，大部分情况下ABA问题并不会影响程序并发的正确性，如果需要解决ABA问题，使用传统的互斥同步可能回避原子类更加高效。
+这个漏洞称为CAS操作的"ABA"问题。java.util.concurrent包为了解决这个问题，提供了一个带有标记的原子引用类"AtomicStampedReference"，它可以通过控制变量值的版本来保证CAS的正确性。不过目前来说这个类比较"鸡肋"，大部分情况下ABA问题并不会影响程序并发的正确性，因此，在使用CAS前要考虑清楚“ABA”问题是否会影响程序并发的正确性，如果需要解决ABA问题，使用传统的互斥同步可能会比原子类更加高效。
+
+
+
+CAS的缺点：
+CAS虽然很高效的解决了原子操作问题，但是CAS仍然存在三大问题。
+1. 循环时间长开销很大。
+2. 只能保证一个共享变量的原子操作。
+3. ABA问题。
+
+
+如何保障线程安全:
+1. 使用synchronized关键字，线程内使用同步代码块，由JVM自身的机制来保障线程的安全性。
+2. 高并发场景下，使用Lock锁要比使用 synchronized 关键字，在性能上得到极大的提高。因为 Lock 底层是通过 AQS + CAS 机制来实现的。
+3. 使用Atomic原子类
+
+
+参考  
+[面试必问的CAS，你懂了吗？](https://zhuanlan.zhihu.com/p/34556594)  
+[一文彻底搞懂CAS实现原理](https://zhuanlan.zhihu.com/p/94762520)  
+[CAS（Compare And Swap）操作的底层原理以及应用详解](https://blog.nowcoder.net/n/3f413b4af088415baafc159591a1a411)  
+[CAS原理深度解析](https://juejin.cn/post/6844903797408399374)  
+[原子类的实现（CAS算法）](https://www.cnblogs.com/aspirant/p/7080628.html)  
+[Java中的CAS操作和实现原理](https://blog.csdn.net/CringKong/article/details/80533917)  
+[深入浅出 CAS](https://blog.biezhi.me/2019/01/head-first-cas.html)  
+[Java Concurrent CAS使用&原理](https://cloud.tencent.com/developer/article/1476510)  
+[Java CAS详解](https://www.jianshu.com/p/eac466494477)  
+[JAVA 中的 CAS](https://www.xilidou.com/2018/02/01/java-cas/)  
+
+
 
 
 
@@ -143,11 +203,11 @@ http://blog.csdn.net/u012465296/article/details/53020676
 在早期的CPU当中，是通过在总线上加LOCK#锁的形式来解决缓存不一致的问题。由于在锁住总线期间，其他CPU无法访问内存，导致效率低下。
 所以就出现了缓存一致性协议。最出名的就是Intel 的MESI协议，MESI协议保证了每个缓存中使用的共享变量的副本是一致的。它核心的思想是：当CPU写数据时，如果发现操作的变量是共享变量，即在其他CPU中也存在该变量的副本，会发出信号通知其他CPU将该变量的缓存行置为无效状态，因此当其他CPU需要读取这个变量时，发现自己缓存中缓存该变量的缓存行是无效的，那么它就会从内存重新读取。
 
-## volatile关键字的两层语义
+## Volatile关键字的两层语义
 　　一旦一个共享变量（类的成员变量、类的静态成员变量）被volatile修饰之后，那么就具备了两层语义：
 　　1）可见性：保证了不同线程对这个变量进行操作时的可见性，即一个线程修改了某个变量的值，这新值对其他线程来说是立即可见的。
 　　2）禁止进行指令重排序。
-Java线程状态转换和线程并发
+
 cpu缓存是集成于cpu中的双极性的高速存储阵列（比内存要快很多），作用是用来加速cpu对高频数据的访问来提高系统性能。
 系统缓存一般就是内存，这个作用同cpu缓存很像，是系统对高频是用到的程序预留的空间，避免重复申请空间而浪费时间。
 
@@ -198,6 +258,46 @@ https://www.cnblogs.com/Mainz/p/3556430.html
 https://www.jianshu.com/p/eb399cc69944
 
 
+
+
+---------------------------------------------------------------------------------------------------------------------
+## Synchronized、ReentrantLock和volatile、CAS的区别
+
+synchronized，保证了线程的同步进行。synchronized可以用于函数，也可以用于代码段，synchronized为非公平锁，通过锁实现了代码中的并行计算。
+
+synchronized和ReentrantLock比较：
+1. 可重入性：都是可重入锁
+2. 锁的实现：Synchronized是依赖于JVM实现的，而ReenTrantLock是JDK实现的
+3. 性能的区别：  
+   在Synchronized优化以前，synchronized的性能是比ReenTrantLock差很多的，但是自从Synchronized引入了偏向锁，轻量级锁（自旋锁）后，两者的性能就差不多了，在两种方法都可用的情况下，官方甚至建议使用synchronized，其实synchronized的优化我感觉就借鉴了ReenTrantLock中的CAS技术。都是试图在用户态就把加锁问题解决，避免进入内核态的线程阻塞。
+4. 功能区别：  
+   便利性：很明显Synchronized的使用比较方便简洁，并且由编译器去保证锁的加锁和释放，而ReenTrantLock需要手工声明来加锁和释放锁，为了避免忘记手工释放锁造成死锁，所以最好在finally中声明释放锁。
+5. 锁的细粒度和灵活度：很明显ReenTrantLock优于Synchronized
+
+
+ReenTrantLock独有的能力：
+1. ReenTrantLock可以指定是公平锁还是非公平锁。而synchronized只能是非公平锁。所谓的公平锁就是先等待的线程先获得锁。
+2. ReenTrantLock提供了一个Condition（条件）类，用来实现分组唤醒需要唤醒的线程们，而不是像synchronized要么随机唤醒一个线程要么唤醒全部线程。
+3. ReenTrantLock提供了一种能够中断等待锁的线程的机制，通过lock.lockInterruptibly()来实现这个机制。
+
+什么情况下使用ReenTrantLock：  
+答案是，如果你需要实现ReenTrantLock的三个独有功能时。
+
+
+volatile：没有原子性，只有可见性和有序性
+不要将volatile用在getAndOperate场合，仅仅set或者get的场景是适合volatile的
+原理：内存屏障（Memory Barrier）
+
+
+CAS的实现AtomicXXX具有原子性和可见性
+其实AtomicLong的源码里也用到了volatile，里面的value值就是volatile修饰的，但只是用来读取或写入
+原理：使用操作系统的比较并交换的函数cmpxchg，并且在多核情况下才会添加lock前缀，单核不需要加
+
+
+参考  
+[synchronized 和 volatile 、ReentrantLock 、CAS 的区别](https://blog.csdn.net/songzi1228/article/details/99975018)  
+[volatile、atomic、reentrantLock、synchronized区别详解](https://blog.csdn.net/wangqiubo2010/article/details/79588527)  
+[为什么volatile不能保证原子性而Atomic可以？](https://www.cnblogs.com/mainz/p/3556430.html)  
 
 
 ---------------------------------------------------------------------------------------------------------------------

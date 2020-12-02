@@ -23,11 +23,14 @@ https://www.cnblogs.com/lifelee/p/5306304.html
 https://blog.csdn.net/u014136713/article/details/52089156  
 https://blog.csdn.net/evil_kyle/article/details/53291146  
 https://www.jianshu.com/p/589d58033841  
-  
-  
+
+
+
 深入 DelayQueue 内部实现参考  
 https://www.zybuluo.com/mikumikulch/note/712598  
 https://blog.csdn.net/zsj777/article/details/82260227  
+
+[Queue相关数据结构的原理与实现 (LinkedList, ArrayDeque, PriorityQueue)](https://www.jianshu.com/p/45de5690b424)  
 
 
 List、Set、Map、Queue  
@@ -63,7 +66,11 @@ Map接口定义了该种集合类型是以<key,value>键值对形式保存，其
     TreeMap 底层采用数组+红黑树实现，集合内的元素默认按照自然排序，也可以传入Comparator定制排序
 
 LinkedList(双向链表)  
-ArrayList（数组）  
+ArrayList（数组） 
+
+Queue相关数据结构的原理与实现(LinkedList, ArrayDeque, PriorityQueue)  
+Deque (Double-ended queue) 为接口，继承了 Queue 接口，创建双向队列，灵活性更强，可以前向或后向迭代，在队头队尾均可插入或删除元素。它的两个主要实现类是 ArrayDeque 和 LinkedList。  
+
 
 
 Collection  
@@ -74,6 +81,9 @@ Collection
 │　└Stack  
 └Set   无序，不重复的  
 └Queue  
+ └Deque
+  └ArrayDeque
+  └LinkedList
   
 Map  
 ├Hashtable  线程安全的  
