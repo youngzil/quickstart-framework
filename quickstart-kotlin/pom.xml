@@ -21,7 +21,6 @@
     <gmavenplus-plugin.version>1.5</gmavenplus-plugin.version>
     <akka-actor.version>2.3.11</akka-actor.version>
     <scala-xml.version>1.2.0</scala-xml.version>
-    <junit.version>4.12</junit.version>
     <mockito.version>1.10.19</mockito.version>
     <spec2.version>3.6.5</spec2.version>
     <json4s-jackson>3.2.10</json4s-jackson>
@@ -116,12 +115,6 @@
       <scope>test</scope>
     </dependency>
 
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-      <version>${junit.version}</version>
-    </dependency>
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-all</artifactId>
