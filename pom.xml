@@ -13,6 +13,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <JAVA_HOME>/Library/Java/JavaVirtualMachines/jdk1.8.0_271.jdk/Contents/Home</JAVA_HOME>
   </properties>
 
   <dependencies>
@@ -130,8 +131,8 @@
     </repository>
 
     <repository>
-      <id>alimaven-public</id>
-      <name>aliyun maven</name>
+      <id>repo1-public</id>
+      <name>repo1 maven</name>
       <url>https://repo1.maven.org/maven2/</url>
       <releases>
         <enabled>true</enabled>

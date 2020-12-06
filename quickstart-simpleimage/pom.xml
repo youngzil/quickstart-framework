@@ -27,7 +27,6 @@
             <version>1.2.3</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/javax.media/jai-core -->
         <dependency>
             <groupId>javax.media</groupId>
             <artifactId>jai-core</artifactId>
@@ -35,5 +34,40 @@
         </dependency>
 
     </dependencies>
+
+
+    <repositories>
+
+        <repository>
+            <id>alimaven-public</id>
+            <name>aliyun maven</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>maven-3rdparty-public</id>
+            <name>maven-3rdparty maven</name>
+            <url>https://packages.atlassian.com/maven-3rdparty/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+        </repository>
+
+    </repositories>
 
 </project>

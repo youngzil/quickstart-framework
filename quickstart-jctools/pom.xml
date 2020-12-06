@@ -24,7 +24,7 @@
     <dependency>
       <groupId>org.jctools</groupId>
       <artifactId>jctools-core</artifactId>
-      <version>3.0.0</version>
+      <version>3.2.0</version>
     </dependency>
 
     <!--<dependency>
@@ -36,7 +36,7 @@
     <dependency>
       <groupId>org.openjdk.jcstress</groupId>
       <artifactId>jcstress-core</artifactId>
-      <version>0.5</version>
+      <version>0.7</version>
       <scope>test</scope>
     </dependency>
 
