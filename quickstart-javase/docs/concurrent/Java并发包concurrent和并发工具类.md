@@ -277,8 +277,8 @@ synchronized和ReentrantLock比较：
 
 ReenTrantLock独有的能力：
 1. ReenTrantLock可以指定是公平锁还是非公平锁。而synchronized只能是非公平锁。所谓的公平锁就是先等待的线程先获得锁。
-2. ReenTrantLock提供了一个Condition（条件）类，用来实现分组唤醒需要唤醒的线程们，而不是像synchronized要么随机唤醒一个线程要么唤醒全部线程。
-3. ReenTrantLock提供了一种能够中断等待锁的线程的机制，通过lock.lockInterruptibly()来实现这个机制。
+2. ReenTrantLock提供了一种能够中断等待锁的线程的机制，通过lock.lockInterruptibly()来实现这个机制。
+3. ReenTrantLock提供了一个Condition（条件）类，可以使用Condition选择性通知，用来实现分组唤醒需要唤醒的线程们，而不是像synchronized要么随机唤醒一个线程要么唤醒全部线程。
 
 什么情况下使用ReenTrantLock：  
 答案是，如果你需要实现ReenTrantLock的三个独有功能时。

@@ -28,7 +28,7 @@ Buffer分配：3种
 常用的方法：常用的读写切换、定位等  
 buffer读写方法  
 Buffer的capacity,position和limit、mark(读的时候)
-  
+
 直接内存MappedByteBuffer：不受young gc的影响，只有full gc的时候回收，当众多的DirectByteBuffer对象从新生代被送入老年代后触发了 full gc才会会释放回收，  
 MappedByteBuffer在处理大文件时的确性能很高，但也存在一些问题，如内存占用、文件关闭不确定，被其打开的文件只有在垃圾回收的才会被关闭，而且这个时间点是不确定的。  
   

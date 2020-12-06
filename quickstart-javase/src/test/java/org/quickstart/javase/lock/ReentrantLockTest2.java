@@ -19,7 +19,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @2017年7月9日 下午4:19:11
  * @version 1.0
  */
-public class ReentrantLock2 implements Runnable {
+public class ReentrantLockTest2 implements Runnable {
     ReentrantLock lock = new ReentrantLock();
 
     public void get() {
@@ -41,7 +41,7 @@ public class ReentrantLock2 implements Runnable {
     }
 
     public static void main(String[] args) {
-        ReentrantLock2 ss = new ReentrantLock2();
+        ReentrantLockTest2 ss = new ReentrantLockTest2();
         new Thread(ss).start();
         new Thread(ss).start();
         new Thread(ss).start();

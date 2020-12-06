@@ -14,28 +14,38 @@ sleep和wait区别：sleep不会释放对象锁，wait释放对象锁
 ## 锁的分类和锁升级：可升不可降
 
 
-
 锁的分类：
-1、可重入锁
-2.可中断锁
-3、公平锁、非公平锁
-4.读写锁
-5、自旋锁、阻塞锁
-6.乐观锁，悲观锁
-7.偏向锁
+1. 乐观锁 VS 悲观锁
+2. 自旋锁 VS 适应性自旋锁
+3. 无锁 VS 偏向锁 VS 轻量级锁 VS 重量级锁
+4. 公平锁 VS 非公平锁
+5. 可重入锁 VS 非可重入锁
+6. 独享锁 VS 共享锁
 
+7. 自旋锁、阻塞锁
+8. 可中断锁、不可中断
+9. 读写锁：ReentrantReadWriteLock
 
-锁的分类：
-可重入锁：
-可中断锁：synchronized就不是可中断锁，而Lock是可中断锁，可以中断获取锁的过程，
-公平锁：synchronized就是非公平锁，它无法保证等待的线程获取锁的顺序，ReentrantLock和ReentrantReadWriteLock，它默认情况下是非公平锁，但是可以设置为公平锁。
-读写锁：ReentrantReadWriteLock
+独享锁：JDK中的synchronized和JUC中Lock的实现类就是互斥锁
+共享锁：共享锁是指该锁可被多个线程所持有。ReentrantReadWriteLock
+
+乐观锁：CAS
+悲观锁：synchronized、ReentrantLock
+
 自旋锁：一直自旋，过多导致CPU占用高，时间短
 互斥锁：竞争激烈，时间长
 
 
-乐观锁：CAS
-悲观锁：synchronized、ReentrantLock
+可重入锁：是否可以重复获取锁
+
+可中断锁：synchronized就不是可中断锁，而Lock是可中断锁，可以中断获取锁的过程，
+
+公平锁：synchronized就是非公平锁，它无法保证等待的线程获取锁的顺序，ReentrantLock和ReentrantReadWriteLock，它默认情况下是非公平锁，但是可以设置为公平锁。
+
+
+[不可不说的Java“锁”事](https://tech.meituan.com/2018/11/15/java-lock.html)
+
+
 
 
 前面提到了java的4种锁，他们分别是重量级锁、自旋锁、轻量级锁和偏向锁，
