@@ -8,6 +8,8 @@
  */
 package org.quickstart.json.fastjson.model;
 
+import lombok.Data;
+
 /**
  * User
  * 
@@ -15,26 +17,11 @@ package org.quickstart.json.fastjson.model;
  * @2017年12月13日 下午5:31:56
  * @since 1.0
  */
+@Data
 public class User {
 
     private String userName;
 
     private int age;
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 
 }

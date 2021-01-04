@@ -1,6 +1,11 @@
-linux下查看CPU、内存、磁盘信息.md
+Linux下查看CPU、内存、磁盘信息.md
 
-1、查看CPU信息
+
+1、查看CPU信息  
+
+其实就是cat /proc/cpuinfo然后根据一些关键字进行排序（sort）、去重（uniq）、统计（wc）等  
+关键字比如："physical id"、"cpu cores"、"processor"等  
+
 # 总核数 = 物理CPU个数 X 每颗物理CPU的核数 
 # 总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
 
@@ -15,6 +20,14 @@ cat /proc/cpuinfo| grep "processor"| wc -l
 
 # 查看CPU信息（型号）
 cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+
+
+参考  
+[linux 查看机器cpu核数](https://www.cnblogs.com/hurry-up/p/9564064.html)  
+[linux下怎么查看cpu核数](https://blog.csdn.net/fox_wayen/article/details/80642718)  
+
+
+
 
 #查看CPU的负载
 平均负载是指上一分钟同时处于就绪状态的平均进程数。在CPU中可以理解为CPU可以并行处理的任务数量，就是CPU个数X核数。

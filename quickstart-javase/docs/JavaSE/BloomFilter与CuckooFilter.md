@@ -40,3 +40,20 @@ https://blog.csdn.net/kl1106/article/details/79478787
 
 
 
+
+Guava框架提供了布隆过滤器的具体实现：BloomFilter，使得开发不用再自己写一套算法的实现。
+
+## 使用场景
+1、黑名单
+
+2、URL 去重
+
+3、单词拼写检查
+
+4、Key-Value 缓存系统的 Key 校验
+
+5、ID 校验，比如订单系统查询某个订单 ID 是否存在，如果不存在就直接返回。
+
+参考  
+[20 亿的 URL 集合，如何快速判断其中一个？](https://cloud.tencent.com/developer/article/1533083)
+

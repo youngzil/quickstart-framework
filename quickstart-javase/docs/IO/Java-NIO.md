@@ -627,4 +627,12 @@ https://tech.meituan.com/2016/11/04/nio.html
 [Java NIO浅析](https://tech.meituan.com/2016/11/04/nio.html)  
 
 
+
+[IO多路复用机制(Reactor模式)](https://www.cnblogs.com/syhx/p/9809047.html)  
+[IO多路复用之Reactor](https://www.cnblogs.com/amei0/p/8117660.html)  
+[IO多路复用和Reactor模式](https://blog.csdn.net/aigoogle/article/details/38012075)  
+[Java NIO多路复用(I/O multiplexing)](https://cs.xieyonghui.com/java/java-nio-multiplexing_33.html)  
+[Netty这些我必问](https://www.lagou.com/lgeduarticle/71048.html)  
+
+
 ---------------------------------------------------------------------------------------------------------------------  

@@ -8,20 +8,19 @@
  */
 package org.quickstart.json.fastjson;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.serializer.SerializeConfig;
+import com.alibaba.fastjson.serializer.SimpleDateFormatSerializer;
+import org.quickstart.json.fastjson.model.Bar;
+import org.quickstart.json.fastjson.model.Foo;
+import org.quickstart.json.fastjson.model.User;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.quickstart.json.fastjson.model.Bar;
-import org.quickstart.json.fastjson.model.Foo;
-import org.quickstart.json.fastjson.model.User;
-
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.serializer.SerializeConfig;
-import com.alibaba.fastjson.serializer.SimpleDateFormatSerializer;
 
 /**
  * Test
@@ -94,7 +93,7 @@ public class Test {
         String json = JSON.toJSONString(map, true);
         System.out.println(json);
         // JSON -> Map
-        Map<String, Bar> map1 = (Map<String, Bar>) JSON.parse(json);
+        Map<String, Bar> map1 = (Map<String, Bar>)JSON.parse(json);
         for (String key : map1.keySet()) {
             System.out.println(key + ":" + map1.get(key));
         }
@@ -131,7 +130,7 @@ public class Test {
         System.out.println(json);
         Map map1 = JSON.parseObject(json);
         for (Object o : map.entrySet()) {
-            Map.Entry<String, String> entry = (Map.Entry<String, String>) o;
+            Map.Entry<String, String> entry = (Map.Entry<String, String>)o;
             System.out.println(entry.getKey() + "--->" + entry.getValue());
         }
     }
@@ -160,6 +159,20 @@ public class Test {
         User user = new User();
         user.setUserName("李四");
         user.setAge(24);
+        String userJson = JSON.toJSONString(user);
+        System.out.println(userJson);
+
+        String userJson2 = JSON.toJSONString(user, true);
+        System.out.println(userJson2);
+
+    }
+
+    @org.junit.Test
+    public void bean2JSON2() {
+
+        User user = new User();
+        user.setUserName("李四");
+//        user.setAge(24);
         String userJson = JSON.toJSONString(user);
         System.out.println(userJson);
 
