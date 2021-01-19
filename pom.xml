@@ -96,6 +96,7 @@
     <module>quickstart-liteflow</module>
     <module>quickstart-simpleimage</module>
     <module>quickstart-oshi</module>
+    <module>quickstart-metrics</module>
   </modules>
 
   <build>
