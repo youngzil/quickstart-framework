@@ -1,10 +1,15 @@
 Hutool
 
 [Hutool官网](https://www.hutool.cn/)  
-[Hutool Github](https://github.com/looly/hutool/)
+[Hutool Github](https://github.com/looly/hutool/)  
+[Hutool Gitee](https://gitee.com/loolly/hutool)  
+
 
 
 [Java工具集Hutool介绍](https://www.oschina.net/p/hutool)
+
+
+Hutool是一个小而全的Java工具类库，使Java拥有函数式语言般的优雅，让Java语言也可以“甜甜的”。
 
 
 Hutool是一个Java工具集，针对我们项目中util包进行开刀，抽象大量的工具方法，旨在减少项目中工具类的数量，将我们的编码工作专注在业务上。Hutool 对文件、流、加密解密、转码、正则、线程、XML、日期、Http客户端 等 JDK 方法进行封装，组成各种 Util 工具类。

@@ -65,7 +65,6 @@
     <module>quickstart-spring-integration</module>
     <module>quickstart-spring-integration-kafka</module>
     <module>quickstart-spring-security</module>
-    <module>quickstart-string-compress</module>
     <module>quickstart-web</module>
     <module>quickstart-xbean</module>
     <module>quickstart-xml</module>
@@ -97,6 +96,7 @@
     <module>quickstart-simpleimage</module>
     <module>quickstart-oshi</module>
     <module>quickstart-metrics</module>
+    <module>quickstart-compress</module>
   </modules>
 
   <build>

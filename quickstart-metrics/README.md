@@ -65,7 +65,7 @@ Metrics的五种类型
 
 
 
-metric + influxdb + grafana 组成的监控系统
+Metrics + InfluxDB + Grafana 组成的监控系统
 
 
 - Metrics：是一个给Java提供度量工具的包，在JAVA代码中嵌入Metrics代码，可以方便的对业务代码的各个指标进行监控。
@@ -74,6 +74,12 @@ metric + influxdb + grafana 组成的监控系统
 - 三者关系见下图
 
 Meter收集监控数据----HTTP----》InfluxDB监控数据存储----load----》Grafana数据展示
+
+
+
+Influxdb的Reporte：  
+[davidB metrics-influxdb](https://github.com/davidB/metrics-influxdb)  
+[iZettle dropwizard-metrics-influxdb](https://github.com/iZettle/dropwizard-metrics-influxdb)  
 
 
 
@@ -94,5 +100,15 @@ Meter收集监控数据----HTTP----》InfluxDB监控数据存储----load----》G
 
 参考  
 [基于Metrics的实时监控系统](https://zhuanlan.zhihu.com/p/163246828)  
+[利用Metrics+influxdb+grafana构建监控平台](https://www.jianshu.com/p/fadcf4d92b0e)  
+
+
+
+
+
+
+
+
+
 
 

@@ -81,3 +81,46 @@ https://juejin.im/post/5a315296518825569539a6fc
 
 
 
+
+
+
+
+
+
+
+
+https://javaee.github.io/hk2/
+https://github.com/javaee/hk2
+
+A light-weight and dynamic dependency injection framework  
+轻量级动态依赖注入框架
+
+
+HK2介绍
+HK2是一个轻量级动态依赖注入框架，它是JSR-330的实现。
+
+组件
+在HK2组件模型中，一个组件的功能是通过服务接口-服务实现的模式声明的。一个HK2服务接口 标识并描述了一个构建模块或者应用程序扩展点。HK2服务实现实现了HK2服务接口。
+
+
+
+[HK2使用详解](https://blog.csdn.net/site008/article/details/77892699)  
+
+
+
+
+HK2框架的简单自实现kunJ(模拟HK2的原理)
+[HK2框架的简单自实现kunJ](https://www.cnblogs.com/lknny/p/7472626.html)  
+相关代码：  
+[https://github.com/lknny/kunJ](https://github.com/lknny/kunJ)  
+git/quickstart-framework/quickstart-reflect/src/main/java/kunj/com  
+
+
+
+
+
+
+
+
+
+
