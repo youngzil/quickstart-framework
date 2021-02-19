@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# 【这里要修改下主机用户名和IP】
 username=root
 host=test
 
@@ -19,6 +20,7 @@ EOF
 gitClone(){
   echo "[INFO] 开始下载源码..."
   cd $CODE_PATH
+  # 【这里要修改下地址、账号、密码】
   # git clone https://youngzil%40163.com:密码@gitee.com/yougw/lims-service.git $CODE_PATH
   cd lims-service
   git pull
