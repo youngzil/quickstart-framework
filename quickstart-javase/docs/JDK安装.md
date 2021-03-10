@@ -11,7 +11,7 @@
 https://java.com/zh_CN/
 
 
-export JAVA_HOME=/home/aifgw/jdk1.8.0_221
+export JAVA_HOME=/root/jdk1.8.0_281
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export PATH=$JAVA_HOME/bin:$PATH
 
