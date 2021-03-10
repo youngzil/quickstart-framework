@@ -8,6 +8,8 @@
  */
 package org.quickstart.log4j2;
 
+// import javax.servlet.http.HttpServlet;
+
 import javax.servlet.http.HttpServlet;
 
 /**

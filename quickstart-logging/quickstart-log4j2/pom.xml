@@ -17,66 +17,43 @@
     <description>Demo project for XXX</description>
 
     <properties>
-        <log4j.version>2.13.3</log4j.version>
-        <disruptor.version>3.3.6</disruptor.version>
-        <slf4j.version>1.7.30</slf4j.version>
-
-        <jackson.version>2.9.9</jackson.version>
+        <log4j2.version>2.14.0</log4j2.version>
+        <disruptor.version>3.4.2</disruptor.version>
+        <jackson.version>2.12.1</jackson.version>
     </properties>
 
     <dependencies>
-
-        <!-- log4j2 依赖 -->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-core</artifactId>
-            <version>${log4j.version}</version>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-
-        <!--    使用Log4j-API作为Log Facade-->
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
 
         <!-- 桥接：告诉Slf4j使用Log4j2 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j-impl</artifactId>
-            <version>${log4j.version}</version>
-            <scope>runtime</scope>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
+            <version>${log4j2.version}</version>
+            <!--<scope>runtime</scope>
+            <optional>true</optional>-->
         </dependency>
 
         <!-- 将 log4j2的日志桥接到 slf4j -->
         <!--<dependency>
           <groupId>org.apache.logging.log4j</groupId>
           <artifactId>log4j-to-slf4j</artifactId>
-          <version>${log4j.version}</version>
+          <version>${log4j2.version}</version>
         </dependency>-->
 
 
+        <!--    使用Log4j-API作为Log Facade-->
         <!-- 桥接：告诉commons logging使用Log4j2 -->
-        <!--<dependency>
+        <dependency>
           <groupId>org.apache.logging.log4j</groupId>
           <artifactId>log4j-jcl</artifactId>
-          <version>${log4j.version}</version>
-        </dependency>-->
+          <version>${log4j2.version}</version>
+        </dependency>
 
         <!--web工程需要包含log4j-web，非web工程不需要 -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-web</artifactId>
-            <version>${log4j.version}</version>
+            <version>${log4j2.version}</version>
             <scope>runtime</scope>
         </dependency>
 
@@ -90,7 +67,7 @@
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
+            <version>8.0.1</version>
         </dependency>
 
 

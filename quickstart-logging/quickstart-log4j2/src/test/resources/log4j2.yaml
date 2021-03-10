@@ -4,7 +4,7 @@ Configuration:
   Properties:
     Property:
       - name: log.dir
-        value: /Users/yangzl/logs/quickstart/quickstart-log4j2
+        value: /Users/lengfeng/logs/quickstart/quickstart-log4j2
       - name: log.name
         value: quickstart-log4j2.log
       - name: pattern

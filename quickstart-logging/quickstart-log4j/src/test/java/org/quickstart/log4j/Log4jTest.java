@@ -1,6 +1,7 @@
 package org.quickstart.log4j;
 
 import org.apache.log4j.Logger;
+import org.junit.Test;
 
 /**
  * @author youngzil@163.com
@@ -9,15 +10,16 @@ import org.apache.log4j.Logger;
  */
 public class Log4jTest {
 
-  Logger logger = Logger.getLogger(Log4jTest.class);
+    Logger logger = Logger.getLogger(Log4jTest.class);
 
-  public void log() {
-    logger.info("log4j1 log");
-  }
+    @Test
+    public void log() {
+        logger.info("log4j1 log");
+    }
 
-  public static void main(String[] args) {
-    Log4jTest log4j = new Log4jTest();
-    log4j.log();
+    public static void main(String[] args) {
+        Log4jTest log4j = new Log4jTest();
+        log4j.log();
+    }
 
-  }
 }

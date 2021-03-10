@@ -4,6 +4,8 @@
 
 
 
+[slf4j与jul、log4j1、log4j2、logback的集成原理](https://developer.aliyun.com/article/39038)  
+
 
 Java 日志性能那些事
 https://www.infoq.cn/article/things-of-java-log-performance
@@ -40,6 +42,12 @@ Sun推出了自己的日志库JUL(Java Util Logging),Jul (Java Util Logging),自
 设为optional，依赖不会传递，这样如果你是个lib项目，然后别的项目使用了你这个lib，不会被引入不想要的Log Implementation 依赖；
 
 Scope设置为runtime，是为了防止开发人员在项目中直接使用Log Implementation中的类，而不适用Log Facade中的类。
+
+
+
+
+[Java日志-SLF4J使用与源码分析](http://imushan.com/2018/07/22/java/language/Java%E6%97%A5%E5%BF%97-SLF4J%E4%BD%BF%E7%94%A8%E4%B8%8E%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/)  
+
 
 
 
