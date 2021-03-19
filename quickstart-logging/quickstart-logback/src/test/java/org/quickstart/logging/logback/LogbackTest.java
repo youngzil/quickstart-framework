@@ -41,6 +41,15 @@ public class LogbackTest {
         System.out.println(test);
         // ch.qos.logback.classic.LoggerContext[default]
 
+
+        LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
+
+        String logLevel = "DEBUG";
+        loggerContext.getLogger("org.mybatis").setLevel(Level.valueOf(logLevel));
+
+        loggerContext.getLogger("org.springframework").setLevel(Level.valueOf(logLevel));
+
+
     }
 
     @Test

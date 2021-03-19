@@ -47,6 +47,12 @@ awk -F ',' '{print $1","$2","$3}'  按照,分隔，提取123列
 
 
 
+
+[linux awk命令详解](https://www.cnblogs.com/ggjucheng/archive/2013/01/13/2858470.html)  
+[linux awk命令统计排名单词出现次数](https://love61v.github.io/2017/07/12/awk%E7%BB%9F%E8%AE%A1%E6%8E%92%E5%90%8D%E5%8D%95%E8%AF%8D%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0/)  
+[awk统计命令(求和、求平均、求最大值、求最小值)](https://blog.csdn.net/csCrazybing/article/details/52594989)  
+[awk的sort命令学习一例]()  
+
 ---------------------------------------------------------------------------------------------------------------------
 
 

@@ -26,7 +26,7 @@ public class DateFormatTest {
 
         try {
             String[] dates = {"2018-12-01", "2018-12-31", "2019-01-01"};
-            for (String date: dates) {
+            for (String date : dates) {
                 SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd");
                 Date d = dt.parse(date);
 
@@ -38,10 +38,6 @@ public class DateFormatTest {
         } catch (Exception e) {
             System.out.println("Failed with exception: " + e);
         }
-
-
-
-
 
     }
 }

@@ -72,9 +72,9 @@ public class GroupingByTest {
         new Item("orang", 10, new BigDecimal("29.99")), //
         new Item("watermelon", 10, new BigDecimal("29.99")), //
         new Item("papaya", 20, new BigDecimal("9.99")), //
-        new Item("apple", 10, new BigDecimal("9.99")), //
-        new Item("banana", 10, new BigDecimal("19.99")), //
-        new Item("apple", 20, new BigDecimal("9.99")));
+        new Item("apple2", 10, new BigDecimal("9.99")), //
+        new Item("banana2", 10, new BigDecimal("19.99")), //
+        new Item("apple3", 20, new BigDecimal("9.99")));
 
     // group by price
     Map<BigDecimal, List<Item>> groupByPriceMap = items.stream().collect(Collectors.groupingBy(Item::getPrice));

@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.impl.Log4jLoggerFactory;
 
 public class TestLog {
 
@@ -21,6 +22,10 @@ public class TestLog {
         ILoggerFactory test = LoggerFactory.getILoggerFactory();
         System.out.println(test);
         // org.slf4j.impl.Log4jLoggerFactory@763d9750
+
+
+        Log4jLoggerFactory log4jLoggerFactory = (Log4jLoggerFactory)LoggerFactory.getILoggerFactory();
+        String logLevel = "DEBUG";
     }
 
     @Test

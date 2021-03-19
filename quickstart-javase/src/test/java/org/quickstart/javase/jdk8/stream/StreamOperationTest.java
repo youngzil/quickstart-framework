@@ -28,8 +28,8 @@ import static java.util.stream.Collectors.toList;
  * <p>描述: [功能描述] </p >
  *
  * @author yangzl
- * @date 2020/8/17 23:00
  * @version v1.0
+ * @date 2020/8/17 23:00
  */
 public class StreamOperationTest {
 
@@ -54,13 +54,11 @@ public class StreamOperationTest {
         strings.stream().map(x -> "map" + x).forEach(System.out::println);    // map1 map2 map3
         strings.stream().forEach(System.out::println);    // 1 2 3
 
-        Stream.of("1,2", "3,4", "5,6").flatMap(x -> Stream.of(x.split(",")))
-            .forEach(System.out::println);    // 1 2 3 4 5 6
+        Stream.of("1,2", "3,4", "5,6").flatMap(x -> Stream.of(x.split(","))).forEach(System.out::println);    // 1 2 3 4 5 6
 
         Stream.of("3", "1", "2").sorted().forEach(System.out::println);    // 1 2 3
 
-        Stream.of("a", "b", "c").peek(x -> System.out.println(x.toUpperCase()))
-            .forEach(System.out::println);    // A a B b C c
+        Stream.of("a", "b", "c").peek(x -> System.out.println(x.toUpperCase())).forEach(System.out::println);    // A a B b C c
 
     }
 
@@ -75,14 +73,59 @@ public class StreamOperationTest {
             futureResultList.add(getCompetableFutureResult(i));
         }
 
-        List<String> ipRelationList =
-            futureResultList.stream().map(CompletableFuture::join).flatMap(Collection::stream).distinct()
-                .collect(toList());
+        List<String> ipRelationList = futureResultList.stream().map(CompletableFuture::join).flatMap(Collection::stream).distinct().collect(toList());
 
         ipRelationList.forEach(System.out::println);
 
         System.out.println("time=" + stopWatch.getTime());
         System.in.read();
+
+    }
+
+    @Test
+    public void testflatMap() {
+
+        // [java8中stream的map和flatmap的理解](https://www.cnblogs.com/lijingran/p/8727507.html)
+        // [Java8:如何使用flatMap](https://www.jianshu.com/p/8d80dcb4e7e0)
+
+        // flatMap将多个Stream连接成一个Stream，这时候不是用新值取代Stream的值，与map有所区别，这是重新生成一个Stream对象取而代之。
+
+        List<String> words = new ArrayList<String>();
+        words.add("hello");
+        words.add("word");
+
+        //将words数组中的元素再按照字符拆分，然后字符去重，最终达到["h", "e", "l", "o", "w", "r", "d"]
+        //如果使用map，是达不到直接转化成List<String>的结果
+        List<String> stringList = words.stream()//
+            .flatMap(word -> Arrays.stream(word.split("")))//
+            .distinct()//
+            .collect(Collectors.toList());
+        stringList.forEach(e -> System.out.println(e));
+
+        String ss = "Hello";
+        String[] aa = ss.split("");
+        String[] bb = {"H", "e", "l", "l", "o"};
+        String[] strings = {"Hello", "World"};
+        //Arrays.stream接收一个数组返回一个流
+        List<Stream<String>> streamList = Arrays.asList(strings).stream().
+            map(str -> str.split("")).
+            map(str -> Arrays.stream(str)).
+            collect(Collectors.toList());
+
+        //分步写(map)
+        Stream<String[]> stream = Arrays.asList(strings).stream().
+            map(str -> str.split(""));
+        Stream<Stream<String>> streamStream = stream.map(strings1 -> Arrays.stream(strings1));
+        List<Stream<String>> streamList1 = streamStream.collect(Collectors.toList());
+        List<String> stringList2 = Arrays.asList(strings).stream().
+            map(str -> str.split("")).
+            flatMap(str -> Arrays.stream(str)).collect(Collectors.toList());
+
+        //分步写(流只能消费一次)(flatMap)
+        Stream<String[]> stream1 = Arrays.asList(strings).stream().
+            map(str -> str.split(""));
+        Stream<String> stringStream = stream1.flatMap(strings1 -> Arrays.stream(strings1));
+        List<String> stringList3 = stringStream.collect(Collectors.toList());
 
     }
 
@@ -169,9 +212,8 @@ public class StreamOperationTest {
         Processor aProcessor = new Processor();
 
         //Create all CFs
-        List<CompletableFuture<Boolean>> futureList = aList.stream()
-            .map(strings -> CompletableFuture.supplyAsync(() -> aProcessor.processList(strings), executor))
-            .collect(toList());
+        List<CompletableFuture<Boolean>> futureList =
+            aList.stream().map(strings -> CompletableFuture.supplyAsync(() -> aProcessor.processList(strings), executor)).collect(toList());
 
         //Wait for them all to complete
         CompletableFuture.allOf(futureList.toArray(new CompletableFuture[0])).join();
@@ -218,13 +260,12 @@ public class StreamOperationTest {
     @Test
     public void testJoin6() {
         ExecutorService executorService = Executors.newCachedThreadPool();
-        List<CompletableFuture<Integer>> que =
-            IntStream.range(0, 100000).mapToObj(x -> CompletableFuture.supplyAsync(() -> {
-                LockSupport.parkNanos(TimeUnit.MILLISECONDS.toNanos((long)(Math.random() * 10)));
-                return x;
-            }, executorService)).collect(Collectors.toList());
-        CompletableFuture<List<Integer>> sequence = CompletableFuture
-            .supplyAsync(() -> que.stream().map(CompletableFuture::join).collect(Collectors.toList()), executorService);
+        List<CompletableFuture<Integer>> que = IntStream.range(0, 100000).mapToObj(x -> CompletableFuture.supplyAsync(() -> {
+            LockSupport.parkNanos(TimeUnit.MILLISECONDS.toNanos((long)(Math.random() * 10)));
+            return x;
+        }, executorService)).collect(Collectors.toList());
+        CompletableFuture<List<Integer>> sequence =
+            CompletableFuture.supplyAsync(() -> que.stream().map(CompletableFuture::join).collect(Collectors.toList()), executorService);
     }
 
     public static <T> CompletableFuture<List<T>> sequence2(List<CompletableFuture<T>> com, ExecutorService exec) {
@@ -261,9 +302,8 @@ public class StreamOperationTest {
 
     @Test
     public void testJoin7() {
-        Stream<CompletableFuture<Integer>> stream = Stream
-            .of(CompletableFuture.completedFuture(1), CompletableFuture.completedFuture(2),
-                CompletableFuture.completedFuture(3));
+        Stream<CompletableFuture<Integer>> stream =
+            Stream.of(CompletableFuture.completedFuture(1), CompletableFuture.completedFuture(2), CompletableFuture.completedFuture(3));
         CompletableFuture<List<Integer>> ans = stream.collect(sequenceCollector());
     }
 
@@ -290,12 +330,11 @@ public class StreamOperationTest {
 
     }
 
-
     private <V> CompletableFuture<List<V>> sequence4(List<CompletableFuture<V>> listOfFutures) {
         CompletableFuture<List<V>> identity = CompletableFuture.completedFuture(new ArrayList<>());
 
-        BiFunction<CompletableFuture<List<V>>, CompletableFuture<V>, CompletableFuture<List<V>>> accumulator = (futureList, futureValue) ->
-            futureValue.thenCombine(futureList, (value, list) -> {
+        BiFunction<CompletableFuture<List<V>>, CompletableFuture<V>, CompletableFuture<List<V>>> accumulator =
+            (futureList, futureValue) -> futureValue.thenCombine(futureList, (value, list) -> {
                 List<V> newList = new ArrayList<>(list.size() + 1);
                 newList.addAll(list);
                 newList.add(value);

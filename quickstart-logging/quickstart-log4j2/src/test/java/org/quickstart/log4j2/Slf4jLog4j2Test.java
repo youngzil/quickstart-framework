@@ -10,6 +10,7 @@ import org.apache.logging.log4j.core.config.AppenderRef;
 import org.apache.logging.log4j.core.config.Configuration;
 import org.apache.logging.log4j.core.config.LoggerConfig;
 import org.apache.logging.log4j.core.layout.PatternLayout;
+import org.apache.logging.slf4j.Log4jLoggerFactory;
 import org.junit.Test;
 import org.slf4j.ILoggerFactory;
 import org.slf4j.Logger;
@@ -30,6 +31,12 @@ public class Slf4jLog4j2Test {
         ILoggerFactory test = LoggerFactory.getILoggerFactory();
         System.out.println(test);
         // org.apache.logging.slf4j.Log4jLoggerFactory@13c3c1e1
+
+       /* Log4jLoggerFactory log4jLoggerFactory = (Log4jLoggerFactory)LoggerFactory.getILoggerFactory();
+        LoggerContext loggerContext = (LoggerContext)log4jLoggerFactory.getContext();
+        String logLevel = "DEBUG";
+        loggerContext.getLogger("org.mybatis").setLevel(Level.valueOf(logLevel));
+        loggerContext.getLogger("org.springframework").setLevel(Level.valueOf(logLevel));*/
 
     }
 

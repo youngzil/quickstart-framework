@@ -17,7 +17,9 @@ package org.quickstart.javase.jdk.collection;
  */
 public class Day {
 
-    public Day(int i, int j, int k) {}
+    public Day(int i, int j, int k) {
+        System.out.println("sdsssss");
+    }
 
     public static void main(String[] args) {
         int[][] array = {{1, 2, 3, 4, 5}, {2, 3, 4, 5, 6}, {3, 4, 5, 6, 7}};

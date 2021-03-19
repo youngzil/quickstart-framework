@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -128,6 +129,18 @@ public class CollectionTest {
         System.out.println(collect1.toString());
         System.out.println(collect2.toString());
         System.out.println(taskMap.toString());
+    }
+
+    @Test
+    public void testCollectToMap2() {
+        Map<String,List<String>> map = new HashMap<>();
+        map.put("java", Arrays.asList("1.7", "1.8"));
+
+        Map<Object, Object> collect = map.entrySet().stream()//
+            .collect(Collectors.toMap(//
+                stringListEntry -> stringListEntry.getKey(),//
+                stringListEntry -> stringListEntry.getValue()));
+
     }
 
     @Test
