@@ -6,7 +6,6 @@
     <groupId>org.quickstart</groupId>
     <artifactId>quickstart-logging</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
 
@@ -18,7 +17,6 @@
   <description>Demo project for XXX</description>
 
   <properties>
-    <logback.version>1.2.3</logback.version>
   </properties>
 
   <dependencies>
@@ -26,7 +24,6 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>${logback.version}</version>
     </dependency>
 
 <!--    <dependency>-->
@@ -35,7 +32,6 @@
 <!--      <version>${logback.version}</version>-->
 <!--    </dependency>-->
 
-    <!-- https://mvnrepository.com/artifact/com.github.danielwegener/logback-kafka-appender -->
     <dependency>
       <groupId>com.github.danielwegener</groupId>
       <artifactId>logback-kafka-appender</artifactId>
