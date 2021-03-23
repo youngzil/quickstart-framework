@@ -1,12 +1,15 @@
 package org.quickstart.javase.jdk8.stream;
 
+import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @author youngzil@163.com
@@ -89,6 +92,46 @@ public class DemoListToMap {
         map.forEach((key, value) -> {
             System.out.println("key: " + key + "    value: " + value);
         });
+    }
+
+    @Test
+    public void testMapMerge() {
+
+        // [Java8合并两个Map中元素的正确姿势](https://blog.csdn.net/w605283073/article/details/82987157)
+
+        Map<String, Integer> map1 = ImmutableMap.of("a", 2, "b", 3);
+        Map<String, Integer> map2 = ImmutableMap.of("a", 3, "c", 4);
+        Map<String, Integer> map3 = new HashMap<>(map1);
+
+        map2.forEach((key, value) -> map3.merge(key, value, (v1, v2) -> v1 - v2));
+        System.out.println(map3);
+
+        //map2合并到map3(map1)中
+        map2.forEach((key, value) -> map3.merge(key, value, Integer::sum));
+
+        Map<String, Integer> result = Stream.concat(map1.entrySet().stream(), map2.entrySet().stream())//
+            .collect(Collectors.toMap(//
+                Map.Entry::getKey,//
+                Map.Entry::getValue,//
+                (value1, value2) -> value1 - value2));
+        System.out.println(result);
+
+        Map<String, Integer> result2 = Stream.of(map1, map2)//
+            .flatMap(map -> map.entrySet().stream())//
+            .collect(Collectors.toMap(//
+                Map.Entry::getKey,//
+                Map.Entry::getValue,//
+                (v1, v2) -> v1 - v2));
+        System.out.println(result2);
+
+        Map<String, Integer> result3 = map2.entrySet().stream()//
+            .collect(Collectors.toMap(//
+                Map.Entry::getKey,//
+                Map.Entry::getValue,//
+                (v1, v2) -> v1 - v2,//
+                () -> new HashMap<>(map1)));
+        System.out.println(result3);
+
     }
 
 }
