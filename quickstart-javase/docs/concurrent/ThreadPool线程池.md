@@ -6,6 +6,10 @@
 - [怎么理解无界队列和有界队列](#怎么理解无界队列和有界队列)
 - [线程池源码解读](#线程池源码解读)
 - [CompletionService解读](#CompletionService解读)
+- [定时任务线程池scheduleWithFixedDelay和scheduleAtFixedRate区别](#定时任务线程池scheduleWithFixedDelay和scheduleAtFixedRate区别)
+
+
+
 
 
 
@@ -165,13 +169,26 @@ https://juejin.im/post/5ac2eb52518825555e5e06ee
 
 
 
-ArrayBlockingQueue ：一个由数组结构组成的有界阻塞队列。
-LinkedBlockingQueue ：一个由链表结构组成的有界阻塞队列。该队列的默认和最大长度为 Integer.MAX_VALUE 
-PriorityBlockingQueue ：一个支持优先级排序的无界阻塞队列。
-DelayQueue：一个使用优先级队列实现的无界阻塞队列。
-SynchronousQueue：一个不存储元素的阻塞队列。
-LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
-LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
+
+JDK7 提供了 7 个阻塞队列。分别是
+- ArrayBlockingQueue ：一个由数组结构组成的有界阻塞队列。
+- LinkedBlockingQueue ：一个由链表结构组成的有界阻塞队列。该队列的默认和最大长度为 Integer.MAX_VALUE 
+- PriorityBlockingQueue ：一个支持优先级排序的无界阻塞队列。
+- DelayQueue：一个使用优先级队列实现的无界阻塞队列。
+- SynchronousQueue：一个不存储元素的阻塞队列。
+- LinkedTransferQueue：一个由链表结构组成的无界阻塞队列。
+- LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
+
+
+Java中的阻塞列队介绍
+- ArrayBlockingQueue：基于数组的有界阻塞队列，支持配置公平性策略。
+- LinkedBlockingQueue：基于链表的无界(默认Integer.MAX_VALUE)阻塞队列，Executors中newFixedThreadPool()和newSingleThreadExecutor()使用的工作队列，所以不推荐使用Executors。
+- LinkedBlockingDeque：基于链表的无界(默认Integer.MAX_VALUE)双向阻塞队列
+- LinkedTransferQueue：基于链表的无界阻塞队列，该队列提供transfer(e)方法,如果有消费者正在等待则直接把元素给消费者，否者将元素放在队列的tail节点并阻塞到该元素被消费。
+- PriorityBlockingQueue：支持优先级排序的无界阻塞队列，默认情况下采用自然顺序升序排序，也可以通过类重写compareTo()方法来指定元素排序规则，或者初始化队列时指定构造参数Comparator来排序。
+- DelayQueue：使用PriorityQueue实现的无界延时阻塞队列。
+- SynchronousQueue：不存储元素的阻塞队列，每一个put操作必须阻塞到一个take操作发生，否则不能继续添加元素。支持配置公平性策略。
+
 
 
 链表形式的队列，其存取效率要比数组形式的队列高。但是在一些并发程序中，数组形式的队列由于具有一定的可预测性，因此可以在某些场景中获得更高的效率
@@ -196,6 +213,12 @@ LinkedBlockingDeque：一个由链表结构组成的双向阻塞队列。
 https://www.zybuluo.com/mikumikulch/note/713546
 https://www.zybuluo.com/mikumikulch/note/712598
 https://www.jianshu.com/p/9710b899e749
+
+[Java中的阻塞队列](https://www.infoq.cn/article/java-blocking-queue)  
+[阻塞队列--CPU飙升排查案例](https://juejin.cn/post/6844903892799455245)  
+[]()  
+[]()  
+
 
 
 参考
@@ -266,7 +289,8 @@ https://zhuanlan.zhihu.com/p/33935753
 https://blog.csdn.net/programmer_at/article/details/79799267  
 http://ifeve.com/java-threadpoolexecutor/  
 
-
+[Java线程池实现原理及其在美团业务中的实践](https://tech.meituan.com/2020/04/02/java-pooling-pratice-in-meituan.html)  
+[]()  
 
 
 
@@ -341,5 +365,26 @@ state状态位来存储执行状态RUNNING、RUN、CANCELLED，当使用get()获
 ### 5、ThreadPoolExecutor
 
 (关于线程池的理解，可以查看 为什么要使用线程池? )
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+## 定时任务线程池scheduleWithFixedDelay和scheduleAtFixedRate区别
+
+- scheduleWithFixedDelay：指的是“以固定的频率”执行，跟任务执行时间无关
+- scheduleWithFixedDelay：指的是“以固定的延时”执行，任务执行后延时多久执行
+
+
+ScheduledExecutorService#scheduleAtFixedRate() 指的是“以固定的频率”执行，period（周期）指的是两次成功执行之间的时间
+比如，scheduleAtFixedRate(command, 5, 2, second)，第一次开始执行是5s后，假如执行耗时1s，那么下次开始执行是7s后，再下次开始执行是9s后
+
+而ScheduledExecutorService#scheduleWithFixedDelay() 指的是“以固定的延时”执行，delay（延时）指的是一次执行终止和下一次执行开始之间的延迟
+scheduleWithFixedDelay(command, 5, 2, second)，第一次开始执行是5s后，假如执行耗时1s，执行完成时间是6s后，那么下次开始执行是8s后，再下次开始执行是11s后
+
+scheduleWithFixedDelay ：
+官方意思是：创建一个给定初始延迟的间隔性的任务，之后的下次执行时间是上一次任务从执行到结束所需要的时间+给定的间隔时间。举个例子：比如我给定任务的初始延迟(long initialdelay)是12:00， 间隔为1分钟 。 那么这个任务会在12:00 首次创建并执行，如果该任务从执行到结束所需要消耗的时间为1分钟，那么下次任务执行的时间理应从12：01 再加上设定的间隔1分钟，那么下次任务执行时间是12:02 。这里的间隔时间（delay） 是从上次任务执行结束开始算起的。
+
+scheduleAtFixedRate ：
+官方文档意思为：创建一个给定初始延迟的间隔性的任务，之后的每次任务执行时间为 初始延迟 + N * delay(间隔)  。这里的N为首次任务执行之后的第N个任务，N从1开始，意识就是 首次执行任务的时间为12:00 那么下次任务的执行时间是固定的 是12:01 下下次为12:02。与scheduleWithFixedDelay 最大的区别就是 ，scheduleAtFixedRate  不受任务执行时间的影响。
 
 

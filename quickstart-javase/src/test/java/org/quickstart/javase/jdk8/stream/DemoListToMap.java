@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -108,13 +109,18 @@ public class DemoListToMap {
 
         //map2合并到map3(map1)中
         map2.forEach((key, value) -> map3.merge(key, value, Integer::sum));
+        // (a, b) -> Stream.concat(a.stream(), b.stream()).collect(Collectors.toSet())
 
         Map<String, Integer> result = Stream.concat(map1.entrySet().stream(), map2.entrySet().stream())//
             .collect(Collectors.toMap(//
                 Map.Entry::getKey,//
                 Map.Entry::getValue,//
                 (value1, value2) -> value1 - value2));
+        // (value1, value2) -> Stream.concat(value1.stream(), value2.stream()).collect(Collectors.toSet())));
+
         System.out.println(result);
+
+
 
         Map<String, Integer> result2 = Stream.of(map1, map2)//
             .flatMap(map -> map.entrySet().stream())//
