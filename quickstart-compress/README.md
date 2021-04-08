@@ -5,6 +5,23 @@ compression library
 ---------------------------------------------------------------------------------------------------------------------
 
 
+Zstandard - Fast real-time compression algorithm
+
+
+
+
+
+[zstd文档](https://facebook.github.io/zstd/)  
+[zstd Github](https://github.com/facebook/zstd)  
+[zstd各个语言实现](https://facebook.github.io/zstd/#other-languages)  
+[zstd Java](https://github.com/luben/zstd-jni)  
+[A port of Snappy, LZO, LZ4, and Zstandard to Java](https://github.com/airlift/aircompressor)
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+Snappy
+
 [Snappy官网](http://google.github.io/snappy/)  
 [Snappy Github](https://github.com/google/snappy)
 
@@ -24,10 +41,21 @@ Snappy在某些Google演示文稿等中以前被称为“ Zippy”。
 
 
 
+snappy项目：https://code.google.com/p/snappy/
+https://github.com/google/snappy
+https://github.com/xerial/snappy-java
+
+Snappy是在谷歌内部生产环境中被许多项目使用的压缩库，包括BigTable，MapReduce和RPC等。谷歌表示算法库针对性能做了调整，而不是针对压缩比或与其他类似工具的兼容性。在Intel酷睿i7处理器上，其单核处理数据流的能力达到250M/s-500M/s。Snappy同时针对64位x86处理器进行了优化，在英特尔酷睿i7处理器单一核心实现了至少250MB/s的压缩性能和500MB/ s的解压缩性能。Snappy对于纯文本的压缩率为1.5-1.7，对于HTML是2-4，当然了对于JPEG、PNG和其他已经压缩过的数据压缩率为1.0。谷歌强劲吹捧Snappy的鲁棒性，称其是“即使面对损坏或恶意输入也不会崩溃的设计”，并且在谷歌的生产环境中经过了PB级数据压缩的考验而稳定的。
+
+
+
+
 Snappy compressor/decompressor for Java
 
 [snappy-java官网](https://xerial.org/snappy-java/)  
-[snappy-java](https://github.com/xerial/snappy-java)
+[snappy-java](https://github.com/xerial/snappy-java)  
+
+[A port of Snappy, LZO, LZ4, and Zstandard to Java](https://github.com/airlift/aircompressor)
 
 
 [Snappy Java API简介](https://blog.csdn.net/cjf_wei/article/details/80635983)  
@@ -76,6 +104,16 @@ Commons Compress支持很多压缩格式，在指定压缩格式时，可以直�
 
 ---------------------------------------------------------------------------------------------------------------------
 
+[A port of Snappy, LZO, LZ4, and Zstandard to Java](https://github.com/airlift/aircompressor)  
+
+
+
+
+Brotli compression format
+
+[brotli官网](https://www.brotli.org/)  
+[brotli Github](https://github.com/google/brotli)  
+
 
 
 
@@ -104,14 +142,10 @@ LZ4是无损压缩算法，每个核心提供的压缩速度> 500 MB / s（> 0.1
 参考示例
 https://www.programcreek.com/java-api-examples/index.php?api=net.jpountz.lz4.LZ4Compressor
 
+[A port of Snappy, LZO, LZ4, and Zstandard to Java](https://github.com/airlift/aircompressor)
 
 
-Snappy
-snappy项目：https://code.google.com/p/snappy/
-https://github.com/google/snappy
-https://github.com/xerial/snappy-java
-Snappy
-Snappy是在谷歌内部生产环境中被许多项目使用的压缩库，包括BigTable，MapReduce和RPC等。谷歌表示算法库针对性能做了调整，而不是针对压缩比或与其他类似工具的兼容性。在Intel酷睿i7处理器上，其单核处理数据流的能力达到250M/s-500M/s。Snappy同时针对64位x86处理器进行了优化，在英特尔酷睿i7处理器单一核心实现了至少250MB/s的压缩性能和500MB/ s的解压缩性能。Snappy对于纯文本的压缩率为1.5-1.7，对于HTML是2-4，当然了对于JPEG、PNG和其他已经压缩过的数据压缩率为1.0。谷歌强劲吹捧Snappy的鲁棒性，称其是“即使面对损坏或恶意输入也不会崩溃的设计”，并且在谷歌的生产环境中经过了PB级数据压缩的考验而稳定的。
+
 
 
 LZF：
