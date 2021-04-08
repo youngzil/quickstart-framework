@@ -1,4 +1,4 @@
-package org.quickstart.javase.jdk;
+package org.quickstart.javase.jdk.util.regex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,7 +10,7 @@ import org.junit.Test;
  * @description TODO
  * @createTime 2019-07-10 22:51
  */
-public class RegexTest {
+public class RegexTest2 {
 
   // https://blog.csdn.net/hc1151310108/article/details/80274452
 
