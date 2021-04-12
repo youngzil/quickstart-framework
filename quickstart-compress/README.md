@@ -2,6 +2,8 @@ compression library
 
 
 
+
+
 ---------------------------------------------------------------------------------------------------------------------
 
 
@@ -151,6 +153,15 @@ https://www.programcreek.com/java-api-examples/index.php?api=net.jpountz.lz4.LZ4
 LZF：
 http://www.veryhuo.com/a/manual/php/function.lzf-compress.html
 http://www.quicklz.com/
+
+
+
+一个LZF实现库
+
+High-performance, streaming/chunking Java LZF codec, compatible with standard C LZF package
+
+[LZF Compressor](https://github.com/ning/compress)
+
 
 
 

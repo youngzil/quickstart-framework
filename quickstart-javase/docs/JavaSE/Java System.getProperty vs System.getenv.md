@@ -15,6 +15,13 @@ System 类中有两个方法，分别来读取系统属性（system properties�
 3. 系统属性 在打包应用时就必须存在1，而 环境变量 则任意时刻都可以在操作系统中创建。
 
 
+
+- System.getProperty()所获取的Property是可读可写的，而System.getenv()获取的环境变量只可读不可写。
+- System.getProperty()要求我们提供默认项，而使用System.getenv()时需要考虑null的情况
+- Property只对Java程序有影响，而环境变量会影响整个平台下的所有应有程序
+
+
+
 Java中系统变量和环境变量的区别:
 - 系统变量指的是通过-D这种方式给的值，通过System.getProperty()来获取值，默认获取到的系统变量部分以java.开头，还有一些其他系统变量，通过System.getProperties().list(System.out)即可打印出来。
 - 环境变量指的是操作系统中配置的环境变量，以windows系统为例，就是高级系统设置里面的环境变量，其中用户变量会覆盖系统环境变量。通过System.getEnv()可以查看。
@@ -26,6 +33,8 @@ Java中系统变量和环境变量的区别:
 
 
 [Java System.getProperty vs System.getenv](https://www.baeldung.com/java-system-get-property-vs-system-getenv)  
+[java 的 System.getenv() 和 System.getProperty()](https://blog.csdn.net/jijianshuai/article/details/78863032)  
+[Java利用System.getenv()和System.getProperty()来读取配置信息](https://www.jianshu.com/p/cca0cdec9b1f)  
 [Java System.getProperty VS. System.getenv（译）](https://blog.xiayf.cn/2019/06/25/java-prop-env/)  
 [Java System.getProperty 和 System.getenv 区别](https://blog.csdn.net/neweastsun/article/details/81590821)  
 [java获取和设置系统变量(环境变量)](https://blog.csdn.net/u013514928/article/details/78147421)  
