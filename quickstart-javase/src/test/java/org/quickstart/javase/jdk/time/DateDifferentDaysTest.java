@@ -1,4 +1,4 @@
-package org.quickstart.javase.jdk;
+package org.quickstart.javase.jdk.time;
 
 import org.junit.Test;
 import sun.net.www.content.text.Generic;

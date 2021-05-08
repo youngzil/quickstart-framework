@@ -21,7 +21,7 @@
 ssh -t -p 22022 aifgw@192.168.0.1 "mkdir test"
 
 
-
+ssh appweb@10.1.36.143 "hostname -I;ps -ef|grep java"
 
 
 

@@ -17,7 +17,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <guava.version>30.0-jre</guava.version>
+<!--    <guava.version>30.0-jre</guava.version>-->
   </properties>
 
   <dependencies>
@@ -25,7 +25,6 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>${guava.version}</version>
     </dependency>
 
   </dependencies>

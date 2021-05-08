@@ -7,6 +7,8 @@ telnet 127.0.0.1 8080
 
 
 
+[ping命令的七种用法](https://www.jianshu.com/p/1d7b650217d5)  
+
 
 
 
