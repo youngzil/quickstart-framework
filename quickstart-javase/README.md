@@ -7,6 +7,18 @@ https://github.com/eclipse-ee4j/jta-api
 https://github.com/eclipse-ee4j/security-api
 
 
+[OpenJDK官网](http://openjdk.java.net/)  
+[JCP官网](https://www.jcp.org/en/home/index)  
+[已经完成的JSR](https://www.jcp.org/en/jsr/stage?listBy=final)  
+
+
+JCP（Java Community Process）成立于1998年，是使有兴趣的各方参与定义Java的特征和未来版本的正式过程。
+
+JCP使用JSR（Java规范请求，Java Specification Requests）作为正式规范文档，描述被提议加入到Java体系中的的规范和技术。
+
+JSR变为final状态前需要正式的公开审查，并由JCP Executive Committee投票决定。最终的JSR会提供一个参考实现，它是免费而且公开源代码的；还有一个验证是否符合API规范的Technology Compatibility Kit。
+
+
 
 
 [Java并发思考-导读&总结篇](https://www.jianshu.com/p/9ed8e51c3ed1)

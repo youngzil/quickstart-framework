@@ -37,7 +37,7 @@ UNIX 是一个交互式系统，用于同时处理多进程和多用户同时在
 ##  Linux接口
 
 Linux 系统是一种金字塔模型的系统
-![Linux接口模型](../../images/Linux%E6%8E%A5%E5%8F%A3%E6%A8%A1%E5%9E%8B.png "ReferencePicture")
+![Linux接口模型](../images/Linux接口模型.png "ReferencePicture")
 
 Linux 具有三种不同的接口：  
 1、系统调用接口  
@@ -103,7 +103,7 @@ Linux 的命令行也就是 shell，它由大量标准应用程序组成。这�
 
 
 ## Linux内核结构
-![Linux内核结构](../../images/Linux内核结构.png "ReferencePicture")
+![Linux内核结构](../images/Linux内核结构.png "ReferencePicture")
 
 我们把内核系统分为三部分。
 - I/O 部分负责与设备进行交互以及执行网络和存储 I/O 操作的所有内核部分。
@@ -245,7 +245,7 @@ Sleep函数就是干这事的，他告诉操作系统“在未来的多少毫秒
 Linux内存管理模型非常直接明了，因为 Linux 的这种机制使其具有可移植性并且能够在内存管理单元相差不大的机器下实现 Linux
 
 每个 Linux 进程都会有地址空间，这些地址空间由三个段区域组成：text 段、data 段、stack 段。
-![Linux内存空间](../../images/Linux内存空间.png "ReferencePicture")
+![Linux内存空间](../images/Linux内存空间.png "ReferencePicture")
 
 
 
@@ -269,7 +269,7 @@ Linux 中也有磁盘、打印机、网络等 I/O 设备，Linux 把这些设备
 
 I/O 的另外一个概念是网络， 也是由 UNIX 引入，网络中一个很关键的概念就是 套接字(socket)。套接字允许用户连接到网络，正如邮筒允许用户连接到邮政系统
 套接字的示意图如下
-![Linux套接字](../../images/Linux套接字.png "ReferencePicture")
+![Linux套接字](../images/Linux套接字.png "ReferencePicture")
 
 套接字的位置如上图所示，  
 套接字可以动态创建和销毁。  

@@ -1,3 +1,25 @@
+
+
+递归搜索，搜索当前目录和子目录
+grep -r "hello world" *.txt
+
+显示行号
+grep -n "hello world" *.txt
+
+匹配时忽略字母的大小写
+grep -i "hello world" *.txt
+
+只列出含有匹配的文本行的文件的文件名，而不显示具体的匹配内容
+grep -l "hello world" *.txt
+
+
+
+
+[Linux grep 命令](https://www.runoob.com/linux/linux-comm-grep.html)  
+
+
+
+
 grep: Gloabal Search Regular Expression and Print out the line，意为全局搜索正则表达式并打印文本行。所以
 
 grep是一个强大的文本搜索工具
