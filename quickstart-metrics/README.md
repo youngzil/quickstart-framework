@@ -1,6 +1,20 @@
+- [Yammer Metrics的使用](#Yammer-Metrics的使用)
+- [Dropwizard Metrics介绍](#Dropwizard-Metrics介绍)
+- [Metrics + InfluxDB + Grafana 组成的监控系统](#Metrics-InfluxDB-Grafana组成的监控系统)
+- [Micrometer介绍](#Micrometer介绍)
+- [Alibaba metrics介绍](#Alibaba-metrics介绍)
+
+---------------------------------------------------------------------------------------------------------------------
+## Dropwizard Metrics介绍
+
 [Metrics官网](https://metrics.dropwizard.io/)  
 [Metrics文档](https://metrics.dropwizard.io/4.1.2/manual/index.html)  
 [Metrics操作手册](https://metrics.dropwizard.io/4.1.2/getting-started.html)  
+[dropwizard metrics github](https://github.com/dropwizard/metrics)  
+
+[dropwizard metrics 3.X文档](https://metrics.dropwizard.io/3.1.0/)  
+[dropwizard metrics 2.X文档](https://metrics.dropwizard.io/2.2.0/)  
+
 
 📈 Capturing JVM- and application-level metrics. So you know what's going on.
 
@@ -62,9 +76,9 @@ Metrics的五种类型
 [Metrics —— JVM上的实时监控类库](https://www.jianshu.com/p/e4f70ddbc287)  
 
 
+---------------------------------------------------------------------------------------------------------------------
 
-
-
+## Metrics InfluxDB Grafana组成的监控系统
 Metrics + InfluxDB + Grafana 组成的监控系统
 
 
@@ -107,16 +121,269 @@ Influxdb的Reporte：
 
 
 
-Yammer Metrics的官网
+---------------------------------------------------------------------------------------------------------------------
 
-之前的版本
-https://github.com/codahale/metrics
+## Yammer Metrics的使用
 
-新的版本
-https://github.com/dropwizard/metrics
+基本没见到人使用
+
+Yammer Metrics和dropwizard metrics的关系
+
+猜测Yammer Metrics是之前的老的版本，新的版本就是dropwizard metrics了
 
 
-[Yammer Metrics的使用](https://ningg.top/yammer-metrics/)  
+
+[metrics之前的版本](https://github.com/codahale/metrics)  
+[dropwizard metrics github](https://github.com/dropwizard/metrics)  
+
+
+
+[Yammer Metrics的使用](https://ningg.top/yammehttps://github.com/codahale/metricsr-metrics/)  
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+## Micrometer介绍
+
+[Micrometer官网](https://micrometer.io/)  
+[Micrometer文档](https://micrometer.io/docs)  
+[Micrometer Github](https://github.com/micrometer-metrics/micrometer)  
+[]()  
+[]()  
+[]()  
+[]()  
+
+
+从官网介绍，Micrometer是想做一个facade，就好像SLF4J一样
+
+也提供了对Dropwizard Metrics的封装
+
+Micrometer provides a simple facade over the instrumentation clients for the most popular monitoring systems, allowing you to instrument your JVM-based application code without vendor lock-in. Think SLF4J, but for metrics.
+
+Micrometer 为最流行的监控系统的检测客户端提供了一个简单的外观，允许您检测基于 JVM 的应用程序代码而不会被供应商锁定。想想 SLF4J，但对于指标。
+
+
+
+An application metrics facade for the most popular monitoring tools. Think SLF4J, but for metrics.
+
+最流行的监控工具的应用程序指标外观。想想 SLF4J，但对于指标。
+
+
+
+Contains built-in support for AppOptics, Azure Monitor, Netflix Atlas, CloudWatch, Datadog, Dynatrace, Elastic, Ganglia, Graphite, Humio, Influx/Telegraf, JMX, KairosDB, New Relic, Prometheus, SignalFx, Google Stackdriver, StatsD, and Wavefront.
+
+内置支持的包括：AppOptics, Azure Monitor, Netflix Atlas, CloudWatch, Datadog, Dynatrace, Elastic, Ganglia, Graphite, Humio, Influx/Telegraf, JMX, KairosDB, New Relic, Prometheus, SignalFx, Google Stackdriver, StatsD, and Wavefront.
+
+
+
+
+
+
+
+## Micrometer使用
+
+Micrometer（译：千分尺）
+
+Micrometer为最流行的监控系统提供了一个简单的仪表客户端外观，允许仪表化JVM应用，而无需关心是哪个供应商提供的指标。它的作用和SLF4J类似，只不过它关注的不是Logging（日志），而是application metrics（应用指标）。简而言之，它就是应用监控界的SLF4J。
+
+
+不妨看看SLF4J官网上对于SLF4J的说明：Simple Logging Facade for Java (SLF4J)
+
+现在再看Micrometer的说明：Micrometer provides a simple facade over the instrumentation clients for the most popular monitoring systems.
+
+
+
+Metrics（译：指标，度量）
+
+Micrometer提供了与供应商无关的接口，包括 timers（计时器）， gauges（量规）， counters（计数器）， distribution summaries（分布式摘要）， long task timers（长任务定时器）。它具有维度数据模型，当与维度监视系统结合使用时，可以高效地访问特定的命名度量，并能够跨维度深入研究。
+
+支持的监控系统：AppOptics ， Azure Monitor ， Netflix Atlas ， CloudWatch ， Datadog ， Dynatrace ， Elastic ， Ganglia ， Graphite ， Humio ， Influx/Telegraf ， JMX ， KairosDB ， New Relic ， Prometheus ， SignalFx ， Google Stackdriver ， StatsD ， Wavefront
+
+
+为了使用Micrometer，首先要添加你所选择的监视系统的依赖。以Prometheus为例：
+```
+<dependency>
+    <groupId>io.micrometer</groupId>
+        <artifactId>micrometer-registry-prometheus</artifactId>
+        <version>${micrometer.version}</version>
+</dependency>
+```
+
+
+
+## Micrometer概念
+
+
+### Registry
+
+Meter是收集关于你的应用的一系列指标的接口。Meter是由MeterRegistry创建的。每个支持的监控系统都必须实现MeterRegistry。
+
+Micrometer中包含一个SimpleMeterRegistry，它在内存中维护每个meter的最新值，并且不将数据导出到任何地方。如果你还没有一个首选的监测系统，你可以先用SimpleMeterRegistry
+
+注意：如果你用Spring的话，SimpleMeterRegistry是自动注入的
+
+Micrometer还提供一个CompositeMeterRegistry用于将多个registries结合在一起使用，允许同时向多个监视系统发布指标。 
+
+
+
+### Meters
+
+Micrometer提供一系列原生的Meter，包括Timer , Counter , Gauge , DistributionSummary , LongTaskTimer , FunctionCounter , FunctionTimer , TimeGauge。不同的meter类型导致有不同的时间序列指标值。例如，单个指标值用Gauge表示，计时事件的次数和总时间用Timer表示。
+
+每一项指标都有一个唯一标识的名字和维度。“维度”和“标签”是一个意思，Micrometer中有一个Tag接口，仅仅因为它更简短。一般来说，应该尽可能地使用名称作为轴心。
+
+（PS：指标的名字很好理解，维度怎么理解呢？如果把name想象成横坐标的话，那么dimension就是纵坐标。Tag是一个key/value对，代表指标的一个维度值） 
+
+
+### Naming meters（指标命名）
+
+Micrometer使用了一种命名约定，用.分隔小写单词字符。不同的监控系统有不同的命名约定。每个Micrometer的实现都要负责将Micrometer这种以.分隔的小写字符命名转换成对应监控系统推荐的命名。你可以提供一个自己的NamingConvention来覆盖默认的命名转换：
+
+
+
+### Meter filters
+
+每个registry都可以配置指标过滤器，它有3个方法：
+
+- Deny (or accept) meters from being registered
+- Transform meter IDs
+- Configure distribution statistics for some meter types.
+
+实现MeterFilter就可以加到registry中
+
+过滤器按顺序应用，所有的过滤器形成一个过滤器链（chain） 
+
+
+Deny/accept meters 接受或拒绝指标
+
+MeterFilter还提供了许多方便的静态方法用于接受或拒绝指标 
+
+
+
+
+
+## Micrometer提供一系列原生的Meter
+
+### Counters（计数器）
+
+Counter接口允许以固定的数值递增，该数值必须为正数。 
+
+
+
+### Gauges
+
+gauge是获取当前值的句柄。典型的例子是，获取集合、map、或运行中的线程数等。
+
+MeterRegistry接口包含了用于构建gauges的方法，用于观察数字值、函数、集合和map。
+
+
+
+### Timers（计时器）
+
+Timer用于测量短时间延迟和此类事件的频率。所有Timer实现至少将总时间和事件次数报告为单独的时间序列。
+
+例如，可以考虑用一个图表来显示一个典型的web服务器的请求延迟情况。服务器可以快速响应许多请求，因此定时器每秒将更新很多次。
+
+
+
+
+### Long task timers
+
+长任务计时器用于跟踪所有正在运行的长时间运行任务的总持续时间和此类任务的数量。
+
+Timer记录的是次数，Long Task Timer记录的是任务时长和任务数
+
+
+
+
+### Distribution summaries（分布汇总）
+
+distribution summary用于跟踪分布式的事件。它在结构上类似于计时器，但是记录的值不代表时间单位。例如，记录http服务器上的请求的响应大小。
+
+
+
+### Histograms and percentiles（直方图和百分比）
+
+Timers 和 distribution summaries 支持收集数据来观察它们的百分比。查看百分比有两种主要方法：
+
+Percentile histograms（百分比直方图）：  Micrometer将值累积到底层直方图，并将一组预先确定的buckets发送到监控系统。监控系统的查询语言负责从这个直方图中计算百分比。目前，只有Prometheus , Atlas , Wavefront支持基于直方图的百分位数近似值，并且通过histogram_quantile , :percentile , hs()依次表示。
+
+Client-side percentiles（客户端百分比）：Micrometer为每个meter ID（一组name和tag）计算百分位数近似值，并将百分位数值发送到监控系统。
+
+
+
+
+
+参考  
+[Micrometer 快速入门](https://www.cnblogs.com/cjsblog/p/11556029.html)  
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+
+## Alibaba metrics介绍
+
+[Alibaba metrics Gtihub](https://github.com/alibaba/metrics)  
+[Alibaba metrics文档](https://github.com/alibaba/metrics/wiki/demo)  
+
+
+Dubbo Metrics 的代码是基于 Dropwizard Metrics 衍生而来，版本号是3.1.0，当时决定 fork 到内部进行定制化开发的主要原因有两个。
+
+一是社区的发展非常缓慢，3.1.0之后的第3年才更新了下一个版本，我们担心社区无法及时响应业务需求；
+
+另一个更重要的原因是当时的3.1.0还不支持多维度的 Tag，只能基于 a.b.c 这样传统的指标命名方法，这就意味着 Dropwizard Metrics 只能在单维度进行度量。然后，在实际的业务过程中，很多维度并不能事先确定，而且在大规模分布式系统下，数据统计好以后，需要按照各种业务维度进行聚合，例如按机房、分组进行聚合，当时的 Dropwizard 也无法满足，种种原因使得我们做了一个决定，内部fork一个分支进行发展。
+
+
+
+
+[如何使用](https://github.com/alibaba/metrics/wiki/quick-start)
+
+使用方式很简单，和日志框架的Logger获取方式一致。
+
+Counter hello = MetricManager.getCounter("test", MetricName.build("test.my.counter"));
+hello.inc();
+
+
+
+支持的度量器包括：
+- Counter（计数器）
+- Meter（吞吐率度量器）
+- Histogram（直方分布度量器）
+- Gauge(瞬态值度量器)
+- Timer（吞吐率和响应时间分布度量器）
+- Compass(吞吐率， 响应时间分布， 成功率和错误码度量器)
+- FastCompass(一种快速高效统计吞吐率，平均响应时间，成功率和错误码的度量器)
+- ClusterHistogram(集群分位数度量器)
+
+
+
+
+
+
+参考  
+[Dubbo Metrics 发布新版本 2.0.1 | Dubbo 的度量统计基础设施](https://www.oschina.net/news/105163/dubbo-metrics-2-0-1-released)  
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+[微服务架构之 Metrics 监控：Prometheus](https://xinlichao.cn/back-end/java/prometheus/)  
+[Metrics：让微服务运行更透明](https://cloud.tencent.com/developer/article/1084291)  
+[论分布式系统中Metric框架的设计](https://blog.csdn.net/Androidlushangderen/article/details/100752425)  
+
+[Linux内核TCP Metrics框架](https://segmentfault.com/a/1190000020473127)  
+[Apache Flink 进阶（八）：详解 Metrics 原理与实战](https://www.infoq.cn/article/ujnzzimkdyif5rxwke7i)  
+[]()  
+[]()  
+
+
+
 
 
 
