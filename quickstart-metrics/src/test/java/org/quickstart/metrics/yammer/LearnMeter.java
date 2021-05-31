@@ -1,4 +1,4 @@
-package org.quickstart.yammer.metrics;
+package org.quickstart.metrics.yammer;
 
 import com.yammer.metrics.Metrics;
 import com.yammer.metrics.core.Meter;

@@ -1,4 +1,4 @@
-package org.quickstart.influxdb;
+package org.quickstart.metrics.dropwizard.influxdb;
 
 import com.codahale.metrics.Meter;
 import com.codahale.metrics.MetricFilter;
@@ -7,7 +7,7 @@ import com.izettle.metrics.influxdb.InfluxDbHttpSender;
 import com.izettle.metrics.influxdb.InfluxDbReporter;
 import com.izettle.metrics.influxdb.InfluxDbSender;
 import org.junit.Test;
-import org.quickstart.dropwizard.metrics.MeterTest;
+import org.quickstart.metrics.dropwizard.MeterTest;
 
 import java.util.HashMap;
 import java.util.Map;

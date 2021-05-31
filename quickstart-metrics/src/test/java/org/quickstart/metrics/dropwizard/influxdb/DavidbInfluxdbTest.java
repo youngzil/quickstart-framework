@@ -1,4 +1,4 @@
-package org.quickstart.influxdb;
+package org.quickstart.metrics.dropwizard.influxdb;
 
 import com.codahale.metrics.Meter;
 import com.codahale.metrics.MetricFilter;
@@ -8,7 +8,7 @@ import metrics_influxdb.HttpInfluxdbProtocol;
 import metrics_influxdb.InfluxdbReporter;
 import metrics_influxdb.api.measurements.CategoriesMetricMeasurementTransformer;
 import org.junit.Test;
-import org.quickstart.dropwizard.metrics.MeterTest;
+import org.quickstart.metrics.dropwizard.MeterTest;
 
 import java.util.concurrent.TimeUnit;
 

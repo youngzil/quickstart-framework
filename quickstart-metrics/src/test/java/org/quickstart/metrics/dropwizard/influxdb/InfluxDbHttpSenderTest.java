@@ -1,4 +1,4 @@
-package org.quickstart.influxdb;
+package org.quickstart.metrics.dropwizard.influxdb;
 
 import com.izettle.metrics.influxdb.InfluxDbHttpSender;
 import com.izettle.metrics.influxdb.InfluxDbSender;

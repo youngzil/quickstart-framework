@@ -1,4 +1,4 @@
-package org.quickstart.dropwizard.metrics;
+package org.quickstart.metrics.dropwizard;
 
 import com.codahale.metrics.ConsoleReporter;
 import com.codahale.metrics.MetricRegistry;
