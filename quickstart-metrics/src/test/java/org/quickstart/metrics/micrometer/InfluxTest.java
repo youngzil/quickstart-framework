@@ -1,4 +1,4 @@
-package org.quickstart.metrics.micrometer.influx;
+package org.quickstart.metrics.micrometer;
 
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.core.instrument.Counter;

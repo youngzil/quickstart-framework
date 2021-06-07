@@ -154,6 +154,10 @@ Yammer Metrics和dropwizard metrics的关系
 []()  
 
 
+Vendor-neutral application metrics facade
+供应商中立的应用程序指标外观
+
+
 从官网介绍，Micrometer是想做一个facade，就好像SLF4J一样
 
 也提供了对Dropwizard Metrics的封装
@@ -317,6 +321,22 @@ Client-side percentiles（客户端百分比）：Micrometer为每个meter ID（
 参考  
 [Micrometer 快速入门](https://www.cnblogs.com/cjsblog/p/11556029.html)  
 
+[基于Micrometer和Prometheus实现度量和监控的方案](https://juejin.cn/post/6847902218910334984#heading-10)
+
+[Spring Boot 使用 Micrometer 集成 Prometheus 监控 Java 应用性能](https://blog.csdn.net/u011250186/article/details/106552199)  
+[Micrometer简介及其在SLA指标测量中的使用](https://blog.csdn.net/qiyanli123/article/details/107573921)  
+[]()  
+[]()  
+
+
+
+
+## Micrometer使用示例
+
+[Micrometer使用介绍](https://www.tony-bro.com/posts/1386774700/index.html)
+[micrometer samples](https://github.com/micrometer-metrics/micrometer/tree/main/samples)
+[Micrometer Concepts](https://micrometer.io/docs/concepts)  
+[Quick Guide to Micrometer](https://www.baeldung.com/micrometer)
 
 
 
