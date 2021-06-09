@@ -3,6 +3,7 @@ package org.quickstart.metrics.micrometer;
 import com.sun.net.httpserver.HttpServer;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.Metrics;
+import io.micrometer.core.instrument.Tag;
 import io.micrometer.core.instrument.Timer;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
 import io.micrometer.prometheus.PrometheusConfig;
@@ -11,6 +12,7 @@ import io.micrometer.prometheus.PrometheusMeterRegistry;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -24,6 +26,8 @@ public class PrometheusTest {
 
     public static void main(String[] args) {
 
+        // 启动后访问http://localhost:8090/prometheus
+
         // [Micrometer Prometheus](https://micrometer.io/docs/registry/prometheus)
 
         // 创建各类Meter的方式：
@@ -35,6 +39,8 @@ public class PrometheusTest {
         timer2.record(() -> createOrder("test2"));
 
         PrometheusMeterRegistry prometheusRegistry = new PrometheusMeterRegistry(PrometheusConfig.DEFAULT);
+        prometheusRegistry.config().commonTags("stack", "prod", "ip", "localhost");
+        // prometheusRegistry.config().commonTags(Arrays.asList(Tag.of("stack", "prod"), Tag.of("region", "us-east-1"))); // equivalently
 
         Timer timer3 = prometheusRegistry.timer("timer3", "createOrder", "cost");
         timer3.record(() -> createOrder("test3"));
@@ -78,6 +84,8 @@ public class PrometheusTest {
 
 
             new Thread(server::start).start();
+
+            System.out.println("PrometheusTest started");
 
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);

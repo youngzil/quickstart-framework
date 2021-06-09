@@ -179,6 +179,8 @@ Contains built-in support for AppOptics, Azure Monitor, Netflix Atlas, CloudWatc
 内置支持的包括：AppOptics, Azure Monitor, Netflix Atlas, CloudWatch, Datadog, Dynatrace, Elastic, Ganglia, Graphite, Humio, Influx/Telegraf, JMX, KairosDB, New Relic, Prometheus, SignalFx, Google Stackdriver, StatsD, and Wavefront.
 
 
+不过要知道Micrometer与Spring属于同门，都是Pivotal旗下的产品。
+
 
 
 
@@ -337,6 +339,30 @@ Client-side percentiles（客户端百分比）：Micrometer为每个meter ID（
 [micrometer samples](https://github.com/micrometer-metrics/micrometer/tree/main/samples)
 [Micrometer Concepts](https://micrometer.io/docs/concepts)  
 [Quick Guide to Micrometer](https://www.baeldung.com/micrometer)
+
+
+
+
+
+### Cumulate与Step
+
+对于一个完整的监控体系来说，通常至少会有三个部分：应用程序、监控数据存储、监控数据表现
+
+对于一个完整的监控体系来说，通常至少会有三个部分：应用程序、监控数据存储、监控数据表现，而某些框架或者工具会同时包含其中的多个或者多个工具共同组成一个部分，从而产生各种各样的组合。对于速率、平均值、事件分布、延迟等与时间窗口相关的监控指标（Rate aggregation）可以在不同的部分进行处理，例如对于某个接口请求速度的监控，可以在应用层计算好直接发送速度值；也可以直接发送请求数量到存储层然后由表现层来计算速度；又或者是由应用层存储累加值，由其他工具主动来抓取每个时刻的状态。
+
+
+所以在应用层，有的Meter会有两种类型：累加（Accumulate）与滚动（Step）。以Counter为例，该基接口在core包提供的默认实现中包括：CumulativeCounter和StepCounter，源码并不复杂，直接列出：
+
+
+此外还有Timer与Distribution Summary（它们两个行为基本一致）。对于它们来说，单纯地使用Cumulative模式基本上没什么意义，因为通常来说事件是频繁的而有价值的是每个时间段范围内的统计，这也导致在初步了解学习过程中可能会对Timer的功能产生疑惑，尤其是和其他没有Step性质的Meter放在一起理解的时候。
+
+这两个概念在官方文档中描述地比较“玄乎”，但这对理解和使用Counter、Timer等是非常重要的，额外注意Counter的使用，因为确实有不少情况是要统计整个生命周期的计数值，这个时候如果你使用的是以Step为实现的Registry，就需要额外处理，避免从StepCounter抓取出局部范围内的累加值。
+
+
+参考  
+[Micrometer使用介绍](https://www.tony-bro.com/posts/1386774700/index.html)  
+
+
 
 
 
