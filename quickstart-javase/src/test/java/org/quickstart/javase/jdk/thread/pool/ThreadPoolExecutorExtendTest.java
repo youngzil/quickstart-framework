@@ -1,16 +1,18 @@
 /**
- * 项目名称：quickstart-javase 
+ * 项目名称：quickstart-javase
  * 文件名：ThreadPoolExecutorExtendTest.java
  * 版本信息：
  * 日期：2017年8月25日
  * Copyright yangzl Corporation 2017
  * 版权所有 *
  */
-package org.quickstart.javase.jdk;
+package org.quickstart.javase.jdk.thread.pool;
 
 import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executors;
-import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
@@ -18,7 +20,7 @@ import java.util.logging.Logger;
 
 /**
  * ThreadPoolExecutorExtendTest
- * 
+ *
  * @author：youngzil@163.com
  * @2017年8月25日 上午11:34:07
  * @since 1.0
@@ -35,18 +37,32 @@ public class ThreadPoolExecutorExtendTest extends ThreadPoolExecutor {
     unit：线程池维护所允许的空闲时间的单位
     workQueue：线程池所使用的缓存队列
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ExecutionException, InterruptedException {
 
-        ThreadPoolExecutor exec = new ThreadPoolExecutorExtendTest(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
-        exec.execute(new DoSomething(5));
-        exec.execute(new DoSomething(4));
-        exec.execute(new DoSomething(3));
-        exec.execute(new DoSomething(2));
-        exec.execute(new DoSomething(1));
+        // ThreadPoolExecutor exec = new ThreadPoolExecutorExtendTest(2, 2, 60L, TimeUnit.SECONDS, new SynchronousQueue<Runnable>());
+        ThreadPoolExecutor exec = new ThreadPoolExecutorExtendTest(2, 2, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue<>());
+        Future task1 = exec.submit(new DoSomething(5));
+        Future task2 = exec.submit(new DoSomething(4));
+        Future task3 = exec.submit(new DoSomething(3));
+        Future task4 = exec.submit(new DoSomething(2));
+        Future task5 = exec.submit(new DoSomething(1));
+
+        System.out.println("Future=" + task1);
+        System.out.println("Future=" + task2);
+        System.out.println("Future=" + task3);
+        System.out.println("Future=" + task4);
+        System.out.println("Future=" + task5);
+
+        task1.get();
+        task2.get();
+        task3.get();
+        task4.get();
+        task5.get();
+
         exec.shutdown();
     }
 
-    private final ThreadLocal<Long> startTime = new ThreadLocal<Long>();
+    private final ThreadLocal<Long> startTime = new ThreadLocal<>();
     private final Logger log = Logger.getAnonymousLogger();
     private final AtomicLong numTasks = new AtomicLong();
     private final AtomicLong totalTime = new AtomicLong();
@@ -55,14 +71,19 @@ public class ThreadPoolExecutorExtendTest extends ThreadPoolExecutor {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue);
     }
 
+    @Override
     protected void beforeExecute(Thread t, Runnable r) {
         super.beforeExecute(t, r);
+        System.out.println("Thread=" + t + ",Runnable=" + r);
         log.info(String.format("Thread %s: start %s", t, r));
         startTime.set(System.nanoTime());
     }
 
+    @Override
     protected void afterExecute(Runnable r, Throwable t) {
         try {
+            System.out.println("Runnable=" + r);
+
             long endTime = System.nanoTime();
             long taskTime = endTime - startTime.get();
             numTasks.incrementAndGet();
@@ -73,6 +94,7 @@ public class ThreadPoolExecutorExtendTest extends ThreadPoolExecutor {
         }
     }
 
+    @Override
     protected void terminated() {
         try {
             log.info(String.format("Terminated: avg time=%dns", totalTime.get() / numTasks.get()));
@@ -80,24 +102,26 @@ public class ThreadPoolExecutorExtendTest extends ThreadPoolExecutor {
             super.terminated();
         }
     }
-}
 
+    static class DoSomething implements Callable {
+        private int sleepTime;
 
-class DoSomething implements Runnable {
-    private int sleepTime;
-
-    public DoSomething(int sleepTime) {
-        this.sleepTime = sleepTime;
-    }
-
-    @Override
-    public void run() {
-        System.out.println(Thread.currentThread().getName() + " is running.");
-        try {
-            TimeUnit.SECONDS.sleep(sleepTime);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        public DoSomething(int sleepTime) {
+            this.sleepTime = sleepTime;
         }
+
+        @Override
+        public String call() {
+            System.out.println(Thread.currentThread().getName() + " is running.");
+            try {
+                TimeUnit.SECONDS.sleep(sleepTime);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            return "22";
+        }
+
     }
 
 }
