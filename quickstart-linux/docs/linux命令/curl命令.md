@@ -5,6 +5,26 @@
 
 ---------------------------------------------------------------------------------------------------------------------
 
+## CURL简介
+
+[](https://curl.se/)  
+[](https://github.com/curl/curl)  
+[](https://man7.org/linux/man-pages/man1/curl.1.html)  
+
+
+curl 是常用的命令行工具，用来请求 Web 服务器。它的名字就是客户端（client）的 URL 工具的意思。
+
+它的功能非常强大，命令行参数多达几十种。如果熟练的话，完全可以取代 Postman 这一类的图形界面工具。
+
+我一向以为，curl只是一个编程用的函数库。
+
+最近才发现，这个命令本身，就是一个无比有用的网站开发工具，请看我整理的它的用法。
+
+
+---------------------------------------------------------------------------------------------------------------------
+## CURL用法
+
+
 如果要把这个网页保存下来，可以使用 -o 参数：
 curl -o [文件名] www.sina.com
 
@@ -73,7 +93,8 @@ $ curl --user name:password example.
 
 
 [curl命令详解](https://blog.csdn.net/mao_xiaoxi/article/details/97764814)  
-
+[curl 的用法指南](http://www.ruanyifeng.com/blog/2019/09/curl-reference.html)  
+[curl网站开发指南](https://www.ruanyifeng.com/blog/2011/09/curl.html)  
 
 
 

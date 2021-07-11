@@ -3,7 +3,6 @@ package org.quickstart.metrics.micrometer;
 import com.sun.net.httpserver.HttpServer;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.Metrics;
-import io.micrometer.core.instrument.Tag;
 import io.micrometer.core.instrument.Timer;
 import io.micrometer.core.instrument.simple.SimpleMeterRegistry;
 import io.micrometer.prometheus.PrometheusConfig;
@@ -12,7 +11,6 @@ import io.micrometer.prometheus.PrometheusMeterRegistry;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
-import java.util.Arrays;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -55,6 +53,9 @@ public class PrometheusTest {
                 }
             });
 
+            new Thread(server::start).start();
+            System.out.println("PrometheusTest started");
+
             Counter sendFaileCounter = Counter.builder("send_faile").description("send faile total").register(prometheusRegistry);
             Counter sendSuccessCounter = Counter.builder("send_success").description("send success total").register(prometheusRegistry);
 
@@ -71,8 +72,14 @@ public class PrometheusTest {
                     sendFaileCounter.increment();
                 }
 
-                TimeUnit.SECONDS.sleep(2);
+                Timer.Sample sample = Timer.start();
 
+                if(i<30)
+                TimeUnit.SECONDS.sleep(3);
+                else
+                    TimeUnit.SECONDS.sleep(6);
+
+                sample.stop(timer);
 
             }
 
@@ -81,11 +88,6 @@ public class PrometheusTest {
             // 这里做业务逻辑
             // Response response = ...
             // sample.stop(registry.timer("my.timer", "response", response.status()));
-
-
-            new Thread(server::start).start();
-
-            System.out.println("PrometheusTest started");
 
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);

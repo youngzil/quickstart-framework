@@ -155,7 +155,7 @@ ThreadLocal内存泄漏的根源是：由于ThreadLocalMap的生命周期跟Thre
 https://droidyue.com/blog/2016/03/13/learning-threadlocal-in-java/
 https://juejin.im/post/5ac2eb52518825555e5e06ee
 
-
+[Java线程池的核心线程数和最大线程数](https://blog.csdn.net/ming1215919/article/details/114799184)  
 
 ---------------------------------------------------------------------------------------------------------------------
 

@@ -7,6 +7,9 @@ YAML是“另一种标记语言”的外语缩写，
 YAML是"YAML Ain't a Markup Language"（YAML不是一种置标语言）的递归缩写。
 在开发的这种语言时，YAML 的意思其实是："Yet Another Markup Language"（仍是一种置标语言），
 
+YAML originally stood for Yet Another Markup Language, but officially goes by the recursive definition YAML Ain’t Markup Language.  
+YAML 最初代表Yet Another Markup Language（仍是一种置标语言），但正式采用递归定义YAML Ain't Markup Language（YAML不是一种置标语言）。虽然最初是作为 HTML 的可读性更强的版本而发明的，但它现在已用于各种内容和数据。
+
 
 根据yaml.org，官方文件扩展名是.yaml。
 
@@ -14,9 +17,9 @@ YAML是"YAML Ain't a Markup Language"（YAML不是一种置标语言）的递归
 有说是因为Windows中限制扩展名是3个字母
 
 
-[是.yaml还是.yml](https://cloud.tencent.com/developer/ask/69788)
-[Is it .yaml or .yml?](https://stackoverflow.com/questions/21059124/is-it-yaml-or-yml)
-
+[是.yaml还是.yml](https://cloud.tencent.com/developer/ask/69788)  
+[Is it .yaml or .yml?](https://stackoverflow.com/questions/21059124/is-it-yaml-or-yml)  
+[RAML vs YAML Vs Swagger for API Specifications](https://stoplight.io/blog/raml-vs-yaml/)  
 
 
 

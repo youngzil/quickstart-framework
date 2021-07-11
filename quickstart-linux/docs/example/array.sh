@@ -10,7 +10,7 @@ echo "第三个元素为: ${my_array[2]}"
 echo "第四个元素为: ${my_array[3]}"
 
 
-my_array[0]=a
+#my_array[0]=a
 my_array[1]=b
 my_array[2]=c
 my_array[3]=d
@@ -20,7 +20,8 @@ echo "数组的元素为: ${my_array[@]}"
 
 
 echo "-- \$* 演示 ---"
-for i in ${my_array[*]}; do
+for i in ${my_array[*]};
+do
     echo $i
 done
 

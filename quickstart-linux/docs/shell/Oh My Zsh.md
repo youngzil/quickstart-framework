@@ -29,6 +29,14 @@ Oh My Zsh是一个令人愉悦的，开源的，社区驱动的框架，用于�
 
 
 
+Install oh-my-zsh now
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+
+
 ---------------------------------------------------------------------------------------------------------------------
 
 

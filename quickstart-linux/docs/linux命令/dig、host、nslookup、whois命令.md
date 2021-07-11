@@ -6,10 +6,11 @@
 ---------------------------------------------------------------------------------------------------------------------
 
 最常用的DNS解析命令有：
-- dig命令
-- host命令
-- nslookup命令
-- whois命令
+- dig命令 :它是一个用于查询 DNS 名称服务器的灵活命令行工具。
+- host命令 :它是用于执行 DNS 查询的简单程序。
+- nslookup命令 :它用于查询互联网域名服务器。
+- whois命令 :它用于查询互联网域名服务器。
+
 
 dig baidu.com
 
@@ -18,6 +19,10 @@ host baidu.com
 nslookup baidu.com
 
 whois baidu.com
+
+
+
+
 
 
 dig命令：
@@ -127,6 +132,13 @@ whois baidu.com
 
 
 [帮你记录DNS寻址全过程](https://www.cnblogs.com/chanshuyi/p/dns_dig_command.html)  
+[如何在Linux中通过命令查看域名对应的IP](https://www.jianshu.com/p/efec391beee5)  
+[5 个用于在 Linux 终端中查找域名 IP 地址的命令](https://juejin.cn/post/6844904014522351623)  
+[信息收集之域名、IP互查](https://blog.51cto.com/executer/2104088)  
+
+[如果通过ip反查到域名](https://www.jianshu.com/p/4d6ef410feaa)  
+[]()  
+
 
 
 ---------------------------------------------------------------------------------------------------------------------

@@ -231,6 +231,28 @@ Micrometer中包含一个SimpleMeterRegistry，它在内存中维护每个meter�
 Micrometer还提供一个CompositeMeterRegistry用于将多个registries结合在一起使用，允许同时向多个监视系统发布指标。 
 
 
+### Tag与Meter的命名
+
+Micrometer中，Meter的命名约定使用英文逗号(dot，也就是”.”)分隔单词。但是对于不同的监控系统，对命名的规约可能并不相同，如果命名规约不一致，在做监控系统迁移或者切换的时候，可能会对新的系统造成破坏。
+
+Micrometer中使用英文逗号分隔单词的命名规则，再通过底层的命名转换接口NamingConvention进行转换，最终可以适配不同的监控系统，同时可以消除监控系统不允许的特殊字符的名称和标记等。开发者也可以覆盖NamingConvention实现自定义的命名转换规则：registry.config().namingConvention(myCustomNamingConvention);。
+
+其实NamingConvention已经提供了5种默认的转换规则：dot、snakeCase、camelCase、upperCamelCase和slashes。
+
+在Micrometer中，对一些主流的监控系统或者存储系统的命名规则提供了默认的转换方式，
+
+例如当我们使用下面的命名时候：
+MeterRegistry registry = ...
+registry.timer("http.server.requests");
+
+对于不同的监控系统或者存储系统，命名会自动转换如下：
+Prometheus - http_server_requests_duration_seconds。
+Atlas - httpServerRequests。
+Graphite - http.server.requests。
+InfluxDB - http_server_requests。
+
+
+
 
 ### Meters
 
@@ -276,7 +298,7 @@ Counter接口允许以固定的数值递增，该数值必须为正数。
 
 
 
-### Gauges
+### Gauges（可任意上升和下降）
 
 gauge是获取当前值的句柄。典型的例子是，获取集合、map、或运行中的线程数等。
 
@@ -327,7 +349,9 @@ Client-side percentiles（客户端百分比）：Micrometer为每个meter ID（
 
 [Spring Boot 使用 Micrometer 集成 Prometheus 监控 Java 应用性能](https://blog.csdn.net/u011250186/article/details/106552199)  
 [Micrometer简介及其在SLA指标测量中的使用](https://blog.csdn.net/qiyanli123/article/details/107573921)  
+[]()
 []()  
+[JVM应用度量框架Micrometer实战](https://zhuanlan.zhihu.com/p/146374529)  
 []()  
 
 
