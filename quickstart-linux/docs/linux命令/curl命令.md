@@ -7,9 +7,16 @@
 
 ## CURL简介
 
-[](https://curl.se/)  
-[](https://github.com/curl/curl)  
-[](https://man7.org/linux/man-pages/man1/curl.1.html)  
+[CURL官网](https://curl.se/)  
+[CURL Github](https://github.com/curl/curl)  
+[curl(1) — Linux manual page](https://man7.org/linux/man-pages/man1/curl.1.html)  
+[CURL维基百科](https://zh.wikipedia.org/wiki/CURL)  
+[Curl Command in Linux with Examples](https://linuxize.com/post/curl-command-examples/)  
+
+
+cURL是一个开源项目，主要的产品是curl（命令行工具）和libcurl（C语言的API库），两者功能均是：基于网络协议，对指定URL进行网络传输。[2][3]
+
+cURL涉及是任何网络协议传输，不涉及对具体数据的具体处理。（如：html的渲染等）
 
 
 curl 是常用的命令行工具，用来请求 Web 服务器。它的名字就是客户端（client）的 URL 工具的意思。
@@ -19,6 +26,14 @@ curl 是常用的命令行工具，用来请求 Web 服务器。它的名字就�
 我一向以为，curl只是一个编程用的函数库。
 
 最近才发现，这个命令本身，就是一个无比有用的网站开发工具，请看我整理的它的用法。
+
+
+
+A command line tool and library for transferring data with URL syntax, supporting DICT, FILE, FTP, FTPS, GOPHER, GOPHERS, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, MQTT, POP3, POP3S, RTMP, RTMPS, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, TELNET and TFTP. libcurl offers a myriad of powerful features
+
+
+curl supports SSL certificates, HTTP POST, HTTP PUT, FTP uploading, HTTP form based upload, proxies, HTTP/2, HTTP/3, cookies, user+password authentication (Basic, Plain, Digest, CRAM-MD5, SCRAM-SHA, NTLM, Negotiate and Kerberos), file transfer resume, proxy tunneling and more.
+
 
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -93,7 +108,7 @@ $ curl --user name:password example.
 
 
 [curl命令详解](https://blog.csdn.net/mao_xiaoxi/article/details/97764814)  
-[curl 的用法指南](http://www.ruanyifeng.com/blog/2019/09/curl-reference.html)  
+[curl 的用法指南](https://www.ruanyifeng.com/blog/2019/09/curl-reference.html)  
 [curl网站开发指南](https://www.ruanyifeng.com/blog/2011/09/curl.html)  
 
 

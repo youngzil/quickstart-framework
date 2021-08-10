@@ -12,10 +12,6 @@ IMAP全称是Internet Mail Access Protocol，即交互式邮件存取协议
 SSH、SCP、SFTP、FTP、Telnet常用的java类库
 
 
-
-
-
-
 ---------------------------------------------------------------------------------------------------------------------
 
 下载sshpass
@@ -94,6 +90,13 @@ OpenSSH提供了服务端后台程序和客户端工具，用来加密远程控�
     Server端服务脚本：/etc/rc.d/init.d/sshd
 
 
+### SSH架构
+SSH 的软件架构是服务器-客户端模式（Server - Client）。在这个架构中，SSH 软件分成两个部分：向服务器发出请求的部分，称为客户端（client），OpenSSH 的实现为 ssh；接收客户端发出的请求的部分，称为服务器（server），OpenSSH 的实现为 sshd。
+
+大写的 SSH 表示协议，小写的 ssh 表示客户端软件。
+
+另外，OpenSSH 还提供一些辅助工具软件（比如 ssh-keygen 、ssh-agent）和专门的客户端工具（比如 scp 和 sftp），这个教程也会予以介绍。
+
 
 安全套接字层（SecureSocketsLayer（SSL））和 安全套接层协议（SSL，SecuritySocketLayer）：
 
@@ -120,15 +123,51 @@ PPP被广泛用作连接同步和异步电路的数据链路层协议，取代�
 
 
 
-OpenSSH：
-https://www.openbsd.org/
-https://www.openssh.com/
-https://www.openssh.com/
+### SCP命令
+
+scp是SSH提供的一个客户端程序，用来在两台主机之间加密传送文件（即复制文件）。
+
+
+scp是 secure copy 的缩写，相当于cp命令 + SSH。它的底层是 SSH 协议，默认端口是22，相当于先使用ssh命令登录远程主机，然后再执行拷贝操作。
+
+scp主要用于以下三种复制操作。
+- 本地复制到远程。
+- 远程复制到本地。
+- 两个远程系统之间的复制。
+
+使用scp传输数据时，文件和密码都是加密的，不会泄漏敏感信息。
 
 
 
-OPENSSH 详解参考
-https://www.cnblogs.com/RXDXB/p/11672127.html
+
+### RSYNC命令
+
+rsync 是一个常用的 Linux 应用程序，用于文件同步。
+
+它可以在本地计算机与远程计算机之间，或者两个本地目录之间同步文件（但不支持两台远程计算机之间的同步）。它也可以当作文件复制工具，替代cp和mv命令。
+
+它名称里面的r指的是 remote，rsync 其实就是“远程同步”（remote sync）的意思。与其他文件传输工具（如 FTP 或 scp）不同，rsync 的最大特点是会检查发送方和接收方已有的文件，仅传输有变动的部分（默认规则是文件大小或修改时间有变动）。
+
+虽然 rsync 不是 SSH 工具集的一部分，但因为也涉及到远程操作，所以放在这里一起介绍。
+
+
+
+
+### SFTP命令
+
+sftp是 SSH 提供的一个客户端应用程序，主要用来安全地访问 FTP。因为 FTP 是不加密协议，很不安全，sftp就相当于将 FTP 放入了 SSH。
+
+
+
+[OpenBSD官网](https://www.openbsd.org/)  
+[OpenSSH官网](https://www.openssh.com/)  
+[OpenSSH Github](https://github.com/openssh/openssh-portable)  
+[]()  
+
+
+[OPENSSH详解参考](https://www.cnblogs.com/RXDXB/p/11672127.html)  
+[SSH教程](https://wangdoc.com/ssh/index.html)  
+
 
 
 ---------------------------------------------------------------------------------------------------------------------

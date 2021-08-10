@@ -10,19 +10,36 @@ Linux下查看CPU、内存、磁盘信息.md
 # 总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数
 
 # 查看物理CPU个数
-cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l
+查看 CPU 颗数
+实际Server中插槽上的CPU个数, 物理cpu数量，可以数不重复的 physical id个数。
+cat /proc/cpuinfo | grep 'physical id' | sort | uniq | wc -l
+
 
 # 查看每个物理CPU中core的个数(即核数)
+查看 CPU 核数
+一颗CPU上面能处理数据的芯片组的数量。
 cat /proc/cpuinfo| grep "cpu cores"| uniq
+cat /proc/cpuinfo |grep "cores"|uniq|awk '{print $4}'
 
 # 查看逻辑CPU的个数
-cat /proc/cpuinfo| grep "processor"| wc -l
+top命令查询出来的就是逻辑CPU的数量。
+cat /proc/cpuinfo | grep "processor" | wc -l
+
 
 # 查看CPU信息（型号）
 cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+cat /proc/cpuinfo | grep 'model name' | sort | uniq
+
+
+逻辑 CPU 核数
+一般情况，我们认为一颗cpu可以有多核，加上intel的超线程技术(HT), 可以在逻辑上把一个物理线程模拟出两个线程来使用，使得单个核心用起来像两个核一样，以充分发挥CPU的性能，
+
+逻辑CPU数量=物理cpu数量 x cpu cores 这个规格值 x 2(如果支持并开启超线程)。
 
 
 参考  
+[在Linux中查询CPU的核数](https://colobu.com/2019/02/22/how-to-find-cpu-cores-in-linux/)  
+[Linux查看物理CPU个数、核数、逻辑CPU个数](https://www.cnblogs.com/emanlee/p/3587571.html)  
 [linux 查看机器cpu核数](https://www.cnblogs.com/hurry-up/p/9564064.html)  
 [linux下怎么查看cpu核数](https://blog.csdn.net/fox_wayen/article/details/80642718)  
 

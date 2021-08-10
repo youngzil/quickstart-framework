@@ -45,3 +45,63 @@ shell中条件判断if中的-z到-d的意思
 [ STRING1 > STRING2 ] 如果 “STRING1” sorts after “STRING2” lexicographically in the current locale则为真。  
 
 
+在 Linux bash shell 中，可以使用 [[ 命令来进行判断。
+其中，可以使用 [[ 命令的 =～ 操作符来判断某个字符串是否包含特定模式。
+
+注意：只有 [[ 命令支持 =~ 操作符，test 命令和 [ 命令都不支持 =~ 操作符。
+
+
+
+
+
+
+-b file             #判断文件是否为块设备文件
+-c file             #判断文件是否为字符设备文件
+-d file             #判断文件是否为目录
+-e file             #判断文件是否存在
+-f file             #判断文件是否为普通文件
+-g file             #判断文件是否设置了SGID
+-h file             #判断文件是否为符号链接
+-p file             #判断文件是否为命名管道文件
+-r file             #判断文件是否可读
+-s file             #判断文件是否存在且内容不为空(也可以是目录)
+-t fd               #判断文件描述符fd是否开启且指向终端
+-u file             #判断文件是否设置SUID
+-w file             #判断文件是否可写
+-x file             #判断文件是否可执行
+-S file             #判断文件是否为socket文件
+file1 -nt file2     #判断文件file1是否比file2更新(根据mtime)，或者判断file1存在但file2不存在
+file1 -ot file2     #判断文件file1是否比file2更旧，或者判断file2存在但file1不存在
+file1 -ef file2     #判断文件file1和file2是否互为硬链接
+-v name             #判断变量状态是否为set(见上一篇)
+-z string           #判断字符串是否为空
+-n string           #判断字符串是否非空
+string1 == string2  #判断字符串是否相等
+string1 = string2   #判断字符串是否相等
+string1 != string2  #判断字符串是否不相等
+string1 < string2   #判断字符串string1是否小于字符串string2(字典排序)，用于内置命令test中时，小于号需要转义：\<
+string1 > string2   #判断字符串string1是否大于字符串string2(字典排序)，用于内置命令test中时，大于号需要转义：\>
+NUM1 -eq NUM2       #判断数字是否相等
+NUM1 -ne NUM2       #判断数字是否不相等
+NUM1 -lt NUM2       #判断数字NUM1是否小于数字NUM2
+NUM1 -le NUM2       #判断数字NUM1是否小于等于数字NUM2
+NUM1 -gt NUM2       #判断数字NUM1是否大于数字NUM2
+NUM1 -ge NUM2       #判断数字NUM1是否大于等于数字NUM2
+
+! expr    #表示对表达式expr取反
+( expr )  #表示提高expr的优先级
+expr1 -a expr2  #表示对两个表达式进行逻辑与操作，只能用于 [ expr ] 和 test expr 中
+expr1 && expr2  #表示对两个表达式进行逻辑与操作，只能用于 [[ expr ]] 中
+expr1 -o expr2  #表示对两个表达式进行逻辑或操作，只能用于 [ expr ] 和 test expr 中
+expr1 || expr2  #表示对两个表达式进行逻辑或操作，只能用于 [[ expr ]] 中
+
+
+
+
+[SHELL(bash)脚本编程二：语法](https://segmentfault.com/a/1190000008080537)
+[Bash技巧：使用命令的 =~ 操作符判断字符串的包含关系](https://segmentfault.com/a/1190000022102207)  
+[24_Shell语言————if条件判断之字符测试 原创](https://blog.51cto.com/wuyelan/1530270)  
+
+
+
+
