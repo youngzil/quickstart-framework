@@ -26,6 +26,7 @@
 [编译器和解释器之间有什么区别](https://zhuanlan.zhihu.com/p/26838993)
 [编译器与解释器的区别和工作原理](https://zhuanlan.zhihu.com/p/39141067)
 
+[编译型语言与解释型语言的真正区别](https://blog.csdn.net/xwx_100/article/details/83212067)  
 
 
 

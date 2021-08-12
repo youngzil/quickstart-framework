@@ -1,11 +1,21 @@
 compression library
 
+- [Zstandard](#Zstandard)
+- [Snappy](#Snappy)
+- [Commons Compress](#Commons-Compress)
+- [Brotli](#Brotli)
+- [QuickLZ](#QuickLZ)
+- [LZ4](#LZ4)
+- [LZF](#LZF)
+- [FastLZ](#FastLZ)
+- [LZO/miniLZO](#LZO/miniLZO)
+- [JDK中ZIP、GZIP](#JDK中ZIP、GZIP)
 
 
 
 
 ---------------------------------------------------------------------------------------------------------------------
-
+## Zstandard
 
 Zstandard - Fast real-time compression algorithm
 
@@ -22,10 +32,11 @@ Zstandard - Fast real-time compression algorithm
 
 
 ---------------------------------------------------------------------------------------------------------------------
-Snappy
+## Snappy
 
 [Snappy官网](http://google.github.io/snappy/)  
-[Snappy Github](https://github.com/google/snappy)
+[Snappy Github](https://github.com/google/snappy)  
+[snappy-java](https://github.com/xerial/snappy-java)  
 
 Snappy, a fast compressor/decompressor.
 
@@ -43,9 +54,7 @@ Snappy在某些Google演示文稿等中以前被称为“ Zippy”。
 
 
 
-snappy项目：https://code.google.com/p/snappy/
-https://github.com/google/snappy
-https://github.com/xerial/snappy-java
+snappy项目：
 
 Snappy是在谷歌内部生产环境中被许多项目使用的压缩库，包括BigTable，MapReduce和RPC等。谷歌表示算法库针对性能做了调整，而不是针对压缩比或与其他类似工具的兼容性。在Intel酷睿i7处理器上，其单核处理数据流的能力达到250M/s-500M/s。Snappy同时针对64位x86处理器进行了优化，在英特尔酷睿i7处理器单一核心实现了至少250MB/s的压缩性能和500MB/ s的解压缩性能。Snappy对于纯文本的压缩率为1.5-1.7，对于HTML是2-4，当然了对于JPEG、PNG和其他已经压缩过的数据压缩率为1.0。谷歌强劲吹捧Snappy的鲁棒性，称其是“即使面对损坏或恶意输入也不会崩溃的设计”，并且在谷歌的生产环境中经过了PB级数据压缩的考验而稳定的。
 
@@ -63,9 +72,10 @@ Snappy compressor/decompressor for Java
 [Snappy Java API简介](https://blog.csdn.net/cjf_wei/article/details/80635983)  
 [snappy-java两种压缩方式的区别](https://my.oschina.net/u/4290244/blog/3348726)
 
-
+[using snappy or bzip2](https://www.bswen.com/2018/04/java-How-to-do-compress-and-uncompress-by-snappy-and-bzip2-by-using-java.html)
 
 ---------------------------------------------------------------------------------------------------------------------
+## Commons Compress
 
 bzip2 is a freely available, patent free (see below), high-quality data compressor. It typically compresses files to within 10% to 15% of the best available techniques (the PPM family of statistical compressors), whilst being around twice as fast at compression and six times faster at decompression.
 
@@ -102,14 +112,14 @@ Commons Compress支持很多压缩格式，在指定压缩格式时，可以直�
 
 
 [最好的JAVA生态压缩库-Apache Commons Compress介绍](https://zhuanlan.zhihu.com/p/139700568)
-
+[Apache Commons Compress介绍-JAVA压缩解压tar文件](https://zhuanlan.zhihu.com/p/190146621)
 
 ---------------------------------------------------------------------------------------------------------------------
 
 [A port of Snappy, LZO, LZ4, and Zstandard to Java](https://github.com/airlift/aircompressor)  
 
 
-
+## Brotli
 
 Brotli compression format
 
@@ -119,7 +129,7 @@ Brotli compression format
 
 
 
-QuickLZ
+## QuickLZ
 
 [QuickLZ的官网](http://www.quicklz.com/)
 
@@ -128,7 +138,9 @@ QuickLZ 是一个号称世界压缩速度最快的压缩库，并且也是个开
 QuickLZ是世界上最快的压缩库，每个内核达到308 Mbyte / s。如果已获得商业许可，则可以使用它，也可以根据GPL 1、2或3使用，其中必须公开发布任何东西。
 
 
-LZ4
+
+## LZ4
+
 http://www.lz4.org
 项目：http://code.google.com/p/lz4/
 https://lz4.github.io/lz4/
@@ -150,7 +162,7 @@ https://www.programcreek.com/java-api-examples/index.php?api=net.jpountz.lz4.LZ4
 
 
 
-LZF：
+## LZF
 http://www.veryhuo.com/a/manual/php/function.lzf-compress.html
 http://www.quicklz.com/
 
@@ -176,6 +188,9 @@ https://github.com/ymnk/jzlib
 
 
 
+
+## FastLZ
+
 FastLZ：JFastLZ，java的实现
 http://fastlz.org/
 http://code.google.com/p/fastlz
@@ -184,7 +199,7 @@ FastLZ是一个高效的轻量级压缩解压库，其官方测试数据如下�
 
 
 
-LZO/miniLZO
+## LZO/miniLZO
 官方网站：http://www.oberhumer.com/opensource/lzo/
 https://github.com/Karmasphere/lzo-java
 LZO是一个开源的无损压缩C语言库，其优点是压缩和解压缩比较迅速占用内存小等特点（网络传输希望的是压缩和解压缩速度比较快，压缩率不用很高），其提供了比较全的LZO库和一个精简版的miniLZO库
@@ -192,6 +207,7 @@ LZO是一个开源的无损压缩C语言库，其优点是压缩和解压缩比�
 
 
 
+## JDK中ZIP、GZIP
 字符串解压缩类库(zip、GZIP、QuickLz、snappy、lzf、jzlib)介绍
 1、ZIP、 GZIP  计算机文件压缩算法，JDK中java.util.zip.*中实现。主要包括ZipInputStream/ ZipOutputStream、GZipInputStream/ ZipOutputStream。
 
@@ -212,5 +228,5 @@ http://blog.sina.com.cn/s/blog_814e83d801019itv.html
 http://www.importnew.com/14410.html
 https://blog.csdn.net/scorpiohjx2/article/details/18423529
 https://blog.csdn.net/zhangskd/article/details/17009111
-
-
+[复用代码系列：6种字符串解压缩工具类](https://blog.csdn.net/sunct/article/details/80221538)  
+[Java压缩算法性能比较](https://my.oschina.net/OutOfMemory/blog/805427)  

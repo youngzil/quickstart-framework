@@ -20,7 +20,7 @@ public class TarTest {
     @Test
     public void testTarUncompressFile() throws IOException {
 
-        try (FileInputStream in = new FileInputStream(new File("/root/test.tar")));
+        try (FileInputStream in = new FileInputStream("/root/test.tar");
         TarArchiveInputStream tarArchiveInputStream = new TarArchiveInputStream(in)){
             byte[] buffer = new byte[4096];
             TarArchiveEntry entry;
@@ -54,7 +54,7 @@ public class TarTest {
     @Test
     public void testTarUncompressFile2() throws IOException {
 
-        try (FileInputStream in = new FileInputStream(getFile("bla.tar"));
+        try (FileInputStream in = new FileInputStream("bla.tar");
             TarArchiveInputStream tarArchiveInputStream = new TarArchiveInputStream(in)) {
             byte[] buffer = new byte[4096];
             TarArchiveEntry entry;
@@ -89,7 +89,7 @@ public class TarTest {
     }
 
     @Test
-    public void testZipCompress() throws IOException {
+    public void testZipCompress2() throws IOException {
 
     }
 }

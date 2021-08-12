@@ -21,6 +21,34 @@ import java.util.stream.Stream;
 public class DemoListToMap {
     List<Student> list = Arrays.asList(new Student(1, 18, "阿龙", GenderColumn.BOY.getCode()), new Student(2, 17, "小花", GenderColumn.GIRL.getCode()),
         new Student(3, 17, "阿浪", GenderColumn.LADYBOY.getCode()));
+    
+    
+    @Test
+    public void testMapToMap(){
+        Map<String, String> x = null;
+        Map<String, Integer> y =
+            x.entrySet().stream()
+                .collect(Collectors.toMap(
+                    e -> e.getKey(),
+                    e -> Integer.parseInt(e.getValue())
+                ));
+
+        Map<String, Column> original = new HashMap<>();
+        original.put("foo", new Column());
+        original.put("bar", new Column());
+
+        Map<String, Column> copy = original.entrySet()
+            .stream()
+            .collect(Collectors.toMap(Map.Entry::getKey,
+                e -> new Column(e.getValue())));
+
+        System.out.println(original);
+        System.out.println(copy);
+    }
+    static class Column {
+        public Column() {}
+        public Column(Column c) {}
+    }
 
     /**
      * [详解Java 8 中使用Stream将List转为Map](https://blog.csdn.net/lspj201007186/article/details/91039052)
