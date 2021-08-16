@@ -421,3 +421,12 @@ Thread和Runnable的区别
 ---------------------------------------------------------------------------------------------------------------------
 
 
+Future接口 按照提交顺序获取结果 CPU高速轮询，耗资源，或者阻塞，可以使用，但不推荐
+CompletionService  内部通过阻塞队列+FutureTask接口 支持任务完成的先后顺序
+CompletableFuture JDK8实现了Future, CompletionStage两个接口 API极端丰富，配合流式编程，推荐使用！
+
+
+
+
+[012-Future、FutureTask、CompletionService 、CompletableFuture](https://blog.csdn.net/weixin_34384915/article/details/86133434)
+[多线程并发执行任务，取结果归集。终极总结：Future、FutureTask、CompletionService、CompletableFuture](https://www.cnblogs.com/dennyzhangdd/p/7010972.html)
