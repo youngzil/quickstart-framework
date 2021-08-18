@@ -1,5 +1,7 @@
 package org.quickstart.javase.jdk8.stream;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -56,6 +58,15 @@ public class StreamCreateTest {
         //产生随机数
         Stream.generate(Math::random).limit(3);
 
+    }
+
+    @Data
+    @AllArgsConstructor
+    public class Student {
+        private int id;
+        private int age;
+        private String name;
+        private int gender;
     }
 
 }

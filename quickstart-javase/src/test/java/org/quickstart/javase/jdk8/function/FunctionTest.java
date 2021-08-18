@@ -13,8 +13,8 @@ import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import lombok.Getter;
 import org.junit.Test;
-import org.quickstart.javase.jdk8.stream.Article;
 
 /**
  * FunctionTest
@@ -74,6 +74,27 @@ public class FunctionTest {
     public static String validInput(String name, Function<String, String> function) {
 //        定义 function.apply(name)，也就是说，传入一个 name 参数，应用某些规则，返回一个结果，至于是什么规则，先不定义。
         return function.apply(name);
+    }
+
+    @Getter
+    public class Article {
+
+        private final String title;
+        private final String author;
+        public final String published;
+        private final List<String> tags;
+
+        private Article(String title, String author, String published, List<String> tags) {
+            this.title = title;
+            this.author = author;
+            this.published = published;
+            this.tags = tags;
+        }
+
+        public String published() {
+            return published;
+        }
+
     }
 
 }

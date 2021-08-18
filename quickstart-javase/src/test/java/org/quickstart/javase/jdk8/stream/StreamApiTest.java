@@ -261,32 +261,54 @@ public class StreamApiTest {
 
     }
 
+    /**
+     * 交易实体类
+     */
+    @Setter
+    @Getter
+    @AllArgsConstructor
+    static class Transaction {
+        // id
+        private Integer id;
+        // 货币
+        private Currency currency;
+        // 金额
+        private Double money;
+        // -------省略 getter和setter--------
+    }
+
+    /**
+     * 货币
+     */
+    @Setter
+    @Getter
+    @AllArgsConstructor
+    static class Currency {
+        private Integer id;
+        private String name;
+        // -------省略 getter和setter--------
+    }
+
+    @Getter
+    public class Article {
+
+        private final String title;
+        private final String author;
+        public final String published;
+        private final List<String> tags;
+
+        private Article(String title, String author, String published, List<String> tags) {
+            this.title = title;
+            this.author = author;
+            this.published = published;
+            this.tags = tags;
+        }
+
+        public String published() {
+            return published;
+        }
+
+    }
 }
 
-/**
- * 交易实体类
- */
-@Setter
-@Getter
-@AllArgsConstructor
-class Transaction {
-    // id
-    private Integer id;
-    // 货币
-    private Currency currency;
-    // 金额
-    private Double money;
-    // -------省略 getter和setter--------
-}
 
-/**
- * 货币
- */
-@Setter
-@Getter
-@AllArgsConstructor
-class Currency {
-    private Integer id;
-    private String name;
-    // -------省略 getter和setter--------
-}

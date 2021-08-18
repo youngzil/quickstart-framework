@@ -18,6 +18,8 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.junit.Test;
 
 /**
@@ -140,6 +142,38 @@ public class ListDistinct {
       }
     });
     System.out.println(personList);
+
+  }
+
+  @AllArgsConstructor
+  @Data
+  public class Person {
+    private Long id;
+    private String name;
+
+    // 重写Person对象的equals()方法和hashCode()方法:
+
+    @Override
+    public boolean equals(Object o) {
+      if (this == o)
+        return true;
+      if (o == null || getClass() != o.getClass())
+        return false;
+
+      Person person = (Person) o;
+
+      if (!id.equals(person.id))
+        return false;
+      return name.equals(person.name);
+
+    }
+
+    @Override
+    public int hashCode() {
+      int result = id.hashCode();
+      result = 31 * result + name.hashCode();
+      return result;
+    }
 
   }
 

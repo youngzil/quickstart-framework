@@ -1,6 +1,8 @@
 package org.quickstart.javase.jdk8.stream;
 
 import com.google.common.collect.ImmutableMap;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -166,6 +168,15 @@ public class DemoListToMap {
                 () -> new HashMap<>(map1)));
         System.out.println(result3);
 
+    }
+
+    @Data
+    @AllArgsConstructor
+    public class Student {
+        private int id;
+        private int age;
+        private String name;
+        private int gender;
     }
 
 }

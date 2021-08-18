@@ -11,6 +11,8 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.junit.Test;
 
 /**
@@ -151,6 +153,16 @@ public class GroupingByTest {
     public String toString() {
       return "Buss{" + "name='" + name + '\'' + ", count=" + count + ", value=" + value + '}';
     }
+  }
+
+  @Data
+  @AllArgsConstructor
+  public class Item {
+    private String name;
+    private int qty;
+    private BigDecimal price;
+    // constructors, getter/setters
+
   }
 
 }
