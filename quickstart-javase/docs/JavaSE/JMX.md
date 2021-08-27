@@ -128,6 +128,9 @@ JMX开发：
 
 理解JMX之介绍和简单使用
 https://blog.csdn.net/lmy86263/article/details/71037316
+[JMX超详细解读](https://www.cnblogs.com/dongguacai/p/5900507.html)
+
+
 
 开发：
 Server服务端：使用MBeanServer注册MBean，使用JMXConnectorServer.start()发布

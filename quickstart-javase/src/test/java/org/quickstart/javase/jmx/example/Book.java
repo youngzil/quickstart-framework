@@ -8,6 +8,11 @@
  */
 package org.quickstart.javase.jmx.example;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 /**
  * Book
  * 
@@ -15,31 +20,10 @@ package org.quickstart.javase.jmx.example;
  * @2018年6月11日 下午9:50:43
  * @since 1.0
  */
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter@Setter
 public class Book {
     public String name;
     public double price;
-    
-    public Book() {
-    }
-    
-    public Book(String name, double price) {
-        this.name = name;
-        this.price = price;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
 }
