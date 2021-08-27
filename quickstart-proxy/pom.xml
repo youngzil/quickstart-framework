@@ -5,7 +5,6 @@
         <groupId>org.quickstart</groupId>
         <artifactId>quickstart-framework</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -20,19 +19,18 @@
     </properties>
 
     <dependencies>
+        <!-- <dependency>
+             <groupId>cglib</groupId>
+             <artifactId>cglib</artifactId>
+             <version>3.3.0</version>
+         </dependency>-->
 
-       <!-- <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-            <version>3.3.0</version>
-        </dependency>-->
-
-<!--        还有另外一个 CGLIB 包，二者的区别是带有-nodep的依赖内部已经包括了ASM字节码框架的相关代码，无需额外依赖ASM-->
+        <!--        还有另外一个 CGLIB 包，二者的区别是带有-nodep的依赖内部已经包括了ASM字节码框架的相关代码，无需额外依赖ASM-->
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib-nodep</artifactId>
             <version>3.3.0</version>
-            <scope>test</scope>
+            <!--            <scope>test</scope>-->
         </dependency>
 
         <dependency>
@@ -41,11 +39,11 @@
             <version>3.27.0-GA</version>
         </dependency>
 
-       <!-- <dependency>
-            <groupId>javassist</groupId>
-            <artifactId>javassist</artifactId>
-            <version>3.12.1.GA</version>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>javassist</groupId>
+             <artifactId>javassist</artifactId>
+             <version>3.12.1.GA</version>
+         </dependency>-->
 
 
         <!-- <dependency> -->
@@ -54,11 +52,11 @@
         <!-- <version>3.3.1</version> -->
         <!-- </dependency> -->
 
-       <!-- <dependency>
-            <groupId>org.ow2.asm</groupId>
-            <artifactId>asm</artifactId>
-            <version>8.0.1</version>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>org.ow2.asm</groupId>
+             <artifactId>asm</artifactId>
+             <version>8.0.1</version>
+         </dependency>-->
 
         <dependency>
             <groupId>org.ow2.asm</groupId>
@@ -75,7 +73,90 @@
             <systemPath>${JAVA_HOME}/lib/tools.jar</systemPath>
         </dependency>
 
+        <dependency>
+            <groupId>org.jdk</groupId>
+            <artifactId>rt</artifactId>
+            <version>1.89</version>
+            <scope>system</scope>
+            <systemPath>${JAVA_HOME}/jre/lib/rt.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <version>1.11.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy-agent</artifactId>
+            <version>1.11.13</version>
+        </dependency>
 
     </dependencies>
+
+    <build>
+        <finalName>my-attach-agent</finalName>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Agent-Class>org.quickstart.proxy.java.agent.test2.AgentMain</Agent-Class>
+                            <Premain-Class>org.quickstart.proxy.java.agent.test2.AgentMain</Premain-Class>
+                            <Can-Redefine-Classes>true</Can-Redefine-Classes>
+                            <Can-Retransform-Classes>true</Can-Retransform-Classes>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+
+                        <configuration>
+                            <relocations>
+                                <relocation>
+                                    <pattern>org.ow2.asm</pattern>
+                                    <shadedPattern>me.ya.agent.hidden.org.ow2.asm</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.objectweb.asm</pattern>
+                                    <shadedPattern>me.ya.agent.hidden.org.objectweb.asm</shadedPattern>
+                                </relocation>
+                            </relocations>
+
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                    <compilerArguments>
+                        <verbose />
+                        <!-- 将jdk的依赖jar打入项目中，这样项目中使用的jdk的依赖就尅正常使用 -->
+                        <bootclasspath>${java.home}/lib/rt.jar;${java.home}/lib/jce.jar;${java.home}/lib/jsse.jar</bootclasspath>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
 
 </project>

@@ -322,6 +322,8 @@ sar -u -P ALL 5 2
 
 
 
+[linux下如何看网卡是千兆还是百兆的](https://blog.csdn.net/a200822146085/article/details/89603995)  
+
 
 
 
