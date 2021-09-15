@@ -24,7 +24,8 @@
     <dependency>
       <groupId>com.google.crypto.tink</groupId>
       <artifactId>tink</artifactId>
-      <version>1.5.0</version>
+<!--      <version>1.4.0-rc2</version>-->
+      <version>1.6.1</version>
     </dependency>
 
     <dependency>
@@ -86,6 +87,34 @@
       <scope>system</scope>
       <systemPath>${project.basedir}/lib/gmjsse.jar</systemPath>
     </dependency>
+
+
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-api</artifactId>
+      <version>0.11.2</version>
+    </dependency>
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-impl</artifactId>
+      <version>0.11.2</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt-jackson</artifactId> <!-- or jjwt-gson if Gson is preferred -->
+      <version>0.11.2</version>
+      <scope>runtime</scope>
+    </dependency>
+    <!-- Uncomment this next dependency if you are using JDK 10 or earlier and you also want to use
+         RSASSA-PSS (PS256, PS384, PS512) algorithms.  JDK 11 or later does not require it for those algorithms:
+    <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcprov-jdk15on</artifactId>
+        <version>1.60</version>
+        <scope>runtime</scope>
+    </dependency>
+    -->
 
   </dependencies>
 
