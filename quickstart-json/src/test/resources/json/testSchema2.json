@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "book info",
+  "description": "some information about book",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier for a book",
+      "type": "integer",
+      "minimum": 1
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^#([0-9a-fA-F]{6}$",
+      "maxLength": 6,
+      "minLength": 6
+    },
+    "price": {
+      "type": "number",
+      "multipleOf": 0.5,
+      "maximum": 12.5,
+      "exclusiveMaximum": true,
+      "minimum": 2.5,
+      "exclusiveMinimum": true
+    },
+    "tags": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "minLength": 5
+        },
+        {
+          "type": "number",
+          "minimum": 10
+        }
+      ],
+      "additionalItems": {
+        "type": "string",
+        "minLength": 2
+      },
+      "minItems": 1,
+      "maxItems": 5,
+      "uniqueItems": true
+    }
+  },
+  "minProperties": 1,
+  "maxProperties": 5,
+  "required": [
+    "id",
+    "name",
+    "price"
+  ]
+}

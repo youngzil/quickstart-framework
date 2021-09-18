@@ -57,23 +57,30 @@ public class InfluxDbHttpSenderTest {
         // JmxReporter jmxReporter = JmxReporter.forRegistry(this.registry).build();
         // jmxReporter.start();
 
-        InfluxDbSender influxDbHttpSender =
-            new InfluxDbHttpSender("http", reporterHost, reporterPort, reporterDatabase, "", TimeUnit.SECONDS, 5000, 5000,
-                generateMeasurementsPrefix());
+        InfluxDbSender influxDbHttpSender = new InfluxDbHttpSender("http", //
+            reporterHost, //
+            reporterPort, //
+            reporterDatabase, //
+            "", //
+            TimeUnit.SECONDS, //
+            5000, //
+            5000,//
+            generateMeasurementsPrefix());
 
         Map<String, String> measurementMappings = new HashMap<>();
         measurementMappings.put("Meter", "Meter.+");
 
         InfluxDbReporter influxDbReporter =
-            InfluxDbReporter.forRegistry(registry)
-                .convertRatesTo(TimeUnit.SECONDS)
-                .convertDurationsTo(TimeUnit.MILLISECONDS)
-                .filter(MetricFilter.ALL)
-                .skipIdleMetrics(false)
-                .withTags(tags)
-                .measurementMappings(measurementMappings)
-                .tagsTransformer(new ComsumerTransformer())
+            InfluxDbReporter.forRegistry(registry)//
+                .convertRatesTo(TimeUnit.SECONDS)//
+                .convertDurationsTo(TimeUnit.MILLISECONDS)//
+                .filter(MetricFilter.ALL)//
+                .skipIdleMetrics(false)//
+                .withTags(tags)//
+                .measurementMappings(measurementMappings)//measurement修改的
+                .tagsTransformer(new ComsumerTransformer())//tag修改的
                 .build(influxDbHttpSender);
+
         influxDbReporter.start(reportIntervalMs, TimeUnit.MILLISECONDS);
 
         Timer timer = registry.timer("Timer");
@@ -114,6 +121,10 @@ public class InfluxDbHttpSenderTest {
             return tags;
         }
     }
+
+
+
+
 
     public static void main(String[] args) {
         String metricName = "Meter.app1.topicTest1.group1";

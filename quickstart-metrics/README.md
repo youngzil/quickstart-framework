@@ -74,7 +74,7 @@ Metrics的五种类型
 [性能分析之Java Metrics度量包](https://cloud.tencent.com/developer/article/1465669?from=10680)  
 [Java Metrics工具介绍](https://cloud.tencent.com/developer/article/1519497)  
 [Metrics —— JVM上的实时监控类库](https://www.jianshu.com/p/e4f70ddbc287)  
-
+[Dropwizard Metrics-core介绍和应用](http://www.heartthinkdo.com/?p=2494)
 
 ---------------------------------------------------------------------------------------------------------------------
 
