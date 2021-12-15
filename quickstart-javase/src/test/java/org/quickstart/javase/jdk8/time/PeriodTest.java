@@ -44,6 +44,10 @@ public class PeriodTest {
 
         // Duration类 提供了使用基于时间的值（如秒，纳秒）测量时间量的方法。
 
+        // java.time.Duration类用于代表两个Instant对象之间的一段时间。该类同样是JDK8中新引入的。
+        // Duration类是不可变类，意味着一个该类的对象一旦生成，该对象就是不可变的。
+        // 如果需要创建Duration类的对象，直接使用该类的工厂方法就可以了，
+
         Instant inst1 = Instant.now();
         System.out.println("Inst1 : " + inst1);
         Instant inst2 = inst1.plus(Duration.ofSeconds(10));

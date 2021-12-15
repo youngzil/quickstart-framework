@@ -3,6 +3,7 @@ package org.quickstart.javase.stop.watch;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.time.DateUtils;
 import org.apache.commons.lang3.time.DurationFormatUtils;
+import org.apache.commons.lang3.time.StopWatch;
 import org.junit.Test;
 
 import java.time.Duration;
@@ -43,7 +44,7 @@ public class StopWatchTest {
     @Test
     public void testCommonsStopWatch() throws InterruptedException {
         System.out.println("SLAMonitorThread.main() start");
-        org.apache.commons.lang3.time.StopWatch sw = new org.apache.commons.lang3.time.StopWatch();
+        StopWatch sw = new StopWatch();
         sw.start();
 
         TimeUnit.SECONDS.sleep(1L);
@@ -72,6 +73,7 @@ public class StopWatchTest {
          * SLAMonitorThread.main() end. end:4025, 0:00:04.025
          * it consumes 1004ms
          */
+
     }
 
     @Test

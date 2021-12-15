@@ -1,5 +1,6 @@
 package org.quickstart.javase.jdk8.time;
 
+import org.apache.tools.ant.taskdefs.Java;
 import org.junit.Test;
 
 import java.time.Instant;
@@ -10,6 +11,10 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 
 public class DateTest {
+
+    // [Java 8 日期、时间与格式化](https://blog.csdn.net/cuixianlong/article/details/90177840)
+    // [JDK中日期和时间的几个常用类浅析(四)](https://blog.51cto.com/u_13609606/3148451)
+    // [Java 8 新特性（三）新的日期时间类](https://www.jianshu.com/p/3208f0b31dd5)
 
     @Test
     public void testDate() {
@@ -26,7 +31,20 @@ public class DateTest {
     }
 
     @Test
+    public void testInstant() {
+        // java.time.Instant类对应的是时间线上的一个时间点。该类通过保存着从格林威治的起始时间(1970年一月一日零点零分)开始计算所经过的纳妙数来表示时间点。
+        // 注意：该类是JDK8中新引入的一系列日期时间相关API中的最基础类。如果需要创建该类的一个实例，需要使用该类的工厂方法，示例如下:
+        // 一个Instant实例中包含有两个域，分别代表着秒数和纳秒数。
+        Instant now = Instant.now();
+
+    }
+
+    @Test
     public void testLocalDate() {
+
+        // java.time.LocalDate类同样是在JDK8中新引入的日期时间类。该类用来表示不含时区信息的日期，比如用来表示生日，节日等具体某天，但并不表示该天的具体时间。
+        // java.time.LocalTime类同样是在JDK8中新引入的日期时间类。该类用来表示不含时区信息的时间，比如用来表示上午10点，下午5点等。
+
         // 第一种：直接生成当前时间
         LocalDate date = LocalDate.now();
         System.out.println(date);

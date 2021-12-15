@@ -18,7 +18,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <metrics.version>4.1.17</metrics.version>
+        <metrics.version>4.2.4</metrics.version>
         <micrometer.version>1.7.0</micrometer.version>
 
         <kafka.scala.version>2.13</kafka.scala.version>

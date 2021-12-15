@@ -17,6 +17,7 @@
     <description>Demo project for XXX</description>
 
     <properties>
+        <slf4j.version>1.7.30</slf4j.version>
     </properties>
 
     <dependencies>
@@ -25,6 +26,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
 
         <!-- commons-logging和log4j联合使用-->
