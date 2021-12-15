@@ -261,6 +261,29 @@ public class CollectionTest {
     }
 
     @Test
+    public void testMapGroupByKey() {
+
+        // List stream 按 Map 中某个 key 分组 和 统计用法
+
+        List<Map> list = new ArrayList<Map>();
+        for (int i = 0; i < 10; i++) {
+            Map map = new HashMap();
+            map.put("id", i);
+            map.put("name", "张" + i);
+            map.put("code", 10 + i);
+            list.add(map);
+        }
+        //List stream 按 Map 某个 key 合计 value 值
+        int totalCode = list.stream().mapToInt(m -> (int) m.get("code")).sum();
+        System.out.println("totalCode = " + totalCode);
+        //List stream 按 Map 中某个 key 分组
+        Map<String, List<Map>> map = list.stream().collect(Collectors.groupingBy(
+            (Map m) -> (String)m.get("name"))
+        );
+
+    }
+
+        @Test
     public void testReducing() {
 
         // sum: 是每次累计计算的结果，b是Function的结果
