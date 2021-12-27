@@ -116,6 +116,13 @@
     </dependency>
     -->
 
+<!--    druid的密码的加解密算法（RSA算法）-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.2.8</version>
+    </dependency>
+
   </dependencies>
 
 </project>

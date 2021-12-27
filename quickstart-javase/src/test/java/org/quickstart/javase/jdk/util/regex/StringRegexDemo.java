@@ -125,7 +125,7 @@ public class StringRegexDemo {
 
             buffer.append("/r/n");
 
-            System.out.println(buffer.toString());
+            System.out.println(buffer);
 
         }
 

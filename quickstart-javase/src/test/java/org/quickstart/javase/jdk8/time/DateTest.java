@@ -9,6 +9,8 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.util.concurrent.TimeUnit;
 
 public class DateTest {
 
@@ -27,6 +29,16 @@ public class DateTest {
         System.out.println("LocalDateTime:" + date3);
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");//代替simpleDateFormat
         System.out.println("DateTimeFormatter:" + dtf.format(date3));
+
+        System.out.println("--------------------------");
+
+        String ddd = Instant.now().truncatedTo(ChronoUnit.MICROS).toString();
+        System.out.println("毫秒值=" + ddd);
+
+        long microsenconds = TimeUnit.MILLISECONDS.toMicros(System.currentTimeMillis());
+        System.out.println("毫秒值2=" + microsenconds);
+
+        System.out.println(System.currentTimeMillis());
 
     }
 
