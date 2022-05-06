@@ -8,7 +8,7 @@ package org.quickstart.apache.commons.compress;
 
 import java.io.File;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * 测试ZipFileUtil的压缩和解压缩方法

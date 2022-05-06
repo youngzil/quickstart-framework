@@ -1,7 +1,7 @@
 package org.quickstart.apache.commons.io;
 
 import org.apache.commons.io.FilenameUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author youngzil@163.com

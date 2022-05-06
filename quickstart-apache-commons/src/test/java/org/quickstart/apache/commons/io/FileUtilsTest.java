@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author youngzil@163.com

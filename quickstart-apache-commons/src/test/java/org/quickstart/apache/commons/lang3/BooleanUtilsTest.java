@@ -1,6 +1,6 @@
 package org.quickstart.apache.commons.lang3;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author youngzil@163.com

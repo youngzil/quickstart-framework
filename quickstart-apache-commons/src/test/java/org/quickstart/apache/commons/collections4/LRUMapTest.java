@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.commons.collections4.map.LRUMap;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author youngzil@163.com

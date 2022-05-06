@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author youngzil@163.com

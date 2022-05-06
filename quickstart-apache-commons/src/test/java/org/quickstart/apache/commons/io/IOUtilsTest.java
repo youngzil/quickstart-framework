@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 import org.apache.commons.io.IOUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author youngzil@163.com

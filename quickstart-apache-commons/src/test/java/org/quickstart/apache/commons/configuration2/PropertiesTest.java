@@ -21,7 +21,7 @@ import org.apache.commons.configuration2.io.FileLocationStrategy;
 import org.apache.commons.configuration2.io.FileSystemLocationStrategy;
 import org.apache.commons.configuration2.io.ProvidedURLLocationStrategy;
 import org.apache.commons.configuration2.reloading.PeriodicReloadingTrigger;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author youngzil@163.com
