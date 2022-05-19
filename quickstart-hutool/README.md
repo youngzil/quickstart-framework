@@ -1,6 +1,6 @@
 Hutool
 
-[Hutool官网](https://www.hutool.cn/)  
+[Hutool官网](https://hutool.cn/)  
 [Hutool Github](https://github.com/looly/hutool/)  
 [Hutool Gitee](https://gitee.com/loolly/hutool)  
 

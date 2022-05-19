@@ -42,3 +42,17 @@ Jackson、FastJson、Gson类库各有优点，各有自己的专长，都具有�
 
 
 
+
+## JSON框架
+
+1. fastjson
+2. Gson类库
+3. Jackson类库
+4. JSON-lib类库
+5. Hutool JSON工具-JSONUtil
+6. Json-smart
+7. Flexjson类库
+8. Json-io类库
+9. Genson类库
+10. JSONiJ类库
+
