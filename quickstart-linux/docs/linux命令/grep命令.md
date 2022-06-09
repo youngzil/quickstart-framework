@@ -1,4 +1,9 @@
 
+grep命令是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的 行打印出来。grep全称是Global Regular Expression Print，表示全局正则表达 式版本，它的使用权限是所有用户。
+
+
+
+
 
 递归搜索，搜索当前目录和子目录
 grep -r "hello world" *.txt
@@ -16,7 +21,7 @@ grep -l "hello world" *.txt
 
 
 [Linux grep 命令](https://www.runoob.com/linux/linux-comm-grep.html)  
-
+[grep命令](http://intetnet.github.io/html/grep.1.html)
 
 
 
@@ -49,6 +54,14 @@ file表示要查询的文件名，可以是一个或者多个。pattern后面所
 -P  支持Perl正则表达式
 -F  不支持正则表达式，将模式按照字面意思匹配
 
+-A N 或 --after-context=N
+除了列出符合行之外，并且列出后N行
+
+-B N 或 --before-context=N
+除了列出符合行之外，并且列出前N行
+
+-C N 或 --context[=N]
+列出符合行之外并列出上下各N行，默认值是两行
 
 
 
