@@ -5,12 +5,10 @@ fast字段基本只能是基础数据类型
 
 
 
+[fastjson Github](https://github.com/alibaba/fastjson)
 
+[fastjson 文档](https://github.com/alibaba/fastjson/wiki/Quick-Start-CN)
 
-https://github.com/alibaba/fastjson
-
-https://github.com/alibaba/fastjson/wiki
-https://github.com/Alibaba/fastjson/wiki/%E9%A6%96%E9%A1%B5
 
 https://my.oschina.net/jsonavaj/blog/1573833
 
@@ -18,6 +16,15 @@ https://my.oschina.net/jsonavaj/blog/1573833
 http://www.oschina.net/p/fastjson
 
 https://github.com/eishay/jvm-serializers
+
+
+
+- [kimmking:JSON Best Practice（最佳实践）](http://kimmking.github.io/2017/06/06/json-best-practice/)
+- [qq_35873847:解决FastJson中“$ref 循环引用”的问题<三种方式对应不同需求>](http://blog.csdn.net/qq_35873847/article/details/78850528)
+
+
+
+
 
 
 fastjson 详细介绍
@@ -42,17 +49,16 @@ public static final <T> List<T> parseArray(String text, Class<T> clazz); //把JS
 public static final String toJSONString(Object object); // 将JavaBean序列化为JSON文本 
 public static final String toJSONString(Object object, boolean prettyFormat); // 将JavaBean序列化为带格式的JSON文本 
 public static final Object toJSON(Object javaObject); 将JavaBean转换为JSONObject或者JSONArray。
- 
- 
+
+
  3、有关类库的一些说明
 SerializeWriter：相当于StringBuffer
 JSONArray：相当于List<Object>
 JSONObject：相当于Map<String, Object>
- 
+
 JSON反序列化没有真正数组，本质类型都是List<Object>
 
 fastjson还有很多很高级的特性，比如支持注解、支持全类型序列化，这些都是很好的特性，功能强大，不在本次测试范围。
-
 
 
 

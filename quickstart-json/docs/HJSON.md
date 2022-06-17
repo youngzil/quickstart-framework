@@ -30,6 +30,8 @@ HOCON
 [HOCON官网](https://github.com/lightbend/config)  
 [HOCON文档](https://github.com/lightbend/config/blob/master/HOCON.md)  
 
+HOCON (Human-Optimized Config Object Notation)
+
 
 configuration library for JVM languages using HOCON files
 
