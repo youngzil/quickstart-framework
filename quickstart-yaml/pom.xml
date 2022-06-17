@@ -20,7 +20,7 @@
         <snakeyaml.version>1.26</snakeyaml.version>
         <jyaml.version>1.3</jyaml.version>
         <yamlbeans.version>1.14</yamlbeans.version>
-        <fasterxml.jackson.version>2.11.0</fasterxml.jackson.version>
+        <fasterxml.jackson.version>2.12.6.1</fasterxml.jackson.version>
     </properties>
 
     <dependencies>
