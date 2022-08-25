@@ -32,7 +32,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>
         <groovy.version>3.0.7</groovy.version>
-        <kotlin.version>1.4.30</kotlin.version>
+        <kotlin.version>1.6.0</kotlin.version>
         <scala.version>2.13.4</scala.version>
         <scala.compat.version>2.13</scala.compat.version>
 
