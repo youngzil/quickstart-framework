@@ -103,5 +103,13 @@
             <type>pom</type>
         </dependency>
 
+
+        <!-- https://mvnrepository.com/artifact/org.apache.avro/avro -->
+        <dependency>
+            <groupId>org.apache.avro</groupId>
+            <artifactId>avro</artifactId>
+            <version>1.11.0</version>
+        </dependency>
+
     </dependencies>
 </project>

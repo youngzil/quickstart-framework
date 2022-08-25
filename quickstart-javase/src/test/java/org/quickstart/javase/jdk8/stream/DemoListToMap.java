@@ -3,6 +3,7 @@ package org.quickstart.javase.jdk8.stream;
 import com.google.common.collect.ImmutableMap;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import one.util.streamex.EntryStream;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -134,12 +135,20 @@ public class DemoListToMap {
         Map<String, Integer> map2 = ImmutableMap.of("a", 3, "c", 4);
         Map<String, Integer> map3 = new HashMap<>(map1);
 
+        // 1. Map.merge()
+
+        // Java8为 java.util.Map接口新增了merge()函数。
+        // merge()  函数的作用是: 如果给定的key之前没设置value 或者value为null, 则将给定的value关联到这个key上.
+        // 否则，通过给定的remaping函数计算的结果来替换其value。如果remapping函数的计算结果为null，将解除此结果。
         map2.forEach((key, value) -> map3.merge(key, value, (v1, v2) -> v1 - v2));
         System.out.println(map3);
 
         //map2合并到map3(map1)中
         map2.forEach((key, value) -> map3.merge(key, value, Integer::sum));
         // (a, b) -> Stream.concat(a.stream(), b.stream()).collect(Collectors.toSet())
+
+
+        // 2. Stream.concat()
 
         Map<String, Integer> result = Stream.concat(map1.entrySet().stream(), map2.entrySet().stream())//
             .collect(Collectors.toMap(//
@@ -150,7 +159,7 @@ public class DemoListToMap {
 
         System.out.println(result);
 
-
+        // 3. Stream.of()
 
         Map<String, Integer> result2 = Stream.of(map1, map2)//
             .flatMap(map -> map.entrySet().stream())//
@@ -160,6 +169,8 @@ public class DemoListToMap {
                 (v1, v2) -> v1 - v2));
         System.out.println(result2);
 
+        // 4. Simple Streaming
+
         Map<String, Integer> result3 = map2.entrySet().stream()//
             .collect(Collectors.toMap(//
                 Map.Entry::getKey,//
@@ -167,6 +178,15 @@ public class DemoListToMap {
                 (v1, v2) -> v1 - v2,//
                 () -> new HashMap<>(map1)));
         System.out.println(result3);
+
+        // 5. StreamEx : Stream API 的增强库
+
+        Map<String, Integer> result4 = EntryStream.of(map1)//
+            .append(EntryStream.of(map2))//
+            .toMap((e1, e2) -> e1);//注意 (e1, e2) -> e1 表达式来处理重复key的问题，如果没有该表达式依然会报IllegalStateException异常。
+
+
+
 
     }
 

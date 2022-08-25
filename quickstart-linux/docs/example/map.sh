@@ -5,6 +5,10 @@ declare -A myMap=(["my00"]="00" ["my01"]="01")
 myMap["my02"]="02"
 myMap["my03"]="03"
 
+key="ddddd"
+value="ffffff"
+myMap[$key]=$value
+
 echo "二、输出所有的key:"
 # shellcheck disable=SC2068
 echo ${!myMap[@]}

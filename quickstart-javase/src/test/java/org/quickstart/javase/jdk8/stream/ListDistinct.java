@@ -7,7 +7,9 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +19,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.Comparator.comparing;
 import static java.util.Comparator.comparingLong;
@@ -179,6 +182,141 @@ public class ListDistinct {
         List<List<Integer>> lists = Lists.partition(list, 3);
         lists.forEach(System.out::println);
 
+    }
+
+    @Test
+    public void testMergeListMapByKey() {
+        List<Map<String, String>> list = new ArrayList<>();
+        List<Map<String, String>> list1 = new ArrayList<>();
+        List<Map<String, String>> list2 = new ArrayList<>();
+
+
+        Map<String, String> map1 = new HashMap<>();
+        map1.put("clusterId", "test1");
+        map1.put("brokerNum", "1");
+
+        Map<String, String> map2 = new HashMap<>();
+        map2.put("clusterId", "test2");
+        map2.put("brokerNum", "2");
+
+
+        Map<String, String> map3 = new HashMap<>();
+        map3.put("clusterId", "test3");
+        map3.put("brokerNum", "3");
+
+        list.add(map1);
+        list.add(map2);
+        list.add(map3);
+
+        Map<String, String> map4 = new HashMap<>();
+        map4.put("clusterId", "test1");
+        map4.put("topicNum", "4");
+
+        Map<String, String> map5 = new HashMap<>();
+        map5.put("clusterId", "test2");
+        map5.put("topicNum", "5");
+
+        Map<String, String> map22 = new HashMap<>();
+        map22.put("clusterId", "test3");
+        map22.put("topicNum", "2");
+
+        Map<String, String> map6 = new HashMap<>();
+        map6.put("clusterId", "test4");
+        map6.put("topicNum", "4");
+
+        list1.add(map4);
+        list.add(map5);
+        list.add(map22);
+        list.add(map6);
+
+        map1 = new HashMap<>();
+        map1.put("clusterId", "test1");
+        map1.put("topicPartitionNum", "12");
+
+        map2 = new HashMap<>();
+        map2.put("clusterId", "test2");
+        map2.put("topicPartitionNum", "22");
+
+
+        map3 = new HashMap<>();
+        map3.put("clusterId", "test3");
+        map3.put("topicPartitionNum", "32");
+
+        list2.add(map1);
+        list2.add(map2);
+        list2.add(map3);
+
+        // Map dd = Stream.of(list, list1).flatMap(Collection::stream).collect(Collectors.groupingBy(map->map.get("clusterId")));
+        List<Map<String, String>> dd =   Stream.of(list, list1,list2).flatMap(Collection::stream).collect(Collectors.groupingBy(map->map.get("clusterId"))).values().stream().map(lists->
+            lists.stream().flatMap(m -> m.entrySet().stream())
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (a, b) -> a))
+
+        ).collect(Collectors.toList());
+
+        System.out.println(dd);
+
+    }
+
+
+    @Data
+    @AllArgsConstructor
+    public class Data1 {
+        private int id;
+        private String name;
+        private int amount;
+    }
+
+    @Data
+    @AllArgsConstructor
+    public class Data2 {
+        private int id;
+        private String name;
+        private String type;
+    }
+
+    @Data
+    @AllArgsConstructor
+    public class OutputData {
+        private int id;
+        private String name;
+        private String type;
+        private int amount;
+    }
+
+
+    @Test
+    public void intersectByKeyTest(){
+        List<Data2> listOfData2 = new ArrayList<Data2>();
+
+        listOfData2.add(new Data2(10501, "JOE"  , "Type1"));
+        listOfData2.add(new Data2(10603, "SAL"  , "Type5"));
+        listOfData2.add(new Data2(40514, "PETER", "Type4"));
+        listOfData2.add(new Data2(59562, "JIM"  , "Type2"));
+        listOfData2.add(new Data2(29415, "BOB"  , "Type1"));
+        listOfData2.add(new Data2(61812, "JOE"  , "Type9"));
+        listOfData2.add(new Data2(98432, "JOE"  , "Type7"));
+        listOfData2.add(new Data2(62556, "JEFF" , "Type1"));
+        listOfData2.add(new Data2(10599, "TOM"  , "Type4"));
+
+
+        List<Data1> listOfData1 = new ArrayList<Data1>();
+
+        listOfData1.add(new Data1(10501, "JOE"    ,3000000));
+        listOfData1.add(new Data1(10603, "SAL"    ,6225000));
+        listOfData1.add(new Data1(40514, "PETER"  ,2005000));
+        listOfData1.add(new Data1(59562, "JIM"    ,3000000));
+        listOfData1.add(new Data1(29415, "BOB"    ,3000000));
+
+        List<OutputData> result = listOfData1.stream()
+            .flatMap(x -> listOfData2.stream()
+                .filter(y -> x.getId() == y.getId())
+                .map(y -> new OutputData(y.getId(), x.getName(), y.getType(), x.getAmount())))
+            .collect(Collectors.toList());
+        System.out.println(result);
+
+        /*difference by key*/
+        List<Data1> data1IntersectResult = listOfData1.stream().filter(data1 -> listOfData2.stream().map(Data2::getId).collect(Collectors.toList()).contains(data1.getId())).collect(Collectors.toList());
+        System.out.println(data1IntersectResult);
     }
 
     @AllArgsConstructor
