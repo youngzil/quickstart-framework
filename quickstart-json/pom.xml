@@ -18,7 +18,7 @@
     <properties>
         <json-lib.version>2.4</json-lib.version>
         <codehaus.jackson.version>1.9.13</codehaus.jackson.version>
-        <fasterxml.jackson.version>2.13.3</fasterxml.jackson.version>
+        <fasterxml.jackson.version>2.13.4</fasterxml.jackson.version>
         <json-smart.version>1.3.3</json-smart.version>
         <json-smart.version>2.4.8</json-smart.version>
     </properties>
