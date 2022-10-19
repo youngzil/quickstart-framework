@@ -17,7 +17,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <fasterxml.jackson.version>2.13.3</fasterxml.jackson.version>
+        <fasterxml.jackson.version>2.13.4.1</fasterxml.jackson.version>
     </properties>
 
     <dependencies>
